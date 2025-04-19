@@ -1,0 +1,561 @@
+@font-face {
+    font-family: 'Gilroy';
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Apply the font */
+body {
+    font-family: 'Gilroy-Bold', sans-serif;
+    font-family: 'Gilroy-Heavy', sans-serif;
+    font-family: 'Gilroy-Light', sans-serif;
+    font-family: 'Gilroy-Medium', sans-serif;
+    font-family: 'Gilroy-Regular', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f4f4f4;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 75px;
+    padding-right: 75px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    box-shadow: 0 1.5px 3.75px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 30px;
+    margin-right: 7.5px;
+    margin-left: 70px;
+}
+
+.logo-line {
+    width: 1.5px;
+    height: 30px;
+    background: black;
+    margin: 0 7.5px;
+}
+
+.kyunki {
+    font-size: 13.5px;
+    font-weight: bold;
+    color: #333;
+    margin-right: 5px;
+}
+
+.kyunki .highlight {
+    color: #005A6B;
+    font-weight: bold;
+}
+
+/* Toggle Dropdown */
+.toggle-dropdown {
+    display: flex;
+    background: white;
+    padding: 3.75px;
+    border-radius: 37.5px;
+    box-shadow: 0px 1.5px 3.75px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    justify-content: space-between;
+}
+
+.toggle-btn-edukyu {
+    border: none;
+    padding: 9px;
+    flex: 1;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 12px;
+    background: transparent;
+    color: #005A6B;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    width: 186px;
+    height: 40.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.toggle-btn-edukyu.active {
+    background: #FFD700;
+    color: black;
+}
+
+.toggle-container {
+    display: flex;
+    gap: 7.5px;
+    position: absolute;
+    top: 7.5px;
+    left: 348px;
+}
+
+.nav-links {
+    padding-top: 5px;
+    list-style: none;
+    display: flex;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.nav-links li {
+    margin: 0 8px;
+    font-size: 13px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+}
+
+.refer a {
+    background: #007b5e;
+    color: white;
+    width: 120px;
+    padding: 10px;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    font-size: 18.75px;
+    cursor: pointer;
+    color: #005a66;
+    display: flex;
+    align-items: center;
+}
+
+.search-btn:hover {
+    color: #008b9a;
+}
+
+.refer {
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    padding-left: 30px;
+    padding-right: 75px;
+
+}
+
+.refer a{
+    font-size: 10px;
+}
+
+.refer-btn {
+    background-color: #005a66;
+    color: white;
+    padding: 15px 15px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.refer-slash {
+    position: absolute;
+    left: 11px;
+    margin-top: -15.75px;
+    font-size: 82.5px;
+    font-weight: 900;
+    color: black;
+    line-height: 70px;
+    transform: rotate(11deg) scaleX(0.4);
+}
+
+.refer-text {
+    font-size: 10px;
+    color: black;
+    text-align: center;
+    margin-top: 3.75px;
+}
+
+.refer-text strong {
+    font-weight: bold;
+}
+
+.hamburger {
+    display: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    display: none;
+    background: white;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 7.5px;
+}
+
+.mobile-menu li {
+    padding: 7.5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 10px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: #ffffff;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 7.5px;
+    margin-top: 12.5px;
+    border-radius: 6px;
+    font-family: 'Arial', sans-serif;
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+.dropdown-menu h3 {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 7.5px 0;
+    margin: 0;
+    color: #333;
+    border-bottom: 1.5px solid #ddd;
+}
+
+.dropdown-menu ul {
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    padding: 9px 11.25px;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: #444;
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+}
+
+.dropdown-menu li:hover {
+    background: #005A6B;
+    color: white;
+    border-radius: 3px;
+}
+
+
+#online-course-dropdown {
+    display: none;
+    position: absolute;
+    background: #fff;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    width: 165px;
+    padding: 7.5px;
+}
+
+#online-course-dropdown ul {
+    padding: 0;
+}
+
+#online-course-dropdown li {
+    list-style: none;
+    padding: 7.5px;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: #444;
+}
+
+#online-course-dropdown p{
+    font-size: 12px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+#online-course-dropdown li:hover {
+    list-style: none;
+    background: #005A6B;
+    color: white;
+    border-radius: 3px;
+}
+
+#online-course-dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 7.5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 1000px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .mobile-menu.show {
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    .hamburger {
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 1130px) {
+    .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-size: 8px;
+    }
+
+    .nav-links li {
+        margin: 0 8px;
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 7.5px;
+        height: 80%;
+    }
+
+    .logo {
+        flex: 1;
+        font-size: 15%;
+    }
+
+    .logo img {
+        font-size: 18.75%;
+        margin-left: 0px;
+    }
+
+    .logo-line {
+        width: 0.75px;
+        height: 22.5px;
+        background: black;
+        margin-left: -3.75px;
+    }
+
+    .kyunki{
+        margin-left: -3.5px;
+        width: 10px;
+        font-size: 8px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .toggle-dropdown {
+        width: 40%;
+        justify-content: center;
+        padding: 3.75px;
+        margin-right: 7.5px;
+    }
+
+    .toggle-btn-edukyu {
+        width: 112.5px;
+        font-size: 7.5px;
+        padding: 3.75px;
+        height: auto;
+    }
+
+
+    .mobile-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        position: absolute;
+        top: 35px;
+        left: 0;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        padding: 7.5px;
+    }
+
+    .mobile-menu.show {
+        display: flex;
+        margin-top: 22.5px;
+    }
+
+    .mobile-menu ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .mobile-menu li {
+        padding: 7.5px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .mobile-menu a {
+        text-decoration: none;
+        color: #333;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 1300px){
+    #mobile-menu a {
+        text-decoration: none;
+        color: #333;
+        font-size: 6px;
+    }
+
+    .toggle-dropdown {
+        width: 190px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-size: 10px;
+    }
+
+    .nav-links li {
+        margin: 0 5px;
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+    #online-course-dropdown {
+        width: 100%;
+        position: relative;
+        left: 0;
+        top: 0;
+        padding: 7.5px;
+        background: white;
+        border-radius: 4.5px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 7.5px;
+    }
+
+    .course-item {
+        font-size: 12px;
+        padding: 7.5px;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer;
+    }
+
+    .course-item:hover {
+        background: #f0f0f0;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .logo img {
+        height: 15px;
+        width: 25%;
+        margin-right: 4.5px;
+    }
+
+    .toggle-dropdown {
+        display: flex;
+        background: white;
+        padding: 3.75px;
+        border-radius: 37.5px;
+        box-shadow: 0px 1.5px 3.75px rgba(0, 0, 0, 0.1);
+        width: 180px;
+        height: 45px;
+        margin-right: 7.5px;
+        justify-content: space-between;
+    }
+
+    .dropdown-menu{
+        margin-top: 0px;
+        margin-left: 60px;
+    }
+}
+
+/* Close Button Styles */
+.close-btn {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+}
+
+.close-btn button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #005A6B;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+}
+
+.close-btn button:hover {
+    background: #f0f0f0;
+    transform: scale(1.1);
+}
