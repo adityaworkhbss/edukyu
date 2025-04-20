@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ToggleDropdownButtons from "./ToggleButton";
+import CourseDropdown from "./CourseDropdown";
+import './Navbar.css';
+
 
 const Navbar = () => {
     const [activeDropdown, setActiveDropdown] = useState('colleges');
@@ -12,6 +15,10 @@ const Navbar = () => {
     const courseDropdownRef = useRef(null);
     const collegesBtnRef = useRef(null);
     const programsBtnRef = useRef(null);
+    const toggleButtonRef = useRef(null);
+    const [dropdownTop, setDropdownTop] = useState(0);
+    const [dropdownLeft, setDropdownLeft] = useState(0);
+    const [courseDropdownStyle, setCourseDropdownStyle] = useState({});
 
     const courseData = {
         "Dr. D.Y Patil Vidyapeeth, Pune": ["Online MBA", "Online BBA", "Online Certificate Program for Digital Marketing", "Online Certificate Programme in Hospital & Health Care Management"],
@@ -22,7 +29,7 @@ const Navbar = () => {
         "Jain University": ["Online MBA", "Online MBA(Dual)", "Online BBA", "Online MCA", "Online BCA", "Online B.Com Honours", "Online M.Com", "Online B.Com"],
         "Lovely Professional University": ["Online MBA", "Online MBA(Dual)", "Online MCA", "Online BCA", "Online MA", "Online BA", "Online M.Com", "Online M.Sc"],
         "Shoolini University": ["Online MBA", "Online MBA(Dual)", "Online BBA", "Online BCA", "Online B.Com Honours", "Online M.A", "Online B.A", "Online B.A Honours", "Pay After Placement Program"],
-        "Uttranchal University": ["Online MBA", "Online MCA", "Online MBA(Hybrid Mode)", "Online BBA", "Online MCA", "Online BCA", "Online BA"]
+        "Uttranchal University": ["Online MBA", "Online MCA", "Online MBA(Hybrid Mode)", "Online BBA", "Online BCA", "Online BA"]
     };
 
     const toggleDropdown = (option) => {
@@ -31,25 +38,25 @@ const Navbar = () => {
         setShowCourseDropdown(false);
     };
 
-    const handleCollegeClick = (college, e) => {
-        if (activeDropdown === 'programs') {
-            setSelectedCollege(college);
-            setCourses(courseData[college] || []);
-            setShowCourseDropdown(true);
-
-            // Position the course dropdown relative to the clicked item
-            if (courseDropdownRef.current) {
-                const rect = e.target.getBoundingClientRect();
-                courseDropdownRef.current.style.left = `${rect.left}px`;
-                courseDropdownRef.current.style.top = `${rect.bottom + window.scrollY}px`;
-            }
-        }
+    const handleCollegeClick = (event, college) => {
+        const rect = event.target.getBoundingClientRect();
+        setSelectedCollege(college);
+        setCourses(courseData[college]);
+        setShowCourseDropdown(true);
+        setCourseDropdownStyle({
+            position: 'absolute',
+            top: `${rect.top + rect.height + window.scrollY - 100}px`,
+            left: `${rect.right + 25}px`,
+        });
     };
 
+
     const handleClickOutside = (event) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target) &&
+        if (
+            dropdownRef.current && !dropdownRef.current.contains(event.target) &&
             (!collegesBtnRef.current || !collegesBtnRef.current.contains(event.target)) &&
-            (!programsBtnRef.current || !programsBtnRef.current.contains(event.target))) {
+            (!programsBtnRef.current || !programsBtnRef.current.contains(event.target))
+        ) {
             setShowDropdown(false);
             setShowCourseDropdown(false);
         }
@@ -62,22 +69,30 @@ const Navbar = () => {
         };
     }, []);
 
+    useEffect(() => {
+        if (showDropdown && toggleButtonRef.current) {
+            const rect = toggleButtonRef.current.getBoundingClientRect();
+            const scrollY = window.scrollY || document.documentElement.scrollTop;
+            const scrollX = window.scrollX || document.documentElement.scrollLeft;
+            setDropdownTop(rect.bottom + scrollY);
+            setDropdownLeft(rect.left + scrollX);
+        }
+    }, [showDropdown]);
+
     return (
         <>
-            <nav className="font-gilroy w-full bg-white shadow-sm">
-                <div className="flex items-center justify-between py-2 px-4 md:px-10 lg:px-16">
+            <nav className="font-gilroy w-full bg-white shadow-sm px-[clamp(12px,5vw,100px)]">
 
+                {/*<div className="flex items-center justify-start gap-4 py-2 px-4 md:px-10 lg:px-16">*/}
+                <div className="flex items-center justify-between py-2 px-4 md:px-10 lg:px-16">
                     {/* Logo Section */}
-                    <div className="flex items-center ">
-                        <img
-                            src="https://edukyu.com/assets/cxp-assets/logo/logo.png"
-                            alt="EduKyu"
-                            className="h-8 mr-2"
-                        />
-                        <div className="w-px h-8 bg-black mx-2"></div>
-                        <div className="text-sm font-bold size-3text-gray-800 whitespace-nowrap">
+                    <div className="flex items-center logo ">
+                        <img src="https://edukyu.com/assets/cxp-assets/logo/logo.png" alt="EduKyu" className="h-6 mr-1 sm:h-8 sm:mr-2" />
+                        <div className=" logo-sperator w-px h-8 bg-black mx-2"></div>
+                        <div className="kyunki font-gilroy font-normal text-[12px] leading-[100%] tracking-[0%] font-bold text-gray-800 whitespace-nowrap">
                             #Kyunki<span className="text-[#005A6B]">badhna</span>jarurihai
                         </div>
+
                     </div>
 
                     {/* Toggle Dropdown */}
@@ -86,16 +101,15 @@ const Navbar = () => {
                         toggleDropdown={toggleDropdown}
                         collegesBtnRef={collegesBtnRef}
                         programsBtnRef={programsBtnRef}
+                        ref={toggleButtonRef}
                     />
 
-
-                    {/* Right Section (nav links + refer & earn) */}
-                    <div className="hidden md:flex items-center">
-                        {/* Navigation Links */}
-                        <ul className="flex items-center space-x-4">
+                    {/* Right Nav */}
+                    <div className="hidden md:flex items-center -pl-[clamp(12px,5vw,96px)]">
+                    <ul className="flex items-center space-x-4 menu-buttons">
                             {['Home', 'About us', 'Compare College', 'Blogs', 'More'].map((item) => (
                                 <li key={item}>
-                                    <a href="#" className="text-xs font-bold text-gray-800 hover:text-[#005A6B]">
+                                    <a href="#" className="font-gilroy font-bold text-gray-800 hover:text-[#005A6B] text-[clamp(8px,2vw,14px)] whitespace-nowrap">
                                         {item}
                                     </a>
                                 </li>
@@ -105,17 +119,16 @@ const Navbar = () => {
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                          viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                          strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <circle cx="11" cy="11" r="8"></circle>
-                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                        <line x1="11" y1="11" x2="11" y2="11" strokeWidth="4"></line>
+                                        <circle cx="11" cy="11" r="8" />
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                        <line x1="11" y1="11" x2="11" y2="11" strokeWidth="4" />
                                     </svg>
                                 </button>
                             </li>
                         </ul>
 
-                        {/* Refer and Earn */}
                         <div className="relative ml-6">
-                            <div className="flex flex-col items-start pl-6">
+                            <div className="flex flex-col items-start pl-6 menu-buttons">
                                 <a
                                     href="#"
                                     className="bg-[#005a66] text-white px-4 py-3 font-bold text-xs clip-path-polygon relative z-10 -mx-7"
@@ -123,18 +136,12 @@ const Navbar = () => {
                                 >
                                     Refer and Earn
                                 </a>
-                                <p className="text-xs mt-1 -mx-7">
-                                    UP TO <strong>Rs 20,000</strong>
-                                </p>
+                                <p className="text-xs mt-1 -mx-7">UP TO <strong>Rs 20,000</strong></p>
                             </div>
                         </div>
                     </div>
 
-                    {/* Mobile Menu Button */}
-                    <button
-                        className="block md:hidden text-2xl"
-                        onClick={() => setShowMobileMenu(!showMobileMenu)}
-                    >
+                    <button className="block md:hidden text-2xl navbar-toggle"  onClick={() => setShowMobileMenu(!showMobileMenu)}>
                         ☰
                     </button>
                 </div>
@@ -144,80 +151,68 @@ const Navbar = () => {
             {showDropdown && (
                 <div
                     ref={dropdownRef}
-                    className="absolute bg-white shadow-lg rounded-md p-2 mt-3 z-50 max-h-[450px] overflow-y-auto w-72"
-                    style={{ left: '50%', transform: 'translateX(-50%)' }}
+                    className="absolute bg-white shadow-lg rounded-md p-2 z-50 max-h-[450px] overflow-y-auto w-72 mt-5"
+                    style={{ top: `${dropdownTop}px`, left: `${dropdownLeft}px` }}
                 >
                     {activeDropdown === 'programs' && (
                         <>
-                            <div>
-                                <h3 className="text-xs font-bold py-2 border-b border-gray-200">Online Programs</h3>
-                                <ul>
-                                    {[
-                                        'Master Of Business Administration',
-                                        'Bachelor Of Business Administration',
-                                        'Master Of Computer Application',
-                                        'Bachelor Of Computer Application',
-                                        'Master Of Arts',
-                                        'Bachelor Of Arts',
-                                        'Master Of Commerce',
-                                        'Bachelor Of Commerce',
-                                        'Master Of Science',
-                                        'Bachelor Of Science'
-                                    ].map((program) => (
-                                        <li key={program} className="text-xs p-2 hover:bg-[#005A6B] hover:text-white rounded">
-                                            <a href="#">{program}</a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                            <h3 className="text-xs font-bold py-2 border-b border-gray-200">Online Programs</h3>
+                            <ul>
+                                {[
+                                    'Master Of Business Administration',
+                                    'Bachelor Of Business Administration',
+                                    'Master Of Computer Application',
+                                    'Bachelor Of Computer Application',
+                                    'Master Of Arts',
+                                    'Bachelor Of Arts',
+                                    'Master Of Commerce',
+                                    'Bachelor Of Commerce',
+                                    'Master Of Science',
+                                    'Bachelor Of Science'
+                                ].map((program) => (
+                                    <li key={program} className="text-xs p-2 hover:bg-[#005A6B] hover:text-white rounded">
+                                        <a href="#">{program}</a>
+                                    </li>
+                                ))}
+                            </ul>
                             <hr className="my-2" />
                         </>
                     )}
 
-                    <div>
-                        <h3 className="text-xs font-bold py-2 border-b border-gray-200">Colleges</h3>
-                        <ul>
-                            {Object.keys(courseData).map((college) => (
-                                <li
-                                    key={college}
-                                    className="text-xs p-2 hover:bg-[#005A6B] hover:text-white rounded cursor-pointer"
-                                    onClick={(e) => handleCollegeClick(college, e)}
-                                >
-                                    {college}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            )}
-
-            {/* Course Dropdown */}
-            {showCourseDropdown && (
-                <div
-                    ref={courseDropdownRef}
-                    className="absolute bg-white shadow-lg rounded-md p-2 z-50 w-56"
-                >
-                    <p className="text-xs font-bold pb-1 border-b border-gray-200">Available Courses</p>
+                    <h3 className="text-xs font-bold py-2 border-b border-gray-200">Colleges</h3>
                     <ul>
-                        {courses.map((course, index) => (
-                            <li key={index} className="text-xs p-1 hover:bg-[#005A6B] hover:text-white rounded">
-                                {course}
+                        {Object.keys(courseData).map((college) => (
+                            <li
+                                key={college}
+                                onClick={(e) => handleCollegeClick(e, college)}
+                                className="text-xs p-2 cursor-pointer hover:bg-[#005A6B] hover:text-white rounded"
+                            >
+                                {college}
                             </li>
                         ))}
                     </ul>
                 </div>
             )}
 
+            {/* Course Dropdown */}
+            <div className="relative">
+                {showCourseDropdown && (
+                    <CourseDropdown
+                        courseDropdownRef={courseDropdownRef}
+                        courses={courses}
+                        style={courseDropdownStyle}
+                    />
+
+                )}
+            </div>
+
+
+
             {/* Mobile Menu */}
             {showMobileMenu && (
                 <div className="fixed inset-0 bg-white z-50 pt-4">
                     <div className="flex justify-end px-4">
-                        <button
-                            className="text-3xl text-[#005A6B]"
-                            onClick={() => setShowMobileMenu(false)}
-                        >
-                            ×
-                        </button>
+                        <button className="text-3xl text-[#005A6B]" onClick={() => setShowMobileMenu(false)}>×</button>
                     </div>
                     <ul className="p-4 space-y-3">
                         {['Colleges', 'Online Programs', 'Home', 'About us', 'Compare College', 'Blogs', 'More'].map((item) => (
@@ -240,9 +235,7 @@ const Navbar = () => {
                                 >
                                     Refer and Earn
                                 </a>
-                                <p className="text-xs mt-1">
-                                    UP TO <strong>Rs 20,000</strong>
-                                </p>
+                                <p className="text-xs mt-1">UP TO <strong>Rs 20,000</strong></p>
                             </div>
                         </li>
                     </ul>
