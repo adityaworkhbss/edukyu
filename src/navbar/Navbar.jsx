@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import ToggleDropdownButtons from "./ToggleButton";
-import CourseDropdown from "./CourseDropdown";
-import './Navbar.css';
+import ToggleDropdownButtons from "./Component/ToggleButton";
+import CourseDropdown from "./Component/CourseDropdown";
+import './Styles/Navbar.css';
+import MobileMenu from "./Component/MobileMenu";
 
 
 const Navbar = () => {
@@ -40,16 +41,38 @@ const Navbar = () => {
 
     const handleCollegeClick = (event, college) => {
         const rect = event.target.getBoundingClientRect();
-        setSelectedCollege(college);
-        setCourses(courseData[college]);
-        setShowCourseDropdown(true);
-        setCourseDropdownStyle({
-            position: 'absolute',
-            top: `${rect.top + rect.height + window.scrollY - 100}px`,
-            left: `${rect.right + 25}px`,
-        });
-    };
 
+        if(activeDropdown !== 'programs'){
+
+        }else{
+            setSelectedCollege(college);
+            setCourses(courseData[college]);
+            setShowCourseDropdown(true);
+
+
+            const isWideScreen = window.innerWidth > 1080;
+            const newLeft = isWideScreen
+                ? `${rect.right + 15}px`  // Open to the right on wide screens
+                : `${rect.left+50}px`; // Open to the left on narrow screens
+
+            if(isWideScreen) {
+                setCourseDropdownStyle({
+                    position: 'fixed',
+                    top: `${rect.top + rect.height + window.scrollY - 100}px`,
+                    left : newLeft,
+                });
+            }else{
+
+                setCourseDropdownStyle({
+                    position: 'fixed',
+                    top: `${rect.top + rect.height + window.scrollY - 100}px`,
+                    right : newLeft,
+
+                });
+            }
+        }
+
+    };
 
     const handleClickOutside = (event) => {
         if (
@@ -74,20 +97,32 @@ const Navbar = () => {
             const rect = toggleButtonRef.current.getBoundingClientRect();
             const scrollY = window.scrollY || document.documentElement.scrollTop;
             const scrollX = window.scrollX || document.documentElement.scrollLeft;
-            setDropdownTop(rect.bottom + scrollY);
-            setDropdownLeft(rect.left + scrollX);
+            const isSmallScreen = window.innerWidth < 760;
+            const navbarHeight = 70; // Adjust this value based on your actual navbar height
+            const dropdownWidth = 288; // 72 * 4 = 288px
+
+            const top = isSmallScreen
+                ? navbarHeight + scrollY - 20 // just below the navbar
+                : rect.bottom + scrollY;
+
+            const left = isSmallScreen
+                ? window.innerWidth / 2 - dropdownWidth / 2
+                : rect.left + scrollX;
+
+            setDropdownTop(top);
+            setDropdownLeft(left);
         }
     }, [showDropdown]);
+
 
     return (
         <>
             <nav className="font-gilroy w-full bg-white shadow-sm px-[clamp(12px,5vw,100px)]">
 
-                {/*<div className="flex items-center justify-start gap-4 py-2 px-4 md:px-10 lg:px-16">*/}
                 <div className="flex items-center justify-between py-2 px-4 md:px-10 lg:px-16">
                     {/* Logo Section */}
                     <div className="flex items-center logo ">
-                        <img src="https://edukyu.com/assets/cxp-assets/logo/logo.png" alt="EduKyu" className="h-6 mr-1 sm:h-8 sm:mr-2" />
+                        <img src="https://edukyu.com/assets/cxp-assets/logo/logo.png" alt="EduKyu" className="h-5 mr-1 sm:h-8 sm:mr-2" />
                         <div className=" logo-sperator w-px h-8 bg-black mx-2"></div>
                         <div className="kyunki font-gilroy font-normal text-[12px] leading-[100%] tracking-[0%] font-bold text-gray-800 whitespace-nowrap">
                             #Kyunki<span className="text-[#005A6B]">badhna</span>jarurihai
@@ -201,46 +236,16 @@ const Navbar = () => {
                         courseDropdownRef={courseDropdownRef}
                         courses={courses}
                         style={courseDropdownStyle}
+                        className="transition-opacity duration-400 opacity-0 transform translate-y-4 ease-in-out"
                     />
-
                 )}
             </div>
 
-
-
             {/* Mobile Menu */}
-            {showMobileMenu && (
-                <div className="fixed inset-0 bg-white z-50 pt-4">
-                    <div className="flex justify-end px-4">
-                        <button className="text-3xl text-[#005A6B]" onClick={() => setShowMobileMenu(false)}>×</button>
-                    </div>
-                    <ul className="p-4 space-y-3">
-                        {['Colleges', 'Online Programs', 'Home', 'About us', 'Compare College', 'Blogs', 'More'].map((item) => (
-                            <li key={item} className="border-b border-gray-200 pb-2">
-                                <a href="#" className="text-sm">{item}</a>
-                            </li>
-                        ))}
-                        <li className="pt-4">
-                            <button className="text-[#005a66]">
-                                <img src="Vector.png" alt="Search" />
-                            </button>
-                        </li>
-                        <li className="relative mt-6">
-                            <div className="absolute -left-6 -top-4 text-6xl font-black text-black transform rotate-6 scale-x-50">/</div>
-                            <div className="flex flex-col pl-6">
-                                <a
-                                    href="#"
-                                    className="bg-[#005a66] text-white px-4 py-3 font-bold text-xs clip-path-polygon relative z-10"
-                                    style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
-                                >
-                                    Refer and Earn
-                                </a>
-                                <p className="text-xs mt-1">UP TO <strong>Rs 20,000</strong></p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            )}
+            <MobileMenu
+                showMobileMenu={showMobileMenu}
+                setShowMobileMenu={setShowMobileMenu}
+            />
         </>
     );
 };

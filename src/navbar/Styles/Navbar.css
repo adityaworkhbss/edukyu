@@ -1,6 +1,6 @@
 
 
-@media (min-width: 1181px) {
+@media (min-width: 1270px) {
     .navbar-toggle {
         display: none;
     }
@@ -9,7 +9,7 @@
         display: flex;
     }
 }
-@media (max-width: 1180px) {
+@media (max-width: 1270px) {
     .navbar-toggle {
         display: block;
         position: fixed;
@@ -41,19 +41,31 @@
 
 @media (max-width: 450px) {
     .toggle-button{
-        font-size: 0.6%;
+        font-size: 0.5rem;
         padding-right: 10px;
         padding-left: 10px;
     }
 
     .navbar-toggle {
-        right: 10px;
+        right: 5px;
     }
 
     .kyunki{
         margin-left:-2%;
-        font-size: 0.5rem;
+        font-size: 0.4rem;
     }
 
 
+}
+
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.transition-colors {
+    transition-property: background-color, color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
 }
