@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import ToggleDropdownButtons from "./ToggleButton";
 
 const Navbar = () => {
     const [activeDropdown, setActiveDropdown] = useState('colleges');
@@ -63,85 +64,80 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="w-full flex items-center justify-between px-16 py-2 bg-white shadow-sm">
-                {/* Logo Section */}
-                <div className="flex items-center">
-                    <img
-                        src="https://edukyu.com/assets/cxp-assets/logo/logo.png"
-                        alt="EduKyu"
-                        className="h-8 mr-2"
+            <nav className="font-gilroy w-full bg-white shadow-sm">
+                <div className="flex items-center justify-between py-2 px-4 md:px-10 lg:px-16">
+
+                    {/* Logo Section */}
+                    <div className="flex items-center ">
+                        <img
+                            src="https://edukyu.com/assets/cxp-assets/logo/logo.png"
+                            alt="EduKyu"
+                            className="h-8 mr-2"
+                        />
+                        <div className="w-px h-8 bg-black mx-2"></div>
+                        <div className="text-sm font-bold size-3text-gray-800 whitespace-nowrap">
+                            #Kyunki<span className="text-[#005A6B]">badhna</span>jarurihai
+                        </div>
+                    </div>
+
+                    {/* Toggle Dropdown */}
+                    <ToggleDropdownButtons
+                        activeDropdown={activeDropdown}
+                        toggleDropdown={toggleDropdown}
+                        collegesBtnRef={collegesBtnRef}
+                        programsBtnRef={programsBtnRef}
                     />
-                    <div className="w-px h-8 bg-black mx-2"></div>
-                    <div className="text-sm font-bold text-gray-800">
-                        #Kyunki<span className="text-[#005A6B]">badhna</span>jarurihai
+
+
+                    {/* Right Section (nav links + refer & earn) */}
+                    <div className="hidden md:flex items-center">
+                        {/* Navigation Links */}
+                        <ul className="flex items-center space-x-4">
+                            {['Home', 'About us', 'Compare College', 'Blogs', 'More'].map((item) => (
+                                <li key={item}>
+                                    <a href="#" className="text-xs font-bold text-gray-800 hover:text-[#005A6B]">
+                                        {item}
+                                    </a>
+                                </li>
+                            ))}
+                            <li>
+                                <button className="text-[#005a66] hover:text-[#008b9a]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                         strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                        <line x1="11" y1="11" x2="11" y2="11" strokeWidth="4"></line>
+                                    </svg>
+                                </button>
+                            </li>
+                        </ul>
+
+                        {/* Refer and Earn */}
+                        <div className="relative ml-6">
+                            <div className="flex flex-col items-start pl-6">
+                                <a
+                                    href="#"
+                                    className="bg-[#005a66] text-white px-4 py-3 font-bold text-xs clip-path-polygon relative z-10 -mx-7"
+                                    style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
+                                >
+                                    Refer and Earn
+                                </a>
+                                <p className="text-xs mt-1 -mx-7">
+                                    UP TO <strong>Rs 20,000</strong>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                {/* Toggle Dropdown */}
-                <div
-                    className="flex bg-white p-1 rounded-full shadow-sm w-64 justify-between"
-                    id="navbarDropdown-toggle"
-                >
+                    {/* Mobile Menu Button */}
                     <button
-                        ref={collegesBtnRef}
-                        className={`px-8 py-2 rounded-full text-xs font-bold ${activeDropdown === 'colleges' ? 'bg-yellow-400 text-black' : 'bg-transparent text-[#005A6B]'}`}
-                        onClick={() => toggleDropdown('colleges')}
+                        className="block md:hidden text-2xl"
+                        onClick={() => setShowMobileMenu(!showMobileMenu)}
                     >
-                        Colleges
-                    </button>
-                    <button
-                        ref={programsBtnRef}
-                        className={`px-4 py-2 rounded-full text-xs font-bold ${activeDropdown === 'programs' ? 'bg-yellow-400 text-black' : 'bg-transparent text-[#005A6B]'}`}
-                        onClick={() => toggleDropdown('programs')}
-                    >
-                        Online Programs
+                        ☰
                     </button>
                 </div>
-
-                {/* Navigation Links */}
-                <ul className="flex items-center space-x-4">
-                    {['Home', 'About us', 'Compare College', 'Blogs', 'More'].map((item) => (
-                        <li key={item}>
-                            <a href="#" className="text-xs font-bold text-gray-800 hover:text-[#005A6B]">
-                                {item}
-                            </a>
-                        </li>
-                    ))}
-                    <li>
-                        <button className="text-[#005a66] hover:text-[#008b9a]">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                <line x1="11" y1="11" x2="11" y2="11" strokeWidth="4"></line>
-                            </svg>
-                        </button>
-                    </li>
-                </ul>
-
-                {/* Refer and Earn */}
-                <div className="relative">
-                    <div className="absolute -left-6 -top-4 text-6xl font-black text-black transform rotate-6 scale-x-50">/</div>
-                    <div className="flex flex-col items-start pl-6">
-                        <a
-                            href="#"
-                            className="bg-[#005a66] text-white px-4 py-3 font-bold text-xs clip-path-polygon relative z-10"
-                            style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
-                        >
-                            Refer and Earn
-                        </a>
-                        <p className="text-xs mt-1">
-                            UP TO <strong>Rs 20,000</strong>
-                        </p>
-                    </div>
-                </div>
-
-                {/* Mobile Menu Button */}
-                <button
-                    className="hidden md:block text-2xl"
-                    onClick={() => setShowMobileMenu(!showMobileMenu)}
-                >
-                    ☰
-                </button>
             </nav>
 
             {/* Dropdown Menu */}
