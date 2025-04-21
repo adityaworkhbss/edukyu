@@ -21,6 +21,10 @@ const Navbar = () => {
     const [dropdownLeft, setDropdownLeft] = useState(0);
     const [courseDropdownStyle, setCourseDropdownStyle] = useState({});
 
+    const referContainerRef = useRef(null);
+    const slashRef = useRef(null);
+
+
     const courseData = {
         "Dr. D.Y Patil Vidyapeeth, Pune": ["Online MBA", "Online BBA", "Online Certificate Program for Digital Marketing", "Online Certificate Programme in Hospital & Health Care Management"],
         "NMIMS University": ["Online MBA", "Online Executive MBA", "Online BBA", "Online B.Com"],
@@ -114,6 +118,28 @@ const Navbar = () => {
         }
     }, [showDropdown]);
 
+    useEffect(() => {
+        const updateSlashPosition = () => {
+            if (referContainerRef.current && slashRef.current) {
+                const cardRect = referContainerRef.current.getBoundingClientRect();
+                const slashOffset = -10; // tweak this value to get perfect left alignment
+
+                slashRef.current.style.position = 'absolute';
+                slashRef.current.style.top = `${cardRect.top + window.scrollY - 8}px`; // a bit higher
+                slashRef.current.style.left = `${cardRect.left + slashOffset}px`;
+            }
+        };
+
+        updateSlashPosition();
+        window.addEventListener('resize', updateSlashPosition);
+        window.addEventListener('scroll', updateSlashPosition);
+
+        return () => {
+            window.removeEventListener('resize', updateSlashPosition);
+            window.removeEventListener('scroll', updateSlashPosition);
+        };
+    }, []);
+
 
     return (
         <>
@@ -123,8 +149,8 @@ const Navbar = () => {
                     {/* Logo Section */}
                     <div className="flex items-center logo ">
                         <img src="https://edukyu.com/assets/cxp-assets/logo/logo.png" alt="EduKyu" className="h-5 mr-1 sm:h-8 sm:mr-2" />
-                        <div className=" logo-sperator w-px h-8 bg-black mx-2"></div>
-                        <div className="kyunki font-gilroy font-normal text-[12px] leading-[100%] tracking-[0%] font-bold text-gray-800 whitespace-nowrap">
+                        <div className=" logo-sperator w-px h-12 bg-black mx-2"></div>
+                        <div className="kyunki font-gilroy font-bold text-[12px] leading-[100%] tracking-[0%] font-bold text-gray-800 whitespace-nowrap">
                             #Kyunki<span className="text-[#005A6B]">badhna</span>jarurihai
                         </div>
 
@@ -162,18 +188,26 @@ const Navbar = () => {
                             </li>
                         </ul>
 
-                        <div className="relative ml-6">
+                        <div className="relative ml-6" ref={referContainerRef}>
+                            <div
+                                ref={slashRef}
+                                className="absolute left-0 top-1/2 -translate-y-1/2 text-6xl font-black text-black transform rotate-12 scale-x-50 pointer-events-none z-10"
+                                style={{ lineHeight: '0.7' }}
+                            >
+                                /
+                            </div>
                             <div className="flex flex-col items-start pl-6 menu-buttons">
                                 <a
                                     href="#"
-                                    className="bg-[#005a66] text-white px-4 py-3 font-bold text-xs clip-path-polygon relative z-10 -mx-7"
+                                    className="bg-[#005a66] text-white px-4 py-3 font-bold text-xs clip-path-polygon relative z-20"
                                     style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
                                 >
                                     Refer and Earn
                                 </a>
-                                <p className="text-xs mt-1 -mx-7">UP TO <strong>Rs 20,000</strong></p>
+                                <p className="text-xs mt-1">UP TO <strong>Rs 20,000</strong></p>
                             </div>
                         </div>
+
                     </div>
 
                     <button className="block md:hidden text-2xl navbar-toggle"  onClick={() => setShowMobileMenu(!showMobileMenu)}>
