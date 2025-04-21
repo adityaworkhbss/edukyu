@@ -1,22 +1,29 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaPinterestP, FaInstagram } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP } from 'react-icons/fa';
+import { FaLocationDot } from "react-icons/fa6";
+import { IoCall } from "react-icons/io5";
+import { IoMdMailOpen } from "react-icons/io";
 
 const Footer = () => {
     return (
-        <footer className="bg-[#043b3c] text-white px-6 md:px-20 py-10">
+        <footer className="bg-[#043b3c] text-white px-6 md:px-20 py-10 bottom-0 text-left">
             {/* TOP SECTION: Find us, Call us, Mail us */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 pb-6 border-b border-gray-600">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center pb-6 border-b border-gray-600">
                 {/* Find us */}
+                <span className="text-yellow-400 text-4xl">
+                        <FaLocationDot />
+                    </span>
                 <div className="flex items-start gap-3">
-                    <span className="text-yellow-400 text-2xl">📍</span>
                     <div>
                         <h3 className="font-semibold mb-1">Find us</h3>
                         <p>B 15, Second floor, Sector 2, Noida 201301</p>
                     </div>
                 </div>
                 {/* Call us */}
+                <span className="text-yellow-400 text-4xl">
+                    <IoCall />
+                </span>
                 <div className="flex items-start gap-3">
-                    <span className="text-yellow-400 text-2xl">📞</span>
                     <div>
                         <h3 className="font-semibold mb-1">Call us</h3>
                         <p>+91-8336899553</p>
@@ -24,8 +31,10 @@ const Footer = () => {
                     </div>
                 </div>
                 {/* Mail us */}
+                <span className="text-yellow-400 text-4xl">
+                    <IoMdMailOpen />
+                </span>
                 <div className="flex items-start gap-3">
-                    <span className="text-yellow-400 text-2xl">✉️</span>
                     <div>
                         <h3 className="font-semibold mb-1">Mail us</h3>
                         <p>hi@edukyu.com</p>
@@ -37,16 +46,18 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row justify-between gap-12 py-10">
                 {/* EduKyu Info */}
                 <div className="md:w-1/4">
-                    <h2 className="text-2xl font-bold mb-2">EduKyu</h2>
-                    <p className="text-sm">
+                    <h2 className="text-2xl font-bold mb-2">
+                        <img src="https://edukyu.com/assets/img/edukyu-logo.png" alt="EduKyu" className="h-16 mr-4 " />
+                    </h2>
+                    <p className="text-sm text-left">
                         Edukyu, your trusted partner for Online education. We are a premier aggregator platform, bringing together a diverse range of specialized online courses from renowned Indian universities.
                     </p>
                 </div>
 
                 {/* Useful Links */}
                 <div>
-                    <h3 className="font-semibold mb-2">Useful Links</h3>
-                    <ul className="space-y-1 text-sm">
+                    <h3 className="font-semibold mb-2 ">Useful Links</h3>
+                    <ul className="space-y-1 text-sm text-left">
                         <li>› About Us</li>
                         <li>› Our Team</li>
                         <li>› Partner With Us</li>
@@ -59,7 +70,7 @@ const Footer = () => {
                 {/* Online Courses */}
                 <div>
                     <h3 className="font-semibold mb-2">Online Courses</h3>
-                    <ul className="space-y-1 text-sm">
+                    <ul className="space-y-1 text-sm text-left">
                         <li>› Masters In Business Administration</li>
                         <li>› Bachelors In Business Administration</li>
                         <li>› Marketing Management (MBA)</li>
@@ -71,7 +82,7 @@ const Footer = () => {
                 {/* Locations */}
                 <div>
                     <h3 className="font-semibold mb-2">Locations</h3>
-                    <ul className="space-y-1 text-sm">
+                    <ul className="space-y-1 text-sm text-left">
                         <li>Noida</li>
                         <li>Bangalore</li>
                         <li>Kolkata</li>
@@ -97,11 +108,14 @@ const Footer = () => {
 
                 {/* Social Icons */}
                 <div className="flex gap-4 text-xl">
-                    <a href="#"><i className="fab fa-facebook"></i></a>
-                    <a href="#"><i className="fab fa-twitter"></i></a>
-                    <a href="#"><i className="fab fa-instagram"></i></a>
-                    <a href="#"><i className="fab fa-linkedin"></i></a>
-                    <a href="#"><i className="fab fa-pinterest"></i></a>
+                    <div className="flex gap-4 text-xl">
+                        <a href="#"><FaFacebookF /></a>
+                        <a href="#"><FaTwitter /></a>
+                        <a href="#"><FaInstagram /></a>
+                        <a href="#"><FaLinkedinIn /></a>
+                        <a href="#"><FaPinterestP /></a>
+                    </div>
+
                 </div>
             </div>
 
