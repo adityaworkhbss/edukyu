@@ -1,25 +1,85 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP } from 'react-icons/fa';
 import { FaLocationDot } from "react-icons/fa6";
 import { IoCall } from "react-icons/io5";
 import { IoMdMailOpen } from "react-icons/io";
 
+// Data moved to top
+const locationsData = [
+    {
+        city: "Noida",
+        address: "B 15, Second floor, Sector 2, Noida 201301",
+    },
+    {
+        city: "Bangalore",
+        address:
+            "Second floor, 782, 16th Main Rd, above Bata showroom, BTM 2nd Stage, BTM Layout, Bengaluru, Karnataka 560076.",
+    },
+    {
+        city: "Kolkata",
+        address:
+            "1403, 14th Floor, Ergo Tower, Salt Lake Sector-5, Kolkata, West Bengal- 700091",
+    },
+    {
+        city: "Lucknow",
+        address:
+            "710-A, 7th floor, levana cyber heights, lucknow 226010",
+    },
+];
+
+// ✅ Dropdown component at top-level
+function LocationsDropdown() {
+    const [openIndex, setOpenIndex] = useState(null);
+
+    const toggleDropdown = (index) => {
+        setOpenIndex(openIndex === index ? null : index);
+    };
+
+    return (
+        <div>
+            <h3 className="font-semibold mb-2">Locations</h3>
+            <ul className="space-y-2 text-sm">
+                {locationsData.map((loc, index) => (
+                    <li key={index} className="border-b border-gray-600 pb-2">
+                        <button
+                            className="flex items-center justify-between w-full text-left"
+                            onClick={() => toggleDropdown(index)}
+                        >
+                            <span>{loc.city}</span>
+                            <span
+                                className={`transform transition-transform duration-200 ${
+                                    openIndex === index ? "rotate-180" : ""
+                                }`}
+                            >
+                                ▼
+                            </span>
+                        </button>
+                        {openIndex === index && (
+                            <p className="mt-2 text-gray-300 text-sm">{loc.address}</p>
+                        )}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+// ✅ Footer component clean
 const Footer = () => {
     return (
         <footer className="bg-[#043b3c] text-white px-6 md:px-20 py-10 bottom-0 text-left">
-            {/* TOP SECTION: Find us, Call us, Mail us */}
+            {/* TOP SECTION */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center pb-6 border-b border-gray-600">
-                {/* Find us */}
                 <span className="text-yellow-400 text-4xl">
-                        <FaLocationDot />
-                    </span>
+                    <FaLocationDot />
+                </span>
                 <div className="flex items-start gap-3">
                     <div>
                         <h3 className="font-semibold mb-1">Find us</h3>
                         <p>B 15, Second floor, Sector 2, Noida 201301</p>
                     </div>
                 </div>
-                {/* Call us */}
                 <span className="text-yellow-400 text-4xl">
                     <IoCall />
                 </span>
@@ -30,7 +90,6 @@ const Footer = () => {
                         <p>+91-9008525443</p>
                     </div>
                 </div>
-                {/* Mail us */}
                 <span className="text-yellow-400 text-4xl">
                     <IoMdMailOpen />
                 </span>
@@ -42,9 +101,8 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* MIDDLE SECTION: EduKyu, Useful Links, Courses, Locations */}
+            {/* MIDDLE SECTION */}
             <div className="flex flex-col md:flex-row justify-between gap-12 py-10">
-                {/* EduKyu Info */}
                 <div className="md:w-1/4">
                     <h2 className="text-2xl font-bold mb-2">
                         <img src="https://edukyu.com/assets/img/edukyu-logo.png" alt="EduKyu" className="h-16 mr-4 " />
@@ -54,7 +112,6 @@ const Footer = () => {
                     </p>
                 </div>
 
-                {/* Useful Links */}
                 <div>
                     <h3 className="font-semibold mb-2 ">Useful Links</h3>
                     <ul className="space-y-1 text-sm text-left">
@@ -67,7 +124,6 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                {/* Online Courses */}
                 <div>
                     <h3 className="font-semibold mb-2">Online Courses</h3>
                     <ul className="space-y-1 text-sm text-left">
@@ -79,21 +135,12 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                {/* Locations */}
-                <div>
-                    <h3 className="font-semibold mb-2">Locations</h3>
-                    <ul className="space-y-1 text-sm text-left">
-                        <li>Noida</li>
-                        <li>Bangalore</li>
-                        <li>Kolkata</li>
-                        <li>Lucknow</li>
-                    </ul>
-                </div>
+                {/* ✅ Updated Location Dropdown here */}
+                <LocationsDropdown />
             </div>
 
-            {/* BOTTOM SECTION: Subscribe + Social Links */}
+            {/* BOTTOM SECTION */}
             <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-6 border-t border-gray-600">
-                {/* Subscribe */}
                 <div className="text-sm">
                     <p className="mb-2">Don’t miss out on our latest updates! Enter your email to subscribe.</p>
                     <div className="flex">
@@ -106,27 +153,21 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Social Icons */}
                 <div className="flex gap-4 text-xl">
-                    <div className="flex gap-4 text-xl">
-                        <a href="#"><FaFacebookF /></a>
-                        <a href="#"><FaTwitter /></a>
-                        <a href="#"><FaInstagram /></a>
-                        <a href="#"><FaLinkedinIn /></a>
-                        <a href="#"><FaPinterestP /></a>
-                    </div>
-
+                    <a href="#"><FaFacebookF /></a>
+                    <a href="#"><FaTwitter /></a>
+                    <a href="#"><FaInstagram /></a>
+                    <a href="#"><FaLinkedinIn /></a>
+                    <a href="#"><FaPinterestP /></a>
                 </div>
             </div>
 
-            {/* Footer Note */}
             <div className="text-center text-xs mt-6 text-gray-400">
                 By continuing past this page, you agree to our <span className="text-yellow-400">Terms of Service</span>, <span className="text-yellow-400">Privacy Policy</span> and <span className="text-yellow-400">Refund Policy</span>.
             </div>
         </footer>
-
-
     );
 };
 
 export default Footer;
+
