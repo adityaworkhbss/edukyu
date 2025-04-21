@@ -5,6 +5,7 @@ import { IoCall } from "react-icons/io5";
 import { IoMdMailOpen } from "react-icons/io";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoSend } from "react-icons/io5";
+import edukyufooterlogo from "../Images/Footer/edukyu-footer-logo.png";
 
 const locationsData = [
     {
@@ -38,6 +39,7 @@ function LocationsDropdown() {
     return (
         <div className="w-64"> {/* You can adjust the width as needed */}
             <h3 className="font-semibold mb-2 text-2xl">Locations</h3>
+            <div className="h-1 w-12 bg-yellow-400 mb-3"></div>
             <ul className="space-y-2 text-sm">
                 {locationsData.map((loc, index) => (
                     <li key={index} className="border-b border-gray-600 pb-2">
@@ -102,13 +104,12 @@ const Footer = () => {
                 </div>
             </div>
 
-
-            {/* MIDDLE SECTION */}
             <div className="flex flex-col md:flex-row justify-between gap-12 py-10">
                 <div className="md:w-1/4">
                     <h2 className="text-2xl font-bold mb-2">
-                        <img src="https://edukyu.com/assets/img/edukyu-logo.png" alt="EduKyu" className="h-16 mr-4 " />
+                        <img src={edukyufooterlogo} alt="EduKyu" />
                     </h2>
+                    <div className="h-1 w-12 bg-yellow-400 mb-3"></div>
                     <p className="text-sm text-left">
                         Edukyu, your trusted partner for Online education. We are a premier aggregator platform, bringing together a diverse range of specialized online courses from renowned Indian universities.
                     </p>
@@ -116,6 +117,7 @@ const Footer = () => {
 
                 <div>
                     <h3 className="font-semibold mb-2 text-2xl">Useful Links</h3>
+                    <div className="h-1 w-12 bg-yellow-400 mb-3"></div>
                     <ul className="space-y-1 text-sm text-left">
                         <li>› About Us</li>
                         <li>› Our Team</li>
@@ -131,6 +133,7 @@ const Footer = () => {
 
                 <div>
                     <h3 className="font-semibold mb-2 text-2xl">Online Courses</h3>
+                    <div className="h-1 w-12 bg-yellow-400 mb-3"></div>
                     <ul className="space-y-1 text-sm text-left">
                         <li>› Masters In Business Administration</li>
                         <li>› Bachelors In Business Administration</li>
@@ -139,16 +142,11 @@ const Footer = () => {
                         <li>› Financial Management (MBA)</li>
                     </ul>
                 </div>
-
-                {/* ✅ Updated Location Dropdown here */}
                 <LocationsDropdown />
             </div>
 
-            {/* BOTTOM SECTION */}
-            {/* BOTTOM SECTION */}
             <div className="bg-[#00393d] text-white px-4 md:px-20 py-10">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-10 border-t border-gray-600 pt-6">
-                    {/* Left Text */}
                     <div className="md:w-1/2">
                         <h4 className="text-lg font-semibold mb-2">Subscribe</h4>
                         <div className="h-1 w-12 bg-yellow-400 mb-3"></div>
@@ -171,7 +169,7 @@ const Footer = () => {
                                 </span>
                             </button>
                         </div>
-                        <div className="flex gap-3 mt-4">
+                        <div className="flex gap-3 mt-4 text-2xl">
                             <a href="#"><FaFacebookF className="hover:scale-110 transition" /></a>
                             <a href="#"><FaTwitter className="hover:scale-110 transition" /></a>
                             <a href="#"><FaInstagram className="hover:scale-110 transition" /></a>

@@ -3,6 +3,7 @@ import ToggleDropdownButtons from "./Component/ToggleButton";
 import CourseDropdown from "./Component/CourseDropdown";
 import './Styles/Navbar.css';
 import MobileMenu from "./Component/MobileMenu";
+import searchbutton from "../Images/Navbar/searchbutton.png";
 
 
 const Navbar = () => {
@@ -143,18 +144,21 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="font-gilroy w-full bg-white shadow-sm px-[clamp(12px,5vw,100px)]">
+            <nav className="font-gilroy w-full bg-white shadow-sm px-[clamp(50px,5vw,100px)]">
 
                 <div className="flex items-center justify-between py-2 px-4 md:px-10 lg:px-16">
                     {/* Logo Section */}
-                    <div className="flex items-center logo ">
-                        <img src="https://edukyu.com/assets/cxp-assets/logo/logo.png" alt="EduKyu" className="h-5 mr-1 sm:h-8 sm:mr-2" />
-                        <div className=" logo-sperator w-px h-12 bg-black mx-2"></div>
-                        <div className="kyunki font-gilroy font-bold text-[12px] leading-[100%] tracking-[0%] font-bold text-gray-800 whitespace-nowrap">
+                    <div className="flex flex-col items-start logo">
+                        <img
+                            src="https://edukyu.com/assets/cxp-assets/logo/logo.png"
+                            alt="EduKyu"
+                            className="h-5 mb-1 sm:h-8 sm:mb-2"
+                        />
+                        <div className="kyunki font-gilroy font-bold text-[12px] leading-[100%] tracking-[0%] text-gray-800 whitespace-nowrap">
                             #Kyunki<span className="text-[#005A6B]">badhna</span>jarurihai
                         </div>
-
                     </div>
+
 
                     {/* Toggle Dropdown */}
                     <ToggleDropdownButtons
@@ -165,7 +169,6 @@ const Navbar = () => {
                         ref={toggleButtonRef}
                     />
 
-                    {/* Right Nav */}
                     <div className="hidden md:flex items-center -pl-[clamp(12px,5vw,96px)]">
                     <ul className="flex items-center space-x-4 menu-buttons">
                             {['Home', 'About us', 'Compare College', 'Blogs', 'More'].map((item) => (
@@ -177,26 +180,18 @@ const Navbar = () => {
                             ))}
                             <li>
                                 <button className="text-[#005a66] hover:text-[#008b9a]">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                         strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <circle cx="11" cy="11" r="8" />
-                                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                                        <line x1="11" y1="11" x2="11" y2="11" strokeWidth="4" />
-                                    </svg>
+                                    <img src={searchbutton} alt="Search" />
                                 </button>
                             </li>
                         </ul>
 
-                        <div className="relative ml-6" ref={referContainerRef}>
+                        <div className="relative ml-6 menu-buttons">
                             <div
-                                ref={slashRef}
-                                className="absolute left-0 top-1/2 -translate-y-1/2 text-6xl font-black text-black transform rotate-12 scale-x-50 pointer-events-none z-10"
-                                style={{ lineHeight: '0.7' }}
+                                className="absolute left-0.5 top-1/3 transform -translate-y-1/2 rotate-[9deg] scale-x-[25%] text-black font-black text-[100px] leading-none"
                             >
                                 /
                             </div>
-                            <div className="flex flex-col items-start pl-6 menu-buttons">
+                            <div className="flex flex-col items-start pl-6">
                                 <a
                                     href="#"
                                     className="bg-[#005a66] text-white px-4 py-3 font-bold text-xs clip-path-polygon relative z-20"
@@ -263,7 +258,6 @@ const Navbar = () => {
                 </div>
             )}
 
-            {/* Course Dropdown */}
             <div className="relative">
                 {showCourseDropdown && (
                     <CourseDropdown
