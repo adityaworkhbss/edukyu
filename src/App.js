@@ -7,10 +7,9 @@ import Footer from "./Footer/Footer";
 function App() {
   return (
     <div className="App">
-      {/*<Navbar/>*/}
-      {/*  <FloatingSideCards/>*/}
-        <Footer/>
-
+      <Navbar/>
+      <FloatingSideCards/>
+      <Footer/>
     </div>
   );
 }
