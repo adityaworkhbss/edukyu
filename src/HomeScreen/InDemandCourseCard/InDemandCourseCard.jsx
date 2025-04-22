@@ -6,7 +6,7 @@ const InDemandCourseCard = () => {
             {/* Image Section */}
             <div className="relative">
                 <img
-                    src="https://images.unsplash.com/photo-1587614382346-4ecb6c1f5e4f" // replace with your image
+                    // src=
                     alt="Course"
                     className="w-full h-40 object-cover"
                 />
@@ -16,7 +16,7 @@ const InDemandCourseCard = () => {
             </div>
 
             {/* Content */}
-            <div className="p-4 text-sm">
+            <div className="p-4 text-sm text-left">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
                     Human Resource Management
                 </h3>
@@ -24,22 +24,22 @@ const InDemandCourseCard = () => {
                 <div className="text-gray-600 space-y-2">
                     <div className="flex items-center gap-2">
                         <span>⏱️</span>
-                        <span>Duration: 2 year | 4 semester</span>
+                        <span>Duration:</span>
                     </div>
 
                     <div className="flex items-center gap-2">
                         <span>✅</span>
-                        <span>Approved: UGC-entitled degree programme</span>
+                        <span>Approved:</span>
                     </div>
 
                     <div className="flex items-center gap-2">
                         <span>💻</span>
-                        <span>Mode: Online (Live/Recorded Lectures)</span>
+                        <span>Mode:</span>
                     </div>
 
                     <div className="flex items-center gap-2">
                         <span>💳</span>
-                        <span>Payment: EMI options available</span>
+                        <span>Payment:</span>
                     </div>
                 </div>
             </div>
