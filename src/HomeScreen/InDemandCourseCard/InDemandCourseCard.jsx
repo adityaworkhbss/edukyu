@@ -1,3 +1,49 @@
+// import React from "react";
+//
+// const ProgramCard = () => {
+//     return (
+//         <div className="w-[240px] h-[422px] bg-white rounded-xl shadow-md p-4 flex flex-col justify-between">
+//             <div>
+//                 <div className="bg-gradient-to-r from-green-400 to-blue-500 text-white text-xs font-semibold px-2 py-1 rounded w-fit mb-2">
+//                     AI & ML
+//                 </div>
+//
+//                 <img
+//                     src="/path/to/image.png" // Replace with actual image path
+//                     alt="Woman on laptop"
+//                     className="w-full h-36 object-cover rounded-md mb-4"
+//                 />
+//
+//                 <h2 className="text-md font-semibold text-gray-800 mb-3">
+//                     Human Resource Management
+//                 </h2>
+//
+//                 <ul className="text-sm text-gray-600 space-y-2">
+//                     <li>
+//                         <span role="img" aria-label="duration">⏰</span> Duration: 2 year | 4 semester
+//                     </li>
+//                     <li>
+//                         <span role="img" aria-label="approved">✅</span> Approved: UGC-entitled degree programme
+//                     </li>
+//                     <li>
+//                         <span role="img" aria-label="mode">💻</span> Mode: Online (Live/Recorded Lectures)
+//                     </li>
+//                     <li>
+//                         <span role="img" aria-label="payment">💳</span> Payment: EMI options available
+//                     </li>
+//                 </ul>
+//             </div>
+//
+//             <button className="mt-4 bg-teal-600 text-white text-sm font-medium py-2 rounded-md hover:bg-teal-700 transition-all">
+//                 View Program
+//             </button>
+//         </div>
+//     );
+// };
+//
+// export default ProgramCard;
+
+
 import React from "react";
 
 const InDemandCourseCard = () => {
