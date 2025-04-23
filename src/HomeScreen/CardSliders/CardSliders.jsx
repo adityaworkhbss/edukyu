@@ -1,5 +1,5 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Carousel } from 'antd';
 import InDemandCourseCard from "../InDemandCourseCard/InDemandCourseCard";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
@@ -8,12 +8,21 @@ const CardSlider = () => {
     const carouselRef = useRef(null);
 
     const next = () => {
-        carouselRef.current.next();
+        carouselRef.current?.next();
     };
 
     const prev = () => {
-        carouselRef.current.prev();
+        carouselRef.current?.prev();
     };
+
+    // Auto slide every 3 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            next();
+        }, 3000);
+
+        return () => clearInterval(interval); // cleanup on unmount
+    }, []);
 
     return (
         <div className="relative">
@@ -38,7 +47,7 @@ const CardSlider = () => {
                 slidesToScroll={1}
                 infinite
                 dots={false}
-                arrows={false} // disable default arrows
+                arrows={false}
                 responsive={[
                     {
                         breakpoint: 768,
