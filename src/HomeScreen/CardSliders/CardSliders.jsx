@@ -18,7 +18,7 @@ const CardSlider = () => {
     // Auto slide every 3 seconds
     useEffect(() => {
         const interval = setInterval(() => {
-            next();
+            prev();
         }, 3000);
 
         return () => clearInterval(interval); // cleanup on unmount
