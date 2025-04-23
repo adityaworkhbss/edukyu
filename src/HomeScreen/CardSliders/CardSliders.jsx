@@ -21,8 +21,76 @@ const CardSlider = () => {
             prev();
         }, 3000);
 
-        return () => clearInterval(interval); // cleanup on unmount
+        return () => clearInterval(interval);
     }, []);
+
+    // Sample dynamic data
+    const cardsData = [
+        {
+            imgSrc: "https://source.unsplash.com/400x300/?ai",
+            title: "Artificial Intelligence",
+            duration: "6 months",
+            approved: "AICTE Approved",
+            mode: "Online",
+            payment: "EMI Available",
+        },
+        {
+            imgSrc: "https://source.unsplash.com/400x300/?ml",
+            title: "Machine Learning",
+            duration: "3 months",
+            approved: "UGC Approved",
+            mode: "Offline",
+            payment: "One-Time Payment",
+        },
+        {
+            imgSrc: "https://source.unsplash.com/400x300/?hr",
+            title: "Human Resource Management",
+            duration: "4 months",
+            approved: "NAAC A+",
+            mode: "Hybrid",
+            payment: "EMI Available",
+        },
+        {
+            imgSrc: "https://source.unsplash.com/400x300/?cloud",
+            title: "Cloud Computing",
+            duration: "5 months",
+            approved: "AICTE Approved",
+            mode: "Online",
+            payment: "Subscription",
+        },
+        {
+            imgSrc: "https://source.unsplash.com/400x300/?datascience",
+            title: "Data Science",
+            duration: "12 weeks",
+            approved: "UGC Certified",
+            mode: "Online",
+            payment: "One-Time",
+        },
+        {
+            imgSrc: "https://source.unsplash.com/400x300/?design",
+            title: "UI/UX Design",
+            duration: "8 weeks",
+            approved: "NASSCOM Certified",
+            mode: "Offline",
+            payment: "Monthly Installments",
+        },
+        {
+            imgSrc: "https://source.unsplash.com/400x300/?robotics",
+            title: "Robotics Engineering",
+            duration: "6 months",
+            approved: "ISO Certified",
+            mode: "Offline",
+            payment: "One-Time",
+        },
+        {
+            imgSrc: "https://source.unsplash.com/400x300/?analytics",
+            title: "Business Analytics",
+            duration: "10 weeks",
+            approved: "AICTE Approved",
+            mode: "Hybrid",
+            payment: "EMI Available",
+        }
+    ];
 
     return (
         <div className="relative">
@@ -57,9 +125,9 @@ const CardSlider = () => {
                     },
                 ]}
             >
-                {[...Array(8)].map((_, i) => (
+                {cardsData.map((data, i) => (
                     <div key={i} className="px-2">
-                        <InDemandCourseCard />
+                        <InDemandCourseCard {...data} />
                     </div>
                 ))}
             </Carousel>
@@ -68,3 +136,4 @@ const CardSlider = () => {
 };
 
 export default CardSlider;
+
