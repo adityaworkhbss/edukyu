@@ -1,11 +1,9 @@
 import './App.css';
-import Navbar from "./navbar/Navbar";
-import ScholarshipGrantCard from "./FloatingSideCards/Component/ScholarshipGrantFloatingIcon";
-import FloatingSideCards from "./FloatingSideCards/FloatingSideCards";
-import Footer from "./Footer/Footer";
-import InDemandCourseCard from "./HomeScreen/InDemandCourseCard/InDemandCourseCard";
 import CardSliders from "./HomeScreen/CardSliders/CardSliders";
 import 'antd/dist/reset.css';
+import NumberOfTrust from "./HomeScreen/NumberOfTrust/NumberOfTrust";
+import UniversityCard from "./HomeScreen/Cards/UniversityCard/UniversityCard";
+
 function App() {
     return (
         <div className="App">
@@ -17,7 +15,7 @@ function App() {
 
                 {/* Content */}
                 {/* <InDemandCourseCard /> */}
-                <CardSliders />
+                <UniversityCard />
 
                 {/* <Footer /> */}
             </div>

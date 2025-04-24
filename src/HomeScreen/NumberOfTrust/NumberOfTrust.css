@@ -1,0 +1,35 @@
+.trust-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1034px;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+}
+
+.trust-card {
+    text-align: center;
+    color: #025E68;
+    flex: 1;
+    position: relative;
+}
+
+.trust-value {
+    font-size: 40px;
+    font-family: 'Gilroy-SemiBold', sans-serif;
+}
+
+.trust-label {
+    font-size: 20px;
+    margin-top: 8px;
+    font-family: 'Gilroy-SemiBold', sans-serif;
+}
+
+.divider {
+    position: absolute;
+    right: 0;
+    top: -5px;
+    height: 110px;
+    border-right: 1px solid #025E68;
+    opacity: 0.5;
+}

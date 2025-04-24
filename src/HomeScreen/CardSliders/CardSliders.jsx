@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Carousel } from 'antd';
-import InDemandCourseCard from "../InDemandCourseCard/InDemandCourseCard";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import PrimaryDiscoverCourseCard from "../Cards/DiscoverCourseCard/PrimaryDiscoverCourseCard";
 
 const CardSlider = () => {
     const carouselRef = useRef(null);
@@ -9,7 +9,6 @@ const CardSlider = () => {
     const [isThrottled, setIsThrottled] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
-    // Detect if the client is on mobile
     useEffect(() => {
         const checkMobile = () => {
             setIsMobile(window.innerWidth <= 768);
@@ -57,7 +56,8 @@ const CardSlider = () => {
         return () => clearInterval(autoSlideInterval.current);
     }, []);
 
-    const cardsData = [
+
+    const InDemandCourseCardData = [
         {
             imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
             title: "Artificial Intelligence",
@@ -124,6 +124,90 @@ const CardSlider = () => {
         }
     ];
 
+    const PrimaryDiscoverCourseCardData = [
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "Online Master’s of Business Administration (MBA)",
+        },
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "Online Master’s of Business Administration (MBA)",
+        },
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "Online Master’s of Business Administration (MBA)",
+
+        },
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "Online Master’s of Business Administration (MBA)",
+
+        },
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "Online Master’s of Business Administration (MBA)",
+
+        },
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "Online Master’s of Business Administration (MBA)",
+
+        },
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "Online Master’s of Business Administration (MBA)",
+
+        },
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "Online Master’s of Business Administration (MBA)",
+
+        }
+    ];
+
+    const BlogsCardData = [
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
+            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        },
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
+            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        },
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
+            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        },
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
+            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        },
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
+            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        },
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
+            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        },
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
+            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        },
+        {
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
+            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
+            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        }
+    ];
+
     return (
         <div className="relative">
             {!isMobile && (
@@ -131,17 +215,19 @@ const CardSlider = () => {
                     <button
                         onClick={() => throttleClick(prev)}
                         disabled={isThrottled}
-                        className={`absolute -left-6 top-1/2 transform -translate-y-1/2 z-10 bg-white text-black p-2 rounded-full shadow-md hover:bg-gray-100 transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        className={`absolute left-0 text-[32px] -translate-x-full top-1/2 transform -translate-y-1/2 z-10  text-black p-2  pr-[35px] transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
                     >
                         <LeftOutlined />
                     </button>
+
                     <button
                         onClick={() => throttleClick(next)}
                         disabled={isThrottled}
-                        className={`absolute -right-6 top-1/2 transform -translate-y-1/2 z-10 bg-white text-black p-2 rounded-full shadow-md hover:bg-gray-100 transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        className={`absolute right-0 text-[32px] h-[32px] w-[32px] translate-x-full top-1/2 transform -translate-y-1/2 z-10  text-black p-2 pl-[35px]  transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
                     >
                         <RightOutlined />
                     </button>
+
                 </>
             )}
 
@@ -163,9 +249,9 @@ const CardSlider = () => {
                     },
                 ]}
             >
-                {cardsData.map((data, i) => (
+                {PrimaryDiscoverCourseCardData.map((data, i) => (
                     <div key={i} className="px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch">
-                        <InDemandCourseCard {...data} />
+                        <PrimaryDiscoverCourseCard {...data} />
                     </div>
                 ))}
             </Carousel>

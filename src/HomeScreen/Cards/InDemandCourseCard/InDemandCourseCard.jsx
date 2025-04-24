@@ -13,10 +13,15 @@ const InDemandCourseCard = ({
                                 payment,
                             }) => {
     return (
-        <div className="w-full max-w-xs h-full min-w-[220px] min-h-[420px] border border-gray-300 rounded-xl shadow-md flex flex-col p-4 my-4">
+        <div className="w-full max-w-xs border-[#025E68] h-full min-w-[220px] min-h-[420px] border-[1px] rounded-xl shadow-md flex flex-col p-[20px] my-5">
+
+            <div className="w-[60px] h-[22px] text-[12px] fixed bg-[#025E68] mt-[10px] text-[#FFD23F] font-medium">
+                AI & ML
+            </div>
+
             {/* Top (image and details) */}
             <div className="flex-grow">
-                <div className="w-full h-40 bg-gray-100 rounded-md overflow-hidden mb-4">
+                <div className="w-full h-40 bg-gray-100 overflow-hidden mb-4">
                     {imgSrc ? (
                         <img
                             src={imgSrc}
