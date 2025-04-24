@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect, useState } from 'react';
 import { Carousel } from 'antd';
 import InDemandCourseCard from "../InDemandCourseCard/InDemandCourseCard";
@@ -60,7 +59,7 @@ const CardSlider = () => {
 
     const cardsData = [
         {
-            imgSrc: "https://source.unsplash.com/400x300/?ai",
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
             title: "Artificial Intelligence",
             duration: "6 months",
             approved: "AICTE Approved",
@@ -68,7 +67,7 @@ const CardSlider = () => {
             payment: "EMI Available",
         },
         {
-            imgSrc: "https://source.unsplash.com/400x300/?ml",
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
             title: "Machine Learning",
             duration: "3 months",
             approved: "UGC Approved",
@@ -76,7 +75,7 @@ const CardSlider = () => {
             payment: "One-Time Payment",
         },
         {
-            imgSrc: "https://source.unsplash.com/400x300/?hr",
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
             title: "Human Resource Management",
             duration: "4 months",
             approved: "NAAC A+",
@@ -84,7 +83,7 @@ const CardSlider = () => {
             payment: "EMI Available",
         },
         {
-            imgSrc: "https://source.unsplash.com/400x300/?cloud",
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
             title: "Cloud Computing",
             duration: "5 months",
             approved: "AICTE Approved",
@@ -92,7 +91,7 @@ const CardSlider = () => {
             payment: "Subscription",
         },
         {
-            imgSrc: "https://source.unsplash.com/400x300/?datascience",
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
             title: "Data Science",
             duration: "12 weeks",
             approved: "UGC Certified",
@@ -100,7 +99,7 @@ const CardSlider = () => {
             payment: "One-Time",
         },
         {
-            imgSrc: "https://source.unsplash.com/400x300/?design",
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
             title: "UI/UX Design",
             duration: "8 weeks",
             approved: "NASSCOM Certified",
@@ -108,7 +107,7 @@ const CardSlider = () => {
             payment: "Monthly Installments",
         },
         {
-            imgSrc: "https://source.unsplash.com/400x300/?robotics",
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
             title: "Robotics Engineering",
             duration: "6 months",
             approved: "ISO Certified",
@@ -116,7 +115,7 @@ const CardSlider = () => {
             payment: "One-Time",
         },
         {
-            imgSrc: "https://source.unsplash.com/400x300/?analytics",
+            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
             title: "Business Analytics",
             duration: "10 weeks",
             approved: "AICTE Approved",
@@ -165,7 +164,7 @@ const CardSlider = () => {
                 ]}
             >
                 {cardsData.map((data, i) => (
-                    <div key={i} className="px-2">
+                    <div key={i} className="px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch">
                         <InDemandCourseCard {...data} />
                     </div>
                 ))}

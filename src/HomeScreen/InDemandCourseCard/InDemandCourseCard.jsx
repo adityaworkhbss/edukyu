@@ -1,130 +1,68 @@
-// import React from "react";
-//
-// const InDemandCourseCard = ({
-//                                 imgSrc,
-//                                 tag = "AI & ML",
-//                                 title,
-//                                 duration,
-//                                 approved,
-//                                 mode,
-//                                 payment
-//                             }) => {
-//     return (
-//         <div className="w-[240px] h-[422px] border border-purple-300 rounded-lg overflow-hidden shadow-md">
-//             {/* Image Section */}
-//             <div className="relative">
-//                 <img
-//                     src={imgSrc}
-//                     alt={title}
-//                     className="w-full h-40 object-cover"
-//                 />
-//                 <span className="absolute top-2 left-2 bg-yellow-400 text-xs font-semibold text-white px-2 py-1 rounded">
-//           {tag}
-//         </span>
-//             </div>
-//
-//             {/* Content */}
-//             <div className="p-4 text-sm text-left">
-//                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-//                     {title}
-//                 </h3>
-//
-//                 <div className="text-gray-600 space-y-2">
-//                     <div className="flex items-center gap-2">
-//                         <span>⏱️</span>
-//                         <span>Duration: {duration}</span>
-//                     </div>
-//
-//                     <div className="flex items-center gap-2">
-//                         <span>✅</span>
-//                         <span>Approved: {approved}</span>
-//                     </div>
-//
-//                     <div className="flex items-center gap-2">
-//                         <span>💻</span>
-//                         <span>Mode: {mode}</span>
-//                     </div>
-//
-//                     <div className="flex items-center gap-2">
-//                         <span>💳</span>
-//                         <span>Payment: {payment}</span>
-//                     </div>
-//                 </div>
-//             </div>
-//
-//             {/* Button */}
-//             <div className="p-4 pt-0">
-//                 <button className="w-full bg-teal-700 hover:bg-teal-800 text-white py-2 rounded">
-//                     View Program
-//                 </button>
-//             </div>
-//         </div>
-//     );
-// };
-//
-// export default InDemandCourseCard;
-
 import React from "react";
+import { IoIosTime } from "react-icons/io";
+import { IoSchoolSharp } from "react-icons/io5";
+import { MdOutlineLaptopMac } from "react-icons/md";
+import { FaRegCreditCard } from "react-icons/fa";
 
 const InDemandCourseCard = ({
                                 imgSrc,
-                                tag = "AI & ML",
                                 title,
                                 duration,
                                 approved,
                                 mode,
-                                payment
+                                payment,
                             }) => {
     return (
-        <div className="w-full max-w-[240px] sm:max-w-[220px] md:max-w-[240px] h-auto border border-purple-300 rounded-lg overflow-hidden shadow-md flex flex-col mx-auto">
-            {/* Image Section */}
-            <div className="relative">
-                <img
-                    src={imgSrc}
-                    alt={title}
-                    className="w-full h-40 sm:h-32 object-cover"
-                />
-                <span className="absolute top-2 left-2 bg-yellow-400 text-[10px] sm:text-[9px] font-semibold text-white px-2 py-[2px] rounded">
-                    {tag}
-                </span>
-            </div>
+        <div className="w-full max-w-xs h-full min-w-[220px] min-h-[420px] border border-gray-300 rounded-xl shadow-md flex flex-col p-4 my-4">
+            {/* Top (image and details) */}
+            <div className="flex-grow">
+                <div className="w-full h-40 bg-gray-100 rounded-md overflow-hidden mb-4">
+                    {imgSrc ? (
+                        <img
+                            src={imgSrc}
+                            alt={title}
+                            className="w-full h-full object-cover"
+                        />
+                    ) : (
+                        <div className="flex items-center justify-center h-full text-gray-400">
+                            Image Not Available
+                        </div>
+                    )}
+                </div>
 
-            {/* Content */}
-            <div className="p-4 text-sm sm:text-xs text-left flex-1">
-                <h3 className="text-lg sm:text-base font-semibold text-gray-800 mb-2">
+                <h3 className="text-lg text-left font-semibold text-teal-800 mb-3 min-h-[3.5rem] leading-snug">
                     {title}
                 </h3>
 
-                <div className="text-gray-600 space-y-2">
-                    <div className="flex items-center gap-2">
-                        <span>⏱️</span>
+                <div className="text-gray-700 text-sm space-y-3">
+                    <div className="flex items-start gap-2">
+                        <IoIosTime className="mt-0.5" />
                         <span>Duration: {duration}</span>
                     </div>
-
-                    <div className="flex items-center gap-2">
-                        <span>✅</span>
+                    <div className="flex items-start gap-2">
+                        <IoSchoolSharp className="mt-0.5" />
                         <span>Approved: {approved}</span>
                     </div>
-
-                    <div className="flex items-center gap-2">
-                        <span>💻</span>
+                    <div className="flex items-start gap-2">
+                        <MdOutlineLaptopMac className="mt-0.5" />
                         <span>Mode: {mode}</span>
                     </div>
-
-                    <div className="flex items-center gap-2">
-                        <span>💳</span>
+                    <div className="flex items-start gap-2">
+                        <FaRegCreditCard className="mt-0.5" />
                         <span>Payment: {payment}</span>
                     </div>
                 </div>
             </div>
 
-            {/* Button */}
-            <div className="px-4 pb-4 pt-0">
-                <button className="w-full bg-teal-700 hover:bg-teal-800 text-white py-2 rounded text-sm sm:text-xs">
+            {/* Bottom (button) */}
+            <div className="absolute pt-[380px] pl-[50px]">
+                <button className="w-[145px] h-[45px] bg-teal-700 hover:bg-teal-800 text-white size-3 font-medium px-4 py-2">
                     View Program
                 </button>
             </div>
         </div>
+
+
     );
 };
 
