@@ -3,12 +3,6 @@ import 'antd/dist/reset.css';
 
 // Components
 import CardSliders from "./HomeScreen/CardSliders/CardSliders"
-// import NumberOfTrust from "./HomeScreen/NumberOfTrust/NumberOfTrust";
-// import UniversityCard from "./HomeScreen/Cards/UniversityCard/UniversityCard";
-// import Navbar from "./components/Navbar";
-// import FloatingSideCards from "./components/FloatingSideCards";
-// import InDemandCourseCard from "./components/InDemandCourseCard";
-// import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -30,4 +24,4 @@ function App() {
     );
 }
 
-export default App;
+export default App;
