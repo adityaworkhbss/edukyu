@@ -3,6 +3,9 @@ import 'antd/dist/reset.css';
 
 // Components
 import CardSliders from "./HomeScreen/CardSliders/CardSliders"
+import UniversityCard from "./HomeScreen/Cards/UniversityCard/UniversityCard";
+import CareerTransitionCard from "./HomeScreen/CareerTransitionCard/CareerTransitionCard";
+import CareerTransitionSlider from "./HomeScreen/CareerTransitionCard/CareerTransitionSlider";
 
 function App() {
     return (
@@ -16,7 +19,8 @@ function App() {
 
                 {/* Main Content */}
                 {/*<UniversityCard />*/}
-                <CardSliders />
+                <CareerTransitionSlider/>
+                {/*<CardSliders />*/}
 
                 {/* <Footer /> */}
             {/*</div>*/}
