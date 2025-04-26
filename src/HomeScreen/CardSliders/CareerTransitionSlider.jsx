@@ -1,12 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
 import {Carousel} from 'antd';
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import PrimaryDiscoverCourseCard from "../Cards/DiscoverCourseCard/PrimaryDiscoverCourseCard";
-import BlogsCard from "../Cards/BlogsCard/BlogsCard";
-import CareerTransitionCard from "../CareerTransitionCard/CareerTransitionCard";
-import {BlogsCardData} from "../Data Modals/BlogsCardData";
-import {PrimaryDiscoverCourseCardData} from "../Data Modals/PrimaryDiscoverCourseCardData";
-import {InDemandCourseCardData} from "../Data Modals/InDemandCourseCardData";
+import CareerTransitionCard from "../Cards/CareerTransitionCard/CareerTransitionCard";
+import { CareerTransitionCardData } from '../Data Modals/CareerTransitionCardData';
+
 
 const CardSlider = () => {
     const carouselRef = useRef(null);
@@ -44,34 +41,6 @@ const CardSlider = () => {
             setIsThrottled(false);
         }, 600);
     };
-
-
-    const CareerTransitionCardData = [
-        {
-        imageUrlDesktop: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/test/ANURAG.png",
-            imageUrlMobile: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/test/Anurag-Sharma-Mobile.png",
-            hikeText: "65% Hike",
-            name: "Nilutpal Goswami",
-            testimonial: "Balancing my career and family responsibilities, I sought an online MBA program that prioritized flexibility. EduKyu’s comprehensive platform proved invaluable in comparing programs based on scheduling options, learning pace, and online delivery formats. Their counsellor empowered me to identify the perfect program that seamlessly integrates with my busy schedule while delivering a rigorous and high-quality education. I express my gratitude to the EduKyu team for their role in this critical decision.",
-            linkedinUrl: "https://www.linkedin.com/in/aadityazz/"
-    },
-    // {
-    //     imageUrlDesktop: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/test/ANURAG.png",
-    //     imageUrlMobile: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/test/Anurag-Sharma-Mobile.png",
-    //     hikeText: "65% Hike",
-    //     name: "Nilutpal Goswami",
-    //     testimonial: Balancing my career and family responsibilities, I sought an online MBA program that prioritized flexibility. EduKyu’s comprehensive platform proved invaluable in comparing programs based on scheduling options, learning pace, and online delivery formats. Their counsellor empowered me to identify the perfect program that seamlessly integrates with my busy schedule while delivering a rigorous and high-quality education. I express my gratitude to the EduKyu team for their role in this critical decision.,
-    //     linkedinUrl: "https://www.linkedin.com/in/aadityazz/"
-    // },
-    ];
-
-    const DiscoverCourseCardData = [
-
-    ];
-
-    const UniversityCardData = [
-
-    ];
 
     return (
         <div className="flex items-center justify-between w-[95%]">

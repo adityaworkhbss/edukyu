@@ -1,9 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import {Carousel} from 'antd';
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-// import PrimaryDiscoverCourseCard from "../Cards/DiscoverCourseCard/PrimaryDiscoverCourseCard";
-// import BlogsCard from "../Cards/BlogsCard/BlogsCard";
-import CareerTransitionCard from "../CareerTransitionCard/CareerTransitionCard";
+import CareerTransitionCard from "../Cards/CareerTransitionCard/CareerTransitionCard";
 
 const CardSlider = () => {
     const carouselRef = useRef(null);
@@ -42,186 +40,6 @@ const CardSlider = () => {
         }, 600);
     };
 
-
-
-    const InDemandCourseCardData = [
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "Artificial Intelligence",
-            duration: "6 months",
-            approved: "AICTE Approved",
-            mode: "Online",
-            payment: "EMI Available",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "Machine Learning",
-            duration: "3 months",
-            approved: "UGC Approved",
-            mode: "Offline",
-            payment: "One-Time Payment",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "Human Resource Management",
-            duration: "4 months",
-            approved: "NAAC A+",
-            mode: "Hybrid",
-            payment: "EMI Available",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "Cloud Computing",
-            duration: "5 months",
-            approved: "AICTE Approved",
-            mode: "Online",
-            payment: "Subscription",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "Data Science",
-            duration: "12 weeks",
-            approved: "UGC Certified",
-            mode: "Online",
-            payment: "One-Time",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "UI/UX Design",
-            duration: "8 weeks",
-            approved: "NASSCOM Certified",
-            mode: "Offline",
-            payment: "Monthly Installments",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "Robotics Engineering",
-            duration: "6 months",
-            approved: "ISO Certified",
-            mode: "Offline",
-            payment: "One-Time",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "Business Analytics",
-            duration: "10 weeks",
-            approved: "AICTE Approved",
-            mode: "Hybrid",
-            payment: "EMI Available",
-        }
-    ];
-
-    const PrimaryDiscoverCourseCardData = [
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "Online Master’s of Business Administration (MBA)",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "Online Master’s of Business Administration (MBA)",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "Online Master’s of Business Administration (MBA)",
-
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "Online Master’s of Business Administration (MBA)",
-
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "Online Master’s of Business Administration (MBA)",
-
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "Online Master’s of Business Administration (MBA)",
-
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "Online Master’s of Business Administration (MBA)",
-
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "Online Master’s of Business Administration (MBA)",
-
-        }
-    ];
-
-    const BlogsCardData = [
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
-            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
-            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
-            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
-            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
-            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
-            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
-            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-        },
-        {
-            imgSrc: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/in-demand-courses/financial.png",
-            title: "What to Do After BCA? Top 10 Courses for a High-Paying Tech Career Options after BCA",
-            details: "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-        }
-    ];
-
-    const CareerTransitionCardData = [
-        {
-            imageUrlDesktop: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/test/ANURAG.png",
-            imageUrlMobile: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/test/Anurag-Sharma-Mobile.png",
-            hikeText: "65% Hike",
-            name: "Nilutpal Goswami",
-            testimonial: `Balancing my career and family responsibilities, I sought an online MBA program that prioritized flexibility. EduKyu’s comprehensive platform proved invaluable in comparing programs based on scheduling options, learning pace, and online delivery formats. Their counsellor empowered me to identify the perfect program that seamlessly integrates with my busy schedule while delivering a rigorous and high-quality education. I express my gratitude to the EduKyu team for their role in this critical decision.`,
-            linkedinUrl: "https://www.linkedin.com/in/aadityazz/"
-        },
-        // {
-        //     imageUrlDesktop: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/test/ANURAG.png",
-        //     imageUrlMobile: "https://edukyu.com/new-ed/assets/cxp-assets/imgs/test/Anurag-Sharma-Mobile.png",
-        //     hikeText: "65% Hike",
-        //     name: "Nilutpal Goswami",
-        //     testimonial: `Balancing my career and family responsibilities, I sought an online MBA program that prioritized flexibility. EduKyu’s comprehensive platform proved invaluable in comparing programs based on scheduling options, learning pace, and online delivery formats. Their counsellor empowered me to identify the perfect program that seamlessly integrates with my busy schedule while delivering a rigorous and high-quality education. I express my gratitude to the EduKyu team for their role in this critical decision.`,
-        //     linkedinUrl: "https://www.linkedin.com/in/aadityazz/"
-        // },
-    ];
-
-
-    const DiscoverCourseCardData = [
-
-    ];
-
-    const UniversityCardData = [
-
-    ];
 
     return (
         <div className="flex items-center justify-between w-[95%]">
@@ -279,12 +97,12 @@ const CardSlider = () => {
                         },
                     ]}
                 >
-                    {CareerTransitionCardData.map((data, i) => (
-                        // <div key={i} className="px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch">
-                        //     <CareerTransitionCard {...data} />
-                        // </div>
-                        <CareerTransitionCard {...data} />
-                    ))}
+                    {/*{CareerTransitionCardData.map((data, i) => (*/}
+                    {/*    // <div key={i} className="px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch">*/}
+                    {/*    //     <CareerTransitionCard {...data} />*/}
+                    {/*    // </div>*/}
+                    {/*    <CareerTransitionCard {...data} />*/}
+                    {/*))}*/}
                 </Carousel>
             </div>
 
