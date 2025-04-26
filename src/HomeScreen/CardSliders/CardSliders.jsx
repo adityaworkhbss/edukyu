@@ -195,6 +195,18 @@ const CardSlider = () => {
         }
     ];
 
+    const CareerTransitionCardData = [
+
+    ];
+
+    const DiscoverCourseCardData = [
+
+    ];
+
+    const UniversityCardData = [
+
+    ];
+
     return (
         <div className="flex items-center justify-between w-[95%]">
             {!isMobile && (
