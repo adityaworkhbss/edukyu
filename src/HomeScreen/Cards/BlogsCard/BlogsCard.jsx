@@ -37,7 +37,7 @@ const BlogsCard = ({
 
             </div>
 
-            <div className="absolute pt-[340px] pl-[50px]">
+            <div className="absolute pt-[335px] pl-[35px]">
                 <button className="w-[145px] h-[50px] bg-teal-700 hover:bg-teal-800 text-white size-3 font-medium px-4 py-2">
                     View Program
                 </button>

@@ -30,7 +30,7 @@ const CareerTransitionCard = ({
 
             {/* Testimonial Box */}
             <div className="w-full max-w-[800px] mt-16 border rounded-xl p-6 relative bg-white shadow-md">
-                <h3 className="absolute left-1/2 -top-5 transform -translate-x-1/2 bg-white text-[#025E68] text-lg md:text-xl font-medium px-2">
+                <h3 className="absolute left-1/2 -top-4 transform -translate-x-1/2 bg-white text-[#025E68] text-lg md:text-xl font-medium px-2">
                     {name}
                 </h3>
 

@@ -31,24 +31,21 @@ const CardSlider = ({ cardComponent: CardComponent, cardData = [] }) => {
         setTimeout(() => setIsThrottled(false), 600);
     };
 
-    // Add some CSS for the card container
-    const cardContainerStyle = {
-        padding: '0px', // This creates the gap between cards
-    };
-
     return (
-        <div className="flex items-center justify-between mx-auto -ml-6">
+        <div className="relative w-full flex items-center justify-center my-8">
+            {/* Buttons - outside the overflow-hidden area */}
             {!isMobile && (
                 <button
                     onClick={() => throttleClick(prev)}
                     disabled={isThrottled}
-                    className={`text-[32px] pr-[24px] z-10 text-black p-2 transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`absolute left-[-64px] top-1/2 transform -translate-y-1/2 text-[32px] text-black p-2 z-20 transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                     <LeftOutlined />
                 </button>
             )}
 
-            <div className="w-[95%]">
+            {/* Carousel inside a clipped container */}
+            <div className="relative max-w-[1280px] w-full overflow-hidden">
                 <Carousel
                     autoplay
                     ref={carouselRef}
@@ -61,36 +58,24 @@ const CardSlider = ({ cardComponent: CardComponent, cardData = [] }) => {
                     responsive={[
                         {
                             breakpoint: 1200,
-                            settings: {
-                                slidesToShow: 4,
-                                swipe: true
-                            }
+                            settings: { slidesToShow: 4 }
                         },
                         {
                             breakpoint: 1024,
-                            settings: {
-                                slidesToShow: 3,
-                                swipe: true
-                            }
+                            settings: { slidesToShow: 3 }
                         },
                         {
                             breakpoint: 768,
-                            settings: {
-                                slidesToShow: 2,
-                                swipe: true
-                            }
+                            settings: { slidesToShow: 2 }
                         },
                         {
                             breakpoint: 480,
-                            settings: {
-                                slidesToShow: 1,
-                                swipe: true
-                            }
+                            settings: { slidesToShow: 1 }
                         },
                     ]}
                 >
                     {cardData.map((data, index) => (
-                        <div key={index} style={cardContainerStyle}>
+                        <div key={index} className="px-4">
                             <CardComponent {...data} />
                         </div>
                     ))}
@@ -101,7 +86,7 @@ const CardSlider = ({ cardComponent: CardComponent, cardData = [] }) => {
                 <button
                     onClick={() => throttleClick(next)}
                     disabled={isThrottled}
-                    className={`text-[32px] pl-[24px] h-[32px] w-[32px] z-10 text-black p-2 transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`absolute right-[-64px] top-1/2 transform -translate-y-1/2 text-[32px] text-black p-2 z-20 transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                     <RightOutlined />
                 </button>

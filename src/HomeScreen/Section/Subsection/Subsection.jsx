@@ -5,7 +5,10 @@ export default function Subsection({ title, children }) {
             <div className="text-left">
                 <div className="text-[20px] mb-[24px] font-semibold ml-[6px]">{title}</div>
             </div>
-            {children}
+            <div className="mb-[74px]">
+                {children}
+            </div>
+
         </div>
     );
 }

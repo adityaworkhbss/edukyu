@@ -13,7 +13,7 @@ const InDemandCourseCard = ({
                                 payment,
                             }) => {
     return (
-        <div className="w-full max-w-xs border-[#025E68] h-full min-w-[210px] min-h-[420px] border-[1px] rounded-xl shadow-md flex flex-col p-[20px] my-5">
+        <div className="w-full max-w-xs border-[#025E68] h-full min-w-[215px] min-h-[420px] border-[1px] rounded-xl shadow-md flex flex-col p-[20px] my-5">
 
             <div className="w-[60px] h-[22px] text-[12px] fixed bg-[#025E68] mt-[10px] text-[#FFD23F] font-medium">
                 AI & ML
@@ -60,7 +60,7 @@ const InDemandCourseCard = ({
             </div>
 
             {/* Bottom (button) */}
-            <div className="absolute pt-[380px] pl-[50px]">
+            <div className="absolute pt-[375px] pl-[35px]">
                 <button className="w-[145px] h-[45px] bg-teal-700 hover:bg-teal-800 text-white size-3 font-medium px-4 py-2">
                     View Program
                 </button>
