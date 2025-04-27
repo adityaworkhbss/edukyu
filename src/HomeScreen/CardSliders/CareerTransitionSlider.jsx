@@ -2,10 +2,10 @@ import React, { useRef, useEffect, useState } from 'react';
 import {Carousel} from 'antd';
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import CareerTransitionCard from "../Cards/CareerTransitionCard/CareerTransitionCard";
-import { CareerTransitionCardData } from '../Data Modals/CareerTransitionCardData';
+import { CareerTransitionCardData } from '../../Data Modals/CareerTransitionCardData';
 
 
-const CardSlider = () => {
+const CareerTransitionCardSlider = () => {
     const carouselRef = useRef(null);
     const [isThrottled, setIsThrottled] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
@@ -66,47 +66,8 @@ const CardSlider = () => {
                     arrows={false}
                     slidesToShow={1}
                     slidesToScroll={1}
-                    swipe={true}
-                    // responsive={[
-                    //     {
-                    //         breakpoint: 1200, // Large screens (desktop)
-                    //         settings: {
-                    //             slidesToShow: 4, // 4 slides on large screens
-                    //             swipe: true,
-                    //         },
-                    //     },
-                    //     {
-                    //         breakpoint: 1024, // Medium screens (tablet)
-                    //         settings: {
-                    //             slidesToShow: 3, // 3 slides on medium screens
-                    //             swipe: true,
-                    //         },
-                    //     },
-                    //     {
-                    //         breakpoint: 768, // Small screens (tablet to mobile)
-                    //         settings: {
-                    //             slidesToShow: 2, // 2 slides on small screens
-                    //             swipe: true,
-                    //         },
-                    //     },
-                    //     {
-                    //         breakpoint: 480, // Extra small screens (mobile)
-                    //         settings: {
-                    //             slidesToShow: 1, // 1 slide on mobile
-                    //             swipe: true,
-                    //         },
-                    //     },
-                    // ]}
-                >
-                    {/*{BlogsCardData.map((data, i) => (*/}
-                    {/*    <div key={i} className="px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch">*/}
-                    {/*        <BlogsCard {...data} />*/}
-                    {/*    </div>*/}
-                    {/*))}*/}
+                    swipe={true}>
                     {CareerTransitionCardData.map((data, i) => (
-                        // <div key={i} className="px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch">
-                        //     <CareerTransitionCard {...data} />
-                        // </div>
                         <CareerTransitionCard {...data} />
                     ))}
                 </Carousel>
@@ -129,5 +90,5 @@ const CardSlider = () => {
     );
 };
 
-export default CardSlider;
+export default CareerTransitionCardSlider;
 

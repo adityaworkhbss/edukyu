@@ -39,7 +39,7 @@ const SecondryDiscoverCourseCard = ({
                     {title}
                 </h3>
 
-                <div className="text-gray-700 text-sm space-y-3">
+                <div className="text-gray-700 text-sm text-left space-y-3">
                     <div className="flex items-start gap-2">
                         <IoIosTime className="mt-0.5" />
                         <span>Duration: {duration}</span>

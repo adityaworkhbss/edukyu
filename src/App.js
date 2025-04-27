@@ -1,29 +1,20 @@
 import './App.css';
 import 'antd/dist/reset.css';
 
-// Components
-import CardSliders from "./HomeScreen/CardSliders/CardSliders"
-import UniversityCard from "./HomeScreen/Cards/UniversityCard/UniversityCard";
-import CareerTransitionCard from "./HomeScreen/Cards/CareerTransitionCard/CareerTransitionCard";
-import CareerTransitionSlider from "./HomeScreen/CardSliders/CareerTransitionSlider";
+import Navbar from "./navbar/Navbar";
+import FloatingSideCards from "./FloatingSideCards/FloatingSideCards";
+import Footer from "./Footer/Footer";
+import HomeScreen from "./HomeScreen/HomeScreen";
 
 function App() {
     return (
         <div className="App">
-            {/* Layout Container for consistent spacing */}
-            {/*<div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">*/}
-                {/* Uncomment components as needed */}
-                {/* <Navbar /> */}
-                {/* <FloatingSideCards /> */}
-                {/* <InDemandCourseCard /> */}
+            <Navbar />
+            <FloatingSideCards />
 
-                {/* Main Content */}
-                {/*<UniversityCard />*/}
-                <CareerTransitionSlider/>
-                {/*<CardSliders />*/}
+            <HomeScreen/>
 
-                {/* <Footer /> */}
-            {/*</div>*/}
+            <Footer />
         </div>
     );
 }

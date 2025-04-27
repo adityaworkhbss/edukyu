@@ -45,10 +45,6 @@ const CareerTransitionCard = ({
                 </div>
             </div>
 
-            {/* CTA Button */}
-            <button className="mt-10 bg-[#025E68] text-[#FFD23F] font-semibold px-6 py-3 rounded text-sm md:text-base">
-                Talk To Expert Counsellor
-            </button>
         </div>
     );
 };

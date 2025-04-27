@@ -7,7 +7,7 @@ const BlogsCard = ({
                                  details,
                              }) => {
     return (
-        <div className="w-full max-w-xs border-[#025E68] h-full min-w-[220px] min-h-[380px] border-[1px] rounded-xl shadow-md flex flex-col p-[20px] my-5">
+        <div className="w-full max-w-xs border-[#025E68] h-full min-w-[220px] min-h-[380px] border-[1px] rounded-xl shadow-md flex flex-col p-[20px] my-5 ">
 
             {/* Top (image and details) */}
             <div className="flex-grow">
@@ -38,7 +38,7 @@ const BlogsCard = ({
             </div>
 
             <div className="absolute pt-[340px] pl-[50px]">
-                <button className="w-[145px] h-[45px] bg-teal-700 hover:bg-teal-800 text-white size-3 font-medium px-4 py-2">
+                <button className="w-[145px] h-[50px] bg-teal-700 hover:bg-teal-800 text-white size-3 font-medium px-4 py-2">
                     View Program
                 </button>
             </div>

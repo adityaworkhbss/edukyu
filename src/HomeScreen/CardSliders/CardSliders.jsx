@@ -1,9 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
-import {Carousel} from 'antd';
+import { Carousel } from 'antd';
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import CareerTransitionCard from "../Cards/CareerTransitionCard/CareerTransitionCard";
 
-const CardSlider = () => {
+const CardSlider = ({ cardComponent: CardComponent, cardData = [] }) => {
     const carouselRef = useRef(null);
     const [isThrottled, setIsThrottled] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
@@ -18,45 +17,38 @@ const CardSlider = () => {
     }, []);
 
     const next = () => {
-        if (carouselRef.current) {
-            carouselRef.current.next();
-        }
+        carouselRef.current?.next();
     };
 
     const prev = () => {
-        if (carouselRef.current) {
-            carouselRef.current.prev();
-        }
+        carouselRef.current?.prev();
     };
 
-
-
-    const throttleClick = (action, resetTimer = true) => {
+    const throttleClick = (action) => {
         if (isThrottled) return;
         action();
         setIsThrottled(true);
-        setTimeout(() => {
-            setIsThrottled(false);
-        }, 600);
+        setTimeout(() => setIsThrottled(false), 600);
     };
 
+    // Add some CSS for the card container
+    const cardContainerStyle = {
+        padding: '0px', // This creates the gap between cards
+    };
 
     return (
-        <div className="flex items-center justify-between w-[95%]">
+        <div className="flex items-center justify-between mx-auto -ml-6">
             {!isMobile && (
-                <>
-                    <button
-                        onClick={() => throttleClick(prev)}
-                        disabled={isThrottled}
-                        className={`text-[32px]  z-10  text-black p-2 transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
-                    >
-                        <LeftOutlined />
-                    </button>
-                </>
+                <button
+                    onClick={() => throttleClick(prev)}
+                    disabled={isThrottled}
+                    className={`text-[32px] pr-[24px] z-10 text-black p-2 transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
+                >
+                    <LeftOutlined />
+                </button>
             )}
-            <div className="w-[95%] px-2">
 
-
+            <div className="w-[95%]">
                 <Carousel
                     autoplay
                     ref={carouselRef}
@@ -65,64 +57,57 @@ const CardSlider = () => {
                     arrows={false}
                     slidesToShow={4}
                     slidesToScroll={1}
-                    swipe={true}
+                    swipe
                     responsive={[
                         {
-                            breakpoint: 1200, // Large screens (desktop)
+                            breakpoint: 1200,
                             settings: {
-                                slidesToShow: 4, // 4 slides on large screens
-                                swipe: true,
-                            },
+                                slidesToShow: 4,
+                                swipe: true
+                            }
                         },
                         {
-                            breakpoint: 1024, // Medium screens (tablet)
+                            breakpoint: 1024,
                             settings: {
-                                slidesToShow: 3, // 3 slides on medium screens
-                                swipe: true,
-                            },
+                                slidesToShow: 3,
+                                swipe: true
+                            }
                         },
                         {
-                            breakpoint: 768, // Small screens (tablet to mobile)
+                            breakpoint: 768,
                             settings: {
-                                slidesToShow: 2, // 2 slides on small screens
-                                swipe: true,
-                            },
+                                slidesToShow: 2,
+                                swipe: true
+                            }
                         },
                         {
-                            breakpoint: 480, // Extra small screens (mobile)
+                            breakpoint: 480,
                             settings: {
-                                slidesToShow: 1, // 1 slide on mobile
-                                swipe: true,
-                            },
+                                slidesToShow: 1,
+                                swipe: true
+                            }
                         },
                     ]}
                 >
-                    {/*{CareerTransitionCardData.map((data, i) => (*/}
-                    {/*    // <div key={i} className="px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch">*/}
-                    {/*    //     <CareerTransitionCard {...data} />*/}
-                    {/*    // </div>*/}
-                    {/*    <CareerTransitionCard {...data} />*/}
-                    {/*))}*/}
+                    {cardData.map((data, index) => (
+                        <div key={index} style={cardContainerStyle}>
+                            <CardComponent {...data} />
+                        </div>
+                    ))}
                 </Carousel>
             </div>
 
             {!isMobile && (
-                <>
-                    <button
-                        onClick={() => throttleClick(next)}
-                        disabled={isThrottled}
-                        className={`text-[32px] h-[32px] w-[32px] z-10  text-black p-2  transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
-                    >
-                        <RightOutlined />
-                    </button>
-                </>
+                <button
+                    onClick={() => throttleClick(next)}
+                    disabled={isThrottled}
+                    className={`text-[32px] pl-[24px] h-[32px] w-[32px] z-10 text-black p-2 transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
+                >
+                    <RightOutlined />
+                </button>
             )}
-
-
         </div>
     );
 };
 
 export default CardSlider;
-
-
