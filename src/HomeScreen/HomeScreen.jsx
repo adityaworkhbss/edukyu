@@ -40,6 +40,7 @@ export default function HomeScreen() {
             <ColoredSection
                 title="Universities to Explore"
                 description="Unlock your potential with online programs from the best. Earn a degree from renowned universities, recognized for their excellence in online education. Experience cutting-edge curriculum, personalized support, and a global network of alumni, all delivered on your terms."
+                backgroundImage="url('https://edukyu.com/new-edukyu/assets/cxp-assets/imgs/home-page/collage-bg.png')"
             >
                 <div className="mt-12">
                     <CardSlider
@@ -49,7 +50,10 @@ export default function HomeScreen() {
                 </div>
             </ColoredSection>
 
-            <Section title="Discover Our Courses">
+
+
+            <Section title="Discover Our Courses" className="mt-[74px]">
+
                 <CardSlider
                     cardComponent={PrimaryDiscoverCourseCard}
                     cardData={PrimaryDiscoverCourseCardData}

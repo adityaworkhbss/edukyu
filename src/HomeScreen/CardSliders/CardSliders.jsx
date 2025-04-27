@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Carousel } from 'antd';
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import UniversityCard from "../Cards/UniversityCard/UniversityCard";
 
 const CardSlider = ({ cardComponent: CardComponent, cardData = [] }) => {
     const carouselRef = useRef(null);
@@ -38,10 +39,13 @@ const CardSlider = ({ cardComponent: CardComponent, cardData = [] }) => {
                 <button
                     onClick={() => throttleClick(prev)}
                     disabled={isThrottled}
-                    className={`absolute left-[-64px] top-1/2 transform -translate-y-1/2 text-[32px] text-black p-2 z-20 transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`absolute left-[-64px] top-1/2 transform -translate-y-1/2 text-[32px] ${
+                        CardComponent === UniversityCard ? "text-white" : "text-black"
+                    } p-2 z-20 transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                     <LeftOutlined />
                 </button>
+
             )}
 
             {/* Carousel inside a clipped container */}
@@ -86,10 +90,13 @@ const CardSlider = ({ cardComponent: CardComponent, cardData = [] }) => {
                 <button
                     onClick={() => throttleClick(next)}
                     disabled={isThrottled}
-                    className={`absolute right-[-64px] top-1/2 transform -translate-y-1/2 text-[32px] text-black p-2 z-20 transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`absolute right-[-64px] top-1/2 transform -translate-y-1/2 text-[32px] ${
+                        CardComponent === UniversityCard ? "text-white" : "text-black"
+                    } p-2 z-20 transition-all duration-200 ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                     <RightOutlined />
                 </button>
+
             )}
         </div>
     );

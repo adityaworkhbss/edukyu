@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./NumberOfTrust.css";
 
 const stats = [
-    { value: 197, label: "Courses" },
-    { value: 9000, label: "Alumni" },
-    { value: 10, label: "Prominent Universities" },
+    { value: 196, label: "Courses" },
+    { value: 9000, label: "Prominent Universities" },
+    { value: 9, label: "Alumni" },
     { value: 8, label: "Years of Proficiency" },
 ];
 
@@ -39,15 +39,26 @@ export default function NumberOfTrust() {
 
     return (
         <div className="trust-container">
-            {stats.map((stat, index) => (
-                <div key={index} className="trust-card">
-                    <div className="trust-value">
-                        {Math.floor(counts[index])}+
-                    </div>
-                    <div className="trust-label">{stat.label}</div>
-                    {index < stats.length - 1 && <div className="divider" />}
+            <div className="trust-row">
+                <div className="trust-card">
+                    <div className="trust-value">{Math.floor(counts[0])}+</div>
+                    <div className="trust-label">{stats[0].label}</div>
                 </div>
-            ))}
+                <div className="trust-card">
+                    <div className="trust-value">{Math.floor(counts[1])}+</div>
+                    <div className="trust-label">{stats[1].label}</div>
+                </div>
+            </div>
+            <div className="trust-row">
+                <div className="trust-card">
+                    <div className="trust-value">{Math.floor(counts[2])}+</div>
+                    <div className="trust-label">{stats[2].label}</div>
+                </div>
+                <div className="trust-card">
+                    <div className="trust-value">{Math.floor(counts[3])}+</div>
+                    <div className="trust-label">{stats[3].label}</div>
+                </div>
+            </div>
         </div>
     );
 }
