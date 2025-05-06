@@ -8,21 +8,14 @@ const Layout = () => {
     const config = gridConfigs[breakpoint];
 
     const marginClass = {
-        mobile: 'ml-[20px]',
-        tablet: 'ml-[20px]',
-        laptop: 'ml-[56px]',
-        desktop: 'mx-auto',
-    }[breakpoint];
-
-    const widthClass = {
-        desktop: 'w-[1807px]',
-        laptop: 'w-fit',
-        tablet: 'w-fit',
-        mobile: 'w-fit',
+        mobile: 'ml-[20px] mr-[20px]',
+        tablet: 'ml-[20px] mr-[20px]',
+        laptop: 'ml-[56px] mr-[56px]',
+        desktop: 'ml-[56px] mr-[56px]', // you can still use 'mx-auto' if you prefer centering
     }[breakpoint];
 
     return (
-        <div className={`${marginClass} ${widthClass}`}>
+        <div className={`w-full ${marginClass}`}>
             <Parent
                 numGrids={config.numGrids}
                 gutter={config.gutter}
@@ -32,6 +25,7 @@ const Layout = () => {
             />
         </div>
     );
+
 };
 
 export default Layout;
