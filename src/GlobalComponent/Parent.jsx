@@ -7,11 +7,11 @@ const Parent = ({ numGrids, gutter, gridHeight, color }) => {
     const [gridWidth, setGridWidth] = useState('0px');
     const breakpoint = useBreakpoint();
 
-    const marginRightForLastGrid = {
-        mobile: '20px',
-        tablet: '20px',
-        laptop: '56px',
-        desktop: '56px', // or use 'auto' logic conditionally
+    const gapClass = {
+        mobile: 'flex w-full gap-[16px]',
+        tablet: 'flex w-full gap-[16px]',
+        laptop: 'flex w-full gap-[24px]',
+        desktop: 'flex w-full gap-[24px]',
     }[breakpoint];
 
 
@@ -32,17 +32,16 @@ const Parent = ({ numGrids, gutter, gridHeight, color }) => {
     }, [numGrids, gutter]);
 
     return (
-        <div ref={containerRef} className="flex w-full">
+        <div ref={containerRef} className={`${gapClass}`}>
             {Array.from({ length: numGrids }).map((_, i) => {
-                const marginRight = i !== numGrids - 1 ? gutter : marginRightForLastGrid;
-                console.log(`Grid ${i}: marginRight=${marginRight}`);
+                // const marginRight = i !== numGrids - 1 ? gutter : marginRightForLastGrid;
                 return (
                     <Grid
                         key={i}
                         width={gridWidth}
                         height={gridHeight}
                         color={color}
-                        gutter={marginRight}
+                        // gutter={marginRight}
                     />
                 );
             })}

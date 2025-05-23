@@ -4,11 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        gilroy: ['Gilroy-Regular', 'sans-serif'],
-        bold: ['Gilroy-Bold', 'sans-serif'],
-        medium: ['Gilroy-Medium', 'sans-serif'],
-        light: ['Gilroy-Light', 'sans-serif'],
-        heavy: ['Gilroy-Heavy', 'sans-serif'],
+        outfit: ['Outfit', 'sans-serif'],
       },
       screens: {
         mobile: '0px',
