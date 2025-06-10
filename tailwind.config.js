@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         outfit: ['Outfit', 'sans-serif'],
       },
+      maxHeight: {
+        'screen-minus-78': 'calc(100vh - 78px)',
+      },
       screens: {
         mobile: '0px',
         tablet: '768px',

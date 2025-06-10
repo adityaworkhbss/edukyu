@@ -3,6 +3,8 @@ import Parent from './Parent';
 import TopNav from '../TopNav/TopNav';
 import { useBreakpoint } from '../AppUtils/UseBreakpoint';
 import { gridConfigs } from '../AppUtils/GridConfigs';
+import CourseList from "../Courses/CourseList";
+import CollegeHeader from "../Courses/CollegeHeader";
 
 const Layout = () => {
     const breakpoint = useBreakpoint();
@@ -18,6 +20,7 @@ const Layout = () => {
     return (
         <div className="w-full">
             <TopNav />
+            {/*<CollegeHeader/>*/}
             <div className={`${marginClass}`}>
                 <Parent
                     numGrids={config.numGrids}
