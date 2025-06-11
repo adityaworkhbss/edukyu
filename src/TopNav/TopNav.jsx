@@ -46,6 +46,7 @@ const TopNav = () => {
                         </div>
                     </div>
 
+                    <div className="overscroll-y-auto"></div>
                     {isSidebarOpen && (
                         <MobileSidebar onClose={() => setSidebarOpen(false)} />
                     )}
