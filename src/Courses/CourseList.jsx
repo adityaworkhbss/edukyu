@@ -23,7 +23,8 @@ const CourseList = ({ university }) => {
     const courses = universityData[baseProgram] ? Object.keys(universityData[baseProgram]) : [];
 
     return (
-        <div className="overflow-hidden">
+        <div className="overflow-hidden h-[626px]">
+
             <div className="flex flex-col md:flex-row pt-[29px] border-gray-200">
                 <h1 className="text-[18px] width-[288px] h-[23px] font-medium text-black leading-none font-[Outfit] mb-3 md:mb-0">
                     Courses {university} Provides
