@@ -3,7 +3,7 @@ import CourseList from "./CourseList";
 import { universitiesData } from '../Data Model/UniversityData';
 
 export default function CollegeHeader() {
-    const [showCourses] = useState(true);
+    const [showCourses, setShowCourses] = useState(true);
     const [trendingCollege] = useState("DPU");
 
     const [selectedUniversity, setSelectedUniversity] = useState(trendingCollege);
@@ -54,7 +54,7 @@ export default function CollegeHeader() {
                         </div>
                     ))}
                 </div>
-                <div className="w-full h-px bg-[#9B9B9B] mt-4 pr-[56px]"></div>
+                <div className="w-[1250px] h-px bg-[#9B9B9B] mt-4 "></div>
                 {showCourses && (
                     <div className="font-outfit">
                         <CourseList university={selectedUniversity} />
