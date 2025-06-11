@@ -1,47 +1,32 @@
 import React, { useState } from 'react';
+import { universitiesData } from '../Data Model/UniversityData';
 
-const CourseList = () => {
-    const data = {
-        "MBA (11 Courses)": [
-            "(BCM) Block Chain Management",
-            "(BAM) Business Analytics Management",
-            "(AIML) Artificial Intelligence and Machine Learning",
-            "(FNT) FinTech Management",
-            "(MM) Marketing Management",
-            "(HRM) Human Resource Management",
-            "(FM) Finance Management",
-            "(ITM) Information Technology",
-            "(PM) Project Management",
-            "(OM) Operations Management",
-            "(HCM) Hospital Administration and Health Care Management",
-            "(IBM) International Business Management",
-            "(SCM) Logistics, Materials and Supply Chain",
-            "(DM) Digital Marketing Management",
-            "(ABM) Agri Business Management"
-        ],
-        BBA: [],
-        MCA: [],
-        BCA: [],
-        MA: [],
-        BA: [],
-        "M.Com": [],
-        "B.Com": [],
-        "M.Sc": [],
-        "B.Sc": [],
+const CourseList = ({ university }) => {
+    const universityData = universitiesData[university] || {};
+
+    const formattedPrograms = Object.keys(universityData).map(program => {
+        const courseCount = Object.keys(universityData[program]).length;
+        return courseCount > 0 ? `${program} (${courseCount} Courses)` : program;
+    });
+
+    const [selectedProgram, setSelectedProgram] = useState(formattedPrograms[0] || "");
+
+    const getBaseProgramName = (formattedName) => {
+        return formattedName.split(' (')[0];
     };
-
-    const [selectedCourse, setSelectedCourse] = useState("MBA (11 Courses)");
 
     const handleSelect = (name) => {
-        setSelectedCourse(name);
+        setSelectedProgram(name);
     };
+
+    const baseProgram = getBaseProgramName(selectedProgram);
+    const courses = universityData[baseProgram] ? Object.keys(universityData[baseProgram]) : [];
 
     return (
         <div className="overflow-hidden">
-
             <div className="flex flex-col md:flex-row pt-[29px] border-gray-200">
                 <h1 className="text-[18px] width-[288px] h-[23px] font-medium text-black leading-none font-[Outfit] mb-3 md:mb-0">
-                    Course D.Y. Patil University Provides
+                    Courses {university} Provides
                 </h1>
 
                 <a
@@ -61,43 +46,39 @@ const CourseList = () => {
                                 fill="#357E86"
                             />
                         </g>
-                        <defs>
-                            <clipPath id="clip0_171_79">
-                                <rect width="16" height="16" fill="white" />
-                            </clipPath>
-                        </defs>
                     </svg>
                 </a>
-
             </div>
 
-            <div className="flex pt-[44px] gap-6">
-                <div className="border-r border-gray-200">
-                    {Object.keys(data).map((course, index) => (
+            <div className="flex pt-[44px] gap-6 pb-[95px]">
+                <div className="">
+                    {formattedPrograms.map((program, index) => (
                         <button
                             key={index}
-                            onClick={() => handleSelect(course)}
+                            onClick={() => handleSelect(program)}
                             className={`w-[189px] h-[36px] text-left text-[12px] pl-[12px] pt-[11px] pb-[10px] flex items-center border
-                                ${selectedCourse === course
+                                ${selectedProgram === program
                                 ? 'bg-[#025E68] text-white font-medium'
                                 : 'bg-white border-[1px] border-[#B3CFD2] text-[#333]'
                             }
                                 hover:bg-[#025E68]/90 hover:text-white transition-colors duration-200`}
                         >
-                            {course}
+                            {program}
                         </button>
                     ))}
                 </div>
 
-                {data[selectedCourse].length > 0 && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-6">
-                        {data[selectedCourse].map((subCourse, idx) => (
+                {courses.length > 0 && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-6 pb-[111px] h-[36px]">
+                        {courses.map((course, idx) => (
                             <div
                                 key={idx}
-                                className="inline-flex items-center px-[12px] pr-[42px] py-[11px] text-sm border border-[#9F9F9F] bg-white"
+                                className="w-[278px] h-[36px] px-[12px] py-[11px] overflow-hidden text-left  truncate line-clamp-1 text-[#786D6D] text-[12px] font-[400] font-[Outfit] not-italic leading-normal flex-shrink-0 border border-[#9F9F9F]/50 bg-white"
+
                             >
-                                {subCourse}
+                                {course}
                             </div>
+
                         ))}
                     </div>
                 )}
