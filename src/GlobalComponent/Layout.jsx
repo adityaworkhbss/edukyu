@@ -5,6 +5,7 @@ import { useBreakpoint } from '../AppUtils/UseBreakpoint';
 import { gridConfigs } from '../AppUtils/GridConfigs';
 import CourseList from "../Courses/CourseList";
 import CollegeHeader from "../Courses/CollegeHeader";
+import Footer from "../Footer/Footer";
 
 const Layout = () => {
     const breakpoint = useBreakpoint();
@@ -30,6 +31,7 @@ const Layout = () => {
                     color="rgba(220, 100, 255, 0.2)"
                 />
             </div>
+            <Footer/>
         </div>
     );
 };
