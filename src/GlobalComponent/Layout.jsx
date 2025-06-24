@@ -5,6 +5,8 @@ import { useBreakpoint } from '../AppUtils/UseBreakpoint';
 import { gridConfigs } from '../AppUtils/GridConfigs';
 import CourseList from "../Courses/CourseList";
 import CollegeHeader from "../Courses/CollegeHeader";
+import FooterDesktop from "../Footer/FooterDesktop";
+import FooterMobile from "../Footer/FooterMobile";
 import Footer from "../Footer/Footer";
 
 const Layout = () => {
