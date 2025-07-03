@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mail, Phone} from 'lucide-react';
-import Edukyu_Logo from '../Images/edukyu-footer-logo.png';
+import Edukyu_Logo from '../Resources/Images/edukyu-footer-logo.png';
 
 const Logo = () => (
     <div className="flex items-center h-[66px]">

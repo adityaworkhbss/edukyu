@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, Phone, Mail, Facebook } from 'lucide-react';
-import Edukyu_Logo from "../Images/edukyu-footer-logo.png";
+import Edukyu_Logo from "../Resources/Images/edukyu-footer-logo.png";
 
 const EduKyuMobileFooter = () => {
     const [expandedSections, setExpandedSections] = useState({});

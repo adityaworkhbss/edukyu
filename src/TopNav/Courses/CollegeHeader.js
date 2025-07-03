@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CourseList from "./CourseList";
-import { universitiesData } from '../Data Model/UniversityData';
+import { universitiesData } from '../../Data Model/UniversityData';
 
 export default function CollegeHeader() {
     const [showCourses] = useState(true);

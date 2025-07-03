@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { universitiesData } from '../Data Model/UniversityData';
+import { universitiesData } from '../../Data Model/UniversityData';
 
 const CourseList = ({ university }) => {
     const universityData = universitiesData[university] || {};

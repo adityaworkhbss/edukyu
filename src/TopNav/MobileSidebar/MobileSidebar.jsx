@@ -1,5 +1,5 @@
 import React from 'react';
-import Edukyu_logo from "../../Images/Edukyu_Logo.png";
+import Edukyu_logo from "../../Resources/Images/Edukyu_Logo.png";
 import CollegeList from "./CollegeList/CollegeList";
 
 const MobileSidebar = ({ onClose }) => {
@@ -82,54 +82,12 @@ const MobileSidebar = ({ onClose }) => {
 
                 <div className="inline-flex justify-between">
                     Compare
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <g clipPath="url(#clip0_222_100)">
-                                <path d="M8.58984 16.59L13.1698 12L8.58984 7.41L9.99984 6L15.9998 12L9.99984 18L8.58984 16.59Z" fill="#025E68"/>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_222_100">
-                                    <rect width="24" height="24" fill="white"/>
-                                </clipPath>
-                            </defs>
-                        </svg>
-                    </a>
-                </div>
-
-                <div className="w-[100%] h-[1px] bg-[#DBDBDB]"></div>
-
-                <div className="inline-flex justify-between">
-                    Search
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <g clipPath="url(#clip0_222_100)">
-                                <path d="M8.58984 16.59L13.1698 12L8.58984 7.41L9.99984 6L15.9998 12L9.99984 18L8.58984 16.59Z" fill="#025E68"/>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_222_100">
-                                    <rect width="24" height="24" fill="white"/>
-                                </clipPath>
-                            </defs>
-                        </svg>
-                    </a>
                 </div>
 
                 <div className="w-[100%] h-[1px] bg-[#DBDBDB]"></div>
 
                 <div className="inline-flex justify-between">
                     Blogs
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <g clipPath="url(#clip0_222_100)">
-                                <path d="M8.58984 16.59L13.1698 12L8.58984 7.41L9.99984 6L15.9998 12L9.99984 18L8.58984 16.59Z" fill="#025E68"/>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_222_100">
-                                    <rect width="24" height="24" fill="white"/>
-                                </clipPath>
-                            </defs>
-                        </svg>
-                    </a>
                 </div>
 
                 <div className="w-[100%] h-[1px] bg-[#DBDBDB]"></div>
