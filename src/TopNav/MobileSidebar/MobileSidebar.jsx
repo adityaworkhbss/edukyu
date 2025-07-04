@@ -1,13 +1,15 @@
 import React from 'react';
 import Edukyu_logo from "../../Resources/Images/Edukyu_Logo.png";
 import CollegeList from "./CollegeList/CollegeList";
+import BlogComponentMobile from "../BlogComponent/BlogComponentMobile";
 
 const MobileSidebar = ({ onClose }) => {
 
     const [isCollegeOpen, setIsCollegeOpen] = React.useState(false);
+    const [isBlogOpen, setIsBlogOpen] = React.useState(false);
 
     return (
-        <div className="fixed top-0 left-0 w-[100%]  bg-white shadow-lg z-50 flex flex-col overflow-y-auto">
+        <div className="fixed top-0 left-0 w-[100%] h-full  bg-white shadow-lg z-50 flex flex-col overflow-y-auto">
             <div className="flex justify-between items-center">
                 <img className="items-center pt-[20px] pl-[20px] w-[100px] " src={Edukyu_logo} alt="Edukyu" />
                 <button className="pt-6 pr-[20px]" onClick={onClose}>
@@ -86,11 +88,17 @@ const MobileSidebar = ({ onClose }) => {
 
                 <div className="w-[100%] h-[1px] bg-[#DBDBDB]"></div>
 
-                <div className="inline-flex justify-between">
+                <div className="inline-flex justify-between" onClick={() => setIsBlogOpen(!isCollegeOpen)}>
                     Blogs
                 </div>
 
                 <div className="w-[100%] h-[1px] bg-[#DBDBDB]"></div>
+
+                {isBlogOpen && (
+                    <div className="pl-[44px] pt-[16px] pb-[54px]">
+                        <BlogComponentMobile  onClose={() => setIsBlogOpen(false)}/>
+                    </div>
+                )}
 
                 <div className="inline-flex justify-between">
                     More

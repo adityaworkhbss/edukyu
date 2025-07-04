@@ -33,7 +33,7 @@ const SearchComponentDesktop = () => {
     };
 
     return (
-        <div className="px-14 pt-[44px] pb-[24px]">
+        <div className="px-14 bg-[#FFF] pt-[44px] pb-[24px]">
             <div className="">
                 {/* Search Bar */}
                 <div className="">
@@ -44,7 +44,7 @@ const SearchComponentDesktop = () => {
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 placeholder="Search for your dream made easier, type anything to search..."
-                                className="w-full bg-transparent focus:outline-none focus:ring-0"
+                                className="w-full font-outfit font-medium text-[#515150] bg-transparent focus:outline-none focus:ring-0"
                                 onKeyPress={(e) => {
                                     if (e.key === 'Enter') {
                                         handleSearch(e);

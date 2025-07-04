@@ -1,34 +1,53 @@
 import React from 'react';
 import CompareCollageImage from '../../Resources/Images/CompareCollegeMenu.png';
+import GridContainer from '../../GlobalComponent/GridContainer';
+import GridComponent from '../../GlobalComponent/GridComponent';
 
-
-const CompareCollegeDesktop = ({ containerWidth, gutter, numGrids }) => {
-
-
+const CompareCollegeDesktop = ({ numGrids, gutter }) => {
     return (
-        <div className="w-full flex bg-[#FFF] px-14 py-6">
-            <div className="text-left">
-                <div className="text-[22px] pt-6 pb-3 font-medium text-[#383837] font-outfit leading-none">
-                    Confused which college to choose?
-                </div>
+        <div className="w-full bg-white px-14 py-6">
+            <GridContainer
+                numGrids={numGrids}
+                gutter={gutter}
+                gridHeight="auto"
+                showGrids={false}
+            >
+                {/* Text Section - Grid 1 to 6 */}
+                <GridComponent
+                    lastUsedGridEnd={0}
+                    gridStart={1}
+                    gridEnd={7}
+                    className="text-left"
+                >
+                    <div>
+                        <div className="text-[22px] pt-6 pb-3 font-medium text-[#383837] font-outfit leading-none">
+                            Confused which college to choose?
+                        </div>
 
-                <div className="text-[16px] pb-8 w-[720px] font-normal text-[#515150] font-outfit leading-none">
-                    Compare the colleges that are on your mind, to see what all they provide and choose the best that you like. Because we want the best for you!
-                </div>
+                        <div className="text-[16px] pb-8 w-full font-normal text-[#515150] font-outfit leading-none">
+                            Compare the colleges that are on your mind, to see what all they provide and choose the best that you like. Because we want the best for you!
+                        </div>
 
-                <div>
-                    <button className="inline-flex items-center justify-center gap-[10px] px-[16px] py-[12px] rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-outfit leading-none">
-                        Compare Colleges
-                    </button>
-                </div>
+                        <div>
+                            <button className="inline-flex items-center justify-center gap-[10px] px-[16px] py-[12px] rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-outfit leading-none">
+                                Compare Colleges
+                            </button>
+                        </div>
+                    </div>
+                </GridComponent>
 
-            </div>
-            <div className="pl-[26px]">
-                <div className="inline-flex py-[8px] h-[146px] w-auto justify-end items-center gap-[29.25px] rounded-[12px]">
-                    <img src={CompareCollageImage} alt="Compare College" />
-                </div>
-            </div>
-
+                {/* Image Section - Grid 7 to 12 */}
+                <GridComponent
+                    lastUsedGridEnd={8}
+                    gridStart={8}
+                    gridEnd={12}
+                    className=""
+                >
+                    <div className="pl-[24px] left-6 rounded-[12px]">
+                        <img src={CompareCollageImage} alt="Compare College" />
+                    </div>
+                </GridComponent>
+            </GridContainer>
         </div>
     );
 };
