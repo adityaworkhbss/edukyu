@@ -8,6 +8,8 @@ import CompareCollegeDesktop from "./CompareCollegeComponent/CompareCollegeDeskt
 import SearchComponentDesktop from "./SearchComponent/SearchComponentDesktop";
 import SearchComponentMobile from "./SearchComponent/SearchComponentMobile";
 import BlogComponentDesktop from "./BlogComponent/BlogComponentDesktop";
+import ContactUsComponentDesktop from "./ContactUsComponent/ContactUsComponentDesktop";
+import MoreComponentDesktop from "./MoreComponent/MoreComponentDesktop";
 
 const TopNav = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -16,6 +18,8 @@ const TopNav = () => {
     const [showMobileSearch, setShowMobileSearch] = useState(false);
     const [showSearch, setShowSearch] = useState(false);
     const [showBlog, setShowBlog] = useState(false);
+    const [showContactUs, setShowContactUs] = useState(false);
+    const [showMore, setShowMore] = useState(false);
     const breakpoint = useBreakpoint();
     const isMobile = breakpoint === 'mobile';
 
@@ -39,6 +43,15 @@ const TopNav = () => {
         setShowBlog(prev => !prev);
     };
 
+    const handleContactUsClick = (e) => {
+        e.preventDefault();
+        setShowContactUs(prev => !prev);
+    };
+
+    const handleMoreClick = (e) => {
+        e.preventDefault();
+        setShowMore(prev => !prev);
+    };
 
     return (
         <div className="bg-white w-full h-16 z-60 shadow-md">
@@ -95,8 +108,8 @@ const TopNav = () => {
                             <a href="#" onClick={handleCompareCollegeClick}>Compare</a>
                             <a href="#" onClick={handleSearchClick}>Search</a>
                             <a href="#" onClick={handleBlogClick}>Blogs</a>
-                            <a href="#">More</a>
-                            <a href="#">Contact Us</a>
+                            <a href="#" onClick={handleMoreClick}>More</a>
+                            <a href="#" onClick={handleContactUsClick}>Contact Us</a>
                         </div>
 
                         <div className="pl-6 inline-flex gap-[9px] py-[14px]">
@@ -158,6 +171,17 @@ const TopNav = () => {
                 </div>
             )}
 
+            {showContactUs && (
+                <div className="absolute top-16 left-0 w-full z-50">
+                    <ContactUsComponentDesktop />
+                </div>
+            )}
+
+            {showMore && (
+                <div className="absolute top-16 left-0 w-full z-50">
+                    <MoreComponentDesktop />
+                </div>
+            )}
         </div>
     );
 };

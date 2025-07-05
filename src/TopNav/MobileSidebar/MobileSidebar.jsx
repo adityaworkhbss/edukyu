@@ -2,11 +2,15 @@ import React from 'react';
 import Edukyu_logo from "../../Resources/Images/Edukyu_Logo.png";
 import CollegeList from "./CollegeList/CollegeList";
 import BlogComponentMobile from "../BlogComponent/BlogComponentMobile";
+import ContactUsComponentMobile from "../ContactUsComponent/ContactUsComponentMobile";
+import MoreComponentMobile from "../MoreComponent/MoreComponentMobile";
 
 const MobileSidebar = ({ onClose }) => {
 
     const [isCollegeOpen, setIsCollegeOpen] = React.useState(false);
     const [isBlogOpen, setIsBlogOpen] = React.useState(false);
+    const [isContactUsOpen, setIsContactUsOpen] = React.useState(false);
+    const [isMoreOpen, setIsMoreOpen] = React.useState(false);
 
     return (
         <div className="fixed top-0 left-0 w-[100%] h-full  bg-white shadow-lg z-50 flex flex-col overflow-y-auto">
@@ -100,7 +104,7 @@ const MobileSidebar = ({ onClose }) => {
                     </div>
                 )}
 
-                <div className="inline-flex justify-between">
+                <div className="inline-flex justify-between" onClick={() => setIsMoreOpen(!isMoreOpen)}>
                     More
                     <a href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -118,10 +122,17 @@ const MobileSidebar = ({ onClose }) => {
 
                 <div className="w-[100%] h-[1px] bg-[#DBDBDB]"></div>
 
-                <div className=" pt-4 pb-[226px] space-y-4">
-                    <div className="text-[16px] font-normal text-[#025E68] ">CONTACT US</div>
 
-                    <div className="inline-flex gap-x-[27px]">
+                {isMoreOpen && (
+                    <div className="pl-[44px] pt-[16px] pb-[54px]">
+                        <MoreComponentMobile  onClose={() => setIsMoreOpen(false)}/>
+                    </div>
+                )}
+
+                <div className=" pt-4  space-y-4">
+                    <div className="text-[16px] font-normal text-[#025E68] " onClick={() => setIsContactUsOpen(!isContactUsOpen)}>CONTACT US</div>
+
+                    <div className="flex flex-wrap gap-x-[27px] justify-between gap-y-5">
                         <div className="flex items-center text-sm text-black gap-x-[20px]">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 20 20">
                                 <g clipPath="url(#clip0)">
@@ -133,8 +144,23 @@ const MobileSidebar = ({ onClose }) => {
                                     </clipPath>
                                 </defs>
                             </svg>
-                            <span className="font-medium text-[16px]">833-688-9553</span>
+                            <span className="font-medium text-[16px]">+91 90085 25443</span>
                         </div>
+
+                        <div className="flex items-center text-sm text-black gap-x-[20px]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 20 20">
+                                <g clipPath="url(#clip0)">
+                                    <path d="M5.45 4.16667C5.5 4.90833 5.625 5.63333 5.825 6.325L4.825 7.325C4.48333 6.325 4.26667 5.26667 4.19167 4.16667H5.45ZM13.6667 14.1833C14.375 14.3833 15.1 14.5083 15.8333 14.5583V15.8C14.7333 15.725 13.675 15.5083 12.6667 15.175L13.6667 14.1833ZM6.25 2.5H3.33333C2.875 2.5 2.5 2.875 2.5 3.33333C2.5 11.1583 8.84167 17.5 16.6667 17.5C17.125 17.5 17.5 17.125 17.5 16.6667V13.7583C17.5 13.3 17.125 12.925 16.6667 12.925C15.6333 12.925 14.625 12.7583 13.6917 12.45C13.6083 12.4167 13.5167 12.4083 13.4333 12.4083C13.2167 12.4083 13.0083 12.4917 12.8417 12.65L11.0083 14.4833C8.65 13.275 6.71667 11.35 5.51667 8.99167L7.35 7.15833C7.58333 6.925 7.65 6.6 7.55833 6.30833C7.25 5.375 7.08333 4.375 7.08333 3.33333C7.08333 2.875 6.70833 2.5 6.25 2.5Z" fill="#025E68"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0">
+                                        <rect width="20" height="20" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <span className="font-medium text-[16px]">+91 83368 89553</span>
+                        </div>
+
 
                         <div className="flex items-center text-sm text-black gap-x-[20px]">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 20 20">
@@ -150,8 +176,14 @@ const MobileSidebar = ({ onClose }) => {
                             <span className="font-medium text-[16px]">hi@edukyu.com</span>
                         </div>
                     </div>
-
                 </div>
+
+                {isContactUsOpen && (
+                    <div className="">
+                        <ContactUsComponentMobile/>
+                    </div>
+                )}
+
             </div>
         </div>
     );
