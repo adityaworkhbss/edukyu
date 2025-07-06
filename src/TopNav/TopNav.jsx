@@ -204,6 +204,10 @@ const TopNav = () => {
                 </div>
             )}
 
+            {activeTab && (
+                <div className="fixed top-16 left-0 w-full h-[calc(100vh-4rem)] bg-[rgba(0,0,0,0.6)] z-40" />
+            )}
+
             {activeTab === "college" && (
                 <div className="absolute top-16 left-0 w-full z-50">
                     <CollegeHeaderComponentDesktop />

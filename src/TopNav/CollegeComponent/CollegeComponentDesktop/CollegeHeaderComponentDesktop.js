@@ -57,7 +57,7 @@ export default function CollegeHeaderComponentDesktop() {
     };
 
     return (
-        <div className="font-outfit w-full pl-9 pt-8 relative z-50 bg-white">
+        <div className="font-outfit w-[100%] pl-9 pt-8  z-50 bg-white">
             <div className="relative">
                 <div
                     ref={scrollContainerRef}

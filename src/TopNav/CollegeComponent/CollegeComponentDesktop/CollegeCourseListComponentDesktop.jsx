@@ -76,98 +76,101 @@ const CollegeCourseListComponentDesktop = ({ university }) => {
     return (
         <GridContainer>
             <div className="overflow-hidden w-full bg-[#FFF] px-6">
-
-                <div className="flex pt-6 border-gray-200">
-                    <div
-                        className="text-[#383837] text-left pr-[40px] font-outfit text-[18px] font-medium leading-[20px] not-italic">
-                        Courses {university} Provides
+                {Object.keys(universityData).length === 0 ? (
+                    // Optional fallback UI when universityData is empty
+                    <div className="py-10 text-center text-gray-500 font-outfit text-[14px]">
+                        No courses available for this university.
                     </div>
-
-                    <a
-                        href="#"
-                        className="text-[14px] text-left h-[18px] text-[#024B53] flex font-medium font-outfit not-italic leading-normal gap-[8px]"
-                    >
-                        Explore College
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-4 h-4 shrink-0 aspect-square"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                        >
-                            <g clipPath="url(#clip0_171_79)">
-                                <path
-                                    d="M6.00033 3.33334V4.66667H10.3937L2.66699 12.3933L3.60699 13.3333L11.3337 5.60667V10H12.667V3.33334H6.00033Z"
-                                    fill="#024B53"
-                                />
-                            </g>
-                        </svg>
-                    </a>
-
-                </div>
-
-                <div className="flex pt-8 pb-6">
-                    <GridComponent
-                        lastUsedGridEnd={0}
-                        gridStart={1}
-                        gridEnd={2}
-                        className=""
-                    >
-                        <div className="">
-                            {formattedPrograms.map((program, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => handleSelect(program)}
-                                    className={`w-full mb-1 h-[36px] text-left text-[12px] px-[8px] py-[12px] flex items-center gap-[8px] rounded-[8px] transition-colors duration-200
-        ${selectedProgram === program
-                                        ? 'bg-[#024B53] text-white font-medium border '
-                                        : 'bg-white text-[#333]   hover:bg-[#B3CFD280]'
-                                    }`}
-                                >
-                                    {program}
-                                </button>
-                            ))}
-                        </div>
-                    </GridComponent>
-
-                    <div className="bg-[#679EA4] w-px h-auto ml-3 mr-3"></div>
-
+                ) : (
                     <>
-                        {gridPositions.map(({ gridStart, gridEnd, lastUsedGridEnd }, index) => {
-                            const start = index * 10;
-                            const end = start + 10;
-                            const chunk = filledCourses.slice(start, end);
+                        <div className="flex pt-6 border-gray-200">
+                            <div className="text-[#383837] text-left pr-[40px] font-outfit text-[18px] font-medium leading-[20px] not-italic">
+                                Courses {university} Provides
+                            </div>
 
-                            return (
-                                <GridComponent
-                                    key={index}
-                                    gridStart={gridStart}
-                                    gridEnd={gridEnd}
-                                    lastUsedGridEnd={lastUsedGridEnd}
-                                    className="flex flex-col gap-y-1 gap-x-6 pl-6"
+                            <a
+                                href="#"
+                                className="text-[14px] text-left h-[18px] text-[#024B53] flex font-medium font-outfit not-italic leading-normal gap-[8px]"
+                            >
+                                Explore College
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="w-4 h-4 shrink-0 aspect-square"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
                                 >
-                                    {chunk.map((course, idx) => {
-                                        if (course === null) {
-                                            // invisible placeholder for layout consistency
-                                            return (
-                                                <div
-                                                    key={idx}
-                                                    className="w-full h-[36px] rounded-[8px] bg-transparent invisible"
-                                                />
-                                            );
-                                        }
-                                        return (
-                                            <CourseItems key={idx} course={course} />
-                                        );
-                                    })}
-                                </GridComponent>
-                            );
-                        })}
-                    </>
-                </div>
+                                    <g clipPath="url(#clip0_171_79)">
+                                        <path
+                                            d="M6.00033 3.33334V4.66667H10.3937L2.66699 12.3933L3.60699 13.3333L11.3337 5.60667V10H12.667V3.33334H6.00033Z"
+                                            fill="#024B53"
+                                        />
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
 
+                        <div className="flex pt-8 pb-6">
+                            <GridComponent
+                                lastUsedGridEnd={0}
+                                gridStart={1}
+                                gridEnd={2}
+                                className=""
+                            >
+                                <div className="">
+                                    {formattedPrograms.map((program, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() => handleSelect(program)}
+                                            className={`w-full mb-1 h-[36px] text-left text-[12px] px-[8px] py-[12px] flex items-center gap-[8px] rounded-[8px] transition-colors duration-200
+                                        ${selectedProgram === program
+                                                ? 'bg-[#024B53] text-white font-medium border '
+                                                : 'bg-white text-[#333]   hover:bg-[#B3CFD280]'
+                                            }`}
+                                        >
+                                            {program}
+                                        </button>
+                                    ))}
+                                </div>
+                            </GridComponent>
+
+                            <div className="bg-[#679EA4] w-px h-auto ml-3 mr-3"></div>
+
+                            <>
+                                {gridPositions.map(({ gridStart, gridEnd, lastUsedGridEnd }, index) => {
+                                    const start = index * 10;
+                                    const end = start + 10;
+                                    const chunk = filledCourses.slice(start, end);
+
+                                    return (
+                                        <GridComponent
+                                            key={index}
+                                            gridStart={gridStart}
+                                            gridEnd={gridEnd}
+                                            lastUsedGridEnd={lastUsedGridEnd}
+                                            className="flex flex-col gap-y-1 gap-x-6 pl-6"
+                                        >
+                                            {chunk.map((course, idx) => {
+                                                if (course === null) {
+                                                    return (
+                                                        <div
+                                                            key={idx}
+                                                            className="w-full h-[36px] rounded-[8px] bg-transparent invisible"
+                                                        />
+                                                    );
+                                                }
+                                                return <CourseItems key={idx} course={course} />;
+                                            })}
+                                        </GridComponent>
+                                    );
+                                })}
+                            </>
+                        </div>
+                    </>
+                )}
             </div>
         </GridContainer>
     );
+
 };
 
 export default CollegeCourseListComponentDesktop;

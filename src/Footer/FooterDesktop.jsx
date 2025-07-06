@@ -177,7 +177,7 @@ const FooterDesktop = () => {
     ];
 
     return (
-        <footer className="bg-[#024B53] text-white">
+        <footer className="bg-[#024B53] text-white rounded-b-xl">
             <div className={`${marginClass}`}>
                 <GridContainer
                     numGrids={config.numGrids}
@@ -219,7 +219,7 @@ const FooterDesktop = () => {
                         gridStart={5}
                         gridEnd={6}
                         fromFooter={true}
-                        className="pt-[60px]"
+                        className="pt-[60px] text-left truncate line-clamp-1"
                     >
                         <FooterSection title="Colleges">
                             {colleges.map((college, index) => (
@@ -230,11 +230,11 @@ const FooterDesktop = () => {
 
                     {/*/!* Online Courses Section - Grid 6 to 7 *!/*/}
                     <GridComponent
-                        lastUsedGridEnd={6}
+                        lastUsedGridEnd={5}
                         fromFooter={true}
                         gridStart={7}
                         gridEnd={8}
-                        className="pt-[60px]"
+                        className="pt-[60px] ml-6"
                     >
                         <FooterSection title="Online Courses">
                             {courses.map((course, index) => (
@@ -245,11 +245,11 @@ const FooterDesktop = () => {
 
                     {/*/!* Quick Links Section - Grid 8 to 10 *!/*/}
                     <GridComponent
-                        lastUsedGridEnd={8}
+                        lastUsedGridEnd={7}
                         gridStart={9}
                         gridEnd={10}
                         fromFooter={true}
-                        className="pt-[60px] -ml-5"
+                        className="pt-[60px] ml-12"
                     >
                         <FooterSection title="Quick Links">
                             {quickLinks.map((link, index) => (
@@ -260,11 +260,11 @@ const FooterDesktop = () => {
 
                     {/*/!* Find us at Section - Grid 11 to 12 *!/*/}
                     <GridComponent
-                        lastUsedGridEnd={10}
+                        lastUsedGridEnd={9}
                         gridStart={11}
                         gridEnd={12}
                         fromFooter={true}
-                        className="pt-[60px] -ml-16"
+                        className="pt-[60px] "
                     >
                         <FooterSection title="Find us at">
                             {locations.map((location, index) => (
