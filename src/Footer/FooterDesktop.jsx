@@ -190,6 +190,7 @@ const FooterDesktop = () => {
                         lastUsedGridEnd={0}
                         gridStart={1}
                         gridEnd={3}
+                        fromFooter={true}
                         className="pt-[40px]"
                     >
                         <div className="left-0">
@@ -217,6 +218,7 @@ const FooterDesktop = () => {
                         lastUsedGridEnd={3}
                         gridStart={5}
                         gridEnd={6}
+                        fromFooter={true}
                         className="pt-[60px]"
                     >
                         <FooterSection title="Colleges">
@@ -229,6 +231,7 @@ const FooterDesktop = () => {
                     {/*/!* Online Courses Section - Grid 6 to 7 *!/*/}
                     <GridComponent
                         lastUsedGridEnd={6}
+                        fromFooter={true}
                         gridStart={7}
                         gridEnd={8}
                         className="pt-[60px]"
@@ -245,6 +248,7 @@ const FooterDesktop = () => {
                         lastUsedGridEnd={8}
                         gridStart={9}
                         gridEnd={10}
+                        fromFooter={true}
                         className="pt-[60px] -ml-5"
                     >
                         <FooterSection title="Quick Links">
@@ -259,6 +263,7 @@ const FooterDesktop = () => {
                         lastUsedGridEnd={10}
                         gridStart={11}
                         gridEnd={12}
+                        fromFooter={true}
                         className="pt-[60px] -ml-16"
                     >
                         <FooterSection title="Find us at">
@@ -281,6 +286,7 @@ const FooterDesktop = () => {
                         lastUsedGridEnd={0}
                         gridStart={1}
                         gridEnd={12}
+                        fromFooter={true}
                         className="border-white/10 border-t mt-8"
                     >
                         <div className="flex flex-row justify-between items-center">

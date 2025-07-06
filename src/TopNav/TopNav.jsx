@@ -3,13 +3,13 @@ import { useBreakpoint } from '../AppUtils/UseBreakpoint';
 import Edukyu_logo from '../Resources/Images/Edukyu_Logo.png'
 import refer_logo from '../Resources/Images/refer_logo.png'
 import MobileSidebar from "./MobileSidebar/MobileSidebar";
-import CollegeHeader from "./Courses/CollegeHeader";
 import CompareCollegeDesktop from "./CompareCollegeComponent/CompareCollegeDesktop";
 import SearchComponentDesktop from "./SearchComponent/SearchComponentDesktop";
 import SearchComponentMobile from "./SearchComponent/SearchComponentMobile";
 import BlogComponentDesktop from "./BlogComponent/BlogComponentDesktop";
 import ContactUsComponentDesktop from "./ContactUsComponent/ContactUsComponentDesktop";
 import MoreComponentDesktop from "./MoreComponent/MoreComponentDesktop";
+import CoursesComponentDesktop from "./CoursesComponent/CoursesComponentDesktop/CoursesComponentDesktop";
 
 const TopNav = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -148,7 +148,7 @@ const TopNav = () => {
 
             {showCourses && (
                 <div className="absolute top-16 left-0 w-full z-50">
-                    <CollegeHeader />
+                    <CoursesComponentDesktop />
                 </div>
             )}
 

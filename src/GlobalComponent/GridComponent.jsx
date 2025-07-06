@@ -8,13 +8,15 @@ const GridComponent = ({
                            gridStart,
                            gridEnd,
                            children,
+                           fromFooter = false,
                            className = "",
                            style = {}
                        }) => {
     const containerRef = useRef(null);
     const [gridWidth, setGridWidth] = useState(0);
 
-    itemNumberInRow -= 1;
+
+    // console.log(lastUsedGridEnd);
 
     const breakpoint = useBreakpoint();
     const config = gridConfigs[breakpoint];
@@ -52,11 +54,11 @@ const GridComponent = ({
             const left = (start - 1) * (gridWidth + gutterSize);
             return { left, width };
         } else {
-
-            console.log("breakpoint", breakpoint);
-            console.log("numGrids", numGrids);
-            console.log("gutterSize", gutterSize);
-            console.log("width", gridWidth);
+            //
+            // console.log("breakpoint", breakpoint);
+            // console.log("numGrids", numGrids);
+            // console.log("gutterSize", gutterSize);
+            // console.log("width", gridWidth);
 
             // Calculate left offset relative to previous grid
             let left = 0;
@@ -65,6 +67,8 @@ const GridComponent = ({
             } else {
                 left = ((start - lastUsedGridEnd - 1) * (gridWidth + gutterSize)) + gutterSize;
             }
+
+            if(!fromFooter) left = 0;
 
             return { left, width };
         }
@@ -76,7 +80,7 @@ const GridComponent = ({
     return (
         <div
             ref={containerRef}
-            style={{ width: "100%" /* ensure it fills parent width */ }}
+            style={{  /* ensure it fills parent width */ }}
         >
             <div
                 className={className}

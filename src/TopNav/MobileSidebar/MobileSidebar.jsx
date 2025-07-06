@@ -4,6 +4,7 @@ import CollegeList from "./CollegeList/CollegeList";
 import BlogComponentMobile from "../BlogComponent/BlogComponentMobile";
 import ContactUsComponentMobile from "../ContactUsComponent/ContactUsComponentMobile";
 import MoreComponentMobile from "../MoreComponent/MoreComponentMobile";
+import CourseComponentMobileDropDown from "../CoursesComponent/CoursesComponentMobile/CourseComponentMobileDropDown";
 
 const MobileSidebar = ({ onClose }) => {
 
@@ -11,6 +12,7 @@ const MobileSidebar = ({ onClose }) => {
     const [isBlogOpen, setIsBlogOpen] = React.useState(false);
     const [isContactUsOpen, setIsContactUsOpen] = React.useState(false);
     const [isMoreOpen, setIsMoreOpen] = React.useState(false);
+    const [isCoursesOpen, setIsCoursesOpen] = React.useState(false);
 
     return (
         <div className="fixed top-0 left-0 w-[100%] h-full  bg-white shadow-lg z-50 flex flex-col overflow-y-auto">
@@ -72,7 +74,7 @@ const MobileSidebar = ({ onClose }) => {
 
                 <div className="inline-flex justify-between">
                     Online Courses
-                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" onClick={() => setIsCoursesOpen(!isCoursesOpen)}>
                         <g clipPath="url(#clip0_222_100)">
                             <path d="M8.58984 16.59L13.1698 12L8.58984 7.41L9.99984 6L15.9998 12L9.99984 18L8.58984 16.59Z" fill="#025E68"/>
                         </g>
@@ -84,7 +86,15 @@ const MobileSidebar = ({ onClose }) => {
                     </svg></a>
                 </div>
 
+                {isCoursesOpen && (
+                    <div className="">
+                        <CourseComponentMobileDropDown/>
+                    </div>
+                )}
+
                 <div className="w-[100%] h-[1px] bg-[#DBDBDB]"></div>
+
+
 
                 <div className="inline-flex justify-between">
                     Compare
