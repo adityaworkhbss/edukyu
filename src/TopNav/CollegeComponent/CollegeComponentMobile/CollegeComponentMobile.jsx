@@ -1,0 +1,138 @@
+import React, { useState } from 'react';
+import { universitiesData } from "../../../Data Model/UniversityData";
+import CoursesListCorrespondToCollege from "./CoursesListCorrepondToCollege";
+
+const universityKeyMap = {
+    'Amity University': 'Amity',
+    'Chandigarh University': 'Chandigarh University',
+    'Dr. DY Patil University': 'DPU',
+    'Jain University': 'Jain',
+    'Jamia Hamdard University': 'Jamia Hamdard University',
+    'Lovely Professional University': 'LPU',
+    'Manipal University': 'Manipal',
+    'NMIMS University': 'NMIMS',
+    'Shardha University': 'Shardha',
+    'Shoolini University': 'Shoolini',
+    'Uttaranchal University': 'UU',
+    'VIT Online': 'VIT Online',
+    'Vivekanand Global University': 'VGU',
+};
+
+const CoursesComponentMobile = ({ onClose, college }) => {
+    const [openProgram, setOpenProgram] = useState(null);
+
+    const collegeKey = universityKeyMap[college];
+    const courses = universitiesData[collegeKey] || {};
+
+    const courseNames = Object.entries(courses).map(([program, courseList]) => {
+        const courseCount = Object.keys(courseList).length;
+        const heading = courseCount > 0 ? `${program} (${courseCount} Courses)` : program;
+        return { heading, program };
+    });
+
+    const handleToggleProgram = (program) => {
+        setOpenProgram(prev => prev === program ? null : program);
+    };
+
+    return (
+        <div className="fixed h-full top-0 left-0 w-full bg-white shadow-lg z-50 px-5 flex flex-col overflow-y-auto">
+            {/* Top bar with back */}
+            <div className="flex h-[58px] pt-6">
+                <div onClick={onClose} className="cursor-pointer pt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15.4102 7.41L10.8302 12L15.4102 16.59L14.0002 18L8.00016 12L14.0002 6L15.4102 7.41Z" fill="#515150" />
+                    </svg>
+                </div>
+                <div className="text-[#515150] pl-2 font-outfit text-[20px] font-medium not-italic leading-normal">
+                    {college}
+                </div>
+            </div>
+
+            {/* Subtitle */}
+            <div className="text-[#383837] pt-10 font-outfit text-[18px] font-medium not-italic leading-[20px]">
+                Explore the courses that {college} provides
+            </div>
+
+            {/* Explore College Button */}
+            <div className="flex gap-1 pt-4">
+                <div className="text-[#024B53] font-outfit text-[14px] font-medium not-italic leading-normal">
+                    Explore College
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <g clipPath="url(#clip0_43_3690)">
+                        <path d="M6.00033 3.33331V4.66665H10.3937L2.66699 12.3933L3.60699 13.3333L11.3337 5.60665V9.99998H12.667V3.33331H6.00033Z" fill="#024B53" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_43_3690">
+                            <rect width="16" height="16" fill="white" />
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+
+            {/* Course list */}
+            <div className="pt-5 flex flex-col gap-5 pb-5">
+                {courseNames.length === 0 ? (
+                    <div className="text-[#777777] font-outfit text-[14px]">
+                        No courses available.
+                    </div>
+                ) : (
+                    courseNames.map(({ heading, program }, idx) => (
+                        <div key={idx} className="flex flex-col gap-2">
+                            <div
+                                onClick={() => handleToggleProgram(program)}
+                                className="flex justify-between items-center cursor-pointer"
+                            >
+                                <div
+                                    className={`font-outfit text-[18px] font-medium not-italic leading-normal ${
+                                        openProgram === program ? 'text-[#024B53]' : 'text-[#515150]'
+                                    }`}
+                                >
+                                    {heading}
+                                </div>
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    className={`transition-transform duration-300 ${
+                                        openProgram === program ? 'rotate-90' : ''
+                                    }`}
+                                >
+                                    <g clipPath="url(#clip0_43_3694)">
+                                        <path
+                                            d="M8.00033 2.66669L7.06033 3.60669L10.7803 7.33335H2.66699V8.66669H10.7803L7.06033 12.3934L8.00033 13.3334L13.3337 8.00002L8.00033 2.66669Z"
+                                            fill="#515150"
+                                        />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_43_3694">
+                                            <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+
+
+
+                            {openProgram === program && (
+                                <CoursesListCorrespondToCollege
+                                    program={program}
+                                    courseData={courses}
+                                />
+                            )}
+
+                            <div className= ' mt-3 bg-[#6A6A69] h-px w-auto'></div>
+                        </div>
+
+
+                    ))
+                )}
+            </div>
+        </div>
+    );
+};
+
+export default CoursesComponentMobile;

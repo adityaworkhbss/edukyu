@@ -1,5 +1,5 @@
 export const DevEnvironment = {
     ENABLE_GRIDS: true,
-    DEFAULT_COURSE_TYPE : "MBA"
-    // SHOW_EXPERIMENTAL_UI: false
+    DEFAULT_COURSE_TYPE : "MBA",
+    DEFAULT_COLLEGE : "DPU"
 };

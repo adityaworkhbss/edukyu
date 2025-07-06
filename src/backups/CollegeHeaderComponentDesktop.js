@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import CourseList from "./CourseList";
-import { universitiesData } from '../../Data Model/UniversityData';
+import { universitiesData } from '../../../Data Model/UniversityData';
+import CollegeCourseListComponentDesktop from "./CollegeCourseListComponentDesktop";
 
-export default function CollegeHeader() {
+export default function CollegeHeaderComponentDesktop() {
     const [showCourses] = useState(true);
     const [trendingCollege] = useState("DPU");
 
@@ -57,7 +57,7 @@ export default function CollegeHeader() {
                 <div className="w-full h-px bg-[#9B9B9B] mt-4 pr-[56px]"></div>
                 {showCourses && (
                     <div className="font-outfit">
-                        <CourseList university={selectedUniversity} />
+                        <CollegeCourseListComponentDesktop university={selectedUniversity} />
                     </div>
                 )}
             </div>

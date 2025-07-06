@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { universitiesData } from '../../Data Model/UniversityData';
+import { universitiesData } from '../../../Data Model/UniversityData';
 
-const CourseList = ({ university }) => {
+const CollegeCourseListComponentDesktop = ({ university }) => {
     const universityData = universitiesData[university] || {};
 
     const formattedPrograms = Object.keys(universityData).map(program => {
@@ -88,4 +88,4 @@ const CourseList = ({ university }) => {
     );
 };
 
-export default CourseList;
+export default CollegeCourseListComponentDesktop;

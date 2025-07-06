@@ -10,6 +10,7 @@ import BlogComponentDesktop from "./BlogComponent/BlogComponentDesktop";
 import ContactUsComponentDesktop from "./ContactUsComponent/ContactUsComponentDesktop";
 import MoreComponentDesktop from "./MoreComponent/MoreComponentDesktop";
 import CoursesComponentDesktop from "./CoursesComponent/CoursesComponentDesktop/CoursesComponentDesktop";
+import CollegeHeaderComponentDesktop from "./CollegeComponent/CollegeComponentDesktop/CollegeHeaderComponentDesktop";
 
 const TopNav = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -20,6 +21,7 @@ const TopNav = () => {
     const [showBlog, setShowBlog] = useState(false);
     const [showContactUs, setShowContactUs] = useState(false);
     const [showMore, setShowMore] = useState(false);
+    const [showCollege, setShowCollege] = useState(false);
     const breakpoint = useBreakpoint();
     const isMobile = breakpoint === 'mobile';
 
@@ -51,6 +53,11 @@ const TopNav = () => {
     const handleMoreClick = (e) => {
         e.preventDefault();
         setShowMore(prev => !prev);
+    };
+
+    const handleCollegeClick = (e) => {
+        e.preventDefault();
+        setShowCollege(prev => !prev);
     };
 
     return (
@@ -103,7 +110,7 @@ const TopNav = () => {
 
                     <div className="inline-flex gap-6">
                         <div className="inline-flex gap-[29px] text-[#383837] font-outfit text-[16px] font-medium py-[22px]">
-                            <a href="#">Colleges</a>
+                            <a href="#" onClick={handleCollegeClick}>Colleges</a>
                             <a href="#" onClick={handleCoursesClick}>Online Courses</a>
                             <a href="#" onClick={handleCompareCollegeClick}>Compare</a>
                             <a href="#" onClick={handleSearchClick}>Search</a>
@@ -180,6 +187,12 @@ const TopNav = () => {
             {showMore && (
                 <div className="absolute top-16 left-0 w-full z-50">
                     <MoreComponentDesktop />
+                </div>
+            )}
+
+            {showCollege && (
+                <div className="absolute top-16 left-0 w-full z-50">
+                    <CollegeHeaderComponentDesktop />
                 </div>
             )}
         </div>

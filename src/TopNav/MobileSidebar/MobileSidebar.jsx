@@ -1,10 +1,10 @@
 import React from 'react';
 import Edukyu_logo from "../../Resources/Images/Edukyu_Logo.png";
-import CollegeList from "./CollegeList/CollegeList";
 import BlogComponentMobile from "../BlogComponent/BlogComponentMobile";
 import ContactUsComponentMobile from "../ContactUsComponent/ContactUsComponentMobile";
 import MoreComponentMobile from "../MoreComponent/MoreComponentMobile";
 import CourseComponentMobileDropDown from "../CoursesComponent/CoursesComponentMobile/CourseComponentMobileDropDown";
+import CollegeComponentMobileDropDown from "../CollegeComponent/CollegeComponentMobile/CollegeComponentMobileDropDown";
 
 const MobileSidebar = ({ onClose }) => {
 
@@ -67,8 +67,8 @@ const MobileSidebar = ({ onClose }) => {
                 <div className="w-[100%] h-[1px] bg-[#DBDBDB]"></div>
 
                 {isCollegeOpen && (
-                    <div className="pl-[44px] pt-[16px] pb-[54px]">
-                        <CollegeList/>
+                    <div className="">
+                        <CollegeComponentMobileDropDown/>
                     </div>
                 )}
 
@@ -86,15 +86,13 @@ const MobileSidebar = ({ onClose }) => {
                     </svg></a>
                 </div>
 
+                <div className="w-[100%] h-[1px] bg-[#DBDBDB]"></div>
+
                 {isCoursesOpen && (
                     <div className="">
                         <CourseComponentMobileDropDown/>
                     </div>
                 )}
-
-                <div className="w-[100%] h-[1px] bg-[#DBDBDB]"></div>
-
-
 
                 <div className="inline-flex justify-between">
                     Compare
