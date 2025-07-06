@@ -25,6 +25,14 @@ const TopNav = () => {
     const breakpoint = useBreakpoint();
     const isMobile = breakpoint === 'mobile';
 
+
+    const [activeTab, setActiveTab] = useState(null);
+
+    const toggleTab = (tabName) => (e) => {
+        e.preventDefault();
+        setActiveTab((prevTab) => (prevTab === tabName ? null : tabName));
+    };
+
     const handleCoursesClick = (e) => {
         e.preventDefault();
         setShowCourses(prev => !prev);
@@ -110,13 +118,13 @@ const TopNav = () => {
 
                     <div className="inline-flex gap-6">
                         <div className="inline-flex gap-[29px] text-[#383837] font-outfit text-[16px] font-medium py-[22px]">
-                            <a href="#" onClick={handleCollegeClick}>Colleges</a>
-                            <a href="#" onClick={handleCoursesClick}>Online Courses</a>
-                            <a href="#" onClick={handleCompareCollegeClick}>Compare</a>
-                            <a href="#" onClick={handleSearchClick}>Search</a>
-                            <a href="#" onClick={handleBlogClick}>Blogs</a>
-                            <a href="#" onClick={handleMoreClick}>More</a>
-                            <a href="#" onClick={handleContactUsClick}>Contact Us</a>
+                            <a href="#" onClick={toggleTab('college')} className={activeTab === 'college' ? 'text-[#024B53] border-b-2 border-[#024B53] pb-1' : ''}>Colleges</a>
+                            <a href="#" onClick={toggleTab('courses')} className={activeTab === 'courses' ? 'text-[#024B53] border-b-2 border-[#024B53] pb-1' : ''}>Online Courses</a>
+                            <a href="#" onClick={toggleTab('compare')} className={activeTab === 'compare' ? 'text-[#024B53] border-b-2 border-[#024B53] pb-1' : ''}>Compare</a>
+                            <a href="#" onClick={toggleTab('search')} className={activeTab === 'search' ? 'text-[#024B53] border-b-2 border-[#024B53] pb-1' : ''}>Search</a>
+                            <a href="#" onClick={toggleTab('blog')} className={activeTab === 'blog' ? 'text-[#024B53] border-b-2 border-[#024B53] pb-1' : ''}>Blogs</a>
+                            <a href="#" onClick={toggleTab('more')} className={activeTab === 'more' ? 'text-[#024B53] border-b-2 border-[#024B53] pb-1' : ''}>More</a>
+                            <a href="#" onClick={toggleTab('contact')} className={activeTab === 'contact' ? 'text-[#024B53] border-b-2 border-[#024B53] pb-1' : ''}>Contact Us</a>
                         </div>
 
                         <div className="pl-6 inline-flex gap-[9px] py-[14px]">
@@ -193,6 +201,48 @@ const TopNav = () => {
             {showCollege && (
                 <div className="absolute top-16 left-0 w-full z-50">
                     <CollegeHeaderComponentDesktop />
+                </div>
+            )}
+
+            {activeTab === "college" && (
+                <div className="absolute top-16 left-0 w-full z-50">
+                    <CollegeHeaderComponentDesktop />
+                </div>
+            )}
+
+            {activeTab === "courses" && (
+                <div className="absolute top-16 left-0 w-full z-50">
+                    <CoursesComponentDesktop />
+                </div>
+            )}
+
+            {activeTab === "compare" && (
+                <div className="absolute top-16 left-0 w-full z-50">
+                    <CompareCollegeDesktop />
+                </div>
+            )}
+
+            {activeTab === "search" && (
+                <div className="absolute top-16 left-0 w-full z-50">
+                    <SearchComponentDesktop />
+                </div>
+            )}
+
+            {activeTab === "blog" && (
+                <div className="absolute top-16 left-0 w-full z-50">
+                    <BlogComponentDesktop />
+                </div>
+            )}
+
+            {activeTab === "more" && (
+                <div className="absolute top-16 left-0 w-full z-50">
+                    <MoreComponentDesktop />
+                </div>
+            )}
+
+            {activeTab === "contact" && (
+                <div className="absolute top-16 left-0 w-full z-50">
+                    <ContactUsComponentDesktop />
                 </div>
             )}
         </div>
