@@ -33,7 +33,7 @@ const SearchComponentDesktop = () => {
     };
 
     return (
-        <div className="px-14 bg-[#FFF] pt-[44px] pb-[24px]">
+        <div className="px-14 rounded-b-xl bg-[#FFF] pt-[44px] pb-[24px]">
             <div className="">
                 {/* Search Bar */}
                 <div className="">

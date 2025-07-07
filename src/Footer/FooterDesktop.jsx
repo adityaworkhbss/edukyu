@@ -137,17 +137,14 @@ const FooterDesktop = () => {
 
     const colleges = [
         "Amity University",
-        "Chandigarh University",
         "Dr. DY Patil University",
         "Jain University",
-        "Jamia Hamdard University",
         "Lovely Professional University",
         "Manipal University",
         "NMIMS University",
         "Shardha University",
         "Shoolini University",
         "Uttaranchal University",
-        "VIT Online",
         "Vivekanand Global University"
     ];
 

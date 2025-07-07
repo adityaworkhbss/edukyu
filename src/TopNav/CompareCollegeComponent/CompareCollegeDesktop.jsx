@@ -5,7 +5,7 @@ import GridComponent from '../../GlobalComponent/GridComponent';
 
 const CompareCollegeDesktop = ({ numGrids, gutter }) => {
     return (
-        <div className="w-full bg-white px-14 py-6">
+        <div className="w-full rounded-b-xl bg-white px-14 py-6">
             <GridContainer
                 numGrids={numGrids}
                 gutter={gutter}

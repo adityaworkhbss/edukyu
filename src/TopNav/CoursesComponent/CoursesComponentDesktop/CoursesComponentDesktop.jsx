@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { CourseData } from '../../../Data Model/CourseData';
 import { DevEnvironment } from '../../../DevEnvironment/DevEnviroment';
 import GridContainer from "../../../GlobalComponent/GridContainer";
@@ -6,8 +6,6 @@ import GridComponent from "../../../GlobalComponent/GridComponent";
 import CourseItems from "./CourseItems";
 
 const CoursesComponentDesktop = () => {
-
-
     const courseTypeFullForms = {
         "MBA": "Master of Business Administration",
         "MA": "Master of Arts",
@@ -21,60 +19,58 @@ const CoursesComponentDesktop = () => {
         "BCA": "Bachelor of Computer Applications"
     };
 
-    // Hardcoded grid positions for 3 chunks
     const gridPositions = [
         { gridStart: 3, gridEnd: 5, lastUsedGridEnd: 2 },
         { gridStart: 6, gridEnd: 8, lastUsedGridEnd: 5 },
         { gridStart: 9, gridEnd: 11, lastUsedGridEnd: 8 },
     ];
 
-    const courseType = DevEnvironment.DEFAULT_COURSE_TYPE;
+    const defaultCourseType = DevEnvironment.DEFAULT_COURSE_TYPE || "MBA";
 
-    let defaultProgram = "";
+    const getBaseProgramName = (formattedName) => formattedName.split(' (')[0];
 
     const formattedPrograms = Object.keys(CourseData).map(program => {
         const subCourses = CourseData[program];
         const courseCount = Object.keys(subCourses).length;
-
-        if (!defaultProgram && program.includes(courseType)) {
-            defaultProgram = program;
-        }
-
         return courseCount > 0 ? `${program} (${courseCount} Courses)` : program;
     });
 
-    const [selectedProgram, setSelectedProgram] = useState(defaultProgram);
+    const [selectedProgram, setSelectedProgram] = useState("");
 
-    const getBaseProgramName = (formattedName) => {
-        return formattedName.split(' (')[0];
-    };
+    useEffect(() => {
+        if (!selectedProgram && formattedPrograms.length > 0) {
+            const defaultProgram =
+                formattedPrograms.find(p => getBaseProgramName(p).toLowerCase() === defaultCourseType.toLowerCase()) ||
+                formattedPrograms[0];
+            setSelectedProgram(defaultProgram);
+        }
+    }, [formattedPrograms, selectedProgram]);
 
-    const handleSelect = (name) => {
-        setSelectedProgram(name);
-    };
+    const handleSelect = (name) => setSelectedProgram(name);
 
     const baseProgram = getBaseProgramName(selectedProgram);
     const selectedCourses = CourseData[baseProgram] ? Object.keys(CourseData[baseProgram]) : [];
 
     const selectedCourseTypeFullForm = courseTypeFullForms[baseProgram] || baseProgram;
 
-    // Ensure exactly 30 elements by filling missing ones with null placeholders
     const totalExpected = 30;
     const filledCourses = [...selectedCourses];
     while (filledCourses.length < totalExpected) {
         filledCourses.push(null);
     }
 
+    const distributedChunks = [[], [], []];
+    filledCourses.forEach((course, index) => {
+        distributedChunks[index % 3].push({ course, idx: index });
+    });
+
     return (
         <GridContainer>
-            <div className="overflow-hidden w-full bg-[#FFF] px-14">
-
+            <div className="overflow-hidden rounded-b-xl w-full bg-[#FFF] px-14">
                 <div className="flex pt-6 border-gray-200">
-                    <div
-                        className="text-[#383837] text-left pr-[40px] font-outfit text-[18px] font-medium leading-[20px] not-italic">
+                    <div className="text-[#383837] text-left pr-[40px] font-outfit text-[18px] font-medium leading-[20px] not-italic">
                         {selectedCourseTypeFullForm}
                     </div>
-
                     <a
                         href="#"
                         className="text-[14px] text-left h-[18px] text-[#024B53] flex font-medium font-outfit not-italic leading-normal gap-[8px]"
@@ -94,25 +90,25 @@ const CoursesComponentDesktop = () => {
                             </g>
                         </svg>
                     </a>
-
                 </div>
 
                 <div className="flex pt-8 pb-6">
+                    {/* Program Buttons */}
                     <GridComponent
                         lastUsedGridEnd={0}
                         gridStart={1}
                         gridEnd={2}
                         className=""
                     >
-                        <div className="">
+                        <div>
                             {formattedPrograms.map((program, index) => (
                                 <button
                                     key={index}
                                     onClick={() => handleSelect(program)}
                                     className={`w-full mb-1 h-[36px] text-left text-[12px] px-[8px] py-[12px] flex items-center gap-[8px] rounded-[8px] transition-colors duration-200
-        ${selectedProgram === program
-                                        ? 'bg-[#024B53] text-white font-medium border '
-                                        : 'bg-white text-[#333]   hover:bg-[#B3CFD280]'
+                                        ${getBaseProgramName(selectedProgram) === getBaseProgramName(program)
+                                        ? 'bg-[#024B53] text-white font-medium border'
+                                        : 'bg-white text-[#333] hover:bg-[#B3CFD280]'
                                     }`}
                                 >
                                     {program}
@@ -123,41 +119,34 @@ const CoursesComponentDesktop = () => {
 
                     <div className="bg-[#679EA4] w-px h-auto ml-3 mr-3"></div>
 
-
-                    <>
-                        {gridPositions.map(({ gridStart, gridEnd, lastUsedGridEnd }, index) => {
-                            const start = index * 10;
-                            const end = start + 10;
-                            const chunk = filledCourses.slice(start, end);
-
-                            return (
-                                <GridComponent
-                                    key={index}
-                                    gridStart={gridStart}
-                                    gridEnd={gridEnd}
-                                    lastUsedGridEnd={lastUsedGridEnd}
-                                    className="flex flex-col gap-y-1 gap-x-6"
-                                >
-                                    {chunk.map((course, idx) => {
-                                        if (course === null) {
-                                            // invisible placeholder for layout consistency
-                                            return (
-                                                <div
-                                                    key={idx}
-                                                    className="w-full h-[36px] rounded-[8px] bg-transparent invisible"
-                                                />
-                                            );
-                                        }
+                    {/* Courses Round-Robin Distributed */}
+                    {gridPositions.map(({ gridStart, gridEnd, lastUsedGridEnd }, columnIndex) => {
+                        const chunk = distributedChunks[columnIndex];
+                        return (
+                            <GridComponent
+                                key={columnIndex}
+                                gridStart={gridStart}
+                                gridEnd={gridEnd}
+                                lastUsedGridEnd={lastUsedGridEnd}
+                                className="flex flex-col gap-y-1 gap-x-6"
+                            >
+                                {chunk.map(({ course, idx }) => {
+                                    if (course === null) {
                                         return (
-                                            <CourseItems key={idx} course={course} />
+                                            <div
+                                                key={idx}
+                                                className="w-full h-[36px] rounded-[8px] bg-transparent invisible"
+                                            />
                                         );
-                                    })}
-                                </GridComponent>
-                            );
-                        })}
-                    </>
+                                    }
+                                    return (
+                                        <CourseItems key={idx} course={course} />
+                                    );
+                                })}
+                            </GridComponent>
+                        );
+                    })}
                 </div>
-
             </div>
         </GridContainer>
     );

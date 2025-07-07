@@ -26,17 +26,14 @@ export default function CollegeHeaderComponentDesktop() {
 
     const universityKeyMap = {
         'Amity University': 'Amity',
-        'Chandigarh University': 'Chandigarh University',
         'Dr. DY Patil University': 'DPU',
         'Jain University': 'Jain',
-        'Jamia Hamdard University': 'Jamia Hamdard University',
         'Lovely Professional University': 'LPU',
         'Manipal University': 'Manipal',
         'NMIMS University': 'NMIMS',
         'Shardha University': 'Shardha',
         'Shoolini University': 'Shoolini',
         'Uttaranchal University': 'UU',
-        'VIT Online': 'VIT Online',
         'Vivekanand Global University': 'VGU',
     };
 
@@ -57,7 +54,7 @@ export default function CollegeHeaderComponentDesktop() {
     };
 
     return (
-        <div className="font-outfit w-[100%] pl-9 pt-8  z-50 bg-white">
+        <div className="font-outfit w-[100%] pl-9 rounded-b-xl z-50 bg-white">
             <div className="relative">
                 <div
                     ref={scrollContainerRef}

@@ -4,17 +4,14 @@ import CoursesListCorrespondToCollege from "./CoursesListCorrepondToCollege";
 
 const universityKeyMap = {
     'Amity University': 'Amity',
-    'Chandigarh University': 'Chandigarh University',
     'Dr. DY Patil University': 'DPU',
     'Jain University': 'Jain',
-    'Jamia Hamdard University': 'Jamia Hamdard University',
     'Lovely Professional University': 'LPU',
     'Manipal University': 'Manipal',
     'NMIMS University': 'NMIMS',
     'Shardha University': 'Shardha',
     'Shoolini University': 'Shoolini',
     'Uttaranchal University': 'UU',
-    'VIT Online': 'VIT Online',
     'Vivekanand Global University': 'VGU',
 };
 

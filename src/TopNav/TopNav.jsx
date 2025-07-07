@@ -69,7 +69,7 @@ const TopNav = () => {
     };
 
     return (
-        <div className="bg-white w-full h-16 z-60 shadow-md">
+        <div className="bg-white w-full h-16 z-50 shadow-md z-60">
             {isMobile ? (
                 <>
                     <div className="flex items-center h-12 justify-between px-5 ">
@@ -162,13 +162,13 @@ const TopNav = () => {
             )}
 
             {showCourses && (
-                <div className="absolute top-16 left-0 w-full z-50">
+                <div className="absolute  top-16 left-0 w-full z-50">
                     <CoursesComponentDesktop />
                 </div>
             )}
 
             {showCompareCollege && (
-                <div className="absolute top-16 left-0 w-full z-50">
+                <div className="absolute  top-16 left-0 w-full z-50">
                     <CompareCollegeDesktop
                     />
                 </div>
@@ -205,47 +205,47 @@ const TopNav = () => {
             )}
 
             {activeTab && (
-                <div className="fixed top-16 left-0 w-full h-[calc(100vh-4rem)] bg-[rgba(0,0,0,0.6)] z-40" />
+                <div className="fixed left-0 w-full h-full bg-[rgba(0,0,0,0.6)]" />
             )}
 
             {activeTab === "college" && (
-                <div className="absolute top-16 left-0 w-full z-50">
+                <div className="absolute rounded-b-xl top-16 left-0 w-full z-50">
                     <CollegeHeaderComponentDesktop />
                 </div>
             )}
 
             {activeTab === "courses" && (
-                <div className="absolute top-16 left-0 w-full z-50">
+                <div className="absolute rounded-b-xl  top-16 left-0 w-full z-50">
                     <CoursesComponentDesktop />
                 </div>
             )}
 
             {activeTab === "compare" && (
-                <div className="absolute top-16 left-0 w-full z-50">
+                <div className="absolute rounded-b-xl  top-16 left-0 w-full z-50">
                     <CompareCollegeDesktop />
                 </div>
             )}
 
             {activeTab === "search" && (
-                <div className="absolute top-16 left-0 w-full z-50">
+                <div className="absolute rounded-b-xl  top-16 left-0 w-full z-50">
                     <SearchComponentDesktop />
                 </div>
             )}
 
             {activeTab === "blog" && (
-                <div className="absolute top-16 left-0 w-full z-50">
+                <div className="absolute rounded-b-xl  top-16 left-0 w-full z-50">
                     <BlogComponentDesktop />
                 </div>
             )}
 
             {activeTab === "more" && (
-                <div className="absolute top-16 left-0 w-full z-50">
+                <div className="absolute rounded-b-xl  top-16 left-0 w-full z-50">
                     <MoreComponentDesktop />
                 </div>
             )}
 
             {activeTab === "contact" && (
-                <div className="absolute top-16 left-0 w-full z-50">
+                <div className="absolute rounded-b-xl  top-16 left-0 w-full z-50">
                     <ContactUsComponentDesktop />
                 </div>
             )}

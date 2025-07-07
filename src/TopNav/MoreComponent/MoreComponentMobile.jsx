@@ -91,7 +91,7 @@ const MoreComponentMobile = ({ onClose }) => {
                 </div>
 
 
-                <div className="flex gap-y-6 pt-[40px] flex-col">
+                <div className="flex gap-y-6 pt-[40px] pb-6 flex-col">
                     {cardData.map((card, idx) => (
                         <div key={idx} className="w-full rounded-[12px] overflow-hidden">
                             <img

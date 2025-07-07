@@ -16,7 +16,7 @@ const SearchComponentDesktop = () => {
     };
 
     return (
-        <div className="px-14 bg-white pt-[44px] pb-[24px]">
+        <div className="px-14 bg-white rounded-b-xl pt-[44px] pb-[24px]">
             {/* Search Bar */}
             <div className="flex items-center border-b border-[#CDCDCD] pb-2">
                 <input
@@ -45,7 +45,7 @@ const SearchComponentDesktop = () => {
             </div>
 
             {/* Blog Section */}
-            <div className="pt-16">
+            <div className="pt-16 ">
                 <div className="text-[22px] pb-6 text-left font-medium text-[#383837] font-outfit">
                     Our top blogs, fresh out of minds...
                 </div>
@@ -58,7 +58,7 @@ const SearchComponentDesktop = () => {
                             className="h-[339px] text-left flex flex-col justify-between rounded-[12px] bg-white hover:bg-[rgba(179,207,210,0.5)] transition-all duration-200"
                         >
                             {/* Placeholder Image */}
-                            <div className="w-full h-[150px] bg-gray-200" />
+                            <div className="w-full h-[150px] rounded-t-xl bg-gray-200" />
 
                             {/* Blog Title */}
                             <div className="text-[#383837] px-3 pt-5 font-outfit text-[16px] font-medium leading-normal line-clamp-2">
