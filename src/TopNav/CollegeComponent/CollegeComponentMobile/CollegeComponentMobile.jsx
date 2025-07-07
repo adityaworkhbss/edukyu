@@ -94,21 +94,14 @@ const CoursesComponentMobile = ({ onClose, college }) => {
                                     height="16"
                                     viewBox="0 0 16 16"
                                     fill="none"
-                                    className={`transition-transform duration-300 ${
-                                        openProgram === program ? 'rotate-90' : ''
+                                    className={`transition-transform duration-300 'rotate-180' ${
+                                        openProgram === program ? 'rotate-180' : ''
                                     }`}
                                 >
-                                    <g clipPath="url(#clip0_43_3694)">
-                                        <path
-                                            d="M8.00033 2.66669L7.06033 3.60669L10.7803 7.33335H2.66699V8.66669H10.7803L7.06033 12.3934L8.00033 13.3334L13.3337 8.00002L8.00033 2.66669Z"
-                                            fill="#515150"
-                                        />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_43_3694">
-                                            <rect width="16" height="16" fill="white" />
-                                        </clipPath>
-                                    </defs>
+                                    <path
+                                        d="M11.06 10.2733L8 7.21998L4.94 10.2733L4 9.33331L8 5.33332L12 9.33332L11.06 10.2733Z"
+                                        fill="#024B53"
+                                    />
                                 </svg>
                             </div>
 
