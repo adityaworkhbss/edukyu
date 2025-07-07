@@ -118,13 +118,13 @@ const TopNav = () => {
 
                     <div className="inline-flex gap-6">
                         <div className="inline-flex gap-[29px] text-[#383837] font-outfit text-[16px] font-medium py-[22px]">
-                            <a href="#" onClick={toggleTab('college')} className={activeTab === 'college' ? 'text-[#024B53] border-b-2 border-[#024B53] pb-1' : ''}>Colleges</a>
-                            <a href="#" onClick={toggleTab('courses')} className={activeTab === 'courses' ? 'text-[#024B53] border-b-2 border-[#024B53] pb-1' : ''}>Online Courses</a>
-                            <a href="#" onClick={toggleTab('compare')} className={activeTab === 'compare' ? 'text-[#024B53] border-b-2 border-[#024B53] pb-1' : ''}>Compare</a>
-                            <a href="#" onClick={toggleTab('search')} className={activeTab === 'search' ? 'text-[#024B53] border-b-2 border-[#024B53] pb-1' : ''}>Search</a>
-                            <a href="#" onClick={toggleTab('blog')} className={activeTab === 'blog' ? 'text-[#024B53] border-b-2 border-[#024B53] pb-1' : ''}>Blogs</a>
-                            <a href="#" onClick={toggleTab('more')} className={activeTab === 'more' ? 'text-[#024B53] border-b-2 border-[#024B53] pb-1' : ''}>More</a>
-                            <a href="#" onClick={toggleTab('contact')} className={activeTab === 'contact' ? 'text-[#024B53] border-b-2 border-[#024B53] pb-1' : ''}>Contact Us</a>
+                            <a href="#" onClick={toggleTab('college')} className={activeTab === 'college' ? 'text-[#024B53] border-b-2 border-[#024B53] ' : ''}>Colleges</a>
+                            <a href="#" onClick={toggleTab('courses')} className={activeTab === 'courses' ? 'text-[#024B53] border-b-2 border-[#024B53] ' : ''}>Online Courses</a>
+                            <a href="#" onClick={toggleTab('compare')} className={activeTab === 'compare' ? 'text-[#024B53] border-b-2 border-[#024B53] ' : ''}>Compare</a>
+                            <a href="#" onClick={toggleTab('search')} className={activeTab === 'search' ? 'text-[#024B53] border-b-2 border-[#024B53] ' : ''}>Search</a>
+                            <a href="#" onClick={toggleTab('blog')} className={activeTab === 'blog' ? 'text-[#024B53] border-b-2 border-[#024B53] ' : ''}>Blogs</a>
+                            <a href="#" onClick={toggleTab('more')} className={activeTab === 'more' ? 'text-[#024B53] border-b-2 border-[#024B53] ' : ''}>More</a>
+                            <a href="#" onClick={toggleTab('contact')} className={activeTab === 'contact' ? 'text-[#024B53] border-b-2 border-[#024B53] ' : ''}>Contact Us</a>
                         </div>
 
                         <div className="pl-6 inline-flex gap-[9px] py-[14px]">
