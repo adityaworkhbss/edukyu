@@ -49,7 +49,7 @@ const CoursesComponentDesktop = () => {
                 ) || formattedPrograms[0];
             setSelectedProgram(defaultProgram);
         }
-    }, [formattedPrograms, selectedProgram]);
+    }, [defaultCourseType, formattedPrograms, selectedProgram]);
 
     const handleSelect = (name) => setSelectedProgram(name);
 

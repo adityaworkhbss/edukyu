@@ -60,7 +60,7 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
                 formattedPrograms[0];
             setSelectedProgram(defaultProgram);
         }
-    }, [university]);
+    }, [formattedPrograms, setSelectedProgram, university]);
 
     const handleSelect = (name) => setSelectedProgram(name);
 

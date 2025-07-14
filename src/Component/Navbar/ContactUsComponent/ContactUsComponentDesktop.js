@@ -217,7 +217,7 @@ const ContactUsComponentDesktop = () => {
                                     </div>
 
                                     <p className="text-[#515150] pb-5 font-outfit text-[16px] font-normal leading-normal not-italic">
-                                        We're here, ready to hear what you have to say
+                                        Were here, ready to hear what you have to say
                                     </p>
                                 </div>
 
@@ -225,7 +225,7 @@ const ContactUsComponentDesktop = () => {
                                     <button className="flex w-[115px] mt-[23px] px-4 py-3 justify-center items-center gap-[10px]
                                            text-[#024B53] font-outfit text-[14px] font-medium leading-normal not-italic
                                            rounded-[12px] border border-[#024B53] transition-colors hover:bg-[#e6f0ef]">
-                                        Let's Talk!
+                                        Lets Talk!
                                     </button>
                                 </div>
                             </div>
