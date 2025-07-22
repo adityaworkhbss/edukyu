@@ -50,7 +50,7 @@ const GridComponent = ({
             if (start - lastUsedGridEnd <= 1) {
                 left = ((start - lastUsedGridEnd) * (gridWidth + gutterSize));
             } else {
-                left = ((start - lastUsedGridEnd - 1) * (gridWidth + gutterSize)) + gutterSize;
+                left = ((start - lastUsedGridEnd ) * (gridWidth + gutterSize)) + gutterSize;
             }
             if (!fromFooter) left = 0;
         }

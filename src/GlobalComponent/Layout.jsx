@@ -6,6 +6,9 @@ import TopNav from '@/Component/Navbar/TopNav';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { gridConfigs } from '@/libs/GridConfigs';
 import Footer from '@/Component/Footer/Footer';
+import HomePageDesktop from "@/Component/Pages/HomePage/HomePageDesktop/HomePageDesktop";
+import HomePage from "@/Component/Pages/HomePage/HomePage";
+import {BlogsMain} from "@/Component/Pages/BlogsPage/BlogsMain/BlogsMain";
 
 const Layout = () => {
     const breakpoint = useBreakpoint();
@@ -21,14 +24,24 @@ const Layout = () => {
     return (
         <div className="w-full">
             <TopNav />
-            <div className={`${marginClass}`}>
-                <Parent
-                    numGrids={config.numGrids}
-                    gutter={config.gutter}
-                    gridWidth={config.gridWidth}
-                    gridHeight={config.gridHeight}
-                    color="rgba(220, 100, 255, 0.2)"
-                />
+
+
+
+            {/* Grid with z-axis overlap */}
+            <div className="relative">
+                <div
+                    className={`${marginClass} absolute inset-0 z-[10000000] pointer-events-none opacity-90`}
+                >
+                    <Parent
+                        numGrids={config.numGrids}
+                        gutter={config.gutter}
+                        gridWidth={config.gridWidth}
+                        gridHeight={config.gridHeight}
+                        color="rgba(220, 100, 255, 0.2)"
+                    />
+                </div>
+                <HomePage/>
+
             </div>
             <Footer />
         </div>
