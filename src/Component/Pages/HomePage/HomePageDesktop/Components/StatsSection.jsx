@@ -7,22 +7,26 @@ const StatsSection = () => {
     ];
 
     return (
-        <section className="py-16 px-6 bg-hero-bg text-hero-text">
-            <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                    {stats.map((stat, index) => (
-                        <div key={index} className="space-y-2">
-                            <div className="text-4xl lg:text-5xl xl:text-6xl font-bold">
-                                {stat.number}
+        <div className="py-[64px]">
+            <section className="py-[40px] mx-[56px] bg-hero-bg text-hero-text bg-[#679EA4] rounded-[12px]">
+                <div className="">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                        {stats.map((stat, index) => (
+                            <div key={index} className="space-y-2">
+                                <div className="text-white text-center font-[Outfit] text-[56px] font-semibold leading-none">
+                                    {stat.number}
+                                </div>
+
+                                <div className="text-white text-center font-[Outfit] text-[36px] font-medium leading-none opacity-90">
+                                    {stat.label}
+                                </div>
+
                             </div>
-                            <div className="text-lg lg:text-xl opacity-90">
-                                {stat.label}
-                            </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     );
 };
 

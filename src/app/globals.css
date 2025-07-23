@@ -30,6 +30,10 @@ body {
 
 }
 
+html, body {
+  overflow-x: hidden !important;
+}
+
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;

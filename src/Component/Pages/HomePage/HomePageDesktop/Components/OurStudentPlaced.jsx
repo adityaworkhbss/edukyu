@@ -1,41 +1,56 @@
-import { ImageIcon } from "lucide-react";
+import Image from "next/image";
+import StudentPlaced from "@/../public/Resources/Images/StudentPlaced.png";
 
 const OurStudentPlaced = () => {
     const companies = Array.from({ length: 12 }, (_, i) => ({
         id: i + 1,
         name: i === 6 ? "Name College name" : "Company Logo", // Highlight the 7th item
-        isHighlighted: i === 6
+        isHighlighted: i === 6,
     }));
 
     return (
-        <section className="py-16 px-6 bg-background">
-            <div className="max-w-7xl mx-auto">
-                <div className="mb-12">
-                    <h2 className="text-3xl font-bold text-foreground mb-4">
+        <section className="py-[64px] px-[56px]">
+            <div>
+                <div className="mb-[40px]">
+                    <h2 className="text-[32px] font-semibold text-[#181D27] font-[Outfit] mb-4 leading-normal">
                         Our Student Placed
                     </h2>
-                    <p className="text-muted-foreground text-lg">Lorem Epsum</p>
+                    <p className="text-[24px] font-normal text-[#9B9B9B] font-[Outfit] leading-normal">
+                        Lorem Epsum
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
                     {companies.map((company) => (
                         <div
                             key={company.id}
-                            className={`aspect-square rounded-lg flex flex-col items-center justify-center p-4 transition-all duration-200 hover:shadow-md relative ${
-                                company.isHighlighted
-                                    ? "bg-white border-2 border-accent shadow-lg"
-                                    : "bg-program-image hover:bg-accent"
-                            }`}
+                            className={`aspect-square rounded-lg overflow-hidden transition-all duration-200 hover:shadow-md relative 
+                            
+                            `}
                         >
-                            <ImageIcon size={24} className="text-secondary opacity-60 mb-2" />
+                            <Image
+                                src={StudentPlaced}
+                                alt="Student Placed"
+                                fill
+                                className="object-cover"
+                            />
+
                             {company.isHighlighted && (
-                                <div className="absolute bottom-2 left-2 right-2 text-center">
-                                    <div className="bg-white text-foreground text-xs font-medium px-2 py-1 rounded">
-                                        {company.name}
+                                <div className="absolute bottom-0 left-0 right-0 text-center bg-gradient-to-t from-white/50 to-white/20 backdrop-blur-md"
+                                >
+                                    <div className="text-white text-center font-[Outfit] text-[20px] font-normal leading-normal">
+                                        Tanish Pandey
                                     </div>
+
+                                    <div className="text-center font-[Outfit] text-[18px] font-normal leading-normal text-white/60">
+                                        NMIMS 2025 July
+                                    </div>
+
                                 </div>
                             )}
                         </div>
+
+
                     ))}
                 </div>
             </div>

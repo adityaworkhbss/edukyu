@@ -10,16 +10,17 @@ import OurStudentPlaced from "@/Component/Pages/HomePage/HomePageDesktop/Compone
 import StatsSection from "@/Component/Pages/HomePage/HomePageDesktop/Components/StatsSection";
 import ContactSection from "@/Component/Pages/HomePage/HomePageDesktop/Components/ContactSectiom";
 import BlogSection from "@/Component/Pages/HomePage/HomePageDesktop/Components/BlogsSection";
+import {AcademicConverter} from "@/Component/Pages/HomePage/HomePageDesktop/Components/AcademicConverter";
 
 const HomePageDesktop = () => {
     return (
-        <div className="min-h-screen">
+        <div className="overflow-x-hidden">
             <HeroSection />
             <PartnerUniversities />
             <ExplorePrograms />
             <OurProudGraduates />
             <HelpMeChoose />
-            <ContentShowcase />
+            <AcademicConverter />
             <OurStudentPlaced />
             <StatsSection />
             <ContactSection />

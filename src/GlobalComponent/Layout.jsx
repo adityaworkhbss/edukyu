@@ -29,17 +29,17 @@ const Layout = () => {
 
             {/* Grid with z-axis overlap */}
             <div className="relative">
-                <div
-                    className={`${marginClass} absolute inset-0 z-[10000000] pointer-events-none opacity-90`}
-                >
-                    <Parent
-                        numGrids={config.numGrids}
-                        gutter={config.gutter}
-                        gridWidth={config.gridWidth}
-                        gridHeight={config.gridHeight}
-                        color="rgba(220, 100, 255, 0.2)"
-                    />
-                </div>
+                {/*<div*/}
+                {/*    className={`${marginClass} absolute inset-0 z-[10000000] pointer-events-none opacity-90`}*/}
+                {/*>*/}
+                {/*    <Parent*/}
+                {/*        numGrids={config.numGrids}*/}
+                {/*        gutter={config.gutter}*/}
+                {/*        gridWidth={config.gridWidth}*/}
+                {/*        gridHeight={config.gridHeight}*/}
+                {/*        color="rgba(220, 100, 255, 0.2)"*/}
+                {/*    />*/}
+                {/*</div>*/}
                 <HomePage/>
 
             </div>
