@@ -9,6 +9,7 @@ import Footer from '@/Component/Footer/Footer';
 import HomePageDesktop from "@/Component/Pages/HomePage/HomePageDesktop/HomePageDesktop";
 import HomePage from "@/Component/Pages/HomePage/HomePage";
 import {BlogsMain} from "@/Component/Pages/BlogsPage/BlogsMain/BlogsMain";
+import CompareCollege from "@/Component/Pages/CompareCollegePage/CompareCollege";
 
 const Layout = () => {
     const breakpoint = useBreakpoint();
@@ -40,7 +41,7 @@ const Layout = () => {
                 {/*        color="rgba(220, 100, 255, 0.2)"*/}
                 {/*    />*/}
                 {/*</div>*/}
-                <HomePage/>
+                <CompareCollege/>
 
             </div>
             <Footer />

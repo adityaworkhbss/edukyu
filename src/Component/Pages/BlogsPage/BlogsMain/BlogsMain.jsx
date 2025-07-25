@@ -57,6 +57,60 @@ const blogData = [
             "https://edukyu.com/public/Best MBA colleges in india without CAT Feature Image  (2).jpg",
         category: "BLOG",
     },
+    {
+        title: "Online MBA in Artificial Intelligence",
+        subtitle: "2025 Career Guide",
+        description:
+            "The AI industry is expected to expand enormously, creating a demand for AI-aware business managers. Online courses in AI have experienced 50% year-to-year growth.",
+        image:
+            "https://edukyu.com/public/Best MBA colleges in india without CAT Feature Image  (2).jpg",
+        category: "BLOG",
+    },
+    {
+        title: "Why Choose an Online MSc in Mathematics?",
+        subtitle: "Complete Guide 2025",
+        description:
+            "Online MSc in Mathematics is gaining popularity, especially among working professionals and students seeking flexible learning options. It offers Indian students the...",
+        image:
+            "https://edukyu.com/public/Best MBA colleges in india without CAT Feature Image  (2).jpg",
+        category: "BLOG",
+    },
+    {
+        title: "Best MBA Colleges in India Without CAT",
+        subtitle: "Complete 2025 Guide",
+        description:
+            "Do you want to know the best MBA colleges in India without the CAT? Good news! Many top institutions provide MBA admission without a CAT score. XLRI Jamshedpur...",
+        image:
+            "https://edukyu.com/public/Best MBA colleges in india without CAT Feature Image  (2).jpg",
+        category: "BLOG",
+    },
+    {
+        title: "Top Online MSc in Data Science Programs",
+        subtitle: "Industry Guide 2025",
+        description:
+            "Data Science has become one of the most sought-after fields in technology. Discover the best online MSc programs that can accelerate your career in this exciting domain.",
+        image:
+            "https://edukyu.com/public/Best MBA colleges in india without CAT Feature Image  (2).jpg",
+        category: "BLOG",
+    },
+    {
+        title: "Online B.Com for CA Students",
+        subtitle: "Career Path 2025",
+        description:
+            "Pursuing B.Com alongside CA preparation provides a solid foundation. Learn about the best online B.Com programs designed specifically for aspiring chartered accountants.",
+        image:
+            "https://edukyu.com/public/Best MBA colleges in india without CAT Feature Image  (2).jpg",
+        category: "BLOG",
+    },
+    {
+        title: "Top BBA Specializations in 2025",
+        subtitle: "Complete Career Guide",
+        description:
+            "Choose the right BBA specialization for your career goals. Explore emerging specializations in digital marketing, fintech, and international business management.",
+        image:
+            "https://edukyu.com/public/Best MBA colleges in india without CAT Feature Image  (2).jpg",
+        category: "BLOG",
+    },
 ];
 
 export const BlogsMain = () => {
@@ -66,7 +120,7 @@ export const BlogsMain = () => {
     ];
 
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 3;
+    const itemsPerPage = 4;
     const totalPages = Math.ceil(blogData.length / itemsPerPage);
 
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -79,16 +133,13 @@ export const BlogsMain = () => {
     };
 
     return (
-        <div>
-            <div className="px-[56px] pt-12">
-                <Breadcrumb items={breadcrumbItems} />
-            </div>
+        <div className="py-[64px]">
 
             <div className="text-center mb-12">
                 <h1 className="text-4xl font-bold text-primary mb-4">Blogs On The Go</h1>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-[56px]">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 px-[56px]">
                 {currentBlogs.map((blog, index) => (
                     <BlogCard
                         key={index}

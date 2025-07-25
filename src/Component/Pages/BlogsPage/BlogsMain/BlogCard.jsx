@@ -1,6 +1,6 @@
 export const BlogCard = ({ title, subtitle, description, image, category }) => {
     return (
-        <div className=" rounded-xl overflow-hidden group hover:scale-105 transition-transform duration-300 border-0 shadow-lg">
+        <div className="overflow-hidden group hover:scale-105 transition-transform duration-300 border-0 shadow-lg">
             {/* Top Image + Overlay Section */}
             <div className="relative bg-blog-teal text-blog-teal-foreground h-[230px]">
 
@@ -8,7 +8,7 @@ export const BlogCard = ({ title, subtitle, description, image, category }) => {
                     <img
                         src={image}
                         alt="Student"
-                        className="h-full w-full object-cover object-center opacity-90"
+                        className="h-full w-full  object-center bg-cover"
                     />
                 </div>
             </div>
