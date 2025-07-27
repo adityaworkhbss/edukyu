@@ -1,12 +1,13 @@
 // File: app/components/Layout.js
 "use client";
 import React from 'react';
-import Parent from './Parent';
 import TopNav from '@/Component/Navbar/TopNav';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { gridConfigs } from '@/libs/GridConfigs';
+import BlogPage from "@/Component/Pages/BlogsPage/BlogPage/BlogPage";
 import Footer from '@/Component/Footer/Footer';
-import CompareCollege from "@/Component/Pages/CompareCollegePage/CompareCollege";
+import HomePage from "@/Component/Pages/HomePage/HomePage";
+import {BlogsMain} from "@/Component/Pages/BlogsPage/BlogsMain/BlogsMain";
 
 const Layout = () => {
     const breakpoint = useBreakpoint();
@@ -38,7 +39,7 @@ const Layout = () => {
                 {/*        color="rgba(220, 100, 255, 0.2)"*/}
                 {/*    />*/}
                 {/*</div>*/}
-                <CompareCollege/>
+                <BlogsMain/>
 
             </div>
             <Footer />
