@@ -28,11 +28,15 @@ export class BlogService {
         }
         const blog = await response.json();
 
+        console.log("reponse :: ", blog.metatitle);
+
         return {
-            content: blog.descs,
-            recommendations: "", // add logic later
-            keywords: "",         // add logic later
-            cards: []             // add logic later
+            userid: blog.userid,
+            category: blog.category,
+            descs: blog.descs,
+            metatitle: blog.metatitle,
+            imageurl: blog.imageurl,       // add logic later
+            timestamp: blog.timestamp,
         };
     }
 }

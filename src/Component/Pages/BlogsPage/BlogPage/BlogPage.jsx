@@ -3,16 +3,18 @@
 import { useEffect, useState } from "react";
 import BlogContent from "@/Component/Pages/BlogsPage/BlogPage/Components/BlogContents";
 import BlogRecommendations from "@/Component/Pages/BlogsPage/BlogPage/Components/BlogRecommendations";
-import BlogKeywords from "@/Component/Pages/BlogsPage/BlogPage/Components/BlogKeywords";
 import BlogCards from "@/Component/Pages/BlogsPage/BlogPage/Components/BlogCards";
 import { BlogService } from "@/Services/blogService";
+import BlogsByCategories from "@/Component/Pages/BlogsPage/BlogPage/Components/BlogsByCategories";
 
 const BlogPage = ({ blogId }) => {
     const [data, setData] = useState({
-        content: "",
-        recommendations: "",
-        keywords: "",
-        cards: [],
+        userid: "",
+        category: "",
+        descs: "",
+        metatitle: "",
+        imageurl: "",
+        timestamp: "",
     });
 
     useEffect(() => {
@@ -24,26 +26,41 @@ const BlogPage = ({ blogId }) => {
     }, [blogId]);
 
     return (
-        <div className="px-6 md:px-20 py-10 space-y-10 bg-gray-50">
-            <section>
-                <h1 className="text-2xl font-bold mb-4">Blog Content</h1>
-                <BlogContent html={data.content} />
-            </section>
+        <div className="px-[56px] py-[64px] space-y-10 bg-gray-50">
+            {/* Main Content Layout - Left: Blog Content, Right: Sidebar */}
+            <div className="flex flex-col lg:flex-row ">
+                {/* Left Column - Main Blog Content */}
+                <div className="lg:w-2/3 pr-4">
+                    <section>
+                        <BlogContent
+                            html={data.descs}
+                            userid={data.userid}
+                            category={data.category}
+                            metatitle={data.metatitle}
+                            imageurl={data.imageurl}
+                            timestamp={data.timestamp}
+                        />
+                    </section>
+                </div>
 
-            <section>
-                <h2 className="text-xl font-semibold mb-3">Recommended Reads</h2>
-                <BlogRecommendations html={data.recommendations} />
-            </section>
+                {/* Right Column - Sidebar */}
+                <div className="lg:w-1/3 space-y-6">
+                    <section>
+                        <BlogRecommendations html={data.recommendations} />
+                    </section>
 
-            <section>
-                <h2 className="text-xl font-semibold mb-3">Keywords</h2>
-                <BlogKeywords html={data.keywords} />
-            </section>
+                    <section>
+                        <BlogsByCategories />
+                    </section>
+                </div>
+            </div>
 
-            <section>
-                <h2 className="text-xl font-semibold mb-3">More Blog Posts</h2>
-                <BlogCards blogs={data.cards} />
-            </section>
+            {/* Full Width Section Below - More Blog Posts */}
+            <div className="w-full">
+                <section>
+                    <BlogCards />
+                </section>
+            </div>
         </div>
     );
 };

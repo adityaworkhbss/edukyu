@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
         });
 
         const [rows] = await connection.query<BlogContentRow[]>(
-            `SELECT descs FROM blog WHERE blogId = ?`,
+            `SELECT userid, category, descs, metaTitle, imageUrl, timeStamp  FROM blog WHERE blogId = ?`,
             [blogId]
         );
 
@@ -33,8 +33,16 @@ export async function GET(req: NextRequest) {
             return NextResponse.json({ error: 'Blog not found' }, { status: 404 });
         }
 
+        console.log(rows[0].metaTitle , "mmeeee");
+        console.log(rows[0].imageUrl , "imageUrl");
+
         return NextResponse.json({
-            descs: rows[0].descs
+            userid: rows[0].userid,
+            category: rows[0].category,
+            descs: rows[0].descs,
+            metatitle: rows[0].metaTitle,
+            imageurl: rows[0].imageUrl,
+            timestamp: rows[0].timeStamp,
         });
     } catch (error) {
         console.error('[ERROR] Single blog fetch failed:', error);
