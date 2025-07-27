@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import BlogContent from "@/Component/Pages/BlogsPage/BlogPage/Components/BlogContents";
 import BlogRecommendations from "@/Component/Pages/BlogsPage/BlogPage/Components/BlogRecommendations";
@@ -6,21 +7,21 @@ import BlogKeywords from "@/Component/Pages/BlogsPage/BlogPage/Components/BlogKe
 import BlogCards from "@/Component/Pages/BlogsPage/BlogPage/Components/BlogCards";
 import { BlogService } from "@/Services/blogService";
 
-const BlogPage = () => {
+const BlogPage = ({ blogId }) => {
     const [data, setData] = useState({
         content: "",
         recommendations: "",
         keywords: "",
-        cards: []
+        cards: [],
     });
 
     useEffect(() => {
         const fetchData = async () => {
-            const blogData = await BlogService.getInstance().fetchFullBlogPage();
+            const blogData = await BlogService.getInstance().fetchFullBlogPage(blogId);
             setData(blogData);
         };
         fetchData();
-    }, []);
+    }, [blogId]);
 
     return (
         <div className="px-6 md:px-20 py-10 space-y-10 bg-gray-50">

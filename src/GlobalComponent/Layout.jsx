@@ -8,6 +8,7 @@ import BlogPage from "@/Component/Pages/BlogsPage/BlogPage/BlogPage";
 import Footer from '@/Component/Footer/Footer';
 import HomePage from "@/Component/Pages/HomePage/HomePage";
 import {BlogsMain} from "@/Component/Pages/BlogsPage/BlogsMain/BlogsMain";
+import BlogPageMain from "@/Component/Pages/BlogsPage/BlogPageMain";
 
 const Layout = () => {
     const breakpoint = useBreakpoint();
@@ -39,7 +40,7 @@ const Layout = () => {
                 {/*        color="rgba(220, 100, 255, 0.2)"*/}
                 {/*    />*/}
                 {/*</div>*/}
-                <BlogsMain/>
+                <BlogPageMain/>
 
             </div>
             <Footer />

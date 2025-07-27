@@ -5,6 +5,7 @@ interface BlogRow extends RowDataPacket {
     blogId: number;
     name: string;
     sortDescs: string;
+    descs: string;
     category: string;
     shortUrl: string;
     metaTitle: string;
@@ -44,14 +45,16 @@ export async function GET(req: NextRequest) {
             LIMIT ${limit} OFFSET ${offset};
         `;
 
-        console.log('[QUERY]', blogQuery); // Debug log
 
-        const [rows] = await connection.query<BlogRow[]>(blogQuery);
+        const [rows] = await connection.query<BlogRow[]>(blogQuery)
+
+        console.log('[QUERY]', rows[0].descs); // Debug log
 
         await connection.end();
 
         // Format the blog data
         const blogs = rows.map((row) => ({
+            blogId: row.blogId,
             title: row.name,
             subtitle: row.metaTitle,
             description: row.sortDescs,

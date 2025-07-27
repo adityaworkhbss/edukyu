@@ -15,6 +15,24 @@ export class BlogService {
         if (!response.ok) {
             throw new Error("Failed to fetch blogs");
         }
+        console.log("reponse :: ", response);
         return await response.json();
+    }
+
+    async fetchFullBlogPage(blogId: number) {
+        console.log(`Fetching blog page ${blogId}`);
+        const response = await fetch(`${API_BASE_URL}/api/blogpage?blogId=${blogId}`);
+        console.log("reponse :: ", response);
+        if (!response.ok) {
+            throw new Error("Failed to fetch blog detail");
+        }
+        const blog = await response.json();
+
+        return {
+            content: blog.descs,
+            recommendations: "", // add logic later
+            keywords: "",         // add logic later
+            cards: []             // add logic later
+        };
     }
 }

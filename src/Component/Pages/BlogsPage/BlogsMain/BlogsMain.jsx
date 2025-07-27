@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BlogCard } from "./Component/BlogCard";
 import { BlogService } from "@/Services/blogService";
 
-export const BlogsMain = () => {
+export const BlogsMain = ( { onReadMore }) => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -65,12 +65,14 @@ export const BlogsMain = () => {
                         {blogs.map((blog, index) => (
                             <BlogCard
                                 key={index}
+                                blogId={blog.blogId}
                                 title={blog.title}
                                 subtitle={blog.subtitle}
                                 description={blog.description}
                                 image={blog.image}
                                 category={blog.category}
                                 readMoreUrl={blog.readMoreUrl}
+                                onReadMore={onReadMore}
                             />
                         ))}
                     </div>
