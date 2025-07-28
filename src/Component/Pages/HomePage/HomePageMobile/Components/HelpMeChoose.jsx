@@ -5,7 +5,6 @@ export const HelpMeChoose = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form submitted with answer:', answer);
         // Handle form submission logic here
     };
 

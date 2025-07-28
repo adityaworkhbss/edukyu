@@ -1,5 +1,9 @@
+"use client";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import BlogPage from "@/Component/Pages/BlogsPage/BlogPage/BlogPage";
+
+
 
 export const BlogCard = ({
     blogId,
@@ -8,9 +12,13 @@ export const BlogCard = ({
                              description,
                              image,
                              category = "BLOG",
-                             onReadMore,
                          }) => {
-    // const [showBlogPage, setShowBlogPage] = useState(false);
+   const router = useRouter();
+
+    const handleReadMore = () => {
+        router.push(`/blog/page/${blogId}`, undefined, { shallow: true });
+    };
+
 
     // Fallback image
     const fallbackImage = "https://edukyu.com/public/Blogs/eee.jpg";
@@ -56,7 +64,7 @@ export const BlogCard = ({
 
                 {/* ✅ Updated Button */}
                 <button
-                    onClick={() => onReadMore(blogId)}
+                    onClick={handleReadMore}
                     className="text-primary font-medium text-sm hover:underline mt-auto"
                 >
                     Read More

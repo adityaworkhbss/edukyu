@@ -21,6 +21,7 @@ export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const page = parseInt(searchParams.get('page') || '1', 10);
     const limit = parseInt(searchParams.get('limit') || '8', 10);
+    const category = (searchParams.get('category'));
     const offset = (page - 1) * limit;
 
     try {
@@ -41,12 +42,15 @@ export async function GET(req: NextRequest) {
         const blogQuery = `
             SELECT blogId, name, sortDescs, category, shortUrl, metaTitle, metaDesc, imageUrl
             FROM blog
+            where category = '${category}'
             ORDER BY timeStamp DESC
             LIMIT ${limit} OFFSET ${offset};
         `;
 
 
         const [rows] = await connection.query<BlogRow[]>(blogQuery)
+
+        console.log('[QUERY]', rows[0].name); // Debug log
 
         await connection.end();
 

@@ -33,8 +33,6 @@ export async function GET(req: NextRequest) {
             return NextResponse.json({ error: 'Blog not found' }, { status: 404 });
         }
 
-        console.log(rows[0].metaTitle , "mmeeee");
-        console.log(rows[0].imageUrl , "imageUrl");
 
         return NextResponse.json({
             userid: rows[0].userid,

@@ -44,7 +44,7 @@ const BlogPage = ({ blogId }) => {
                 {/* Right Column - Sidebar */}
                 <div className="lg:w-1/3 space-y-6">
                     <section>
-                        <BlogRecommendations html={data.recommendations} />
+                        <BlogRecommendations category={data.category} />
                     </section>
 
                     <section>

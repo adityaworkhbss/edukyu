@@ -17,7 +17,6 @@ const MoreComponentMobile = ({ onClose }) => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        console.log('Searching for:', searchQuery);
     };
 
     return (

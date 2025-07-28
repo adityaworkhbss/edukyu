@@ -13,7 +13,7 @@ export const FeatureBlogCard = ({
     const router = useRouter();
 
     const handleReadMore = () => {
-        router.push(`/blog/${blogId}`, undefined, { shallow: true });
+        router.push(`/blog/page/${blogId}`, undefined, { shallow: true });
     };
 
     const handleImageError = (e) => {

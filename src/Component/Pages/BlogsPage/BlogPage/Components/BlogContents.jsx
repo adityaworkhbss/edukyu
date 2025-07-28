@@ -19,11 +19,6 @@ const BlogContent = ({
                          timestamp,
                          authorName = "Author",
                      }) => {
-    console.log("User ID:", userid);
-    console.log("Category:", category);
-    console.log("Meta Title:", metatitle);
-    console.log("Image URL:", imageurl);
-    console.log("Timestamp:", timestamp);
 
     const formatDate = (dateString) => {
         try {

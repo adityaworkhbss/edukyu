@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BlogCard } from "./Component/BlogCard";
 import { BlogService } from "@/Services/blogService";
 
-export const BlogsMain = ( { onReadMore }) => {
+export const BlogsMain = ( { category }) => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -27,9 +27,31 @@ export const BlogsMain = ( { onReadMore }) => {
         }
     };
 
+    const fetchCategoryBlogs = async (page, category) => {
+        setLoading(true);
+        setError(null);
+        try {
+            const blogService = BlogService.getInstance();
+            const data = await blogService.fetchCategoryBlogs(page, itemsPerPage, category);
+            setBlogs(data.blogs);
+            setCurrentPage(data.page);
+            setTotalPages(Math.ceil(data.total / data.limit));
+        } catch (err) {
+            console.error("Error fetching blogs:", err);
+            setError("Failed to load blogs.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     useEffect(() => {
-        fetchBlogs(currentPage);
-    }, [currentPage]);
+        if(category === 'all') {
+            fetchBlogs(currentPage);
+        } else {
+            fetchCategoryBlogs(currentPage, category);
+        }
+
+    }, [currentPage, category]);
 
     const handlePageChange = (page) => {
         if (page >= 1 && page <= totalPages) {
@@ -72,7 +94,6 @@ export const BlogsMain = ( { onReadMore }) => {
                                 image={blog.image}
                                 category={blog.category}
                                 readMoreUrl={blog.readMoreUrl}
-                                onReadMore={onReadMore}
                             />
                         ))}
                     </div>
