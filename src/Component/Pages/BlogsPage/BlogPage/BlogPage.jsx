@@ -27,9 +27,7 @@ const BlogPage = ({ blogId }) => {
 
     return (
         <div className="px-[56px] py-[64px] space-y-10 bg-gray-50">
-            {/* Main Content Layout - Left: Blog Content, Right: Sidebar */}
             <div className="flex flex-col lg:flex-row ">
-                {/* Left Column - Main Blog Content */}
                 <div className="lg:w-2/3 pr-4">
                     <section>
                         <BlogContent

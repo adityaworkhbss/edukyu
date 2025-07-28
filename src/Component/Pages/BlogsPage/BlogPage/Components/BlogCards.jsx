@@ -1,8 +1,9 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import { FeatureBlogCard } from "./ui/FeatureBlogCard";
 import { BlogService } from "@/Services/blogService";
 
-const BlogCards = ( { onReadMore }) => {
+const BlogCards = () => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -46,23 +47,20 @@ const BlogCards = ( { onReadMore }) => {
                     <p className="text-red-500">{error}</p>
                 </div>
             ) : blogs.length > 0 ? (
-                <>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        {blogs.map((blog, index) => (
-                            <FeatureBlogCard
-                                key={blog.blogId} // ✅ IMPROVED: Use blogId instead of index for better React performance
-                                blogId={blog.blogId}
-                                title={blog.title}
-                                subtitle={blog.subtitle}
-                                description={blog.description}
-                                image={blog.image}
-                                category={blog.category}
-                                readMoreUrl={blog.readMoreUrl}
-                                onReadMore={onReadMore}
-                            />
-                        ))}
-                    </div>
-                </>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {blogs.map((blog) => (
+                        <FeatureBlogCard
+                            key={blog.blogId}
+                            blogId={blog.blogId}
+                            title={blog.title}
+                            subtitle={blog.subtitle}
+                            description={blog.description}
+                            image={blog.image}
+                            category={blog.category}
+                            readMoreUrl={blog.readMoreUrl}
+                        />
+                    ))}
+                </div>
             ) : (
                 <div className="text-center py-12">
                     <p className="text-xl text-gray-600">No blogs found</p>

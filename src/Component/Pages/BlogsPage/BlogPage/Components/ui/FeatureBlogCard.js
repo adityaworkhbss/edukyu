@@ -1,22 +1,23 @@
-import React, { useState } from "react";
-import BlogPage from "@/Component/Pages/BlogsPage/BlogPage/BlogPage";
+"use client";
+import { useRouter } from "next/navigation";
+import React from "react";
 
 export const FeatureBlogCard = ({
-                             blogId,
-                             title,
-                             subtitle,
-                             description,
-                             image,
-                             category = "BLOG",
-                             onReadMore,
-                         }) => {
-    // const [showBlogPage, setShowBlogPage] = useState(false);
+                                    blogId,
+                                    title,
+                                    subtitle,
+                                    description,
+                                    image,
+                                    category = "BLOG",
+                                }) => {
+    const router = useRouter();
 
-    // Fallback image
-    const fallbackImage = "https://edukyu.com/public/Blogs/eee.jpg";
+    const handleReadMore = () => {
+        router.push(`/blog/${blogId}`, undefined, { shallow: true });
+    };
 
     const handleImageError = (e) => {
-        e.target.src = fallbackImage;
+        e.target.src = "https://edukyu.com/public/Blogs/eee.jpg"; // fallback image
     };
 
     return (
@@ -54,9 +55,8 @@ export const FeatureBlogCard = ({
                     {description || "No description available."}
                 </p>
 
-                {/* ✅ Updated Button */}
                 <button
-                    onClick={() => onReadMore(blogId)}
+                    onClick={handleReadMore}
                     className="text-primary font-medium text-sm hover:underline mt-auto"
                 >
                     Read More
