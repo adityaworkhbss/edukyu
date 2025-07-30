@@ -1,5 +1,6 @@
-import {useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import { ImageIcon } from "lucide-react";
+import GridComponent from "@/GlobalComponent/GridComponent";
 
 const ExplorePrograms = () => {
     const [activeTab, setActiveTab] = useState("PG");
@@ -36,18 +37,22 @@ const ExplorePrograms = () => {
     };
 
     return (
-        <section className="px-[56px] PY-[64px] bg-background">
+        <section className="px-[56px] py-[64px] bg-background">
             <div className="">
                 <div className="">
-                    <div className="text-[32px] font-semibold text-black font-[Outfit] leading-normal">
-                        Explore Programs
-                    </div>
+                    <GridComponent gridStart={0} gridEnd={6}>
+                        <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
+                            Explore our Courses
+                        </div>
+                    </GridComponent>
 
-                    <div className="text-[24px] pt-[20px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
-                        Lorem Epsum
-                    </div>
+                    <GridComponent gridStart={0} gridEnd={6}>
+                        <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
+                            Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+                        </div>
+                    </GridComponent >
 
-                    <div className="flex gap-0 bg-[#CDCDCD] w-fit mb-[40px]">
+                    <div className="flex gap-0 bg-[#CDCDCD] w-fit mt-[24px] mb-[64px]">
                         {tabs.map((tab, index) => (
                             <button
                                 key={tab.id}
@@ -75,65 +80,91 @@ const ExplorePrograms = () => {
                 </div>
 
                 <div className="relative">
-                    <button
-                        onClick={handlePrev}
-                        className="absolute top-1/2 left-0 -ml-4 -translate-y-1/2 bg-white z-10 rounded-full shadow p-2 hover:shadow-md"
-                        aria-label="Previous"
-                    >
-                        {/* Left Arrow SVG */}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M12.6669 7.33332H5.22028L8.47361 4.07998C8.73361 3.81998 8.73361 3.39332 8.47361 3.13332C8.41193 3.07151 8.33867 3.02248 8.25803 2.98903C8.17738 2.95557 8.09092 2.93835 8.00361 2.93835C7.9163 2.93835 7.82984 2.95557 7.74919 2.98903C7.66854 3.02248 7.59528 3.07151 7.53361 3.13332L3.14028 7.52665C3.07847 7.58833 3.02944 7.66159 2.99599 7.74223C2.96253 7.82288 2.94531 7.90934 2.94531 7.99665C2.94531 8.08396 2.96253 8.17042 2.99599 8.25107C3.02944 8.33172 3.07847 8.40497 3.14028 8.46665L7.53361 12.86C7.59533 12.9217 7.6686 12.9707 7.74925 13.0041C7.82989 13.0375 7.91632 13.0547 8.00361 13.0547C8.0909 13.0547 8.17733 13.0375 8.25797 13.0041C8.33861 12.9707 8.41189 12.9217 8.47361 12.86C8.53533 12.7983 8.58429 12.725 8.61769 12.6443C8.6511 12.5637 8.66829 12.4773 8.66829 12.39C8.66829 12.3027 8.6511 12.2163 8.61769 12.1356C8.58429 12.055 8.53533 11.9817 8.47361 11.92L5.22028 8.66665H12.6669C13.0336 8.66665 13.3336 8.36665 13.3336 7.99998C13.3336 7.63332 13.0336 7.33332 12.6669 7.33332Z" fill="#6A6A69" />
-                        </svg>
-                    </button>
-
-                    <button
-                        onClick={handleNext}
-                        className="absolute top-1/2 right-0 -mr-4 -translate-y-1/2 bg-white z-10 rounded-full shadow p-2 hover:shadow-md"
-                        aria-label="Next"
-                    >
-                        {/* Right Arrow SVG */}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M3.33306 8.66668H10.7797L7.52639 11.92C7.26639 12.18 7.26639 12.6067 7.52639 12.8667C7.58807 12.9285 7.66133 12.9775 7.74197 13.011C7.82262 13.0444 7.90908 13.0616 7.99639 13.0616C8.0837 13.0616 8.17016 13.0444 8.25081 13.011C8.33146 12.9775 8.40472 12.9285 8.46639 12.8667L12.8597 8.47335C12.9215 8.41167 12.9706 8.33841 13.004 8.25777C13.0375 8.17712 13.0547 8.09066 13.0547 8.00335C13.0547 7.91604 13.0375 7.82958 13.004 7.74893C12.9706 7.66828 12.9215 7.59503 12.8597 7.53335L8.46639 3.14002C8.40467 3.07829 8.3314 3.02934 8.25075 2.99593C8.17011 2.96253 8.08368 2.94534 7.99639 2.94534C7.9091 2.94534 7.82267 2.96253 7.74203 2.99593C7.66139 3.02934 7.58811 3.07829 7.52639 3.14002C7.46467 3.20174 7.41571 3.27501 7.38231 3.35565C7.3489 3.4363 7.33171 3.52273 7.33171 3.61002C7.33171 3.6973 7.3489 3.78374 7.38231 3.86438C7.41571 3.94502 7.46467 4.0183 7.52639 4.08002L10.7797 7.33335L3.33306 7.33335C2.96639 7.33335 2.66639 7.63335 2.66639 8.00002C2.66639 8.36668 2.96639 8.66668 3.33306 8.66668Z" fill="#6A6A69" />
-                        </svg>
-                    </button>
-
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {programs.map((program) => (
-                            <div key={program.id} className="bg-program-card border border-border rounded-lg shadow-sm">
+                            <div key={program.id} className="bg-program-card border border-border rounded-[22px] shadow-sm">
                                 <div className="p-0">
                                     <div className="bg-program-image rounded-t-lg  h-[132px] flex items-center  justify-center">
                                         <ImageIcon size={48} className="text-secondary rounded-t-lg opacity-60 bg-cover" />
                                     </div>
                                     <div className="py-[16px] px-[16px]">
-                                        <h3 className="font-bold text-xl text-foreground mb-[12px]">
+                                        <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none">
                                             {program.title}
                                         </h3>
-                                        <p className="text-muted-foreground mb-[12px]">
-                                            {program.description}
-                                        </p>
-                                        <p className="text-muted-foreground text-sm">
-                                            {program.details}
-                                        </p>
+                                        <div className="inline-flex items-center gap-[8px] pt-[22px]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <g clipPath="url(#clip0_236_281)">
+                                                    <path d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z" fill="#383837"/>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_236_281">
+                                                        <rect width="24" height="24" fill="white"/>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+
+                                            <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
+                                                {program.description}
+                                            </div>
+                                        </div>
+
+                                        <div className="inline-flex items-center gap-[8px] pt-[16px]">
+                                            <div className="text-[#323232] pl-[5px] pr-[4px] font-[Outfit] text-[26px] font-medium leading-[21px]">
+                                              ₹
+                                            </div>
+
+                                            <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
+                                                {program.details}
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
 
-                                <div className="inline-flex gap-[10px]">
-                                    <div className="p-[12px] pt-0 flex items-center">
-                                        <button className="w-full text-secondary-foreground hover:bg-secondary/80 px-4 py-2 rounded-md font-medium transition-colors">
+                                <div className="pt-[10px] w-full pb-[16px]">
+                                    <div className="flex justify-center">
+                                        <button
+                                            className="flex items-center justify-center border px-[90px] py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors hover:bg-[#f3f3f3]"
+                                        >
                                             Explore
                                         </button>
                                     </div>
-                                    <div className="p-[12px] pt-0 flex items-center">
-                                        <button className="w-full bg-[#679EA4] text-secondary-foreground hover:bg-secondary/80 px-4 py-2 rounded-md font-medium transition-colors">
-                                            View Program
-                                        </button>
-                                    </div>
                                 </div>
-
                             </div>
                         ))}
                     </div>
                 </div>
+
+                <div className="flex justify-between mt-[32px] pb-[64px]">
+                    <button
+                        onClick={handlePrev}
+                        className="bg-white z-10 p-4 hover:shadow-md rounded"
+                        aria-label="Previous"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <g clipPath="url(#clip0_228_602)">
+                                <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#9B9B9B" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_228_602">
+                                    <rect width="32" height="32" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
+
+                    <button
+                        onClick={handleNext}
+                        className="bg-white z-10 p-4 hover:shadow-md rounded"
+                        aria-label="Next"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53" />
+                        </svg>
+                    </button>
+
+                </div>
+
             </div>
         </section>
     );

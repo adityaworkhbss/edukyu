@@ -1,21 +1,25 @@
 import { Calendar, User, ArrowRight, ImageIcon } from "lucide-react";
 import BlogCarousel from "@/Component/Pages/HomePage/HomePageDesktop/Components/ui/BlogCarousel";
+import GridComponent from "@/GlobalComponent/GridComponent";
 
 const BlogSection = () => {
     return (
         <section className="py-16 px-[56px] bg-background">
             <div className="">
-                {/* Header */}
-                <div className="mb-10">
-                    <div
-                        className="text-[#000] font-[Outfit] text-[32px] font-semibold leading-[48px] tracking-[1px] mb-5"
-                    >
+                <div className="mb-[64px]">
+
+                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none pb-[16px]">
                         Our Blogs
                     </div>
 
-                    <div className="text-[#9B9B9B] font-[Outfit] text-[24px] font-medium">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </div>
+
+                    <GridComponent gridStart={0} gridEnd={5}>
+                        <div className="text-[#515150] font-[Outfit] text-[20px] font-normal leading-none">
+                            Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+                        </div>
+
+                    </GridComponent>
+
 
                 </div>
 

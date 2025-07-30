@@ -1,126 +1,208 @@
 import React, { useState } from 'react';
-import GridContainer from "@/GlobalComponent/GridContainer";
 import GridComponent from "@/GlobalComponent/GridComponent";
+import academic_converter from "@/../public/Resources/Images/academic_convertor.png";
 
 export const AcademicConverter = () => {
+    const [activeTab, setActiveTab] = useState('sgpa-to-percentage');
     const [sgpa, setSgpa] = useState('');
-    const [percentage, setPercentage] = useState('');
+    const [cgpa, setCgpa] = useState('');
+    const [convertedValue, setConvertedValue] = useState('');
+
+    const tabs = [
+        { id: 'sgpa-to-percentage', label: 'SGPA to Percentage' },
+        { id: 'cgpa-to-percentage', label: 'CGPA to Percentage' },
+        { id: 'sgpa-to-cgpa', label: 'SGPA to CGPA' }
+    ];
 
     const handleConvert = () => {
-        const sgpaValue = parseFloat(sgpa);
-        if (!isNaN(sgpaValue) && sgpaValue >= 0 && sgpaValue <= 10) {
-            const percentageValue = ((sgpaValue - 0.75) * 10).toFixed(2);
-            setPercentage(percentageValue);
-        } else {
-            alert('Please enter a valid SGPA between 0 and 10');
+        if (activeTab === 'sgpa-to-percentage') {
+            const sgpaValue = parseFloat(sgpa);
+            if (!isNaN(sgpaValue) && sgpaValue >= 0 && sgpaValue <= 10) {
+                const percentageValue = ((sgpaValue - 0.75) * 10).toFixed(2);
+                setConvertedValue(percentageValue + '%');
+            } else {
+                alert('Please enter a valid SGPA between 0 and 10');
+            }
+        } else if (activeTab === 'cgpa-to-percentage') {
+            const cgpaValue = parseFloat(cgpa);
+            if (!isNaN(cgpaValue) && cgpaValue >= 0 && cgpaValue <= 10) {
+                const percentageValue = ((cgpaValue - 0.75) * 10).toFixed(2);
+                setConvertedValue(percentageValue + '%');
+            } else {
+                alert('Please enter a valid CGPA between 0 and 10');
+            }
+        } else if (activeTab === 'sgpa-to-cgpa') {
+            const sgpaValue = parseFloat(sgpa);
+            if (!isNaN(sgpaValue) && sgpaValue >= 0 && sgpaValue <= 10) {
+                setConvertedValue(sgpaValue.toFixed(2));
+            } else {
+                alert('Please enter a valid SGPA between 0 and 10');
+            }
         }
     };
 
     const handleReset = () => {
         setSgpa('');
-        setPercentage('');
+        setCgpa('');
+        setConvertedValue('');
+    };
+
+    const handleInputChange = (value) => {
+        if (activeTab === 'cgpa-to-percentage') setCgpa(value);
+        else setSgpa(value);
+    };
+
+    const getInputLabel = () => {
+        switch (activeTab) {
+            case 'sgpa-to-percentage':
+            case 'sgpa-to-cgpa':
+                return 'Please enter your SGPA';
+            case 'cgpa-to-percentage':
+                return 'Please enter your CGPA';
+            default:
+                return '';
+        }
+    };
+
+    const getOutputLabel = () => {
+        switch (activeTab) {
+            case 'sgpa-to-percentage':
+            case 'cgpa-to-percentage':
+                return 'Your percentage is';
+            case 'sgpa-to-cgpa':
+                return 'Your CGPA is';
+            default:
+                return '';
+        }
+    };
+
+    const getCurrentInputValue = () => {
+        switch (activeTab) {
+            case 'cgpa-to-percentage':
+                return cgpa;
+            case 'sgpa-to-percentage':
+            case 'sgpa-to-cgpa':
+                return sgpa;
+            default:
+                return '';
+        }
     };
 
     return (
-
         <div className="px-[56px] py-[64px]">
             <div className="flex flex-col flex-1">
-                <div className="text-[32px] text-[#181D27] font-semibold font-outfit">
-                    Academic Converter Tool
-                </div>
+                <GridComponent gridStart={0} gridEnd={6}>
+                    <div className="text-[48px] font-semibold text-[#024B53] font-[Outfit] leading-normal">
+                        Academic Converter Tool
+                    </div>
+                </GridComponent>
 
-                <div className="text-[24px] leading-[30px] text-[#535862] font-normal font-outfit mt-2 mb-6">
-                    SGPA, CGPA, or Percentage — Get Results in One Click.
+                <GridComponent gridStart={0} gridEnd={6}>
+                    <div className="text-[20px] font-normal text-[#515150] font-[Outfit] leading-normal">
+                        Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+                    </div>
+                </GridComponent>
+
+                <div className="flex bg-white border-b border-[#B2B2B2] mt-[40px] mb-[40px]">
+                    {tabs.map((tab) => (
+                        <button
+                            key={tab.id}
+                            onClick={() => {
+                                setActiveTab(tab.id);
+                                setConvertedValue('');
+                            }}
+                            className={`px-6 py-4 gap-[10px] text-sm font-medium transition-colors ${
+                                activeTab === tab.id
+                                    ? 'bg-white text-slate-800 border-b-2 border-teal-600'
+                                    : 'text-slate-600'
+                            }`}
+                        >
+                            {tab.label}
+                        </button>
+                    ))}
                 </div>
             </div>
-            <GridContainer>
-                <section className="flex flex-row items-start justify-between gap-[24px] py-8">
-                    {/* Left: Image Card */}
-                    <GridComponent
-                        lastUsedGridEnd={0} gridStart={0} gridEnd={4}
-                    >
-                        <div className="w-full">
-                            <img
-                                src="https://api.builder.io/api/v1/image/assets/TEMP/8aad82ab9aa1800501e4c0151aa8c2b9b356497b?placeholderIfAbsent=true"
-                                alt="SGPA to Percentage Calculator"
-                                className="rounded-[13px] w-full object-cover"
-                            />
-                        </div>
 
-                    </GridComponent>
-
-
-                    {/* Right: Inputs & Buttons */}
-                    <div className="flex flex-col flex-1">
-
-                        {/* Info bar */}
-                        <div className="flex items-center bg-[#E1E1E1] text-[#9B9B9B] text-base font-medium rounded-lg border border-[#CDCDCD] px-4 py-3">
-                            <span className="flex-1 basis-0 grow">Calculate your SGPA to Percentage</span>
-                            <img
-                                src="https://api.builder.io/api/v1/image/assets/TEMP/1b7e04ab15c4ca86cbc876e757d2e473389a569a?placeholderIfAbsent=true"
-                                alt="Calculator icon"
-                                className="w-6 h-6"
-                            />
-                        </div>
-
-                        {/* Input fields */}
-                        <div className="flex flex-row items-center gap-4 mt-6">
-                            <div className="flex-1 flex items-center px-4 py-3 rounded-lg border border-[#CDCDCD]">
+            <section className="flex flex-row items-start justify-between gap-[24px] py-8">
+                <GridComponent gridStart={0} gridEnd={4}>
+                    <div className="flex flex-col">
+                        <div className="space-y-6 w-full">
+                            <div>
+                                <label className="block text-lg font-medium text-slate-700 mb-3">
+                                    {getInputLabel()}
+                                </label>
                                 <input
                                     type="number"
-                                    value={sgpa}
-                                    onChange={(e) => setSgpa(e.target.value)}
-                                    placeholder="Enter your SGPA"
+                                    value={getCurrentInputValue()}
+                                    onChange={(e) => handleInputChange(e.target.value)}
+                                    placeholder={activeTab === 'cgpa-to-percentage' ? 'Enter CGPA' : 'Enter SGPA'}
                                     min="0"
                                     max="10"
                                     step="0.01"
-                                    className="w-full bg-transparent outline-none text-[#181D27] placeholder-[#9B9B9B]"
+                                    className="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-teal-600 focus:outline-none transition-colors"
                                 />
                             </div>
 
                             <button
                                 onClick={handleConvert}
-                                className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity"
-                            >
-                                <img
-                                    src="https://api.builder.io/api/v1/image/assets/TEMP/dafd774375346e545021fc0f5669a74fdc9b8e3f?placeholderIfAbsent=true"
-                                    alt="Convert"
-                                    className="w-full h-full"
-                                />
-                            </button>
-
-                            <div className="flex-1 flex items-center px-4 py-3 rounded-lg border border-[#CDCDCD]">
-                                <input
-                                    type="text"
-                                    value={percentage}
-                                    readOnly
-                                    placeholder="In Percentage"
-                                    className="w-full bg-transparent outline-none text-[#181D27] placeholder-[#9B9B9B]"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Buttons */}
-                        <div className="flex gap-4 mt-6">
-                            <button
-                                onClick={handleConvert}
-                                className="flex bg-[#357E86] text-white px-4 py-4 rounded-lg font-medium hover:bg-[#2d6b72] transition-colors"
+                                className="w-full bg-teal-700 hover:bg-teal-800 text-white mt-[58px] font-semibold py-4 px-6 rounded-lg transition-colors shadow-md"
                             >
                                 Convert Now
                             </button>
-                            {(sgpa || percentage) && (
+
+                            {(getCurrentInputValue() || convertedValue) && (
                                 <button
                                     onClick={handleReset}
-                                    className="flex-1 border border-[#357E86] text-[#357E86] px-4 py-4 rounded-lg font-medium hover:bg-[#357E86] hover:text-white transition-colors"
+                                    className="w-full border-2 border-teal-700 text-teal-700 hover:bg-teal-700 hover:text-white font-semibold py-3 px-6 rounded-lg transition-colors"
                                 >
-                                    Reset
+                                    Reset ↻
                                 </button>
                             )}
                         </div>
                     </div>
-                </section>
-            </GridContainer>
-        </div>
+                </GridComponent>
 
+                <div className="relative">
+                    <div className="text-[24px] font-medium text-[#024B53] font-[Outfit] leading-normal">
+                        {getOutputLabel()}
+                    </div>
+
+                    <div className="text-[56px] font-semibold text-[#024B53] font-[Outfit] leading-normal">
+                        {convertedValue || '---'}
+                    </div>
+
+                    {(convertedValue || getCurrentInputValue()) && (
+                        <button
+                            onClick={handleReset}
+                            className="absolute inline-flex gap-1 items-center -bottom-[52px] -right-[50px]"
+                        >
+                            <div className="text-[16px] font-medium text-[#6A6A69] font-[Outfit] leading-normal">
+                                Reset
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <g clipPath="url(#clip0_252_416)">
+                                    <path d="M11.7667 4.23317C10.8 3.2665 9.47334 2.6665 8.00001 2.6665C5.05334 2.6665 2.67334 5.05317 2.67334 7.99984C2.67334 10.9465 5.05334 13.3332 8.00001 13.3332C10.4867 13.3332 12.56 11.6332 13.1533 9.33317H11.7667C11.22 10.8865 9.74001 11.9998 8.00001 11.9998C5.79334 11.9998 4.00001 10.2065 4.00001 7.99984C4.00001 5.79317 5.79334 3.99984 8.00001 3.99984C9.10667 3.99984 10.0933 4.45984 10.8133 5.1865L8.66667 7.33317H13.3333V2.6665L11.7667 4.23317Z" fill="#6A6A69" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_252_416">
+                                        <rect width="16" height="16" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </button>
+                    )}
+                </div>
+
+                <GridComponent lastUsedGridEnd={8} gridStart={0} gridEnd={4}>
+                    <div className="w-full">
+                        <img
+                            src={academic_converter.src}
+                            alt="SGPA to Percentage Calculator"
+                            className="rounded-[13px] w-full object-cover"
+                        />
+                    </div>
+                </GridComponent>
+            </section>
+        </div>
     );
 };

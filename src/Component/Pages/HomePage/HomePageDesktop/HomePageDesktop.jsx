@@ -11,6 +11,8 @@ import StatsSection from "@/Component/Pages/HomePage/HomePageDesktop/Components/
 import ContactSection from "@/Component/Pages/HomePage/HomePageDesktop/Components/ContactSectiom";
 import BlogSection from "@/Component/Pages/HomePage/HomePageDesktop/Components/BlogsSection";
 import {AcademicConverter} from "@/Component/Pages/HomePage/HomePageDesktop/Components/AcademicConverter";
+import CompareCollegesCTA from "@/Component/Pages/HomePage/HomePageDesktop/Components/CompareCollegeCTA";
+import CollegeMunchBanner from "@/Component/Pages/HomePage/HomePageDesktop/Components/CollegeMunchBanner";
 
 const HomePageDesktop = () => {
     return (
@@ -20,8 +22,17 @@ const HomePageDesktop = () => {
             <ExplorePrograms />
             <OurProudGraduates />
             <HelpMeChoose />
+            <div className="px-[56px]  py-[64px]">
+                <CompareCollegesCTA/>
+            </div>
+
             <AcademicConverter />
             <OurStudentPlaced />
+
+            <div className="px-[56px]  py-[64px]">
+                <CollegeMunchBanner />
+            </div>
+
             <StatsSection />
             <ContactSection />
             <BlogSection />

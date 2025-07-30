@@ -40,7 +40,7 @@ const Layout = () => {
                 {/*        color="rgba(220, 100, 255, 0.2)"*/}
                 {/*    />*/}
                 {/*</div>*/}
-                <BlogPageMain/>
+                <HomePage/>
 
             </div>
             <Footer />

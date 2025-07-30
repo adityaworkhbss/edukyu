@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Calendar, ImageIcon, User } from "lucide-react";
 
 const universities = [
@@ -65,7 +65,7 @@ export default function BlogCarousel() {
                     {universities.map((univ, idx) => (
                         <div
                             key={univ.id}
-                            className="bg-white border border-border rounded-lg overflow-hidden shadow-sm flex-shrink-0"
+                            className="bg-white rounded-lg overflow-hidden  flex-shrink-0"
                             style={{ width: `${cardWidth}px` }}
                         >
                             <div className="cover bg-gray-100 h-[214px] flex items-center rounded-b-xl justify-center">
@@ -95,16 +95,23 @@ export default function BlogCarousel() {
 
 
                                 {/* Blog Title */}
-                                <div className="text-[#121212] text-[24px] leading-[30px] font-medium font-outfit">
+                                <div className="text-[#121212] mb-[32px] font-[Outfit] text-[20px] font-medium leading-none">
                                     {univ.title}
                                 </div>
 
 
-                                <button className="p-0 text-muted-foreground hover:text-foreground group inline-flex items-center justify-between w-full">
-                                    <span className="text-sm font-medium tracking-[1px] text-[#9B9B9B] font-outfit">READ MORE</span>
+                                <button className="p-0 text-muted-foreground hover:text-foreground group inline-flex items-center gap-1 w-full">
+                                    <span className="text-[#024B53] font-[Outfit] text-[14px] font-medium leading-[20px]">READ MORE</span>
 
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="35" viewBox="0 0 32 35" fill="none">
-                                        <path fillRule="evenodd" clipRule="evenodd" d="M13.4512 12.1725C13.4513 12.3712 13.5303 12.5618 13.6709 12.7023C13.8114 12.8429 14.002 12.9219 14.2007 12.922H20.8758L10.842 22.9559C10.7013 23.0965 10.6223 23.2873 10.6223 23.4862C10.6223 23.6851 10.7013 23.8759 10.842 24.0165C10.9826 24.1572 11.1734 24.2362 11.3723 24.2362C11.5712 24.2362 11.762 24.1572 11.9026 24.0165L21.9365 13.9827L21.9365 20.6578C21.9329 20.7584 21.9497 20.8588 21.9857 20.9528C22.0218 21.0468 22.0764 21.1327 22.1464 21.2051C22.2163 21.2776 22.3002 21.3352 22.3929 21.3746C22.4856 21.4139 22.5853 21.4342 22.686 21.4342C22.7867 21.4342 22.8864 21.4139 22.9791 21.3746C23.0718 21.3352 23.1557 21.2776 23.2256 21.2051C23.2956 21.1327 23.3502 21.0468 23.3863 20.9528C23.4223 20.8588 23.4391 20.7584 23.4355 20.6578L23.4355 12.1725C23.4354 11.9737 23.3564 11.7832 23.2159 11.6426C23.0753 11.5021 22.8848 11.4231 22.686 11.423L14.2007 11.423C14.002 11.4231 13.8114 11.5021 13.6709 11.6426C13.5303 11.7832 13.4513 11.9737 13.4512 12.1725Z" fill="black"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <g clipPath="url(#clip0_236_519)">
+                                            <path d="M8 2.6665L7.06 3.6065L10.78 7.33317H2.66666V8.6665H10.78L7.06 12.3932L8 13.3332L13.3333 7.99984L8 2.6665Z" fill="#024B53"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_236_519">
+                                                <rect width="16" height="16" fill="white"/>
+                                            </clipPath>
+                                        </defs>
                                     </svg>
                                 </button>
 
@@ -112,6 +119,36 @@ export default function BlogCarousel() {
                         </div>
                     ))}
                 </div>
+            </div>
+
+            <div className="flex justify-between mt-[32px] pb-[64px]">
+                <button
+                    onClick={handlePrev}
+                    className="bg-white z-10 p-4 hover:shadow-md rounded"
+                    aria-label="Previous"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <g clipPath="url(#clip0_228_602)">
+                            <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#9B9B9B" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_228_602">
+                                <rect width="32" height="32" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+
+                <button
+                    onClick={handleNext}
+                    className="bg-white z-10 p-4 hover:shadow-md rounded"
+                    aria-label="Next"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53" />
+                    </svg>
+                </button>
+
             </div>
 
         </div>
