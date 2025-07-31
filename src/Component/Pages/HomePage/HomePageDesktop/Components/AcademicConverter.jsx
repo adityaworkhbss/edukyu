@@ -168,7 +168,7 @@ export const AcademicConverter = () => {
                     </div>
 
                     <div className="text-[56px] font-semibold text-[#024B53] font-[Outfit] leading-normal">
-                        {convertedValue || '---'}
+                        {convertedValue || '--.--%'}
                     </div>
 
                     {(convertedValue || getCurrentInputValue()) && (

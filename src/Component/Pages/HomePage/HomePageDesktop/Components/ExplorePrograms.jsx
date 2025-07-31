@@ -19,8 +19,8 @@ const ExplorePrograms = () => {
     }));
 
     const tabs = [
-        { id: "PG", label: "PG" },
-        { id: "UG", label: "UG" },
+        { id: "PG", label: "Post Graduate (PG)" },
+        { id: "UG", label: "UnderGraduate (UG)" },
         { id: "DC", label: "Diploma/Certificate" }
     ];
 
@@ -52,29 +52,22 @@ const ExplorePrograms = () => {
                         </div>
                     </GridComponent >
 
-                    <div className="flex gap-0 bg-[#CDCDCD] w-fit mt-[24px] mb-[64px]">
-                        {tabs.map((tab, index) => (
+                    <div className="flex bg-white border-b border-[#B2B2B2] mb-[84px]">
+                        {tabs.map((tab) => (
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
-                                className={`flex w-[182px] px-[20px] py-[12px] justify-center items-center gap-[10px] text-[16px] font-semibold font-[Outfit] leading-normal transition-colors
-        ${
+                                className={`px-6 py-4 gap-[10px] text-sm font-medium font-[Outfit] transition-colors ${
                                     activeTab === tab.id
-                                        ? "bg-[#357E86] text-white"
-                                        : "bg-[#CDCDCD] text-[#383837] border-r border-[#9B9B9B] hover:text-black"
-                                }
-        ${
-                                    index === 0
-                                        ? "rounded-l-md"
-                                        : index === tabs.length - 1
-                                            ? "rounded-r-md"
-                                            : ""
+                                        ? 'bg-white text-slate-800 border-b-2 border-teal-600'
+                                        : 'text-slate-600'
                                 }`}
                             >
                                 {tab.label}
                             </button>
                         ))}
                     </div>
+
 
 
                 </div>

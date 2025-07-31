@@ -13,6 +13,7 @@ import BlogSection from "@/Component/Pages/HomePage/HomePageDesktop/Components/B
 import {AcademicConverter} from "@/Component/Pages/HomePage/HomePageDesktop/Components/AcademicConverter";
 import CompareCollegesCTA from "@/Component/Pages/HomePage/HomePageDesktop/Components/CompareCollegeCTA";
 import CollegeMunchBanner from "@/Component/Pages/HomePage/HomePageDesktop/Components/CollegeMunchBanner";
+import HelpSection from "@/Component/Pages/HomePage/HomePageDesktop/Components/HelpSection";
 
 const HomePageDesktop = () => {
     return (
@@ -21,6 +22,8 @@ const HomePageDesktop = () => {
             <PartnerUniversities />
             <ExplorePrograms />
             <OurProudGraduates />
+            <HelpSection />
+
             <HelpMeChoose />
             <div className="px-[56px]  py-[64px]">
                 <CompareCollegesCTA/>
