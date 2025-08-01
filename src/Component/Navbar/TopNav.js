@@ -60,7 +60,7 @@ export default function TopNav() {
                     {isSidebarOpen && <MobileSidebar onClose={() => setSidebarOpen(false)} />}
                     {showMobileSearch && <SearchComponentMobile onClose={() => setShowMobileSearch(false)} />}
 
-                    <div className="h-8 pl-[20px] text-[12px] font-normal bg-[#025E68] text-white font-outfit flex items-center">
+                    <div className="h-8 pl-[20px] text-[12px] rounded-b-[10px] font-normal bg-[#025E68] text-white font-outfit flex items-center">
                         <Image src="/Resources/Images/refer_logo.png" alt="refer" width={16} height={16} />
                         <div className="pl-2">Earn upto Rs. 5000/-, refer your friend!!</div>
                     </div>
