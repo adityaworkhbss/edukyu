@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
 import GridContainer from "@/GlobalComponent/GridContainer";
 
-export const ExplorePrograms = () => {
+export const ExploreProgramsMobile = () => {
     const [selectedProgram, setSelectedProgram] = useState('PG');
 
     const handleProgramChange = (program) => {

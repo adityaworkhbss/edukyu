@@ -1,13 +1,13 @@
 import HeroSectionMobile, {HeroSection} from "@/Component/Pages/HomePage/HomePageMobile/Components/HeroSectionMobile";
 import {PartnerUniversitiesMobile} from "@/Component/Pages/HomePage/HomePageMobile/Components/PartnerUniversitiesMobile";
-import {ExplorePrograms} from "@/Component/Pages/HomePage/HomePageMobile/Components/ExplorePrograms";
+import {ExploreProgramsMobile} from "@/Component/Pages/HomePage/HomePageMobile/Components/ExploreProgramsMobile";
 import {HelpMeChoose} from "@/Component/Pages/HomePage/HomePageMobile/Components/HelpMeChoose";
 import {AcademicConverter} from "@/Component/Pages/HomePage/HomePageMobile/Components/AcademicConverter";
 import {StudentPlacement} from "@/Component/Pages/HomePage/HomePageMobile/Components/StudentPlacement";
 import {ContactSection} from "@/Component/Pages/HomePage/HomePageMobile/Components/ContactSectiom";
 import {BlogSection} from "@/Component/Pages/HomePage/HomePageMobile/Components/BlogsSection";
 import StatsSectionMobile, {StatsSection} from "@/Component/Pages/HomePage/HomePageMobile/Components/StatsSectionMobile";
-import {OurProudGraduate} from "@/Component/Pages/HomePage/HomePageMobile/Components/OurProudGraduate";
+import OurProudGraduateMobile, {OurProudGraduate} from "@/Component/Pages/HomePage/HomePageMobile/Components/OurProudGraduateMobile";
 
 
 const HomePageMobile = () => {
@@ -20,8 +20,8 @@ const HomePageMobile = () => {
 
             <main className="flex w-full text-left flex-col px-[20px]">
                 <PartnerUniversitiesMobile />
-                <ExplorePrograms />
-                <OurProudGraduate />
+                <ExploreProgramsMobile />
+                <OurProudGraduateMobile />
             </main>
 
             <HelpMeChoose />
