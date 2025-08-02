@@ -1,6 +1,7 @@
 import React, {useRef, useState} from "react";
 import { ImageIcon } from "lucide-react";
 import GridComponent from "@/GlobalComponent/GridComponent";
+import { ExploreProgramsData } from '@/Data Model/Homepage/ExploreProgramsData'; // Import the data
 
 const ExplorePrograms = () => {
     const [activeTab, setActiveTab] = useState("PG");
@@ -11,12 +12,25 @@ const ExplorePrograms = () => {
     const cardsPerView = 6;
     const cardGap = 24;
 
-    const programs = Array.from({ length: 4 }, (_, i) => ({
-        id: i + 1,
-        title: "Master of Business Administration",
-        description: "Duration - 2 Year",
-        details: "Starting @120/-per day"
-    }));
+    // Transform external data to match component structure
+    const getActivePrograms = () => {
+        const tabMapping = {
+            "PG": "PG Programs",
+            "UG": "UG Programs",
+            "DC": "Diploma/Certificate"
+        };
+
+        const activeData = ExploreProgramsData[tabMapping[activeTab]] || [];
+
+        return activeData.map((program, index) => ({
+            id: index + 1,
+            title: program.name,
+            description: `Duration - ${program.duration}`,
+            details: `Starting @${program.startingFee}per day`
+        }));
+    };
+
+    const programs = getActivePrograms();
 
     const tabs = [
         { id: "PG", label: "Post Graduate (PG)" },
@@ -26,13 +40,13 @@ const ExplorePrograms = () => {
 
     const handlePrev = () => {
         setCurrentIndex((prev) =>
-            (prev - 1 + universities.length) % universities.length
+            (prev - 1 + programs.length) % programs.length
         );
     };
 
     const handleNext = () => {
         setCurrentIndex((prev) =>
-            (prev + 1) % universities.length
+            (prev + 1) % programs.length
         );
     };
 
@@ -68,8 +82,6 @@ const ExplorePrograms = () => {
                         ))}
                     </div>
 
-
-
                 </div>
 
                 <div className="relative">
@@ -103,7 +115,7 @@ const ExplorePrograms = () => {
 
                                         <div className="inline-flex items-center gap-[8px] pt-[16px]">
                                             <div className="text-[#323232] pl-[5px] pr-[4px] font-[Outfit] text-[26px] font-medium leading-[21px]">
-                                              ₹
+                                                ₹
                                             </div>
 
                                             <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">

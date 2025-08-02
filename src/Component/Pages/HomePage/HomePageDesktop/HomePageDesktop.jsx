@@ -22,22 +22,27 @@ const HomePageDesktop = () => {
             <PartnerUniversities />
             <ExplorePrograms />
             <OurProudGraduates />
-            <HelpSection />
 
-            <HelpMeChoose />
+            {/*<HelpMeChoose />*/}
             <div className="px-[56px]  py-[64px]">
                 <CompareCollegesCTA/>
             </div>
 
             <AcademicConverter />
-            <OurStudentPlaced />
+            {/*<OurStudentPlaced />*/}
+
+            <div className="px-[56px]  py-[64px]">
+                {/*<CollegeMunchBanner />*/}
+                <OurStudentPlaced />
+            </div>
+
+            <StatsSection />
+            <HelpSection />
 
             <div className="px-[56px]  py-[64px]">
                 <CollegeMunchBanner />
             </div>
-
-            <StatsSection />
-            <ContactSection />
+            {/*<ContactSection />*/}
             <BlogSection />
         </div>
     );
