@@ -2,12 +2,15 @@ import HeroSectionMobile, {HeroSection} from "@/Component/Pages/HomePage/HomePag
 import {PartnerUniversitiesMobile} from "@/Component/Pages/HomePage/HomePageMobile/Components/PartnerUniversitiesMobile";
 import {ExploreProgramsMobile} from "@/Component/Pages/HomePage/HomePageMobile/Components/ExploreProgramsMobile";
 import {HelpMeChoose} from "@/Component/Pages/HomePage/HomePageMobile/Components/HelpMeChoose";
-import {AcademicConverter} from "@/Component/Pages/HomePage/HomePageMobile/Components/AcademicConverter";
-import {StudentPlacement} from "@/Component/Pages/HomePage/HomePageMobile/Components/StudentPlacement";
+import {StudentPlacementMobile} from "@/Component/Pages/HomePage/HomePageMobile/Components/StudentPlacementMobile";
 import {ContactSection} from "@/Component/Pages/HomePage/HomePageMobile/Components/ContactSectiom";
-import {BlogSection} from "@/Component/Pages/HomePage/HomePageMobile/Components/BlogsSection";
+import {BlogSection} from "@/Component/Pages/HomePage/HomePageMobile/Components/BlogsSectionMobile";
 import StatsSectionMobile, {StatsSection} from "@/Component/Pages/HomePage/HomePageMobile/Components/StatsSectionMobile";
 import OurProudGraduateMobile, {OurProudGraduate} from "@/Component/Pages/HomePage/HomePageMobile/Components/OurProudGraduateMobile";
+import CompareCollegeCTAMobile from "@/Component/Pages/HomePage/HomePageMobile/Components/CompareCollegeCTAMobile";
+import AcademicConverterMobile from "@/Component/Pages/HomePage/HomePageMobile/Components/AcademicConverterMobile";
+import HelpSectionMobile from "@/Component/Pages/HomePage/HomePageMobile/Components/HelpSectionMobile";
+import CollegeMunchBannerMobile from "@/Component/Pages/HomePage/HomePageMobile/Components/CollegeMunchBannerMobile";
 
 
 const HomePageMobile = () => {
@@ -18,23 +21,28 @@ const HomePageMobile = () => {
                 <HeroSectionMobile />
             </div>
 
-            <main className="flex w-full text-left flex-col px-[20px]">
+            <main className="relative flex w-full text-left flex-col px-[20px] z-0">
                 <PartnerUniversitiesMobile />
                 <ExploreProgramsMobile />
                 <OurProudGraduateMobile />
+                <CompareCollegeCTAMobile />
             </main>
 
-            <HelpMeChoose />
+            {/*<HelpMeChoose />*/}
+
+
 
             <div className="self-stretch flex w-full flex-col items-stretch px-[19px]">
-                <AcademicConverter />
-                <StudentPlacement />
+                <AcademicConverterMobile />
+                <StudentPlacementMobile />
             </div>
 
             <StatsSectionMobile />
+            <HelpSectionMobile />
 
             <div className="self-stretch flex w-full flex-col items-stretch px-[19px]">
-                <ContactSection />
+
+                <CollegeMunchBannerMobile/>
                 <BlogSection />
             </div>
         </div>

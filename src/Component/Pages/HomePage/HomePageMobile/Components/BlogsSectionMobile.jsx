@@ -1,4 +1,6 @@
 import React from 'react';
+import BlogCarousel from "@/Component/Pages/HomePage/HomePageDesktop/Components/ui/BlogCarousel";
+import BlogCrouselMobile from "@/Component/Pages/HomePage/HomePageMobile/ui/BlogCrouselMobile";
 
 const BlogCard = ({ author, date, title, imageSrc }) => {
     return (
@@ -36,27 +38,16 @@ const BlogCard = ({ author, date, title, imageSrc }) => {
 export const BlogSection = () => {
     return (
         <section className="mt-12">
-            <h2 className="w-full max-w-[321px] text-xl text-[#181D27] font-semibold">
+            <div className="w-full text-[28px] text-[#024B53] font-[Outfit] font-semibold leading-normal">
                 Our Blogs
-            </h2>
-            <p className="text-[#535862] text-base font-normal mt-2">
-                Lorem Ipsum is placeholder text used in the graphic, print.
-            </p>
-
-            <div className="flex w-full max-w-xs items-stretch gap-4 mt-5">
-                <BlogCard
-                    author="Shivani"
-                    date="June 29, 2025"
-                    title="Jamia Millia Islamia Distance Online Courses: Admission, Fees, and Benefits 2025"
-                    imageSrc="https://api.builder.io/api/v1/image/assets/TEMP/805c84b470a32709b5f187ba3c24fdb0f811672a?placeholderIfAbsent=true"
-                />
-                <BlogCard
-                    author="Shivani"
-                    date="June 29, 2025"
-                    title="Jamia Millia Islamia Distance Online Courses: Admission, Fees, and Benefits 2025"
-                    imageSrc="https://api.builder.io/api/v1/image/assets/TEMP/805c84b470a32709b5f187ba3c24fdb0f811672a?placeholderIfAbsent=true"
-                />
             </div>
+
+            <div className="text-[#515150] text-[14px] font-[Outfit] font-normal leading-normal mt-2">
+                Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+            </div>
+
+
+            <BlogCrouselMobile/>
         </section>
     );
 };
