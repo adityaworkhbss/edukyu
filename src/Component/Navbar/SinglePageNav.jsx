@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
+import navigationService from '@/Services/NavigationService';
 
 const SinglePageNav = () => {
     const [activeSection, setActiveSection] = useState('home');
@@ -10,19 +11,9 @@ const SinglePageNav = () => {
     const breakpoint = useBreakpoint();
     const isMobile = breakpoint === 'mobile';
 
-    // Smooth scroll to section
+    // Smooth scroll to section using navigation service
     const scrollToSection = (sectionId) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            const navHeight = 64; // Height of the navigation bar
-            const elementTop = element.offsetTop - navHeight;
-            
-            window.scrollTo({
-                top: elementTop,
-                behavior: 'smooth'
-            });
-            setActiveSection(sectionId);
-        }
+        navigationService.scrollToSection(sectionId);
     };
 
     // Update active section based on scroll position and calculate scroll progress
@@ -47,9 +38,18 @@ const SinglePageNav = () => {
             });
         };
 
+        // Subscribe to navigation service changes
+        const unsubscribe = navigationService.subscribe((sectionId) => {
+            setActiveSection(sectionId);
+        });
+
         window.addEventListener('scroll', handleScroll);
         handleScroll(); // Call once to set initial state
-        return () => window.removeEventListener('scroll', handleScroll);
+        
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            unsubscribe();
+        };
     }, []);
 
     const navItems = [

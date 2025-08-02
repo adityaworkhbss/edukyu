@@ -3,15 +3,20 @@
 import React from 'react';
 import SinglePageNav from '@/Component/Navbar/SinglePageNav';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
+import { useHashNavigation } from '@/hooks/useNavigation';
 import { gridConfigs } from '@/libs/GridConfigs';
 import Footer from '@/Component/Footer/Footer';
 import HomePage from "@/Component/Pages/HomePage/HomePage";
 import BlogPageMain from "@/Component/Pages/BlogsPage/BlogPageMain";
 import CompareCollege from "@/Component/Pages/CompareCollegePage/CompareCollege";
+import NavigationDemo from "@/Component/Examples/NavigationDemo";
 
 const Layout = () => {
     const breakpoint = useBreakpoint();
     const config = gridConfigs[breakpoint];
+    
+    // Enable URL hash navigation
+    useHashNavigation();
 
     const marginClass = {
         mobile: 'ml-[20px] mr-[20px]',
@@ -39,6 +44,11 @@ const Layout = () => {
                     {/*    />*/}
                     {/*</div>*/}
                     <HomePage/>
+                    
+                    {/* Navigation Demo Section */}
+                    <div className="py-16 px-4">
+                        <NavigationDemo />
+                    </div>
                 </div>
                 
                 {/* Section Divider */}
