@@ -69,7 +69,7 @@ const BlogSection = () => {
                         {/*        blog*/}
                         {/*    />*/}
                         {/*))}*/}
-                        <BlogCarousel bogs={blogs} />
+                        <BlogCarousel blogs={blogs} />
                     </div>
                 ) : (
                     <div className="text-center py-12">

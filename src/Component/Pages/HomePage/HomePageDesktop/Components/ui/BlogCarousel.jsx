@@ -14,7 +14,7 @@ import {useRouter} from "next/navigation";
 // ];
 
 export default function BlogCarousel(
-    blogs,
+    {blogs},
 ) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [cardWidth, setCardWidth] = useState(151);
@@ -70,7 +70,7 @@ export default function BlogCarousel(
                     className="flex transition-transform duration-500 ease-in-out gap-6"
                     style={{ transform: `translateX(${totalTranslateX}px)` }}
                 >
-                    {blogs.bogs.map((univ, idx) => (
+                    {blogs.map((univ, idx) => (
                         <div
                             key={univ.id}
                             className="bg-white rounded-lg overflow-hidden  flex-shrink-0"

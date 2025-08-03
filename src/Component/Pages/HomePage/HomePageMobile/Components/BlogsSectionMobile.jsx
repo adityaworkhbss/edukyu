@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import BlogCarousel from "@/Component/Pages/HomePage/HomePageDesktop/Components/ui/BlogCarousel";
 import BlogCrouselMobile from "@/Component/Pages/HomePage/HomePageMobile/Components/ui/BlogCrouselMobile";
+import {BlogService} from "@/Services/blogService";
 
 const BlogCard = ({ author, date, title, imageSrc }) => {
     return (
@@ -36,6 +37,26 @@ const BlogCard = ({ author, date, title, imageSrc }) => {
 };
 
 export const BlogSection = () => {
+
+    const [blogs, setBlogs] = useState([]);
+    const itemsPerPage = 4;
+
+
+    const fetchBlogs = async (page) => {
+        try {
+            const blogService = BlogService.getInstance();
+            const data = await blogService.fetchBlogs(page, itemsPerPage);
+            console.log(data.blogs);
+            setBlogs(data.blogs);
+        } catch (err) {
+            console.error("Error fetching blogs:", err);
+        }
+    };
+
+    useEffect(() => {
+        fetchBlogs(1);
+    }, []);
+
     return (
         <section className="mt-12">
             <div className="w-full text-[28px] text-[#024B53] font-[Outfit] font-semibold leading-normal">
@@ -46,8 +67,16 @@ export const BlogSection = () => {
                 Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
             </div>
 
+            {blogs.length > 0 ? (
+                <div className="">
+                    <BlogCrouselMobile blogs={blogs} />
+                </div>
+                ) : (
+                <div className="text-center py-12">
+                    <p className="text-xl text-gray-600">No blogs found</p>
+                </div>
+            )}
 
-            <BlogCrouselMobile/>
         </section>
     );
 };
