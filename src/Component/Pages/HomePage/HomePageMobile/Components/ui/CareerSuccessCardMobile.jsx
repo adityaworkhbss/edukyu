@@ -1,6 +1,6 @@
 import Image from "next/image";
-import testimonial_image from "@/../public/Resources/Images/testimonial_photo.png";
-import graduate from "@/../public/Resources/Images/GraduateBanner.png";
+import testimonial_image from "../../../../../../../public/Resources/Images/testimonial_photo.png";
+import graduate from "../../../../../../../public/Resources/Images/GraduateBanner.png";
 
 const CareerSuccessCardMobile = () => {
     return (

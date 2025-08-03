@@ -1,6 +1,6 @@
 import React from 'react';
 import BlogCarousel from "@/Component/Pages/HomePage/HomePageDesktop/Components/ui/BlogCarousel";
-import BlogCrouselMobile from "@/Component/Pages/HomePage/HomePageMobile/ui/BlogCrouselMobile";
+import BlogCrouselMobile from "@/Component/Pages/HomePage/HomePageMobile/Components/ui/BlogCrouselMobile";
 
 const BlogCard = ({ author, date, title, imageSrc }) => {
     return (

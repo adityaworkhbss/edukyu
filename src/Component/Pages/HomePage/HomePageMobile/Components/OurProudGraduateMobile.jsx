@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useState } from "react";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import CareerSuccessCard from "@/Component/Pages/HomePage/HomePageDesktop/Components/ui/CareerSuccessCard";
-import CareerSuccessCardMobile from "@/Component/Pages/HomePage/HomePageMobile/ui/CareerSuccessCardMobile";
+import CareerSuccessCardMobile from "@/Component/Pages/HomePage/HomePageMobile/Components/ui/CareerSuccessCardMobile";
 
 const OurProudGraduates = () => {
     const graduates = Array.from({ length: 9 }, (_, i) => ({

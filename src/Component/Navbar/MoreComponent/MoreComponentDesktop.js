@@ -23,22 +23,32 @@ const MoreComponentDesktop = () => {
                 </p>
 
                 <div className="flex items-stretch">
-                    <div className="w-[200px] h-[210px] pb-6 mr-8 flex flex-col">
-                        <div className="text-[20px] text-left font-medium not-italic leading-normal text-[#121211] font-outfit mb-3">
-                            Heading 1
+                    {/* Left Menu Column */}
+                    <div className="w-[250px] pb-6 mr-8 flex flex-col space-y-4">
+                        {/* 1. Partner with Us */}
+                        <div className="text-[20px] font-semibold text-[#121211] font-outfit">Partner with Us</div>
+
+                        {/* 2. Calculator Tools */}
+                        <div>
+                            <div className="text-[18px] font-semibold text-[#121211] font-outfit mb-2">Calculator Tools</div>
+                            <ul className="ml-4 space-y-1 text-[16px] text-[#515150] font-medium font-outfit">
+                                <li>SGPA to Percentage</li>
+                                <li>CGPA to Percentage</li>
+                                <li>SGPA to CGPA</li>
+                            </ul>
                         </div>
 
-                        <ul className="space-y-2 text-[16px] text-[#515150] font-medium not-italic leading-normal text-left font-outfit">
-                            <li>About Us</li>
-                            <li>Partner with Us</li>
-                            <li>Trainers</li>
-                            <li>Events</li>
-                            <li>Career Connect</li>
-                            <li>Offering 6</li>
-                            <li>Offering 7</li>
-                        </ul>
+                        {/* 3. Career Connect */}
+                        <div className="text-[20px] font-semibold text-[#121211] font-outfit">Career Connect</div>
+
+                        {/* 4. Trainers */}
+                        <div className="text-[20px] font-semibold text-[#121211] font-outfit">Trainers</div>
+
+                        {/* 5. Events */}
+                        <div className="text-[20px] font-semibold text-[#121211] font-outfit">Events</div>
                     </div>
 
+                    {/* Image Grid Section */}
                     <GridComponent lastUsedGridEnd={1} gridStart={3} gridEnd={12}>
                         <div className="flex gap-x-6 gap-y-5 flex-wrap h-full">
                             {cardData.map((card, idx) => (

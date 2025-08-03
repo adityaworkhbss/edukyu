@@ -51,4 +51,19 @@ export class BlogService {
         }
         return await response.json();
     }
+
+
+    async fetchTopNavBlogs() {
+        const url = `${API_BASE_URL}/api/topnavblogs`;
+
+        const response = await fetch(url);
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error("Server response:", errorText);
+            throw new Error("Failed to fetch blogs for topnav");
+        }
+
+        return await response.json();
+    }
+
 }

@@ -6,11 +6,23 @@ export default function SearchComponentMobile({ onClose }) {
     const [searchQuery, setSearchQuery] = useState('');
 
     const trendingSearches = [
-        'Trending search #1', 'Trending search #2', 'Trending search #2', 'Trending search #2',
-        'Trending search #1', 'Trending search #2', 'Trending search #2', 'Trending search #2',
-        'Trending search #1', 'Trending search #2', 'Trending search #2', 'Trending search #2',
-        'Trending search #1', 'Trending search #2', 'Trending search #2', 'Trending search #2',
+        'Top BCA colleges in India',
+        'IGNOU courses list',
+        'NMIMS online MBA',
+        'Best MBA specialization',
+        'IGNOU online MBA',
+        'Online MBA in Hospital Management',
+        'Annamalai University distance MBA',
+        'Top open university in India',
+        'Distance MBA in Hyderabad',
+        'Distance MBA colleges in Pune',
+        'Distance MBA colleges in Kolkata',
+        'Online MTech for working professionals',
+        'UGC approved online MBA colleges',
+        'Online MCA colleges in Pune',
+        'UGC approved online degree courses',
     ];
+
 
     const handleSearch = (e) => {
         e.preventDefault();

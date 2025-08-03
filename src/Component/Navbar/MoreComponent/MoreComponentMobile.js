@@ -61,21 +61,24 @@ const MoreComponentMobile = ({ onClose }) => {
                     Apart from colleges and courses, we have a lot more to offer you, please check all our services...
                 </p>
 
-                <div className="flex pt-6">
+                <div className="flex flex-col pt-6 space-y-5">
                     <div>
-                        <div className="text-[#121211] font-outfit text-[16px] font-medium leading-normal not-italic text-left mb-4">
-                            Heading 1
-                        </div>
-                        <ul className="space-y-3 text-[14px] text-[#515150] font-medium not-italic leading-normal text-left font-outfit">
-                            <li>About Us</li>
-                            <li>Partner with Us</li>
-                            <li>Trainers</li>
-                            <li>Events</li>
-                            <li>Career Connect</li>
-                            <li>Offering 6</li>
-                            <li>Offering 7</li>
+                        <div className="text-[16px] font-semibold text-[#121211] font-outfit mb-2">Calculator Tools</div>
+                        <ul className="ml-4 space-y-5 text-[14px] text-[#515150] font-medium font-outfit ">
+                            <li>SGPA to Percentage</li>
+                            <li>CGPA to Percentage</li>
+                            <li>SGPA to CGPA</li>
                         </ul>
                     </div>
+
+                    {/* 3. Career Connect */}
+                    <div className="text-[16px] font-semibold text-[#121211] font-outfit">Career Connect</div>
+
+                    {/* 4. Trainers */}
+                    <div className="text-[16px] font-semibold text-[#121211] font-outfit">Trainers</div>
+
+                    {/* 5. Events */}
+                    <div className="text-[16px] font-semibold text-[#121211] font-outfit">Events</div>
                 </div>
 
                 <div className="flex gap-y-6 pt-[40px] pb-6 flex-col">
