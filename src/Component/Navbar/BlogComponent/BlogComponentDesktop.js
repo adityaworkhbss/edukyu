@@ -9,6 +9,7 @@ const BlogComponentDesktop = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [blogs, setBlogs] = useState([]);
 
+
     // const blogItems = Array(4).fill({
     //     title: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsumlorem ipsum",
     //     description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum",

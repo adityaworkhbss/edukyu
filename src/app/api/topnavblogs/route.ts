@@ -41,6 +41,7 @@ export async function GET(req: NextRequest) {
             readMoreUrl: `/blog/${row.shortUrl || row.blogId}`,
             timeStamp: row.timeStamp,
             metaDesc: row.metaDesc,
+            metaKey: row.metaKey,
         }));
 
         console.log("rowsss ::: " + blogs);

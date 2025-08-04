@@ -81,8 +81,10 @@ const BlogComponentMobile = ({ onClose }) => {
                     <div
                         key={index}
                         className="w-full h-[339px] rounded-[12px] border border-[#CDCDCD] bg-[rgba(255,255,255,0.80)] hover:bg-[rgba(179,207,210,0.5)] transition-all duration-200 flex flex-col justify-between"
-                        onClick={handleReadMore(item.blogId)}
+                        onClick={() => handleReadMore(item.blogId)}
                     >
+
+
 
                         <img
                             src={`https://edukyu.com/public/${item.image}`}

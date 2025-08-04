@@ -26,10 +26,12 @@ const BlogCard = ({ item }) => {
     };
 
     return (
-        <div className="h-[339px] flex flex-col rounded-[12px] bg-white hover:bg-[rgba(179,207,210,0.5)] transition-all duration-200"
-             onClick={handleReadMore(item.blogId)}
+        <div
+            className="h-[339px] flex flex-col rounded-[12px] bg-white hover:bg-[rgba(179,207,210,0.5)] transition-all duration-200"
+            onClick={() => handleReadMore(item.blogId)}
         >
-            <div className="relative w-full h-[150px] mb-5 rounded-t-xl overflow-hidden">
+
+        <div className="relative w-full h-[150px] mb-5 rounded-t-xl overflow-hidden">
                 <img
                     src={`https://edukyu.com/public/${item.image}`}
                     alt={item.title || "Blog Image"}
