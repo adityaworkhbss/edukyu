@@ -5,8 +5,11 @@ import Image from 'next/image';
 import CompareCollegeImage from '../../../../public/Resources/Images/CompareCollegeMenu.png';
 import GridContainer from '@/GlobalComponent/GridContainer';
 import GridComponent from '@/GlobalComponent/GridComponent';
+import {usePageContext} from "@/GlobalComponent/PageContext";
 
 const CompareCollegeDesktop = ({ numGrids, gutter }) => {
+    const { setCurrentPage } = usePageContext();
+
     return (
         <div className="w-full rounded-b-xl bg-white px-14 py-6">
             <GridContainer
@@ -32,7 +35,9 @@ const CompareCollegeDesktop = ({ numGrids, gutter }) => {
                         </div>
 
                         <div>
-                            <button className="inline-flex items-center justify-center gap-[10px] px-[16px] py-[12px] rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-outfit leading-none">
+                            <button className="inline-flex items-center justify-center gap-[10px] px-[16px] py-[12px] rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-outfit leading-none"
+                                    onClick={() => setCurrentPage('compare')}
+                            >
                                 Compare Colleges
                             </button>
                         </div>

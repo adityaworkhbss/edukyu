@@ -2,7 +2,7 @@ import Image from "next/image";
 import testimonial_image from "@/../public/Resources/Images/testimonial_photo.png";
 import graduate from "@/../public/Resources/Images/GraduateBanner.png"
 
-const CareerSuccessCard = () => {
+const CareerSuccessCard = ({data}) => {
     return (
         <div className="bg-[#024B53] text-white rounded-[24px] p-6 flex gap-8 items-start flex-col">
             {/* Left Section */}
@@ -17,11 +17,11 @@ const CareerSuccessCard = () => {
                     />
                     <div>
                         <div className="text-[20px] font-[600] font-[Outfit] leading-[normal]" style={{ color: 'var(--Colour-Secondary-Colours-Mustard---400, #FFD23F)' }}>
-                            Pooja Sarkar
+                            {data.name}
                         </div>
 
                         <div className="text-white text-[14px] font-[400] leading-[20px] font-[Outfit] lowercase">
-                            Billing and Account Executive
+                            {data.current_position}
                         </div>
 
                         {/* Icons */}
@@ -61,7 +61,7 @@ const CareerSuccessCard = () => {
                                 className="text-[12px] font-[400] font-[Outfit] leading-[normal] lowercase"
                                 style={{ color: 'var(--Colour-Background-Colours-White---80, rgba(255, 255, 255, 0.80))' }}
                             >
-                                Account Executive
+                                {data.earlier_position}
                             </div>
 
                         </div>
@@ -71,7 +71,7 @@ const CareerSuccessCard = () => {
                                 className="text-[12px] font-[600] font-[Outfit] text-center leading-[normal]"
                                 style={{ color: 'var(--Colour-Secondary-Colours-Mustard---400, #FFD23F)' }}
                             >
-                                25 % Hike
+                                {data.hike}
                             </div>
 
                             <svg xmlns="http://www.w3.org/2000/svg" width="113" height="8" viewBox="0 0 113 8" fill="none">
@@ -91,7 +91,7 @@ const CareerSuccessCard = () => {
                                 className="text-[12px] font-[400] font-[Outfit] leading-[normal] lowercase"
                                 style={{ color: 'var(--Colour-Background-Colours-White---80, rgba(255, 255, 255, 0.80))' }}
                             >
-                                Billing and Account Executive
+                                {data.current_position}
                             </div>
                         </div>
                     </div>
@@ -106,10 +106,7 @@ const CareerSuccessCard = () => {
 
                 {/* Testimonial text */}
                 <div className="text-white text-[14px] pt-[40px] font-normal font-[Outfit] text-center leading-normal px-4">
-                    EduKyu's personalized guidance, in-depth program comparisons, and expert career counseling were invaluable.
-                    They didn't just tell me about the programs; they understood my aspirations, my strengths, and my weaknesses,
-                    and then matched me with the perfect program. They will not only help you find the right program, but they will
-                    equip you with the tools and confidence to transform your career.
+                    {data.content}
                 </div>
             </div>
 

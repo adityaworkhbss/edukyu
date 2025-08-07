@@ -10,7 +10,7 @@ export const PartnerUniversities = () => {
         return {
             id: String(index + 1),
             name: univ.name,
-            logoUrl: univ.imageUrl,
+            logoUrl: univ.image,
             courses: `${univ.coursesOffered.length}+ Courses`,
             price: `Course ${univ.fee}`,
             certificationIcons: [
@@ -94,11 +94,11 @@ export const PartnerUniversities = () => {
                                 style={{ width: `${cardWidth}px` }}
                             >
                                 {/* Logo Area */}
-                                <div className={`pt-[8.5px] pb-[8.5px] pl-[14.047px] pr-[14.048px] h-[96px] flex items-center justify-center ${univ.hasGrayBackground ? 'bg-gray-300' : 'bg-white'}`}>
+                                <div className={` h-[96px] flex items-center justify-center ${univ.hasGrayBackground ? 'bg-gray-300' : 'bg-white'}`}>
                                     {univ.logoUrl ? (
                                         <img
                                             // `https://edukyu.com/public/${univ.image}`
-                                            src={`https://edukyu.com/public/${univ.logoUrl}`}
+                                            src={`https://edukyu.com/${univ.logoUrl}`}
                                             alt={univ.title}
                                             className="w-full h-full object-cover"
                                         />

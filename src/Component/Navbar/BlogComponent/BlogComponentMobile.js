@@ -3,12 +3,15 @@ import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
 import { useRouter } from "next/navigation";
 import { BlogService } from "@/Services/blogService";
+import {usePageContext} from "@/GlobalComponent/PageContext";
 
 const BlogComponentMobile = ({ onClose }) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [blogs, setBlogs] = useState([]);
     const [searchMetaMap, setSearchMetaMap] = useState(new Map());
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+    const { setCurrentPage } = usePageContext();
+
     const router = useRouter();
 
     const handleReadMore = (blogId) => {
@@ -146,7 +149,11 @@ const BlogComponentMobile = ({ onClose }) => {
             </div>
 
             <div className="flex justify-center py-6 px-5">
-                <button className="inline-flex w-full items-center justify-center gap-[10px] px-[16px] py-[12px] bg-[#024B53] text-white text-[14px] font-outfit font-medium leading-normal rounded-[8px]">
+                <button className="inline-flex w-full items-center justify-center gap-[10px] px-[16px] py-[12px] bg-[#024B53] text-white text-[14px] font-outfit font-medium leading-normal rounded-[8px]"
+                        onClick={() => {
+                            setCurrentPage('blog');
+                            setActiveTab(null);
+                        }}>
                     Check all Blogs
                 </button>
             </div>

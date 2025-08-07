@@ -5,12 +5,16 @@ import SearchBar from "./SearchBar";
 import BlogCard from "./BlogCard";
 import {BlogService} from "@/Services/blogService";
 import {useRouter} from "next/navigation";
+import Layout from "@/GlobalComponent/Layout";
+import {usePageContext} from "@/GlobalComponent/PageContext";
 
 const BlogComponentDesktop = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [blogs, setBlogs] = useState([]);
     const [searchMetaMap, setSearchMetaMap] = useState(new Map());
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+    const { setCurrentPage } = usePageContext();
+
     const router = useRouter();
 
 
@@ -99,6 +103,10 @@ const BlogComponentDesktop = () => {
 
     };
 
+    const handleCheckAllBlogs = () => {
+
+    }
+
     return (
         <div className="px-14 bg-white rounded-b-xl pt-[44px] pb-[24px]">
             <div className="relative">
@@ -141,7 +149,9 @@ const BlogComponentDesktop = () => {
 
                 </div>
                 <div className="flex justify-end mt-10">
-                    <button className="inline-flex items-center justify-center gap-[10px] px-[16px] py-[12px] bg-[#024B53] text-white text-[14px] font-outfit font-medium leading-normal rounded-[8px]">
+                    <button className="inline-flex items-center justify-center gap-[10px] px-[16px] py-[12px] bg-[#024B53] text-white text-[14px] font-outfit font-medium leading-normal rounded-[8px]"
+                            onClick={() => setCurrentPage('blog')}
+                    >
                         Check all Blogs
                     </button>
                 </div>

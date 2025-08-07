@@ -41,7 +41,7 @@ export default function CollegeHeaderComponentDesktop() {
     const handleToggle = (university) => () => {
         if (selectedUniversity !== university) {
             setSelectedUniversity(university);
-            setSelectedProgram("MBA"); // ✅ Reset to MBA
+            setSelectedProgram("MBA");
         }
     };
 

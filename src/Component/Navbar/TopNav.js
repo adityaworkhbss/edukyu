@@ -13,12 +13,13 @@ import ContactUsComponentDesktop from './ContactUsComponent/ContactUsComponentDe
 import MoreComponentDesktop from './MoreComponent/MoreComponentDesktop';
 import CoursesComponentDesktop from './CoursesComponent/CourseComponentDesktop/CoursesComponentDesktop';
 import CollegeHeaderComponentDesktop from './CollegeComponent/CollegeComponentDesktop/CollegeHeaderComponentDesktop';
+import {usePageContext} from "@/GlobalComponent/PageContext";
 
 export default function TopNav() {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [showMobileSearch, setShowMobileSearch] = useState(false);
     const [activeTab, setActiveTab] = useState(null);
-
+    const { setCurrentPage } = usePageContext();
     const breakpoint = useBreakpoint();
     const isMobile = breakpoint === 'mobile';
 
@@ -39,7 +40,9 @@ export default function TopNav() {
                             </svg>
                         </div>
 
-                        <div className="flex items-center">
+                        <div className="flex items-center"
+                             onClick={() => setCurrentPage('home')}
+                        >
                             <Image src="/Resources/Images/Edukyu_Logo.png" alt="Edukyu" width={120} height={40} />
                         </div>
 
@@ -67,7 +70,12 @@ export default function TopNav() {
                 </>
             ) : (
                 <div className="flex justify-between pl-14 pr-14">
-                    <div className="py-3 w-[123px] h-[40px]">
+                    <div className="py-3 w-[123px] h-[40px]"
+                         onClick={() => {
+                             setCurrentPage('home');
+                             setActiveTab(null);
+                         }}
+                    >
                         <Image src="/Resources/Images/Edukyu_Logo.png" alt="Edukyu" width={123} height={40} />
                     </div>
 
