@@ -5,7 +5,7 @@ const LogoItem = ({ logo, index }) => {
     const [hasError, setHasError] = useState(false);
 
     return (
-        <div className="flex-shrink-0 w-32 h-16 relative bg-gray-200 rounded">
+        <div className="flex-shrink-0 w-32 h-16 py-3 px-6  relative bg-gray-200 rounded">
             {!hasError ? (
                 <Image
                     src={logo}
@@ -15,7 +15,7 @@ const LogoItem = ({ logo, index }) => {
                     onError={() => setHasError(true)}
                 />
             ) : (
-                <div className="w-full h-full flex items-center justify-center text-sm text-gray-500">
+                <div className="w-full flex items-center justify-center text-sm text-gray-500">
                     No Logo
                 </div>
             )}
@@ -25,8 +25,8 @@ const LogoItem = ({ logo, index }) => {
 
 const PartnerLogos = ({ logos }) => {
     return (
-        <div className="overflow-x-auto">
-            <div className="flex space-x-6 py-4 px-2 min-w-full">
+        <div className="flex w-full">
+            <div className="flex flex-col space-y-3 w-full">
                 {logos.map((logo, index) => (
                     <LogoItem key={index} logo={logo} index={index} />
                 ))}

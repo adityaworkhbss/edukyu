@@ -11,7 +11,7 @@ const CompareCollegesCTA = () => {
     const { setCurrentPage } = usePageContext();
 
     return (
-        <div className="w-full relative bg-[#FDBB06] rounded-[52px] px-[56px] flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="w-full mt-[79px] relative bg-[#FDBB06] rounded-[52px] px-[56px] flex flex-col md:flex-row justify-between items-center gap-8">
             {/* Text Section */}
             <div className="text-left space-y-4">
                 <GridComponent gridStart={0} gridEnd={5}>

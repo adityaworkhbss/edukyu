@@ -46,7 +46,7 @@ const Specialization = () => {
     };
 
     return (
-        <section className="px-[56px] py-[64px] bg-background">
+        <section className="bg-background">
             <div className="">
                 <div className="">
                     <GridComponent gridStart={0} gridEnd={6}>

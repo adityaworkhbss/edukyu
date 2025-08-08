@@ -4,27 +4,43 @@ import Courses from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/
 import Specialization from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/Specialization";
 import AdmissionProcess from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/AdmissionProcess";
 import FeeTable from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/FeeTable";
-import Benefits from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/Benefits";
+import Benefits, {BenefitsSection} from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/BenefitsSection";
 import CompareCollegesCTA from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CompareCollegeCTA";
 import DegreeSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/DegreeSection";
 import HiringPartnersSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/HiringPartnerSection";
-import ContactForm from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/ContactForm";
+import ContactForm, {
+    ContactUsSection
+} from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/ContactUsSection";
+import SidebarNavigation from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/SidebarNavigation";
+import CollegeMunchBanner from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CollegeMunchBanner";
+import GridComponent from "@/GlobalComponent/GridComponent";
 
 const CollegePageDesktop = () => {
     return (
-        <div className="">
+        <div className="px-[56px] py-[64px]">
             <HeroPage/>
-            <RankAndAccr/>
-            <Courses/>
-            <Specialization/>
-            <AdmissionProcess/>
-            <FeeTable/>
-            <Benefits/>
-            <CompareCollegesCTA/>
-            <DegreeSection/>
-            <CollegeMunchBanner/>
-            <HiringPartnersSection/>
-            <ContactForm/>
+
+
+            <div className="inline-flex gap-6">
+                <div className="w-1/4">
+                    <SidebarNavigation/>
+                </div>
+
+                <div className="w-3/4  space-y-[64px]">
+                    <RankAndAccr/>
+                    <Courses/>
+                    <Specialization/>
+                    <AdmissionProcess/>
+                    <FeeTable/>
+                    <BenefitsSection/>
+                    <CompareCollegesCTA/>
+                    <DegreeSection/>
+                    <CollegeMunchBanner/>
+                    <HiringPartnersSection/>
+                    <ContactUsSection/>
+                </div>
+            </div>
+
         </div>
     );
 };

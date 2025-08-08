@@ -6,15 +6,15 @@ const RankAndAccr = () => {
     const repeatedLogos = new Array(10).fill(rankLogos);
 
     return (
-        <div className="w-full bg-[#FFF5F5] py-12 px-4 flex flex-col items-center">
+        <div className="w-full flex flex-col">
             {/* Title */}
-            <h2 className="text-[48px] font-semibold font-[Outfit] text-[#024B53] mb-12 text-center">
+            <h2 className="text-[48px] font-semibold font-[Outfit] text-[#024B53] mb-12">
                 Rankings & Accreditations
             </h2>
 
             {/* Scrollable Logo Row */}
-            <div className="w-full overflow-x-auto">
-                <div className="flex gap-6 px-4 py-2 min-w-max flex-nowrap">
+            <div className="w-full overflow-x-auto scrollbar-hide">
+                <div className="flex gap-6 py-2 flex-nowrap">
                     {repeatedLogos.map((logo, index) => (
                         <div
                             key={index}

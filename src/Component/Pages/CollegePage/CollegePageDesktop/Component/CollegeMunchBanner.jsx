@@ -7,16 +7,26 @@ import GridComponent from "@/GlobalComponent/GridComponent"; // Replace with rea
 
 const CollegeMunchBanner = () => {
     return (
-        <div className="relative w-full inline-flex items-center rounded-[52px] bg-[#679EA440] px-[40px] py-[47px] overflow-hidden">
+        <div className=" w-full inline-flex items-center gap-6 rounded-[52px] bg-[#679EA440] px-[40px] py-[47px] overflow-hidden">
             {/* Left Section */}
-            <div className="flex flex-col z-10 w-[2/3]">
+            <div className="flex flex-col z-10 w-[1/3]">
                 <div className="w-[189px] h-[72px] flex-shrink-0 rounded-[8px] inline-flex items-center justify-center">
                     <Image src={logoImg} alt="College Manch Logo" width={160} height={40} className="object-contain"/>
                 </div>
 
-                <div className="text-[36px] font-semibold text-[#024B53] font-[Outfit]">
-                    Want to know in details about colleges?
-                </div>
+                    <div className="text-[36px] font-semibold text-[#024B53] font-[Outfit]">
+                        Want to know in details about colleges?
+                    </div>
+
+                <GridComponent gridStart={0} gridEnd={6}>
+                    <div className="text-[#515150] font-[Outfit] text-[20px] font-normal pt-4">
+                        Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+                    </div>
+                </GridComponent>
+
+
+
+
 
                 <button
                     className=" w-1/2 items-center justify-center py-[12px]
@@ -29,20 +39,9 @@ const CollegeMunchBanner = () => {
             </div>
 
             {/* Right Side Images */}
-            <div className="absolute right-[40px] flex gap-4 z-10">
-                <Image
-                    src={collegeImg1}
-                    alt="College Image 1"
-                    width={189}
-                    height={212}
-                    className="rounded-xl object-cover"
-                />
-                <Image
-                    src={collegeImg2}
-                    alt="College Image 2"
-                    width={189}
-                    height={212}
-                    className="rounded-xl object-cover"
+            <div className="flex gap-4 w-1/2 z-10">
+                <div
+                    className="rounded-xl bg-white w-full h-auto object-cover"
                 />
             </div>
 

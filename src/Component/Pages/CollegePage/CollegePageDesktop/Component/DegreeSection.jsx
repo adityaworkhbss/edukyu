@@ -1,4 +1,6 @@
 import Image from "next/image";
+import GridComponent from "@/GlobalComponent/GridComponent";
+import degree from "@/../public/Resources/Images/degree.png";
 
 const DegreePoints = [
     "Accredited and acknowledged degree",
@@ -9,28 +11,35 @@ const DegreePoints = [
 
 const DegreeSection = () => {
     return (
-        <div className="w-full bg-[#FFF5F5] py-16 px-6 md:px-20">
+        <div className="w-full py-16">
             {/* Text Header */}
-            <div className="mb-10 text-center md:text-left">
-                <h2 className="text-[#024B53] font-semibold text-[28px] md:text-[36px] font-[Outfit] leading-tight">
-                    Earn a globally recognized <br className="hidden md:block" />
-                    UGC-endorsed degree
-                </h2>
-                <p className="text-[#4B4B4B] text-[16px] md:text-[18px] mt-3 font-[Outfit]">
-                    Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
-                </p>
+            <div className="mb-10 text-left">
+
+                <GridComponent gridStart={0} gridEnd={6}>
+                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
+                        Earn a globally recognized <br className="hidden md:block" />
+                        UGC-endorsed degree
+                    </div>
+                </GridComponent>
+
+
+                <GridComponent gridStart={0} gridEnd={6}>
+                    <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
+                        Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+                    </div>
+                </GridComponent>
             </div>
 
             {/* Content Section */}
-            <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+            <div className="inline-flex items-center gap-6">
                 {/* Degree Image */}
-                <div className="flex justify-center md:justify-start">
+                <div className="flex ">
                     <Image
-                        src="/ugc-degree-sample.png" // Rename your uploaded image to this and place in /public
+                        src={degree} // Rename your uploaded image to this and place in /public
                         alt="UGC Degree"
                         width={380}
                         height={300}
-                        className="rounded-md shadow-md"
+                        className="rounded-md"
                     />
                 </div>
 
@@ -39,7 +48,7 @@ const DegreeSection = () => {
                     {DegreePoints.map((point, i) => (
                         <div
                             key={i}
-                            className="bg-white/60 backdrop-blur-md border border-[#EAEAEA] text-[#4B4B4B] text-[15px] font-[Outfit] px-5 py-3 rounded-md"
+                            className="bg-white/60 w-full  backdrop-blur-md border border-[#EAEAEA] text-[#4B4B4B] text-[15px] font-[Outfit] px-5 py-3 rounded-md"
                         >
                             {point}
                         </div>

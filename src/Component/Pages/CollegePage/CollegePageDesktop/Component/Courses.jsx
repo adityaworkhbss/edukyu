@@ -46,7 +46,7 @@ const Courses = () => {
     };
 
     return (
-        <section className="px-[56px] py-[64px] bg-background">
+        <section className="pt-[64px] bg-background">
             <div className="">
                 <div className="">
                     <GridComponent gridStart={0} gridEnd={6}>

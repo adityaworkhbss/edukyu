@@ -1,4 +1,5 @@
 import PartnerLogos from "./UI/PartnerLogos";
+import GridComponent from "@/GlobalComponent/GridComponent";
 
 const logos = [
     "/logos/google.png",
@@ -14,12 +15,18 @@ const logos = [
 const HiringPartnersSection = () => {
     return (
         <section className="bg-white py-10 px-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
-                Hiring Partner of Manipal Online
-            </h2>
-            <p className="text-gray-600 mb-4">
-                Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
-            </p>
+            <GridComponent gridStart={0} gridEnd={6}>
+                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
+                    Hiring Partner of Manipal Online
+                </div>
+            </GridComponent>
+
+            <GridComponent>
+                <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
+                    Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+                </div>
+            </GridComponent>
+
 
             <PartnerLogos logos={logos} />
         </section>
