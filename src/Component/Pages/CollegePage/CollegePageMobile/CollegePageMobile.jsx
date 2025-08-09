@@ -22,6 +22,10 @@ import FeeTableMobile from "@/Component/Pages/CollegePage/CollegePageMobile/Comp
 import DegreeSectionMobile from "@/Component/Pages/CollegePage/CollegePageMobile/Component/DegreeSectionMobile";
 import HiringPartnersSectionMobile
     from "@/Component/Pages/CollegePage/CollegePageMobile/Component/HiringPartnerSectionMobile";
+import {BenefitsSectionMobile} from "@/Component/Pages/CollegePage/CollegePageMobile/Component/BenefitsSectionMobile";
+import {ContactUsSectionMobile} from "@/Component/Pages/CollegePage/CollegePageMobile/Component/ContactUsSectionMobile";
+import CollegeMunchBannerMobile
+    from "@/Component/Pages/CollegePage/CollegePageMobile/Component/CollegeMunchBannerMobile";
 
 const CollegePageMobile = () => {
     return (
@@ -40,12 +44,12 @@ const CollegePageMobile = () => {
                     <SpecializationMobile/>
                     <AdmissionProcessMobile/>
                     <FeeTableMobile/>
-                    {/*<BenefitsSectionMobile/>*/}
+                    <BenefitsSectionMobile/>
                     <CompareCollegesCTAMobile/>
                     <DegreeSectionMobile/>
-                    {/*<CollegeMunchBannerMobile/>*/}
+                    <CollegeMunchBannerMobile/>
                     <HiringPartnersSectionMobile/>
-                    {/*<ContactUsSectionMobile/>*/}
+                    <ContactUsSectionMobile/>
                 </div>
             </div>
 
