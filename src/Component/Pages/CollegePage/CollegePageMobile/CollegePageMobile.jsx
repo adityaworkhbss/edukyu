@@ -1,16 +1,3 @@
-import HeroPage from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/HeroPage";
-import SidebarNavigation from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/SidebarNavigation";
-import RankAndAccr from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/RankAndAccr";
-import Courses from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/Courses";
-import Specialization from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/Specialization";
-import AdmissionProcess from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/AdmissionProcess";
-import FeeTable from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/FeeTable";
-import {BenefitsSection} from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/BenefitsSection";
-import CompareCollegesCTA from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CompareCollegeCTA";
-import DegreeSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/DegreeSection";
-import CollegeMunchBanner from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CollegeMunchBanner";
-import HiringPartnersSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/HiringPartnerSection";
-import {ContactUsSection} from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/ContactUsSection";
 import {CoursesMobile} from "@/Component/Pages/CollegePage/CollegePageMobile/Component/CoursesMobile";
 import {SpecializationMobile} from "@/Component/Pages/CollegePage/CollegePageMobile/Component/SpecializationMobile";
 import CompareCollegesCTAMobile
@@ -26,6 +13,9 @@ import {BenefitsSectionMobile} from "@/Component/Pages/CollegePage/CollegePageMo
 import {ContactUsSectionMobile} from "@/Component/Pages/CollegePage/CollegePageMobile/Component/ContactUsSectionMobile";
 import CollegeMunchBannerMobile
     from "@/Component/Pages/CollegePage/CollegePageMobile/Component/CollegeMunchBannerMobile";
+import {
+    SidebarNavigationMobile
+} from "@/Component/Pages/CollegePage/CollegePageMobile/Component/SidebarNavigationMobile";
 
 const CollegePageMobile = () => {
     return (
@@ -33,12 +23,9 @@ const CollegePageMobile = () => {
             <HeroPageMobile/>
 
 
-            <div className="inline-flex gap-6">
-                {/*<div className="w-1/4">*/}
-                {/*    <SidebarNavigation/>*/}
-                {/*</div>*/}
-
+            <div className="">
                 <div className="pl-[20px] pr-[20px]">
+                    <SidebarNavigationMobile/>
                     <RankAndAccrMobile/>
                     <CoursesMobile/>
                     <SpecializationMobile/>
