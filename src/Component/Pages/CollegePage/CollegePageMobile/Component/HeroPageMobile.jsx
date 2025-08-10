@@ -2,7 +2,7 @@ import Image from "next/image";
 import collegepage_hero_img from '@/../public/Resources/Images/collegepage_hero_img.png';
 import collegepage_hero from '@/../public/Resources/Images/collegepage_hero.png';
 
-const HeroPageMobile = () => {
+const HeroPageMobile = ({college}) => {
     return (
         <div
             className="relative w-full rounded-[12px] overflow-hidden p-5 mt-[32px] h-[505px] flex flex-col justify-between"
@@ -15,15 +15,13 @@ const HeroPageMobile = () => {
                 <h1
                     className="text-white font-[Outfit] text-[28px] font-semibold leading-normal mb-4 mt-3"
                 >
-                    Noida International University
+                    {college.university_info.name}
                 </h1>
 
                 <p
                     className="text-white font-[Outfit] text-[14px] font-normal leading-normal"
                 >
-                    Noida International University (NIU), through its Centre for Distance and Online Education is dedicated to delivering flexible, accessible, and high-quality education.
-                    <br /><br />
-                    Our programs are designed with a strong emphasis on innovative teaching methodologies, practical skill development, and real-world application, ensuring a dynamic and engaging learning experience.
+                    {college.university_info.about.description}
                 </p>
 
                 {/* Button */}

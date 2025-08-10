@@ -1,16 +1,10 @@
 import Image from "next/image";
-import rankLogos from "@/../public/Resources/Images/accrImag.png";
 
-const RankAndAccrMobile = () => {
-    // Example logos array – replace with your actual separate logo imports if needed
-    const logos = [
-        { src: "/Resources/Images/careers360.png", alt: "Careers 360" },
-        { src: "/Resources/Images/nirf.png", alt: "NIRF" },
-        { src: "/Resources/Images/nba.png", alt: "NBA" },
-    ];
+const RankAndAccrMobile = ({ college }) => {
+    const logos = college?.university_info?.accreditations || [];
 
     return (
-        <div className="w-full flex flex-col  py-8">
+        <div className="w-full flex flex-col py-8">
             {/* Title */}
             <h2 className="text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-2">
                 Rankings & Accreditation
@@ -22,12 +16,15 @@ const RankAndAccrMobile = () => {
             </p>
 
             {/* Logos */}
-            <div className="flex justify-center gap-6">
+            <div className="flex overflow-x-auto gap-6 scrollbar-hide">
                 {logos.map((logo, index) => (
-                    <div key={index} className="flex items-center justify-center">
-                        <Image
-                            src={logo.src}
-                            alt={logo.alt}
+                    <div
+                        key={index}
+                        className="flex-shrink-0 flex items-center justify-center"
+                    >
+                        <img
+                            src={logo.image}
+                            alt={logo.name}
                             width={100}
                             height={60}
                             className="object-contain"
@@ -35,6 +32,7 @@ const RankAndAccrMobile = () => {
                     </div>
                 ))}
             </div>
+
         </div>
     );
 };

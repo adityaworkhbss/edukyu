@@ -6,7 +6,35 @@ const courseData = Array.from({ length: 15 }, () => ({
     duration: "2 Years",
 }));
 
-const FeeTable = () => {
+const FeeTable = ({ collegeSecondry }) => {
+
+    const programsStr = collegeSecondry?.Programs || "";
+    const durationsStr = collegeSecondry?.Duration || "";
+    const feesObj = collegeSecondry?.["Detail Fees"] || {};
+
+    // Convert strings to arrays
+    const programs = programsStr.split(",").map(p => p.trim());
+    const durations = durationsStr.split(",").map(d => d.trim());
+
+    // Merge data into table rows
+    const courseData = programs.map((program, index) => {
+        // Find duration for this program
+        const matchingDuration = durations.find(d =>
+            d.toLowerCase().includes(program.split(" ")[0].toLowerCase())
+        );
+
+        // Find fee for this program
+        const feeKey = Object.keys(feesObj).find(key =>
+            key.toLowerCase().includes(program.split(" ")[0].toLowerCase())
+        );
+
+        return {
+            course: program || "N/A",
+            fee: feesObj[feeKey] || "N/A",
+            duration: matchingDuration ? matchingDuration.split(":")[1]?.trim() : "N/A"
+        };
+    });
+
     return (
         <div className="w-full  flex flex-col items-start">
             <GridComponent gridStart={0} gridEnd={6}>
@@ -41,8 +69,17 @@ const FeeTable = () => {
                             className={index % 2 === 0 ? "bg-white text-[20px]" : "bg-[#F3F3F3] text-[20px]"}
                         >
                             <td className="py-3 px-4">{item.course}</td>
-                            <td className="py-3 px-4">{item.fee}</td>
-                            <td className="py-3 px-4">{item.duration}</td>
+                            <td
+                                className={`py-3 px-4 ${item.fee === "N/A" ? "text-gray-400" : "text-black"}`}
+                            >
+                                {item.fee}
+                            </td>
+                            <td
+                                className={`py-3 px-4 ${item.duration === "N/A" ? "text-gray-400" : "text-black"}`}
+                            >
+                                {item.duration}
+                            </td>
+
                         </tr>
                     ))}
                     </tbody>

@@ -6,11 +6,12 @@ export const SidebarNavigationMobile = () => {
     const tabs = [
         'Ranking & Accreditations',
         'Courses',
+        'Specialization',
         'Specialization'
     ];
 
     return (
-        <div className="flex border-b border-[#E5E5E5]">
+        <div className="flex border-b border-[#E5E5E5] overflow-x-auto whitespace-nowrap no-scrollbar">
             {tabs.map((tab) => (
                 <button
                     key={tab}
@@ -25,5 +26,6 @@ export const SidebarNavigationMobile = () => {
                 </button>
             ))}
         </div>
+
     );
 };

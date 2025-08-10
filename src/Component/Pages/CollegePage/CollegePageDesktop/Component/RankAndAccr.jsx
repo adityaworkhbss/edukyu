@@ -1,9 +1,11 @@
 import Image from "next/image";
 import rankLogos from "@/../public/Resources/Images/accrImag.png";
 
-const RankAndAccr = () => {
+const RankAndAccr = ({college}) => {
     // Create an array with 10 repeated logos
-    const repeatedLogos = new Array(10).fill(rankLogos);
+    const repeatedLogos = college?.university_info?.accreditations || [];
+
+    console.log(repeatedLogos);
 
     return (
         <div className="w-full flex flex-col">
@@ -20,9 +22,9 @@ const RankAndAccr = () => {
                             key={index}
                             className="min-w-[100px] h-[80px] flex items-center justify-center bg-white rounded-lg shadow-sm"
                         >
-                            <Image
-                                src={logo}
-                                alt={`Accreditation ${index + 1}`}
+                            <img
+                                src={logo.image}
+                                alt={logo.name}
                                 width={100}
                                 height={60}
                                 className="object-contain"

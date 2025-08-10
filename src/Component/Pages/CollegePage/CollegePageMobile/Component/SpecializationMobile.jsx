@@ -3,61 +3,93 @@ import { ImageIcon } from "lucide-react";
 import GridContainer from "@/GlobalComponent/GridContainer";
 import { ExploreProgramsData } from "@/Data Model/Homepage/ExploreProgramsData";
 
-export const SpecializationMobile = () => {
-    const [activeTab, setActiveTab] = useState("PG");
+export const SpecializationMobile = ({ data }) => {
+    const specialisationStr = data?.Specialisation || ""; // e.g., "PG Programs,UG Programs,Diploma/Certificate"
+
+    Object.values(data.Specialisation).map((item, index) => {
+        console.log(item.value); // this will run fine
+        return (
+            <div key={index}>
+                {item?.name}
+            </div>
+        );
+    })
+
+    Object.entries(data.Specialisation).forEach(([name, value], index) => {
+        console.log(name, value);
+    });
+
+
+
+    // console.log("specialisationStr", specialisationStr);
+
+
+    // Create tab mapping from string
+    const tabMapping = Object.entries(data?.Specialisation || {})
+        .reduce((acc, [name, value]) => {
+            acc[name] = name; // key = value
+            return acc;
+        }, {});
+
+    console.log(tabMapping);
+
+
+    // Tabs array from mapping keys
+    const tabs = Object.keys(tabMapping).map(name => ({
+        id: name,
+        label: name
+    }));
+
+    const [activeTab, setActiveTab] = useState(tabs[0]?.id || "");
     const [currentIndex, setCurrentIndex] = useState(0);
     const containerRef = useRef(null);
 
-    // Transform external data to match component structure
+    // Get programs for the active tab
     const getActivePrograms = () => {
-        const tabMapping = {
-            "PG": "PG Programs",
-            "UG": "UG Programs",
-            "DC": "Diploma/Certificate"
-        };
+        console.log("active programs ::::::::::", activeTab);
 
-        const activeData = ExploreProgramsData[tabMapping[activeTab]] || [];
+        const activeData = data?.Specialisation?.[activeTab] || {};
 
-        return activeData.map((program, index) => ({
+        console.log(data?.Specialisation[activeTab] );
+
+        return Object.entries(activeData).map(([name, details = {}], index) => ({
             id: index + 1,
-            title: program.name,
-            description: `Duration - ${program.duration}`,
-            details: `Starting @${program.startingFee}per day`
+            title: name || "Unknown Program",
+            description: details.duration ? `Duration - ${details.duration}` : "No duration available",
+            details: details.startingFee ? `Starting @${details.startingFee} per day` : "Fee info not available"
         }));
     };
 
+
+
     const programs = getActivePrograms();
 
-    const tabs = [
-        { id: "PG", label: "PG" },
-        { id: "UG", label: "UG" },
-        { id: "DC", label: "Diploma/Certificate" }
-    ];
+    console.log("active programs ::::::::::", programs);
 
     const handleNext = () => {
-        setCurrentIndex((prev) => (prev + 1) % programs.length);
+        setCurrentIndex(prev => (prev + 1) % programs.length);
     };
 
     const handlePrev = () => {
-        setCurrentIndex((prev) => (prev - 1 + programs.length) % programs.length);
+        setCurrentIndex(prev => (prev - 1 + programs.length) % programs.length);
     };
 
     const handleTabChange = (tabId) => {
         setActiveTab(tabId);
-        setCurrentIndex(0); // Reset to first item when changing tabs
+        setCurrentIndex(0);
     };
 
     return (
-        <GridContainer>
             <section className="mt-12">
                 <div className="text-[#024B53] font-[Outfit] text-[28px] font-semibold leading-none">
-                    Explore our Courses
+                    Explore our Specialization
                 </div>
                 <div className="text-[#515150] font-[Outfit] text-[14px] font-normal leading-none pt-3 pb-[32px]">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
 
-                <div className="flex w-full text-sm text-[#383837] font-normal mt-8 border-b border-[#E0E0E0]">
+                {/* Dynamic Tabs */}
+                <div className="flex w-full text-sm text-[#383837] font-normal mt-8 border-b border-[#E0E0E0] overflow-x-auto no-scrollbar whitespace-nowrap">
                     {tabs.map((tab) => (
                         <button
                             key={tab.id}
@@ -73,6 +105,8 @@ export const SpecializationMobile = () => {
                     ))}
                 </div>
 
+
+                {/* Program Card */}
                 {programs.length > 0 && (
                     <article className="border overflow-hidden mt-8 rounded-xl border-solid border-[#CDCDCD]">
                         <div className="flex w-full rounded-[14px] p-[24px]">
@@ -117,8 +151,13 @@ export const SpecializationMobile = () => {
                             </div>
                         </div>
                     </article>
-                )}
+                )} : {
+                <div className="text-center text-gray-500 py-8">
+                    No content available to show.
+                </div>
+            }
 
+                {/* Carousel Navigation */}
                 {programs.length > 1 && (
                     <div className="flex justify-between mt-[32px] pb-[32px]">
                         <button
@@ -150,6 +189,5 @@ export const SpecializationMobile = () => {
                     </div>
                 )}
             </section>
-        </GridContainer>
     );
 };

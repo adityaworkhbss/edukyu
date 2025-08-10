@@ -1,32 +1,11 @@
-const steps = [
-    {
-        title: "Explore Manipal’s website",
-        description:
-            'Explore the official website of Manipal University Online and complete the online application by selecting the "Enrol Now" option.',
-    },
-    {
-        title: "Upload Documents",
-        description:
-            'Explore the official website of Manipal University Online and complete the online application by selecting the "Enrol Now" option.',
-    },
-    {
-        title: "Make Payment",
-        description:
-            'Explore the official website of Manipal University Online and complete the online application by selecting the "Enrol Now" option.',
-    },
-    {
-        title: "College will reach out to you",
-        description:
-            'Explore the official website of Manipal University Online and complete the online application by selecting the "Enrol Now" option.',
-    },
-];
+const AdmissionProcessMobile = ({ college }) => {
+    const steps = college?.university_info?.admission_process || [];
 
-const AdmissionProcessMobile = () => {
     return (
         <div className="w-full bg-white rounded-[12px]">
             {/* Heading */}
             <h2 className="text-[#024B53] font-[Outfit] text-[28px] font-semibold leading-normal mb-2">
-                Admission Process of Manipal Online
+                Admission Process of {college?.university_info?.name}
             </h2>
 
             {/* Subtitle */}
@@ -36,7 +15,7 @@ const AdmissionProcessMobile = () => {
 
             {/* Steps */}
             <div className="flex flex-col gap-6 relative">
-                {steps.map((step, index) => (
+                {steps.map((description, index) => (
                     <div key={index} className="flex items-start gap-4 relative">
                         {/* Number Circle */}
                         <div className="bg-[#EFFDFE] min-w-[32px] min-h-[32px] rounded-[6px] flex items-center justify-center z-10">
@@ -53,10 +32,10 @@ const AdmissionProcessMobile = () => {
                         {/* Step Content */}
                         <div className="flex flex-col gap-1">
                             <span className="text-black font-[Outfit] text-[16px] font-semibold leading-normal">
-                                {step.title}
+                                Process: Step {index + 1}
                             </span>
                             <span className="text-[#333] font-[Outfit] text-[14px] font-normal leading-normal">
-                                {step.description}
+                                {description}
                             </span>
                         </div>
                     </div>

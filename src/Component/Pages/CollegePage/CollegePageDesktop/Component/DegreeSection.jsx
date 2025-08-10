@@ -9,7 +9,7 @@ const DegreePoints = [
     "Equivalent to an on-campus degree",
 ];
 
-const DegreeSection = () => {
+const DegreeSection = ({college}) => {
     return (
         <div className="w-full py-16">
             {/* Text Header */}
@@ -17,15 +17,14 @@ const DegreeSection = () => {
 
                 <GridComponent gridStart={0} gridEnd={6}>
                     <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
-                        Earn a globally recognized <br className="hidden md:block" />
-                        UGC-endorsed degree
+                        {college.university_info.name}'s Program Benefits
                     </div>
                 </GridComponent>
 
 
                 <GridComponent gridStart={0} gridEnd={6}>
                     <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
-                        Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+                        {college.university_info.about.description}
                     </div>
                 </GridComponent>
             </div>
@@ -34,7 +33,7 @@ const DegreeSection = () => {
             <div className="inline-flex items-center gap-6">
                 {/* Degree Image */}
                 <div className="flex ">
-                    <Image
+                    <img
                         src={degree} // Rename your uploaded image to this and place in /public
                         alt="UGC Degree"
                         width={380}

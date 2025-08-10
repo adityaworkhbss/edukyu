@@ -14,11 +14,13 @@ import ContactForm, {
 import SidebarNavigation from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/SidebarNavigation";
 import CollegeMunchBanner from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CollegeMunchBanner";
 import GridComponent from "@/GlobalComponent/GridComponent";
+import collegePageMobile from "@/Component/Pages/CollegePage/CollegePageMobile/CollegePageMobile";
 
-const CollegePageDesktop = () => {
+const CollegePageDesktop = ({college, collegeSecondry}) => {
+
     return (
         <div className="px-[56px] py-[64px]">
-            <HeroPage/>
+            <HeroPage college={college} />
 
 
             <div className="inline-flex gap-6">
@@ -27,14 +29,14 @@ const CollegePageDesktop = () => {
                 </div>
 
                 <div className="w-3/4  space-y-[64px]">
-                    <RankAndAccr/>
-                    <Courses/>
-                    <Specialization/>
-                    <AdmissionProcess/>
-                    <FeeTable/>
-                    <BenefitsSection/>
+                    <RankAndAccr college={college} />
+                    <Courses college={{college}}/>
+                    <Specialization data={collegeSecondry}/>
+                    <AdmissionProcess college={college}/>
+                    <FeeTable collegeSecondry = {collegeSecondry}/>
+                    <BenefitsSection college={college}/>
                     <CompareCollegesCTA/>
-                    <DegreeSection/>
+                    <DegreeSection  college={college}/>
                     <CollegeMunchBanner/>
                     <HiringPartnersSection/>
                     <ContactUsSection/>

@@ -28,7 +28,7 @@ const Layout = () => {
             case 'blog': return <BlogPageMain />;
             case 'blog': return <BlogPageMain />;
             case 'compare': return <CompareCollegePage />;
-            default: return <CollegePage />;
+            default: return <HomePage />;
         }
     };
 
@@ -38,7 +38,7 @@ const Layout = () => {
             <div className="relative">
                 {/*{renderPage()}*/}
 
-                <CollegePage />
+                <CollegePage/>
             </div>
 
             <Footer />

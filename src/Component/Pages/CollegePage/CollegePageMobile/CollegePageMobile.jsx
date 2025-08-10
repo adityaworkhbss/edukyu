@@ -1,4 +1,3 @@
-import {CoursesMobile} from "@/Component/Pages/CollegePage/CollegePageMobile/Component/CoursesMobile";
 import {SpecializationMobile} from "@/Component/Pages/CollegePage/CollegePageMobile/Component/SpecializationMobile";
 import CompareCollegesCTAMobile
     from "@/Component/Pages/CollegePage/CollegePageMobile/Component/CompareCollegeCTAMobile";
@@ -16,24 +15,28 @@ import CollegeMunchBannerMobile
 import {
     SidebarNavigationMobile
 } from "@/Component/Pages/CollegePage/CollegePageMobile/Component/SidebarNavigationMobile";
+import CoursesMobile from "@/Component/Pages/CollegePage/CollegePageMobile/Component/CoursesMobile";
 
-const CollegePageMobile = () => {
+const CollegePageMobile = ({college, collegeSecondry}) => {
+
+    console.log("college data :::::::::: " + college.university_info.name);
+
     return (
         <div className="w-full">
-            <HeroPageMobile/>
+            <HeroPageMobile college={college} />
 
 
             <div className="">
                 <div className="pl-[20px] pr-[20px]">
                     <SidebarNavigationMobile/>
-                    <RankAndAccrMobile/>
-                    <CoursesMobile/>
-                    <SpecializationMobile/>
-                    <AdmissionProcessMobile/>
-                    <FeeTableMobile/>
-                    <BenefitsSectionMobile/>
+                    <RankAndAccrMobile college={college}/>
+                    <CoursesMobile college={college}/>
+                    <SpecializationMobile data={collegeSecondry}/>
+                    <AdmissionProcessMobile college={college}/>
+                    <FeeTableMobile collegeSecondry = {collegeSecondry}/>
+                    <BenefitsSectionMobile college={college}/>
                     <CompareCollegesCTAMobile/>
-                    <DegreeSectionMobile/>
+                    <DegreeSectionMobile college={college}/>
                     <CollegeMunchBannerMobile/>
                     <HiringPartnersSectionMobile/>
                     <ContactUsSectionMobile/>

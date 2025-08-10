@@ -1,34 +1,15 @@
 import GridComponent from "@/GlobalComponent/GridComponent";
 
-const steps = [
-    {
-        title: "Explore Manipal’s website",
-        description:
-            'Explore the official website of Manipal University Online and complete the online application by selecting the "Enrol Now" option.',
-    },
-    {
-        title: "Upload documents",
-        description:
-            'Explore the official website of Manipal University Online and complete the online application by selecting the "Enrol Now" option.',
-    },
-    {
-        title: "Make payment",
-        description:
-            'Explore the official website of Manipal University Online and complete the online application by selecting the "Enrol Now" option.',
-    },
-    {
-        title: "College will reach out to you",
-        description:
-            'Explore the official website of Manipal University Online and complete the online application by selecting the "Enrol Now" option.',
-    },
-];
 
-const AdmissionProcess = () => {
+const AdmissionProcess = ({college}) => {
+
+    const steps = college?.university_info?.admission_process || [];
+
     return (
         <div className="w-full ">
             <GridComponent gridStart={0} gridEnd={6}>
                 <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
-                    Admission Process of Manipal Online
+                    Admission Process of {college?.university_info?.name}
                 </div>
             </GridComponent>
 
@@ -40,7 +21,7 @@ const AdmissionProcess = () => {
 
             {/* Steps */}
             <div className="mt-6 flex flex-col gap-10">
-                {steps.map((step, index) => (
+                {steps.map((description, index) => (
                     <div key={index} className="flex items-start gap-4 relative">
                         {/* Step Number Circle */}
                         <div className="bg-[#EFFDFE] rounded-[10px] p-4 z-2">
@@ -58,11 +39,11 @@ const AdmissionProcess = () => {
                         {/* Step Content */}
                         <div className="flex flex-col z-10 gap-3">
                             <div className="text-black font-semibold text-[18px] font-[Outfit]">
-                                {step.title}
+                                Process: Step {index + 1}
                             </div>
 
                             <div className="mt-1 text-[#333] font-normal text-[16px] font-[Outfit]">
-                                {step.description}
+                                {description}
                             </div>
 
                         </div>

@@ -3,21 +3,18 @@ import collegepage_hero from '@/../public/Resources/Images/collegepage_hero.png'
 import collegepage_hero_img from '@/../public/Resources/Images/collegepage_hero_img.png';
 import GridComponent from "@/GlobalComponent/GridComponent";
 
-const HeroPage = () => {
+const HeroPage = ({college}) => {
     return (
         <div className="w-full gap-6 flex">
             {/* Left Section */}
             <div className="w-1/2 flex flex-col justify-center p-8">
                     <div className="mb-6 text-[52px] font-semibold text-[#025E68] font-[Outfit]">
-                        Manipal University, Jaipur
+                        {college.university_info.name}
                     </div>
 
 
                 <div className="mb-[65px] text-[20px] font-normal text-[#025E68] font-[Outfit]">
-                    Noida International University (NIU), through its Centre for Distance and Online Education, is dedicated to delivering flexible, accessible, and high-quality education.
-                    <br />
-                    <br />
-                    Our programs are designed with a strong emphasis on innovative teaching methodologies, practical skill development, and real-world application, ensuring a dynamic and engaging learning experience.
+                    {college.university_info.about.description}
                 </div>
 
 

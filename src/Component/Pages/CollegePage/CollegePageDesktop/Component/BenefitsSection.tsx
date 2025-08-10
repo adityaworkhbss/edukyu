@@ -1,11 +1,26 @@
-
 import React from 'react';
-import { BenefitCard } from './UI/BenefitCard'
+import { BenefitCard } from './UI/BenefitCard';
 import { CentralImage } from './UI/CentralImage';
 import GridComponent from "@/GlobalComponent/GridComponent";
 
-export const BenefitsSection: React.FC = () => {
-    const benefits = [
+interface UniversityInfo {
+    banner_image?: string;
+    benefits?: string[]; // benefits array from API
+    placement?: {
+        benefits?: string[];
+    };
+}
+
+interface College {
+    university_info?: UniversityInfo;
+}
+
+export const BenefitsSection: React.FC<{ college: College }> = ({ college }) => {
+    // Get benefits array safely, fallback to static array if none
+    const benefitsFromAPI = college?.university_info?.benefits || [];
+
+    // If API benefits empty, fallback to static hardcoded benefits with positions
+    const staticBenefits = [
         {
             id: 1,
             text: "Online Manipal University offers students a wide range of fully online, accredited degree and diploma courses, totaling over 10 options.",
@@ -38,6 +53,19 @@ export const BenefitsSection: React.FC = () => {
         }
     ];
 
+    // Compose final benefits array with positions if possible
+    // If benefitsFromAPI has data, map them without position (or you can assign default positions)
+    // If no data, use staticBenefits (with positions for absolute positioning)
+    const benefits = benefitsFromAPI
+        .filter((b) => b && b.trim() !== "")
+        .slice(0, 6)
+        .map((text, idx) => ({
+            id: idx + 1,
+            text,
+            position: "", // add this
+        }));
+
+
     return (
         <section
             className="w-full h-[738px] pt-[64px] relative bg-white mx-auto my-0 p-0 max-md:max-w-full max-md:h-auto max-md:p-5 max-sm:p-4"
@@ -56,12 +84,12 @@ export const BenefitsSection: React.FC = () => {
                 </GridComponent>
             </header>
 
-            <CentralImage />
+            <CentralImage img={college?.university_info?.banner_image || ""} />
 
             {benefits.map((benefit) => (
                 <BenefitCard
                     key={benefit.id}
-                    className={`absolute ${benefit.position}`}
+                    className={`absolute ${benefit.position || ""}`}
                 >
                     {benefit.text}
                 </BenefitCard>
@@ -69,4 +97,3 @@ export const BenefitsSection: React.FC = () => {
         </section>
     );
 };
-
