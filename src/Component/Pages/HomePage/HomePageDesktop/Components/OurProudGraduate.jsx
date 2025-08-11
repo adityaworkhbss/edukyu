@@ -16,23 +16,19 @@ const OurProudGraduates = () => {
         setCurrentIndex((prev) => (prev + 1) % total);
     };
 
-    // Slice and loop for 5 visible cards
-    const visibleCards = testimonials.slice(currentIndex, currentIndex + 5);
-    const remaining = 5 - visibleCards.length;
-    const cardsToShow = remaining > 0
-        ? [...visibleCards, ...testimonials.slice(0, remaining)]
-        : visibleCards;
+    // Duplicate list for seamless looping
+    const infiniteTestimonials = [...testimonials, ...testimonials];
 
     return (
         <section className="py-[64px] px-[56px] bg-background">
             {/* Heading */}
             <div className="mb-[64px]">
-                <GridComponent gridStart={0} gridEnd={5}>
+                <GridComponent gridStart={0} gridEnd={6}>
                     <div className="text-[48px] font-[600] leading-none text-[#024B53] font-[Outfit] mb-[16px]">
                         Testimonials
                     </div>
                 </GridComponent>
-                <GridComponent gridStart={0} gridEnd={5}>
+                <GridComponent gridStart={0} gridEnd={6}>
                     <div className="text-[20px] font-[400] leading-none text-[#515150] font-[Outfit]">
                         Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                     </div>
@@ -40,12 +36,22 @@ const OurProudGraduates = () => {
             </div>
 
             {/* Cards Carousel */}
-            <div className="flex flex-row gap-4">
-                {cardsToShow.map((testimonial, index) => (
-                    <GridComponent key={`${testimonial.name}-${index}`} gridStart={0} gridEnd={6}>
-                        <CareerSuccessCard data={testimonial} />
-                    </GridComponent>
-                ))}
+            <div className="overflow-hidden">
+                <div
+                    className="flex flex-nowrap gap-4 transition-transform duration-500 ease-in-out"
+                    style={{
+                        transform: `translateX(-${currentIndex * (100 / 5)}%)`,
+                        width: `${(infiniteTestimonials.length / 5) * 100}%`
+                    }}
+                >
+                    {infiniteTestimonials.map((testimonial, index) => (
+                        <div key={`${testimonial.name}-${index}`} className="w-[20%] flex-shrink-0">
+                            <GridComponent gridStart={0} gridEnd={12}>
+                                <CareerSuccessCard data={testimonial} />
+                            </GridComponent>
+                        </div>
+                    ))}
+                </div>
             </div>
 
             {/* Navigation Buttons */}

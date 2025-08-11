@@ -126,10 +126,10 @@ const ExplorePrograms = () => {
                                     </div>
                                 </div>
 
-                                <div className="pt-[10px] w-full pb-[16px]">
+                                <div className="pt-[10px] w-full pb-[16px] bottom-0">
                                     <div className="flex justify-center">
                                         <button
-                                            className="flex items-center justify-center border px-[90px] py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors hover:bg-[#f3f3f3]"
+                                            className="flex items-center  justify-center border w-full py-[12px] mx-5 text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors hover:bg-[#f3f3f3]"
                                         >
                                             Explore
                                         </button>

@@ -31,7 +31,7 @@ const HomePageDesktop = () => {
 
             <AcademicConverter />
 
-            <div className="pl-[56px]  py-[64px]">
+            <div className="pl-[56px]">
                 <OurStudentPlaced />
             </div>
 

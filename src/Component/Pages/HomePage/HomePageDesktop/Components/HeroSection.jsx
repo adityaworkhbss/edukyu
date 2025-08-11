@@ -20,7 +20,7 @@ const HeroSection = () => {
             </svg>
 
             {/* Main content container */}
-            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16 pt-[130px] grid grid-cols-12 items-center">
+            <div className="relative z-10 px-10  grid grid-cols-12 items-center">
                 {/* Left Text Block */}
                 <div className="col-span-12 md:col-span-6 lg:col-span-6 z-40">
                     <h1 className="text-white font-[Outfit] text-[52px] font-semibold leading-[1.2]">
@@ -29,13 +29,13 @@ const HeroSection = () => {
                     <p className="text-white font-[Outfit] text-[20px] font-normal mt-6">
                         Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                     </p>
-                    <div className="flex gap-4 pt-10">
+                    <div className="flex gap-4 pt-12">
                         <button className="bg-white text-[#024B53] border border-white rounded-[12px] px-6 py-2 font-medium text-base hover:bg-white/90 transition-colors">
                             Apply Now
                         </button>
-                        <button className="bg-transparent text-white border border-white rounded-[12px] px-6 py-2 font-medium text-base hover:bg-white hover:text-[#024B53] transition-colors">
-                            Explore More
-                        </button>
+                        {/*<button className="bg-transparent text-white border border-white rounded-[12px] px-6 py-2 font-medium text-base hover:bg-white hover:text-[#024B53] transition-colors">*/}
+                        {/*    Explore More*/}
+                        {/*</button>*/}
                     </div>
                 </div>
 

@@ -61,7 +61,7 @@ export const PartnerUniversities = () => {
     const totalTranslateX = -1 * currentIndex * (cardWidth + cardGap);
 
     return (
-        <section className="px-[56px] py-[64px] pb-[16px] relative" aria-labelledby="partner-universities-heading">
+        <section className="px-[56px] py-[64px] mt-[64px] relative" aria-labelledby="partner-universities-heading">
 
             <GridComponent gridStart={0} gridEnd={6}>
                 <h2
@@ -71,8 +71,8 @@ export const PartnerUniversities = () => {
                     Explore our Partner Universities
                 </h2>
             </GridComponent>
-            <GridComponent gridStart={0} gridEnd={5}>
-                <p className="text-[#515150] pb-[64px] font-[Outfit] text-[20px] pt-[16px] font-normal leading-none mb-8">
+            <GridComponent gridStart={0} gridEnd={6}>
+                <p className="text-[#515150] font-[Outfit] text-[20px]  font-normal leading-none mb-10">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </p>
             </GridComponent>

@@ -59,7 +59,7 @@ export default function BlogCarousel(
     const totalTranslateX = -1 * currentIndex * (cardWidth + cardGap);
 
     return (
-        <div className="relative w-full py-8">
+        <div className="relative w-full">
 
             {/* Card Container */}
             <div

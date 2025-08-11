@@ -38,7 +38,7 @@ const Layout = () => {
             <div className="relative">
                 {/*{renderPage()}*/}
 
-                <CollegePage/>
+                <HomePage/>
             </div>
 
             <Footer />

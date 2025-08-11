@@ -89,15 +89,15 @@ export const AcademicConverter = () => {
     };
 
     return (
-        <div className="px-[56px] py-[64px]">
+        <div className="px-[56px] py-[64px] mt-12">
             <div className="flex flex-col flex-1">
-                <GridComponent gridStart={0} gridEnd={6}>
+                <GridComponent gridStart={0} gridEnd={7}>
                     <div className="text-[48px] font-semibold text-[#024B53] font-[Outfit] leading-normal">
                         Academic Converter Tool
                     </div>
                 </GridComponent>
 
-                <GridComponent gridStart={0} gridEnd={6}>
+                <GridComponent gridStart={0} gridEnd={7}>
                     <div className="text-[20px] font-normal text-[#515150] font-[Outfit] leading-normal">
                         Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                     </div>

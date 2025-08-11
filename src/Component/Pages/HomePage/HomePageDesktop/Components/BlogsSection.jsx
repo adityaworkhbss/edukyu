@@ -42,7 +42,7 @@ const BlogSection = () => {
                     </div>
 
 
-                    <GridComponent gridStart={0} gridEnd={5}>
+                    <GridComponent gridStart={0} gridEnd={7}>
                         <div className="text-[#515150] font-[Outfit] text-[20px] font-normal leading-none">
                             Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                         </div>
