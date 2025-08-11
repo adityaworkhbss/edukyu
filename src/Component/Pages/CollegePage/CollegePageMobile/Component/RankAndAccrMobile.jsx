@@ -6,17 +6,17 @@ const RankAndAccrMobile = ({ college }) => {
     return (
         <div className="w-full flex flex-col py-8">
             {/* Title */}
-            <h2 className="text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-2">
+            <h2 className="text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-3">
                 Rankings & Accreditation
             </h2>
 
             {/* Description */}
-            <p className="text-[#515150] font-[Outfit] text-[14px] font-normal mb-6">
+            <p className="text-[#515150] font-[Outfit] text-[14px] font-normal mb-8">
                 Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
             </p>
 
             {/* Logos */}
-            <div className="flex overflow-x-auto gap-6 scrollbar-hide">
+            <div className="flex overflow-x-auto gap-4 scrollbar-hide">
                 {logos.map((logo, index) => (
                     <div
                         key={index}
@@ -25,9 +25,9 @@ const RankAndAccrMobile = ({ college }) => {
                         <img
                             src={logo.image}
                             alt={logo.name}
-                            width={100}
-                            height={60}
-                            className="object-contain"
+                            width={90}
+                            height={90}
+                            className=""
                         />
                     </div>
                 ))}

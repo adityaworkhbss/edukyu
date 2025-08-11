@@ -34,24 +34,24 @@ const FaqsSectionMobile = ({faqs}) => {
 
 
     return (
-        <div className="w-full px-5 py-10 bg-white">
+        <div className="w-full py-8 bg-white">
             {/* Title */}
-            <h2 className="text-[#024B53] font-[Outfit] text-[22px] font-semibold leading-tight mb-2">
-                Hiring Partner of Manipal Online
+            <h2 className="text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-3">
+                FAQs
             </h2>
 
             {/* Subtitle */}
-            <p className="text-[#535862] text-[14px] leading-[22px] mb-6 font-[Outfit]">
+            <p className="text-[#515150] font-[Outfit] text-[14px] mb-8">
                 Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
             </p>
 
             {/* Scrollable partner list */}
             <div className="w-full space-y-3">
                 {faqs.map((faq, index) => (
-                    <div key={index} className="bg-[#EFFDFE] rounded-[12px]">
+                    <div key={index} className="bg-[#EFFDFE]  rounded-[12px]">
                         <button
                             onClick={() => toggleFAQ(index)}
-                            className="flex items-left justify-between px-[24px] py-[14px] text-[#333] font-[Outfit] text-[16px] font-normal leading-normal w-full"
+                            className="flex items-left text-left px-[24px] py-[14px] text-[#333] font-[Outfit] text-[16px] font-normal leading-normal w-full"
                         >
                             {faq.question}
                             <ArrowIcon isOpen={openIndex === index} />

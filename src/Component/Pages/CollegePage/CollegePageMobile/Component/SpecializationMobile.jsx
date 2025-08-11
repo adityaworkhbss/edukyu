@@ -1,10 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { ImageIcon } from "lucide-react";
-import GridContainer from "@/GlobalComponent/GridContainer";
-import { ExploreProgramsData } from "@/Data Model/Homepage/ExploreProgramsData";
-
 export const SpecializationMobile = ({ data }) => {
-    const specialisationStr = data?.Specialisation || ""; // e.g., "PG Programs,UG Programs,Diploma/Certificate"
 
     Object.values(data.Specialisation).map((item, index) => {
         console.log(item.value); // this will run fine
@@ -24,7 +20,6 @@ export const SpecializationMobile = ({ data }) => {
     // console.log("specialisationStr", specialisationStr);
 
 
-    // Create tab mapping from string
     const tabMapping = Object.entries(data?.Specialisation || {})
         .reduce((acc, [name, value]) => {
             acc[name] = name; // key = value
@@ -34,7 +29,6 @@ export const SpecializationMobile = ({ data }) => {
     console.log(tabMapping);
 
 
-    // Tabs array from mapping keys
     const tabs = Object.keys(tabMapping).map(name => ({
         id: name,
         label: name
@@ -44,9 +38,7 @@ export const SpecializationMobile = ({ data }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const containerRef = useRef(null);
 
-    // Get programs for the active tab
     const getActivePrograms = () => {
-        console.log("active programs ::::::::::", activeTab);
 
         const activeData = data?.Specialisation?.[activeTab] || {};
 
@@ -64,7 +56,6 @@ export const SpecializationMobile = ({ data }) => {
 
     const programs = getActivePrograms();
 
-    console.log("active programs ::::::::::", programs);
 
     const handleNext = () => {
         setCurrentIndex(prev => (prev + 1) % programs.length);
@@ -80,16 +71,16 @@ export const SpecializationMobile = ({ data }) => {
     };
 
     return (
-            <section className="mt-12">
-                <div className="text-[#024B53] font-[Outfit] text-[28px] font-semibold leading-none">
-                    Explore our Specialization
+            <section className="py-8">
+                <div className="text-[#024B53] font-[Outfit] text-[28px] font-semibold leading-none mb-3">
+                    Specializations
                 </div>
                 <div className="text-[#515150] font-[Outfit] text-[14px] font-normal leading-none pt-3 pb-[32px]">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
 
                 {/* Dynamic Tabs */}
-                <div className="flex w-full text-sm text-[#383837] font-normal mt-8 border-b border-[#E0E0E0] overflow-x-auto no-scrollbar whitespace-nowrap">
+                <div className="flex bg-white border-b border-[#B2B2B2] leading-[20px] mb-[32px] overflow-x-auto no-scrollbar whitespace-nowrap">
                     {tabs.map((tab) => (
                         <button
                             key={tab.id}
@@ -106,8 +97,7 @@ export const SpecializationMobile = ({ data }) => {
                 </div>
 
 
-                {/* Program Card */}
-                {programs.length > 0 && (
+                {programs.length > 0 ? (
                     <article className="border overflow-hidden mt-8 rounded-xl border-solid border-[#CDCDCD]">
                         <div className="flex w-full rounded-[14px] p-[24px]">
                             <div className="bg-program-image rounded-lg h-[132px] w-full flex items-center justify-center">
@@ -151,11 +141,11 @@ export const SpecializationMobile = ({ data }) => {
                             </div>
                         </div>
                     </article>
-                )} : {
-                <div className="text-center text-gray-500 py-8">
-                    No content available to show.
-                </div>
-            }
+                ) : (
+                    <div className="text-center text-gray-500 py-8">
+                        No content available to show.
+                    </div>
+                )}
 
                 {/* Carousel Navigation */}
                 {programs.length > 1 && (

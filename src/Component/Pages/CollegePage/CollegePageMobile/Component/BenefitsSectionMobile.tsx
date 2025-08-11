@@ -16,7 +16,7 @@ interface College {
 
 export const BenefitsSectionMobile: React.FC<{ college: College }> = ({ college }) => {
     // ✅ Safely access benefits array from API
-    const benefitsFromAPI = college?.university_info?.benefits || [];
+    const benefitsFromAPI = college?.university_info?.benefits || college?.university_info?.placement?.benefits || [];
 
     const benefits = benefitsFromAPI
         .filter((benefit) => benefit && benefit.trim() !== "")
@@ -24,26 +24,25 @@ export const BenefitsSectionMobile: React.FC<{ college: College }> = ({ college 
 
     return (
         <section
-            className="w-full pt-[64px] relative bg-white mx-auto p-0
-                max-md:max-w-full max-md:p-5 max-sm:p-4"
+            className="w-full py-8 relative bg-white"
             aria-labelledby="benefits-heading"
         >
             <header>
                 <h2
                     id="benefits-heading"
-                    className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4"
-                >
+                    className="text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-3">
+
                     Benefits of NIU Online
                 </h2>
 
-                <p className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
+                <p className="text-[#515150] font-[Outfit] text-[14px] mb-8">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </p>
             </header>
 
             <CentralImageMobile img={college?.university_info?.banner_image || ""} />
 
-            <div className="grid grid-cols-2 gap-4 max-w-[640px] mx-auto">
+            <div className="grid grid-cols-2 gap-4 max-w-[640px] mx-auto mb-8">
                 {benefits.map((benefit, idx) => (
                     <BenefitCardMobile key={idx}>
                         {benefit}

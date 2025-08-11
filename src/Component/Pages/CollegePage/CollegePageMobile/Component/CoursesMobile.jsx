@@ -67,20 +67,20 @@ const CoursesMobile = ({ college }) => {
 
     return (
         <GridContainer>
-            <section className="pt-[40px] bg-background">
-                <div className="text-[#024B53] font-[Outfit] text-[28px] font-semibold leading-none">
+            <section className="py-8 bg-background">
+                <div className="text-[#024B53] font-[Outfit] text-[28px] font-semibold leading-none mb-3">
                     Explore our Courses
                 </div>
-                <div className="text-[14px] pt-[12px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-[20px]">
+                <div className="text-[14px] pb-8 font-normal text-[#535862] font-[Outfit] leading-[20px]">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
 
-                <div className="flex bg-white border-b border-[#B2B2B2] mb-[24px]">
+                <div className="flex bg-white border-b border-[#B2B2B2] leading-[20px] mb-[32px]">
                     {tabs.map((tab) => (
                         <button
                             key={tab.id}
                             onClick={() => handleTabChange(tab.id)}
-                            className={`px-4 py-3 gap-[8px] text-sm font-medium font-[Outfit] transition-colors ${
+                            className={`px-6 py-3 gap-[8px] text-sm font-medium font-[Outfit] transition-colors ${
                                 activeTab === tab.id
                                     ? "bg-white text-slate-800 border-b-2 border-teal-600"
                                     : "text-slate-600"
@@ -166,21 +166,28 @@ const CoursesMobile = ({ college }) => {
                             <div className="flex justify-between mt-6 pb-6">
                                 <button
                                     onClick={handlePrev}
-                                    className="bg-white z-10 p-3 hover:shadow-md rounded-full"
+                                    className="bg-white z-10 p-3 "
                                     aria-label="Previous"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M15.41 16.59L10.83 12L15.41 7.41L14 6L8 12L14 18L15.41 16.59Z" fill="#9B9B9B"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                        <g clipPath="url(#clip0_365_1328)">
+                                            <path d="M23 12.875H9.30875L15.5975 6.58625L14 5L5 14L14 23L15.5863 21.4137L9.30875 15.125H23V12.875Z" fill="#9B9B9B"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_365_1328">
+                                                <rect width="27" height="27" fill="white" transform="translate(0.5 0.5)"/>
+                                            </clipPath>
+                                        </defs>
                                     </svg>
                                 </button>
 
                                 <button
                                     onClick={handleNext}
-                                    className="bg-white z-10 p-3 hover:shadow-md rounded-full"
+                                    className="bg-white z-10 p-3 "
                                     aria-label="Next"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z" fill="#024B53"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                        <path d="M5 15.125L18.6913 15.125L12.4025 21.4137L14 23L23 14L14 5L12.4138 6.58625L18.6913 12.875L5 12.875L5 15.125Z" fill="#024B53"/>
                                     </svg>
                                 </button>
                             </div>

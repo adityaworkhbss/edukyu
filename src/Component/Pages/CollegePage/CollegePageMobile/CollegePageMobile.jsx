@@ -30,20 +30,42 @@ const CollegePageMobile = ({college, collegeSecondry}) => {
             <div className="">
                 <div className="pl-[20px] pr-[20px]">
                     <SidebarNavigationMobile/>
-                    <RankAndAccrMobile college={college}/>
-                    <CoursesMobile college={college}/>
-                    <SpecializationMobile data={collegeSecondry}/>
-                    <AdmissionProcessMobile college={college}/>
-                    <FeeTableMobile collegeSecondry = {collegeSecondry}/>
-                    <BenefitsSectionMobile college={college}/>
-                    <CompareCollegesCTAMobile/>
-                    <DegreeSectionMobile college={college}/>
-                    <HiringPartnersSectionMobile logos={college.university_info.placement.partners}/>
-                    <CollegeMunchBannerMobile/>
-                    <FaqsSectionMobile faqs={college.university_info.faqs}/>
-                    <ContactUsSectionMobile/>
+                    <div id="ranking">
+                        <RankAndAccrMobile college={college}/>
+                    </div>
+                    <div id="courses">
+                        <CoursesMobile college={college}/>
+                    </div>
+                    <div id="specialization">
+                        <SpecializationMobile data={collegeSecondry}/>
+                    </div>
+                    <div id="admission">
+                        <AdmissionProcessMobile college={college}/>
+                    </div>
+                    <div id="fees">
+                        <FeeTableMobile collegeSecondry={collegeSecondry}/>
+                    </div>
+                    <div id="benefits">
+                        <BenefitsSectionMobile college={college}/>
+                    </div>
+                    <div id="compare">
+                        <CompareCollegesCTAMobile/>
+                    </div>
+                    <div id="degree">
+                        <DegreeSectionMobile college={college}/>
+                    </div>
+                    <div id="hiring">
+                        <HiringPartnersSectionMobile college={college}/>
+                    </div>
+                    <div id="faq">
+                        <FaqsSectionMobile faqs={college.university_info.faqs}/>
+                    </div>
+                    <div id="contact">
+                        <ContactUsSectionMobile/>
+                    </div>
                 </div>
             </div>
+
 
         </div>
     );

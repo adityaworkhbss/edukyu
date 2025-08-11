@@ -2,8 +2,9 @@ import React from 'react';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import CollegePageMobile from "@/Component/Pages/CollegePage/CollegePageMobile/CollegePageMobile";
 import CollegePageDesktop from "@/Component/Pages/CollegePage/CollegePageDesktop/CollegePageDesktop";
-import {CollegePageData} from "@/Data Model/CollegePage/CollegePageData";
+
 import {CollegePageSecondryData} from "@/Data Model/CollegePage/CollegePageSecondryData";
+import {CollegePageData} from "@/Data Model/CollegePage/CollegePageData"
 
 const CollegePage = () => {
     const breakpoint = useBreakpoint();

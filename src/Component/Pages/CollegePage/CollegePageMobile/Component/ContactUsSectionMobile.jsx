@@ -3,7 +3,7 @@ import { ContactFormMobile } from './UI/ContactFormMobile';
 
 export const ContactUsSectionMobile = () => {
     return (
-        <section className="bg-white overflow-hidden py-16">
+        <section className="bg-white overflow-hidden py-8">
             <div className="gap-5 flex max-md:flex-col">
 
                 <main className="w-[68%] ml-5 max-md:w-full max-md:ml-0">

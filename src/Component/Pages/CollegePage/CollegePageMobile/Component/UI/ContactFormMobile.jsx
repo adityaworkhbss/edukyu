@@ -49,11 +49,11 @@ export const ContactFormMobile = () => {
             onSubmit={handleSubmit}
             className="flex w-full flex-col items-stretch max-md:max-w-full"
         >
-            <header className="mb-8">
-                <h2 className="text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-2">
+            <header className="">
+                <h2 className="text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-3">
                     Contact Us
                 </h2>
-                <p className="text-[#515150] font-[Outfit] text-[14px] font-normal">
+                <p className="text-[#515150] font-[Outfit] text-[14px] mb-8">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </p>
             </header>
@@ -82,6 +82,13 @@ export const ContactFormMobile = () => {
                         placeholder="Enter Your Mobile Number"
                         value={formData.mobileNumber}
                         onChange={handleInputChange('mobileNumber')}
+                        type="tel"
+                    />
+
+                    <FormInputMobile
+                        placeholder="Enter Your City"
+                        value={formData.mobileNumber}
+                        onChange={handleInputChange('city')}
                         type="tel"
                     />
                 </div>

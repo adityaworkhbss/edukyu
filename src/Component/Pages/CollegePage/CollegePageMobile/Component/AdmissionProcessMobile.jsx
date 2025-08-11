@@ -2,9 +2,9 @@ const AdmissionProcessMobile = ({ college }) => {
     const steps = college?.university_info?.admission_process || [];
 
     return (
-        <div className="w-full bg-white rounded-[12px]">
+        <div className="w-full bg-white py-8 ">
             {/* Heading */}
-            <h2 className="text-[#024B53] font-[Outfit] text-[28px] font-semibold leading-normal mb-2">
+            <h2 className="text-[#024B53] font-[Outfit] text-[28px] font-semibold leading-normal mb-3">
                 Admission Process of {college?.university_info?.name}
             </h2>
 
@@ -31,9 +31,9 @@ const AdmissionProcessMobile = ({ college }) => {
 
                         {/* Step Content */}
                         <div className="flex flex-col gap-1">
-                            <span className="text-black font-[Outfit] text-[16px] font-semibold leading-normal">
-                                Process: Step {index + 1}
-                            </span>
+                            {/*<span className="text-black font-[Outfit] text-[16px] font-semibold leading-normal">*/}
+                            {/*    Process: Step {index + 1}*/}
+                            {/*</span>*/}
                             <span className="text-[#333] font-[Outfit] text-[14px] font-normal leading-normal">
                                 {description}
                             </span>

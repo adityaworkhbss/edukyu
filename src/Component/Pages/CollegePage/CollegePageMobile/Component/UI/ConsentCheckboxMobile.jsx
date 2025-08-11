@@ -28,7 +28,8 @@ export const ConsentCheckboxMobile = ({ checked, onChange }) => {
                     </svg>
                 )}
             </button>
-            <label className="text-[#000] font-[Outfit] text-[12px] font-normal cursor-pointer">
+            <label className="text-black font-[Outfit] text-[12px] font-normal leading-normal"
+            >
                 I authorise Edukyu and its associates to contact me with updates
                 & notifications via Email, SMS, WhatsApp, and Voice call as per
                 the Privacy Policy. This consent will override any registration

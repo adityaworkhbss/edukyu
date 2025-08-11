@@ -1,12 +1,17 @@
 import GridComponent from "@/GlobalComponent/GridComponent";
 
-const HiringPartnersSectionMobile = ({ logos }) => {
+const HiringPartnersSectionMobile = ({ college }) => {
+
+    const logos = college.university_info.placement.partners;
+    const names = college.university_info.name;
+    console.log(names);
+    // college.university_info.placement.partners
     return (
-        <section className="bg-white py-10 px-4">
-                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
-                    Hiring Partner of Manipal Online
+        <section className="bg-white py-8">
+                <div className="text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-3">
+                    Hiring Partner of {names}
                 </div>
-                <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
+                <div className="text-[#515150] font-[Outfit] text-[14px] mb-8">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
 
@@ -19,7 +24,7 @@ const HiringPartnersSectionMobile = ({ logos }) => {
                             <img
                                 src={logo}
                                 alt={`Partner ${index + 1}`}
-                                className="h-[60px] object-contain"
+                                className="h-[ 59.623px] w-[89px] object-contain"
                             />
                         </div>
                     ))}
