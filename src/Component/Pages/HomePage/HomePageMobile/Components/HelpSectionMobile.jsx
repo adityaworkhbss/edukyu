@@ -4,7 +4,7 @@ import graduateImage from "@/../public/Resources/Images/graduate.png"; // Update
 
 const HelpSectionMobile = () => {
     return (
-        <div className="flex flex-col w-full px-4 py-8 bg-white">
+        <div className="flex flex-col w-full px-4 pb-8 bg-white">
             {/* Heading */}
             <h2 className=" text-[28px] font-[600] leading-normal text-[#024B53] font-[Outfit] mb-2">
                 We are here to help you!

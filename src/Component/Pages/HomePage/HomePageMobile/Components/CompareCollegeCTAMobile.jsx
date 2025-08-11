@@ -24,7 +24,7 @@ const CompareCollegesCTAMobile = () => {
 
             {/* College Images */}
             {/* Left Image (Image 3) */}
-            <div className="absolute left-2 top-[250px] w-[100px] h-[110px] rounded-[16px] overflow-hidden z-10 shadow-md">
+            <div className="absolute left-2 top-[270px] w-[100px] h-[110px] rounded-[16px] overflow-hidden z-10 shadow-md">
                 <Image
                     src={mainpage_cc_img3}
                     alt="College Left"
@@ -35,7 +35,7 @@ const CompareCollegesCTAMobile = () => {
             </div>
 
             {/* Right Image (Image 1) */}
-            <div className="absolute right-2 top-[250px] w-[100px] h-[110px] rounded-[16px] overflow-hidden z-10 shadow-md">
+            <div className="absolute right-2 top-[270px] w-[100px] h-[110px] rounded-[16px] overflow-hidden z-10 shadow-md">
                 <Image
                     src={mainpage_cc_img1}
                     alt="College Right"
@@ -46,7 +46,7 @@ const CompareCollegesCTAMobile = () => {
             </div>
 
             {/* Center Image (Image 2) - Higher */}
-            <div className="absolute left-1/2 top-[220px] transform -translate-x-1/2 w-[108px] h-[121px] rounded-[16px] overflow-hidden z-10 shadow-md">
+            <div className="absolute left-1/2 top-[240px] transform -translate-x-1/2 w-[108px] h-[121px] rounded-[16px] overflow-hidden z-10 shadow-md">
                 <Image
                     src={mainpage_cc_img2}
                     alt="College Center"

@@ -6,7 +6,7 @@ import logoImg from "@/../public/Resources/Images/collegeMunchLogo.png";
 
 const CollegeMunchBanner = () => {
     return (
-        <div className="relative w-full rounded-[32px] bg-[rgba(103,158,164,0.25)] px-5 py-6 flex flex-col ">
+        <div className="relative w-full my-8 pb-8 rounded-[32px] bg-[rgba(103,158,164,0.25)] px-5 flex flex-col ">
             {/* Logo */}
             <div className="mb-[-5]">
                 <Image

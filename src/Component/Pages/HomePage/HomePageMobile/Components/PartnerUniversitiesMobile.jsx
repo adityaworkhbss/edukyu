@@ -4,7 +4,7 @@ import {PartnerUniversitiesData} from "@/Data Model/Homepage/PartnerUniversities
 const UniversityCard = ({ name, logoSrc, certificationIcons }) => {
     return (
         <article
-            className="w-[290px]  md:w-full pb-4 px-[24px] rounded-lg border border-[#CDCDCD] bg-white"
+            className="w-[290px]  md:w-full pb-4 px-[24px] rounded-[30px] border border-[#CDCDCD] bg-white"
             aria-label={`University card for ${name}`}
         >
             <div className="bg-white flex max-w-full flex-col overflow-hidden items-stretch justify-center py-[9px] rounded-lg">
@@ -88,8 +88,13 @@ export const PartnerUniversitiesMobile = () => {
         "https://api.builder.io/api/v1/image/assets/TEMP/0c3659de9792dd06ae7668c12052ce22c4b7376a?placeholderIfAbsent=true",
     ];
 
+    Object.entries(PartnerUniversitiesData.universities).forEach(([key, value]) => {
+
+        console.log(`${key}:`, value);
+    });
+
     const universities = PartnerUniversitiesData.universities.map((univ, index) => {
-        console.log(univ);
+        // console.log(univ);
         return {
             id: String(index + 1),
             name: univ.name,

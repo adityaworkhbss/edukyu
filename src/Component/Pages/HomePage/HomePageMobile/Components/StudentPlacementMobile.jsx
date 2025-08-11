@@ -1,12 +1,13 @@
-import React from 'react';
+"use client";
+import React from "react";
+import Image from "next/image";
+import { AlumniData } from "@/Data Model/Homepage/AlumniData"; // ✅ Import your alumni data
 
 export const StudentPlacementMobile = () => {
-    const placementLogos = Array(8).fill(null); // Replace with real logo data later
-
-    // Break into groups of 4 logos per "page"
-    const logoGroups = [];
-    for (let i = 0; i < placementLogos.length; i += 4) {
-        logoGroups.push(placementLogos.slice(i, i + 4));
+    // Break alumni data into groups of 4 for each swipe "page"
+    const groupedCompanies = [];
+    for (let i = 0; i < AlumniData.length; i += 4) {
+        groupedCompanies.push(AlumniData.slice(i, i + 4));
     }
 
     return (
@@ -20,21 +21,34 @@ export const StudentPlacementMobile = () => {
 
             {/* Swipeable container */}
             <div className="flex overflow-x-auto mt-[32px] space-x-4 no-scrollbar snap-x snap-mandatory">
-                {logoGroups.map((group, groupIndex) => (
+                {groupedCompanies.map((group, groupIndex) => (
                     <div
                         key={groupIndex}
                         className="flex-shrink-0 w-full snap-start grid grid-cols-2 gap-4"
                     >
-                        {group.map((logo, logoIndex) => (
+                        {group.map((alumni, idx) => (
                             <div
-                                key={logoIndex}
-                                className="flex items-center justify-center bg-[#D9D9D9] rounded-lg p-2 aspect-square"
+                                key={idx}
+                                className="relative aspect-square bg-[#D9D9D9] rounded-lg overflow-hidden group"
                             >
-                                <img
-                                    src={logo?.url || 'https://via.placeholder.com/120x60?text=Logo'}
-                                    alt={`Company logo ${groupIndex * 4 + logoIndex + 1}`}
-                                    className="h-full w-full object-contain"
+                                <Image
+                                    src={alumni.image}
+                                    alt={alumni.name}
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                                 />
+                                {alumni.name && (
+                                    <div className="absolute bottom-0 left-0 right-0 text-center bg-gradient-to-t from-black/80 to-transparent py-2">
+                                        <div className="text-white text-[14px] font-[Outfit] font-semibold">
+                                            {alumni.name}
+                                        </div>
+                                        {alumni.university && (
+                                            <div className="text-white/80 text-[12px] font-[Outfit]">
+                                                {alumni.university}
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
                             </div>
                         ))}
                     </div>

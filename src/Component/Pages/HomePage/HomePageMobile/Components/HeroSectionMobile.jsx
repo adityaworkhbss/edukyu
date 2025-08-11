@@ -25,9 +25,9 @@ const HeroSectionMobile = () => {
                 <button className="bg-white text-[#024B53] rounded-[12px] px-6 py-2 font-medium text-sm">
                     Apply Now
                 </button>
-                <button className="border border-white text-white rounded-[12px] px-6 py-2 font-medium text-sm hover:bg-white hover:text-[#024B53] transition">
-                    Explore More
-                </button>
+                {/*<button className="border border-white text-white rounded-[12px] px-6 py-2 font-medium text-sm hover:bg-white hover:text-[#024B53] transition">*/}
+                {/*    Explore More*/}
+                {/*</button>*/}
             </div>
 
             {/* Images Layered */}

@@ -17,7 +17,7 @@ const HomePageMobile = () => {
     return (
         <div className="bg-white flex w-full mt-4 flex-col overflow-hidden mx-auto pb-8">
 
-            <div className="bg-white self-stretch flex w-full flex-col overflow-hidden items-stretch font-normal pb-[111px]">
+            <div className="bg-white self-stretch flex w-full flex-col overflow-hidden items-stretch font-normal pb-[64px]">
                 <HeroSectionMobile />
             </div>
 
@@ -32,7 +32,7 @@ const HomePageMobile = () => {
 
 
 
-            <div className="self-stretch flex w-full flex-col items-stretch px-[19px]">
+            <div className="self-stretch flex w-full flex-col items-stretch px-[20px]">
                 <AcademicConverterMobile />
                 <StudentPlacementMobile />
             </div>
