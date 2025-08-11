@@ -7,7 +7,6 @@ import FeeTable from "@/Component/Pages/CollegePage/CollegePageDesktop/Component
 import Benefits, {BenefitsSection} from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/BenefitsSection";
 import CompareCollegesCTA from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CompareCollegeCTA";
 import DegreeSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/DegreeSection";
-import HiringPartnersSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/HiringPartnerSection";
 import ContactForm, {
     ContactUsSection
 } from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/ContactUsSection";
@@ -15,6 +14,8 @@ import SidebarNavigation from "@/Component/Pages/CollegePage/CollegePageDesktop/
 import CollegeMunchBanner from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CollegeMunchBanner";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import collegePageMobile from "@/Component/Pages/CollegePage/CollegePageMobile/CollegePageMobile";
+import FaqsSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/FaqsSection";
+import HiringPartnersSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/HiringPartnerSection";
 
 const CollegePageDesktop = ({college, collegeSecondry}) => {
 
@@ -28,7 +29,7 @@ const CollegePageDesktop = ({college, collegeSecondry}) => {
                     <SidebarNavigation/>
                 </div>
 
-                <div className="w-3/4  space-y-[64px]">
+                <div className="w-3/4 space-y-[64px]">
                     <RankAndAccr college={college} />
                     <Courses college={{college}}/>
                     <Specialization data={collegeSecondry}/>
@@ -37,8 +38,9 @@ const CollegePageDesktop = ({college, collegeSecondry}) => {
                     <BenefitsSection college={college}/>
                     <CompareCollegesCTA/>
                     <DegreeSection  college={college}/>
+                    <HiringPartnersSection logos={college.university_info.placement.partners}/>
                     <CollegeMunchBanner/>
-                    <HiringPartnersSection/>
+                    <FaqsSection faqs={college.university_info.faqs}/>
                     <ContactUsSection/>
                 </div>
             </div>
