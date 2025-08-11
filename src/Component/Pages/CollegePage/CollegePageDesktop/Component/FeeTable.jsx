@@ -36,21 +36,21 @@ const FeeTable = ({ collegeSecondry }) => {
     });
 
     return (
-        <div className="w-full  flex flex-col items-start">
-            <GridComponent gridStart={0} gridEnd={6}>
+        <div className="w-full pt-8 pb-5  flex flex-col items-start">
+            <GridComponent gridStart={0} gridEnd={7}>
                 <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
                     Updated Fees for Each Courses in 2025
                 </div>
             </GridComponent>
 
-            <GridComponent gridStart={0} gridEnd={6}>
+            <GridComponent gridStart={0} gridEnd={7}>
                 <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
             </GridComponent>
 
             {/* Table */}
-            <div className="w-full rounded-t-[12px] overflow-x-auto">
+            <div className="w-full rounded-[12px] overflow-x-auto">
                 <table className="min-w-full text-center border-collapse font-[Outfit]">
                     {/* Table Header */}
                     <thead>

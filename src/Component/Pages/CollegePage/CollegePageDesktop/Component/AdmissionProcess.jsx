@@ -7,13 +7,13 @@ const AdmissionProcess = ({college}) => {
 
     return (
         <div className="w-full ">
-            <GridComponent gridStart={0} gridEnd={6}>
+            <GridComponent gridStart={0} gridEnd={7}>
                 <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
                     Admission Process of {college?.university_info?.name}
                 </div>
             </GridComponent>
 
-            <GridComponent gridStart={0} gridEnd={6}>
+            <GridComponent gridStart={0} gridEnd={7}>
                 <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
@@ -38,9 +38,9 @@ const AdmissionProcess = ({college}) => {
 
                         {/* Step Content */}
                         <div className="flex flex-col z-10 gap-3">
-                            <div className="text-black font-semibold text-[18px] font-[Outfit]">
-                                Process: Step {index + 1}
-                            </div>
+                            {/*<div className="text-black font-semibold text-[18px] font-[Outfit]">*/}
+                            {/*    Process: Step {index + 1}*/}
+                            {/*</div>*/}
 
                             <div className="mt-1 text-[#333] font-normal text-[16px] font-[Outfit]">
                                 {description}

@@ -1,37 +1,15 @@
-import React, {useRef, useState} from "react";
+import React, {useRef, useState, useEffect} from "react";
 import { ImageIcon } from "lucide-react";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import { ExploreProgramsData } from '@/Data Model/Homepage/ExploreProgramsData';
 
 const Specialization = ({data}) => {
-
-    Object.values(data.Specialisation).map((item, index) => {
-        console.log(item.value); // this will run fine
-        return (
-            <div key={index}>
-                {item?.name}
-            </div>
-        );
-    })
-
-    Object.entries(data.Specialisation).forEach(([name, value], index) => {
-        console.log(name, value);
-    });
-
-
-
-    // console.log("specialisationStr", specialisationStr);
-
-
     // Create tab mapping from string
     const tabMapping = Object.entries(data?.Specialisation || {})
         .reduce((acc, [name, value]) => {
             acc[name] = name; // key = value
             return acc;
         }, {});
-
-    console.log(tabMapping);
-
 
     // Tabs array from mapping keys
     const tabs = Object.keys(tabMapping).map(name => ({
@@ -40,17 +18,13 @@ const Specialization = ({data}) => {
     }));
 
     const [activeTab, setActiveTab] = useState(tabs[0]?.id || "");
-    const [currentIndex, setCurrentIndex] = useState(0);
     const containerRef = useRef(null);
+    const [visibleCards, setVisibleCards] = useState(4);
+    const [scrollPosition, setScrollPosition] = useState(0);
 
     // Get programs for the active tab
     const getActivePrograms = () => {
-        console.log("active programs ::::::::::", activeTab);
-
         const activeData = data?.Specialisation?.[activeTab] || {};
-
-        console.log(data?.Specialisation[activeTab] );
-
         return Object.entries(activeData).map(([name, details = {}], index) => ({
             id: index + 1,
             title: name || "Unknown Program",
@@ -59,35 +33,84 @@ const Specialization = ({data}) => {
         }));
     };
 
-
-
     const programs = getActivePrograms();
 
-    console.log("active programs ::::::::::", programs);
+    // Update visible cards based on screen size
+    useEffect(() => {
+        const updateVisibleCards = () => {
+            const width = window.innerWidth;
+            if (width < 768) {
+                setVisibleCards(1);
+            } else if (width < 1024) {
+                setVisibleCards(2);
+            } else if (width < 1280) {
+                setVisibleCards(3);
+            } else {
+                setVisibleCards(4);
+            }
+        };
+
+        updateVisibleCards();
+        window.addEventListener('resize', updateVisibleCards);
+        return () => window.removeEventListener('resize', updateVisibleCards);
+    }, []);
 
     const handleNext = () => {
-        setCurrentIndex(prev => (prev + 1) % programs.length);
+        const container = containerRef.current;
+        if (!container) return;
+
+        const cardWidth = container.firstChild?.offsetWidth || 0;
+        const gap = 24; // gap-6 is 24px
+        const scrollAmount = (cardWidth + gap) * visibleCards;
+
+        const newPosition = Math.min(
+            scrollPosition + scrollAmount,
+            container.scrollWidth - container.clientWidth
+        );
+
+        container.scrollTo({
+            left: newPosition,
+            behavior: 'smooth'
+        });
+        setScrollPosition(newPosition);
     };
 
     const handlePrev = () => {
-        setCurrentIndex(prev => (prev - 1 + programs.length) % programs.length);
+        const container = containerRef.current;
+        if (!container) return;
+
+        const cardWidth = container.firstChild?.offsetWidth || 0;
+        const gap = 24; // gap-6 is 24px
+        const scrollAmount = (cardWidth + gap) * visibleCards;
+
+        const newPosition = Math.max(scrollPosition - scrollAmount, 0);
+
+        container.scrollTo({
+            left: newPosition,
+            behavior: 'smooth'
+        });
+        setScrollPosition(newPosition);
     };
 
     const handleTabChange = (tabId) => {
         setActiveTab(tabId);
-        setCurrentIndex(0);
+        setScrollPosition(0);
+        if (containerRef.current) {
+            containerRef.current.scrollLeft = 0;
+        }
     };
+
     return (
-        <section className="bg-background">
+        <section className="bg-background pt-12">
             <div className="">
                 <div className="">
-                    <GridComponent gridStart={0} gridEnd={6}>
+                    <GridComponent gridStart={0} gridEnd={7}>
                         <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
-                            Explore our Specialization
+                            Specialization
                         </div>
                     </GridComponent>
 
-                    <GridComponent gridStart={0} gridEnd={6}>
+                    <GridComponent gridStart={0} gridEnd={7}>
                         <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
                             Unlimited access to world class Specialization, hands-on projects, and job-ready certificate programs.
                         </div>
@@ -97,7 +120,7 @@ const Specialization = ({data}) => {
                         {tabs.map((tab) => (
                             <button
                                 key={tab.id}
-                                onClick={() => setActiveTab(tab.id)}
+                                onClick={() => handleTabChange(tab.id)}
                                 className={`px-6 py-4 gap-[10px] text-sm font-medium font-[Outfit] transition-colors ${
                                     activeTab === tab.id
                                         ? 'bg-white text-slate-800 border-b-2 border-teal-600'
@@ -111,11 +134,19 @@ const Specialization = ({data}) => {
 
                 </div>
 
-                <div className="relative">
+                <div className=" ">
                     {programs.length > 0 ? (
-                        <div className="inline-flex overflow-x-auto scrollbar-hide gap-6">
+                        <div
+                            ref={containerRef}
+                            className="inline-flex overflow-x-auto scrollbar-hide gap-6"
+                            style={{ scrollBehavior: 'smooth' }}
+                        >
                             {programs.map((program) => (
-                                <div key={program.id} className="bg-program-card border border-border rounded-[22px] shadow-sm">
+                                <div
+                                    key={program.id}
+                                    className="bg-program-card border border-border rounded-[22px] shadow-sm flex-shrink-0 snap-start"
+                                    style={{ width: `calc((100% - ${(visibleCards) * 24}px) / ${visibleCards})` }}
+                                >
                                     <div className="p-0">
                                         <div className="bg-program-image rounded-t-lg h-[132px] flex items-center justify-center">
                                             <ImageIcon size={48} className="text-secondary rounded-t-lg opacity-60 bg-cover" />
@@ -125,7 +156,6 @@ const Specialization = ({data}) => {
                                                 {program.title}
                                             </h3>
                                             <div className="inline-flex items-center gap-[8px] pt-[22px]">
-                                                {/* SVG icon */}
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                     <g clipPath="url(#clip0_236_281)">
                                                         <path d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z" fill="#383837"/>
@@ -173,11 +203,13 @@ const Specialization = ({data}) => {
                     )}
                 </div>
 
-
-                <div className="flex justify-between mt-[32px] pb-[64px]">
+                <div className="flex justify-between w-[90%] mt-[32px] pb-[64px]">
                     <button
                         onClick={handlePrev}
-                        className="bg-white z-10 p-4 hover:shadow-md rounded"
+                        disabled={scrollPosition === 0}
+                        className={`bg-white z-10 p-4 hover:shadow-md rounded ${
+                            scrollPosition === 0 ? 'opacity-50 cursor-not-allowed' : ''
+                        }`}
                         aria-label="Previous"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -194,16 +226,19 @@ const Specialization = ({data}) => {
 
                     <button
                         onClick={handleNext}
-                        className="bg-white z-10 p-4 hover:shadow-md rounded"
+                        disabled={scrollPosition >= (containerRef.current?.scrollWidth - containerRef.current?.clientWidth - 1 || true)}
+                        className={`bg-white z-10 p-4 hover:shadow-md rounded ${
+                            scrollPosition >= (containerRef.current?.scrollWidth - containerRef.current?.clientWidth - 1 || 0)
+                                ? 'opacity-50 cursor-not-allowed'
+                                : ''
+                        }`}
                         aria-label="Next"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
                             <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53" />
                         </svg>
                     </button>
-
                 </div>
-
             </div>
         </section>
     );

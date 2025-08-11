@@ -5,7 +5,7 @@ import GridComponent from "@/GlobalComponent/GridComponent";
 const Courses = ({ college }) => {
     const [activeTab, setActiveTab] = useState("PG");
 
-    const courses = college?.college?.university_info?.courses || [];
+    const courses = college?.university_info?.courses || [];
 
     // Group courses by type
     const groupedCourses = courses.reduce((acc, course) => {
@@ -49,13 +49,13 @@ const Courses = ({ college }) => {
     return (
         <section className="pt-[64px] bg-background">
             <div>
-                <GridComponent gridStart={0} gridEnd={6}>
+                <GridComponent gridStart={0} gridEnd={7}>
                     <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
                         Explore our Courses
                     </div>
                 </GridComponent>
 
-                <GridComponent gridStart={0} gridEnd={6}>
+                <GridComponent gridStart={0} gridEnd={7}>
                     <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
                         Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                     </div>
@@ -145,7 +145,7 @@ const Courses = ({ college }) => {
                                 <div className="pt-[10px] w-full pb-[16px]">
                                     <div className="flex justify-center">
                                         <button
-                                            className="flex items-center justify-center border px-[90px] py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors hover:bg-[#f3f3f3]"
+                                            className="flex items-center justify-center border w-full mx-4 py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors hover:bg-[#f3f3f3]"
                                             // Add your onClick or Link to course details here
                                         >
                                             Explore

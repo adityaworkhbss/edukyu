@@ -20,7 +20,7 @@ import HiringPartnersSection from "@/Component/Pages/CollegePage/CollegePageDesk
 const CollegePageDesktop = ({college, collegeSecondry}) => {
 
     return (
-        <div className="px-[56px] py-[64px]">
+        <div className="px-[56px]">
             <HeroPage college={college} />
 
 
@@ -30,19 +30,44 @@ const CollegePageDesktop = ({college, collegeSecondry}) => {
                 </div>
 
                 <div className="w-3/4 space-y-[64px]">
-                    <RankAndAccr college={college} />
-                    <Courses college={{college}}/>
-                    <Specialization data={collegeSecondry}/>
-                    <AdmissionProcess college={college}/>
-                    <FeeTable collegeSecondry = {collegeSecondry}/>
-                    <BenefitsSection college={college}/>
-                    <CompareCollegesCTA/>
-                    <DegreeSection  college={college}/>
-                    <HiringPartnersSection logos={college.university_info.placement.partners}/>
-                    <CollegeMunchBanner/>
-                    <FaqsSection faqs={college.university_info.faqs}/>
-                    <ContactUsSection/>
+                    <div id="ranking">
+                        <RankAndAccr college={college} />
+                    </div>
+                    <div id="courses">
+                        <Courses college={college}/>
+                    </div>
+                    <div id="specialization">
+                        <Specialization data={collegeSecondry}/>
+                    </div>
+                    <div id="admission">
+                        <AdmissionProcess college={college}/>
+                    </div>
+                    <div id="fees">
+                        <FeeTable collegeSecondry={collegeSecondry}/>
+                    </div>
+                    <div id="benefits">
+                        <BenefitsSection college={college}/>
+                    </div>
+                    <div className="py-[64px]" id="compare">
+                        <CompareCollegesCTA/>
+                    </div>
+                    <div id="degree">
+                        <DegreeSection  college={college}/>
+                    </div>
+                    <div id="hiring">
+                        <HiringPartnersSection
+                            logos={college.university_info.placement.partners}
+                            name={college.university_info.name}
+                        />
+                    </div>
+                    <div id="faq">
+                        <FaqsSection faqs={college.university_info.faqs}/>
+                    </div>
+                    <div id="contact">
+                        <ContactUsSection/>
+                    </div>
                 </div>
+
             </div>
 
         </div>

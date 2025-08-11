@@ -8,7 +8,7 @@ const RankAndAccr = ({college}) => {
     console.log(repeatedLogos);
 
     return (
-        <div className="w-full flex flex-col">
+        <div className="w-full pt-[64px] flex flex-col">
             {/* Title */}
             <h2 className="text-[48px] font-semibold font-[Outfit] text-[#024B53] mb-12">
                 Rankings & Accreditations

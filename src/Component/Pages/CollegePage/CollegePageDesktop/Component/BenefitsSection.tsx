@@ -16,54 +16,30 @@ interface College {
 }
 
 export const BenefitsSection: React.FC<{ college: College }> = ({ college }) => {
-    // Get benefits array safely, fallback to static array if none
-    const benefitsFromAPI = college?.university_info?.benefits || [];
+    const benefitsFromAPI = college?.university_info?.benefits
+        || college?.university_info?.placement?.benefits
+        || [];
 
-    // If API benefits empty, fallback to static hardcoded benefits with positions
+// Static fallback positions
     const staticBenefits = [
-        {
-            id: 1,
-            text: "Online Manipal University offers students a wide range of fully online, accredited degree and diploma courses, totaling over 10 options.",
-            position: "left-6 top-[214px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3"
-        },
-        {
-            id: 2,
-            text: "These courses have been approved by the UGC for online delivery.",
-            position: "left-6 top-[372px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3"
-        },
-        {
-            id: 3,
-            text: "Students can choose from undergraduate programs like BCA, BBA, and B. Com, as well as postgraduate programs like MCA, MBA, M. Com, and MA JMC, all of which are offered in online mode.",
-            position: "left-6 top-[540px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3"
-        },
-        {
-            id: 4,
-            text: "Additionally, the university conducts examinations online, with remote proctoring through the LMS.",
-            position: "left-[662px] top-[214px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3"
-        },
-        {
-            id: 5,
-            text: "To facilitate easy financing, the university also offers no-cost EMI options.",
-            position: "left-[662px] top-[372px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3"
-        },
-        {
-            id: 6,
-            text: "Moreover, scholarship opportunities are available for government employees, defense personnel, meritorious students, and differently-abled individuals.",
-            position: "left-[663px] top-[530px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3"
-        }
+        { id: 1, position: "left-6 top-[214px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
+        { id: 2, position: "left-6 top-[372px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
+        { id: 3, position: "left-6 top-[540px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
+        { id: 4, position: "left-[662px] top-[214px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
+        { id: 5, position: "left-[662px] top-[372px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
+        { id: 6, position: "left-[663px] top-[530px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" }
     ];
 
-    // Compose final benefits array with positions if possible
-    // If benefitsFromAPI has data, map them without position (or you can assign default positions)
-    // If no data, use staticBenefits (with positions for absolute positioning)
+// Prepare benefits with merged positions
     const benefits = benefitsFromAPI
-        .filter((b) => b && b.trim() !== "")
-        .slice(0, 6)
+        .filter((b) => b && b.trim() !== "") // remove empty
+        .slice(0, 6) // take only first 6
         .map((text, idx) => ({
-            id: idx + 1,
+            id: staticBenefits[idx]?.id || idx + 1,
             text,
-            position: "", // add this
+            position: staticBenefits[idx]?.position || ""
         }));
+
 
 
     return (

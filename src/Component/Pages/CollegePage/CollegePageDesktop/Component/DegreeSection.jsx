@@ -2,16 +2,19 @@ import Image from "next/image";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import degree from "@/../public/Resources/Images/degree.png";
 
-const DegreePoints = [
-    "Accredited and acknowledged degree",
-    "Degree approved by NAAC and AICTE",
-    "Degree acknowledged in both private and public sectors",
-    "Equivalent to an on-campus degree",
-];
+
 
 const DegreeSection = ({college}) => {
+
+    const degreeInfo = college?.university_info?.degree;
+
+    // Only render if description exists
+    if (!degreeInfo?.description) {
+        return null;
+    }
+
     return (
-        <div className="w-full py-16">
+        <div className="w-full py-12">
             {/* Text Header */}
             <div className="mb-10 text-left">
 
@@ -32,19 +35,21 @@ const DegreeSection = ({college}) => {
             {/* Content Section */}
             <div className="inline-flex items-center gap-6">
                 {/* Degree Image */}
-                <div className="flex ">
-                    <img
-                        src={degree} // Rename your uploaded image to this and place in /public
-                        alt="UGC Degree"
-                        width={380}
-                        height={300}
-                        className="rounded-md"
-                    />
-                </div>
+                {degreeInfo.certificate_image && (
+                    <div className="flex ">
+                        <img
+                            src={degreeInfo.certificate_image} // Rename your uploaded image to this and place in /public
+                            alt="Certificate"
+                            width={380}
+                            height={300}
+                            className="rounded-md border border-gray-200"
+                        />
+                    </div>
+                )}
 
                 {/* Bullet Points */}
                 <div className="space-y-4">
-                    {DegreePoints.map((point, i) => (
+                    {college.university_info.about.highlights.map((point, i) => (
                         <div
                             key={i}
                             className="bg-white/60 w-full  backdrop-blur-md border border-[#EAEAEA] text-[#4B4B4B] text-[15px] font-[Outfit] px-5 py-3 rounded-md"
