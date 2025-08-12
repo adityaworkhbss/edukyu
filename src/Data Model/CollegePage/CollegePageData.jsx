@@ -2,13 +2,13 @@ export const CollegePageData = [{
     "DYP": {
         "database": {
             "host": "localhost",
-            "user": "u161924887_edkyuusexzp",
-            "password": "|KU2|6gT",
-            "name": "u161924887_edukyuda0bse"
+            "user": "EDUKYU_CRM_230500001",
+            "password": "12345",
+            "name": "edukyu_enqbooks"
         },
         "university_info": {
-            "name": "D. Y. Patil University",
-            "logo": "https://edukyu.com/new-ed/assets/cxp-assets/imgs/collage/logo/dpu-logo.png",
+            "name": "D.Y. Patil University",
+            "logo": "https://edukyu.com/assets/cxp-assets/imgs/collage/logo/dpu-logo.png",
             "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/banner.avif",
             "accreditations": [
                 {
@@ -30,16 +30,18 @@ export const CollegePageData = [{
                 {
                     "name": "AIU",
                     "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/aiu.png"
+                },
+                {
+                    "name": "UGC",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/ugc.png"
                 }
             ],
             "about": {
-                "description": "Established in 2003, Dr. D.Y. Patil Vidyapeeth in Pune, originally a medical institution, now offers a wide range of courses across various fields, delivering top-notch educational services.",
+                "description": "Established in 2003, Dr. D.Y. Patil Vidyapeeth in Pune, originally a medical institution, now offers a wide range of courses across various fields, delivering top-notch educational services. Recognized by the UGC, Dr. D.Y. Patil University houses the Centre for Online Learning (DPU-COL), dedicated to providing undergraduate and postgraduate online courses.",
                 "highlights": [
-                    "Recognized by the UGC",
-                    "NAAC A++ accredited with grade point of 3.64",
-                    "Ranked 41st by NIRF",
-                    "Global network of over one lakh alumni",
-                    "Industry-relevant curriculum"
+                    "Esteemed University: Renowned accreditations and endorsements, maintaining an outstanding reputation",
+                    "Industry-aligned Courses: Current and industry-aligned course offerings ensure relevance",
+                    "Exceptional Placement Record: Exceptional Placement Success Supported by Strong Partnerships and Proven Track Record"
                 ],
                 "images": [
                     "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/overview.jpg"
@@ -50,62 +52,88 @@ export const CollegePageData = [{
                     "name": "Online MBA",
                     "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/online-mba.jpg",
                     "duration": "2 years",
-                    "fees": "Rs 1,69,200",
+                    "fees": {
+                        "original": "1,69,200",
+                        "discounted": "1,52,280"
+                    },
                     "description": "The Right Step to Gain Skills",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": [
+                        "Finance",
+                        "Marketing",
+                        "Human Resources",
+                        "Operations Management",
+                        "Information Technology Management"
+                    ]
                 },
                 {
                     "name": "Online BBA",
                     "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/online-bba.jpg",
                     "duration": "3 years",
-                    "fees": "Rs 1,20,200",
+                    "fees": {
+                        "original": "1,20,200",
+                        "discounted": "1,08,180"
+                    },
                     "description": "The Right Step to Gain Skills",
-                    "type":"UG"
+                    "type": "UG"
                 },
                 {
-                    "name": "Certificate In Digital Marketing",
+                    "name": "Certificate in Digital Marketing",
                     "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/certificate-dm.jpg",
-                    "duration": "2 years",
-                    "fees": "Rs 28,200",
+                    "duration": "6 months",
+                    "fees": {
+                        "original": "28,200",
+                        "discounted": "25,380"
+                    },
                     "description": "The Right Step to Gain Skills",
-                    "type":"Diploma/Certificate"
-                },
-                {
-                    "name": "Certificate Programme in Hospital & Health Care Management",
-                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/certificate-hcm.jpg",
-                    "duration": "2 years",
-                    "fees": "Rs 28,000",
-                    "description": "The Right Step to Gain Skills",
-                    "type":"Diploma/Certificate"
+                    "type": "Diploma/Certificate"
                 }
             ],
+            "benefits": [
+                "The university holds multiple accreditations and recognitions, including UGC-DEB, AICTE, NIRF (ranked 41 in the University category), ISO, AIU, ACU, WES, and more",
+                "Dr. D.Y. Patil University is rated A++ by NAAC, with a grade point of 3.64",
+                "DPU-COL offers extensive learning support features, such as an e-learning toolkit, self-evaluation kits, case studies, and digital libraries",
+                "With a dedicated placement cell for the online division, D.Y. Patil University collaborates with numerous companies",
+                "The faculty members are highly trained in delivering online education, possessing extensive qualifications and experience"
+            ],
+            "degree": {
+                "description": "Sample Degree from D.Y. Patil University Online",
+                "highlights": [
+                    "UGC-DEB accredited degree",
+                    "NAAC-accredited degree",
+                    "Ranked 41st by NIRF",
+                    "Recognized by WES",
+                    "Equivalent to on-campus qualifications"
+                ],
+                "certificate_image": "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/degree.jpg"
+            },
             "admission_process": [
-                "Visit the official website and navigate to Admissions section",
-                "Enter basic details for mobile number and email verification",
+                "Visit the official website of DY Patil Online and navigate to the 'Admissions' section",
+                "Enter your basic details for mobile number and email verification",
                 "Fill in personal, educational, and professional information",
-                "Upload necessary documents including photo and signature",
-                "Make payment online and submit the form",
-                "Receive admission confirmation via email/SMS after verification"
+                "Upload necessary documents, including passport-size photo and signature",
+                "Make the payment online and submit the form",
+                "Once documents are verified, admission confirmation will be sent via email or SMS"
             ],
             "placement": {
-                "average_package": "INR 4,76,000",
-                "highest_package": "INR 10,50,000",
                 "partners": [
                     "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/airtel.png",
                     "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/apollo.png",
                     "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/bsnl.png",
                     "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/capgemini.png",
-                    "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/cognizant.png",
-                    "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/randstad.png"
+                    "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/cognizant.png"
                 ],
                 "benefits": [
                     "300+ Hiring Partners",
                     "Industry-specific training",
                     "Global Networking Opportunities",
                     "Mock interviews with industry experts",
-                    "Internship opportunities with top companies",
-                    "Regular placement drives and job fairs"
-                ]
+                    "Internship opportunities with top companies"
+                ],
+                "statistics": {
+                    "average_package": "Rs 4,76,000",
+                    "highest_package": "Rs 10,50,000"
+                }
             },
             "faqs": [
                 {
@@ -114,19 +142,11 @@ export const CollegePageData = [{
                 },
                 {
                     "question": "What is the average package for D.Y. Patil online MBA?",
-                    "answer": "According to the official website of D.Y. Patil University, the average package for an Online MBA is around INR 4,76,000/-, while the highest salary is around 10,50,000/-."
+                    "answer": "According to the official website, the average package for an Online MBA is around INR 4,76,000/-, while the highest salary is around 10,50,000/-."
                 },
                 {
                     "question": "Does D.Y. Patil University have an entrance exam?",
                     "answer": "Yes, D.Y. Patil University conducts its own entrance exams for most of its courses. Yet, enrollment of students on their CAT, MAT, XAT, CMAT, and MAH CET scores also takes place for D.Y Patil's Online MBA course."
-                },
-                {
-                    "question": "Are fully online degree programs available at Dr. D. Y. Patil University?",
-                    "answer": "Yes, Dr. D. Y. Patil University offers fully online degree programs, including the D.Y. Patil Online MBA."
-                },
-                {
-                    "question": "What specializations can students pursue in the online MBA program offered by DPU?",
-                    "answer": "Specializations available in the online MBA program offered by DPU include Finance, Marketing, Human Resources, Operations Management, and Information Technology Management, among others."
                 }
             ]
         },
@@ -360,57 +380,78 @@ export const CollegePageData = [{
                     "name": "Online MBA",
                     "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/vgu/OnlineMBA.jpg",
                     "duration": "2 years",
-                    "fees": "1,30,000",
+                    "fees": {
+                        "original": "1,30,000",
+                        "discounted": "1,30,000"
+                    },
                     "description": "The Right Step to Gain Skills",
-                    "type":"UG"
+                    "type": "PG"
                 },
                 {
                     "name": "Online MCA",
                     "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/vgu/OnlineMCA.jpg",
                     "duration": "2 years",
-                    "fees": "1,30,000",
+                    "fees": {
+                        "original": "1,30,000",
+                        "discounted": "1,30,000"
+                    },
                     "description": "The Right Step to Gain Skills",
-                    "type":"PG"
+                    "type": "PG"
                 },
                 {
                     "name": "Online BBA",
                     "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/vgu/OnlineBBA.jpg",
                     "duration": "3 years",
-                    "fees": "1,14,400",
+                    "fees": {
+                        "original": "1,14,400",
+                        "discounted": "1,14,400"
+                    },
                     "description": "The Right Step to Gain Skills",
-                    "type":"UG"
+                    "type": "UG"
                 },
                 {
                     "name": "Online BCA",
                     "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/vgu/OnlineBCA.jpg",
                     "duration": "3 years",
-                    "fees": "1,14,000",
+                    "fees": {
+                        "original": "1,14,000",
+                        "discounted": "1,14,000"
+                    },
                     "description": "The Right Step to Gain Skills",
-                    "type":"UG"
+                    "type": "UG"
                 },
                 {
                     "name": "Online MA",
                     "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/vgu/OnlineMA.jpg",
                     "duration": "2 years",
-                    "fees": "60,000",
+                    "fees": {
+                        "original": "60,000",
+                        "discounted": "60,000"
+                    },
                     "description": "The Right Step to Gain Skills",
-                    "type":"PG"
+                    "type": "PG"
                 },
                 {
                     "name": "Online BA",
                     "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/vgu/OnlineBA.jpg",
                     "duration": "3 years",
-                    "fees": "Not specified",
+                    "fees": {
+                        "original": "Not specified",
+                        "discounted": "Not specified"
+                    },
                     "description": "The Right Step to Gain Skills",
-                    "type":"UG"
+                    "type": "UG"
                 },
                 {
                     "name": "Online MSc",
                     "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/vgu/OnlineMSc.jpg",
                     "duration": "2 years",
-                    "fees": "64,000",
+                    "fees": {
+                        "original": "64,000",
+                        "discounted": "64,000"
+                    },
                     "description": "The Right Step to Gain Skills",
-                    "type":"PG"
+                    "type": "PG"
                 }
             ],
             "benefits": [
@@ -442,17 +483,20 @@ export const CollegePageData = [{
                 "Start Your Program: Access Learning Management System (LMS)"
             ],
             "placement": {
-                "statistics": {
-                    "network": "50,000+ students",
-                    "placements": "15,000+ students placed",
-                    "average_salary": "₹4.6 LPA"
-                },
                 "partners": [
                     "https://edukyu.com/assets/cxp-assets/imgs/collage/uttaranchal-university/accenture.avif",
                     "https://edukyu.com/assets/cxp-assets/imgs/collage/uttaranchal-university/infosys.avif",
                     "https://edukyu.com/assets/cxp-assets/imgs/collage/manipal-university/hcl.png",
                     "https://edukyu.com/assets/cxp-assets/imgs/collage/lovely-professional-university/ibm.png",
                     "https://edukyu.com/assets/cxp-assets/imgs/collage/jain-university/kpmg.png"
+                ],
+                "benefits": [
+                    "50,000+ students network",
+                    "15,000+ students placed",
+                    "Average salary of ₹4.6 LPA",
+                    "Placement assistance with 500+ hiring partners",
+                    "Resume building & interview preparation",
+                    "Industry tie-ups for internships and live projects"
                 ]
             },
             "faqs": [

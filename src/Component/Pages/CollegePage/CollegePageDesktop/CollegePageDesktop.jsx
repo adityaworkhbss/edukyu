@@ -19,6 +19,8 @@ import HiringPartnersSection from "@/Component/Pages/CollegePage/CollegePageDesk
 
 const CollegePageDesktop = ({college, collegeSecondry}) => {
 
+    console.log("college :::::::: " + college + "     college 2 :::::::: " + collegeSecondry);
+
     return (
         <div className="px-[56px]">
             <HeroPage college={college} />

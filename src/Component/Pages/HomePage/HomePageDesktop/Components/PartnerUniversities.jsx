@@ -3,13 +3,15 @@ import GridContainer from "@/GlobalComponent/GridContainer";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import { PartnerUniversitiesData } from '@/Data Model/Homepage/PartnerUniversitiesData';
 import {ImageIcon} from "lucide-react";
+import {usePageContext} from "@/GlobalComponent/PageContext";
 
 export const PartnerUniversities = () => {
     const universities = PartnerUniversitiesData.universities.map((univ, index) => {
-        console.log(univ);
+        console.log(univ.code);
         return {
             id: String(index + 1),
             name: univ.name,
+            code: univ.code,
             logoUrl: univ.image,
             courses: `${univ.coursesOffered.length}+ Courses`,
             price: `Course ${univ.fee}`,
@@ -28,6 +30,7 @@ export const PartnerUniversities = () => {
     const containerRef = useRef(null);
     const cardsPerView = 4;
     const cardGap = 24;
+    const { setCurrentPage, setSelectedCollege } = usePageContext();
 
     useEffect(() => {
         const updateCardWidth = () => {
@@ -113,7 +116,7 @@ export const PartnerUniversities = () => {
                                         {univ.name}
                                     </div>
 
-                                    <div className="inline-flex gap-[8px] align-center">
+                                    <div className="inline-flex gap-[8px] align-center items-center">
                                         <div>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <g clipPath="url(#clip0_228_629)">
@@ -151,7 +154,12 @@ export const PartnerUniversities = () => {
                                         </div>
 
                                         <div className="pt-[8px]">
-                                            <button className="flex w-[32px] h-[32px] p-2 justify-center items-center flex-shrink-0 bg-[#024B53] rounded">
+                                            <button className="flex w-[32px] h-[32px] p-2 justify-center items-center flex-shrink-0 bg-[#024B53] rounded"
+                                                    onClick={() => {
+                                                        setSelectedCollege(univ.code);
+                                                        setCurrentPage('college');
+                                                    }}
+                                            >
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     width="16"

@@ -82,16 +82,6 @@ export const PartnerUniversitiesMobile = () => {
         }
     };
 
-    const certificationIcons = [
-        "https://api.builder.io/api/v1/image/assets/TEMP/ed35af773b72aabdc8d32ac0fa11bf667f8df011?placeholderIfAbsent=true",
-        "https://api.builder.io/api/v1/image/assets/TEMP/8819d1debcdd8a0ae99518de71beffebf5bf37dd?placeholderIfAbsent=true",
-        "https://api.builder.io/api/v1/image/assets/TEMP/0c3659de9792dd06ae7668c12052ce22c4b7376a?placeholderIfAbsent=true",
-    ];
-
-    Object.entries(PartnerUniversitiesData.universities).forEach(([key, value]) => {
-
-        console.log(`${key}:`, value);
-    });
 
     const universities = PartnerUniversitiesData.universities.map((univ, index) => {
         // console.log(univ);

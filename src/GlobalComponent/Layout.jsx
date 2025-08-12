@@ -12,22 +12,15 @@ import CollegePage from "@/Component/Pages/CollegePage/CollegePage";
 
 const Layout = () => {
     const breakpoint = useBreakpoint();
-    const config = gridConfigs[breakpoint];
-    const { currentPage } = usePageContext();
-
-    const marginClass = {
-        mobile: 'ml-[20px] mr-[20px]',
-        tablet: 'ml-[20px] mr-[20px]',
-        laptop: 'ml-[56px] mr-[56px]',
-        desktop: 'mx-auto',
-    }[breakpoint];
+    const { currentPage, selectedCollege } = usePageContext();
 
     const renderPage = () => {
         switch (currentPage) {
             case 'home': return <HomePage />;
             case 'blog': return <BlogPageMain />;
-            case 'blog': return <BlogPageMain />;
+            // case 'blog': return <BlogPageMain />;
             case 'compare': return <CompareCollegePage />;
+            case 'college' : return <CollegePage collegeName={selectedCollege} />;
             default: return <HomePage />;
         }
     };
@@ -36,9 +29,9 @@ const Layout = () => {
         <div className="w-full">
             <TopNav />
             <div className="relative">
-                {/*{renderPage()}*/}
+                {renderPage()}
 
-                <HomePage/>
+                {/*<HomePage/>*/}
             </div>
 
             <Footer />

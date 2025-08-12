@@ -20,8 +20,6 @@ import HiringPartnersSectionMobile
 
 const CollegePageMobile = ({college, collegeSecondry}) => {
 
-    console.log("college data :::::::::: " + college.university_info.name);
-
     return (
         <div className="w-full">
             <HeroPageMobile college={college} />
@@ -37,7 +35,7 @@ const CollegePageMobile = ({college, collegeSecondry}) => {
                         <CoursesMobile college={college}/>
                     </div>
                     <div id="specialization">
-                        <SpecializationMobile data={collegeSecondry}/>
+                        {/*<SpecializationMobile data={collegeSecondry}/>*/}
                     </div>
                     <div id="admission">
                         <AdmissionProcessMobile college={college}/>
@@ -58,7 +56,7 @@ const CollegePageMobile = ({college, collegeSecondry}) => {
                         <HiringPartnersSectionMobile college={college}/>
                     </div>
                     <div id="faq">
-                        <FaqsSectionMobile faqs={college.university_info.faqs}/>
+                        <FaqsSectionMobile faqs={college?.university_info?.faqs}/>
                     </div>
                     <div id="contact">
                         <ContactUsSectionMobile/>

@@ -50,7 +50,6 @@ export async function GET(req: NextRequest) {
 
         const [rows] = await connection.query<BlogRow[]>(blogQuery)
 
-        console.log('[QUERY]', rows[0].name); // Debug log
 
         await connection.end();
 

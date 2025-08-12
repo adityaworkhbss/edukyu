@@ -17,15 +17,6 @@ const BlogComponentDesktop = () => {
 
     const router = useRouter();
 
-
-
-    // const blogItems = Array(4).fill({
-    //     title: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsumlorem ipsum",
-    //     description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum",
-    //     date: "January 1, 2024",
-    //     readTime: "08 min read",
-    // });
-
     const fetchTopNavBlogs = async () => {
         try {
             const blogService = BlogService.getInstance();
@@ -46,8 +37,6 @@ const BlogComponentDesktop = () => {
             });
 
             setSearchMetaMap(newMap);
-
-            // Optional: You can log or use the map as needed
             console.log("Meta Map:", searchMetaMap);
         } catch (err) {
             console.error("Error fetching blogs:", err);
@@ -57,8 +46,6 @@ const BlogComponentDesktop = () => {
     useEffect(() => {
         fetchTopNavBlogs();
     }, []);
-
-    console.log("blogs mestDesk :::::::: " + blogs.length);
 
 
     const handleSearch = (e) => {
@@ -96,8 +83,6 @@ const BlogComponentDesktop = () => {
 
 
     const handleSuggestionClick = (id) => {
-        // setSearchQuery(title);
-        console.log("id :::::::::::: " +  id);
         setFilteredSuggestions([]);
         router.push(`/blog/page/${id}`, undefined, { shallow: true });
 

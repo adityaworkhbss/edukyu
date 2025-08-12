@@ -3,15 +3,27 @@ import Image from "next/image";
 import graduateImage from "@/../public/Resources/Images/graduate.png"; // Update path if needed
 
 const HelpSectionMobile = () => {
+    const challenges = [
+        "Is this college/degree UGC or AICTE recognized?",
+        "Will this course be valued by employers?",
+        "What’s the eligibility for admission?",
+        "What’s the total fee & payment options?",
+        "What subjects & specializations are offered?",
+        "How are classes, exams, and results conducted?",
+        "Does the college offer placements or internships?",
+        "How much study time is needed each week?",
+        "Can I transfer credits from previous studies?",
+    ];
+
     return (
         <div className="flex flex-col w-full px-4 pb-8 bg-white">
             {/* Heading */}
-            <h2 className=" text-[28px] font-[600] leading-normal text-[#024B53] font-[Outfit] mb-2">
+            <h2 className="text-[28px] font-[600] leading-normal text-[#024B53] font-[Outfit] mb-2">
                 We are here to help you!
             </h2>
 
             {/* Paragraph */}
-            <p className=" text-[14px] text-[#515150] font-[400] font-[Outfit] mb-3 leading-normal">
+            <p className="text-[14px] text-[#515150] font-[400] font-[Outfit] mb-3 leading-normal">
                 Let us know what all challenges you are facing, our dedicated team will get back to you with the resolution. Because we are always here to help you.{" "}
                 <span className="text-[#A38906]">#kyukibadhanjarurihai</span>
             </p>
@@ -20,11 +32,7 @@ const HelpSectionMobile = () => {
             <Image
                 src={graduateImage}
                 alt="Graduate"
-                className=" pt-[36px] w-full h-auto rounded-[22px]"
-                // style={{
-                //     background:
-                //         'url("<path-to-image>") lightgray -21px -7.851px / 111.667% 120.148% no-repeat',
-                // }}
+                className="pt-[36px] w-full h-auto rounded-[22px]"
             />
 
             {/* Challenge Box */}
@@ -35,8 +43,8 @@ const HelpSectionMobile = () => {
                 </p>
 
                 {/* Checkbox List */}
-                <div className="flex flex-col gap-5 ">
-                    {Array.from({ length: 6 }).map((_, idx) => (
+                <div className="flex flex-col gap-5">
+                    {challenges.map((question, idx) => (
                         <label
                             key={idx}
                             className="flex items-start gap-3 text-[16px] font-[400] text-[#357E86] font-[Outfit] cursor-pointer"
@@ -45,9 +53,7 @@ const HelpSectionMobile = () => {
                                 type="checkbox"
                                 className="mt-1 w-4 h-4 rounded-[4px] border border-[#357E86] accent-[#024B53]"
                             />
-                            <span>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            </span>
+                            <span>{question}</span>
                         </label>
                     ))}
                 </div>

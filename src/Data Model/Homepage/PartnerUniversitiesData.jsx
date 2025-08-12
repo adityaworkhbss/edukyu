@@ -2,6 +2,7 @@ export const PartnerUniversitiesData = {
     universities: [
         {
             name: "Noida International University",
+            code: "NIU",
             image: "/new-ed/assets/cxp-assets/imgs/collage/niu-slider.jpg",
             coursesOffered: ["Online MBA", "BBA", "MCA", "BCA"],
             accreditation: ["UGC", "AICTE", "NCTE approved"],
@@ -10,6 +11,7 @@ export const PartnerUniversitiesData = {
         },
         {
             name: "D.Y. Patil Vidyapeeth",
+            code: "DPU",
             image: "new-ed/assets/cxp-assets/imgs/collage/dpu.jpg",
             coursesOffered: ["Online Masters", "Online Bachelors"],
             accreditation: ["UGC-entitled degree programme"],
@@ -18,6 +20,7 @@ export const PartnerUniversitiesData = {
         },
         {
             name: "Amity University",
+            code: "Amity_University",
             image: "new-ed/assets/cxp-assets/imgs/collage/amity.jpg",
             coursesOffered: ["Online Masters", "Online Bachelors"],
             accreditation: ["UGC-entitled degree programme"],
@@ -26,6 +29,7 @@ export const PartnerUniversitiesData = {
         },
         {
             name: "Manipal University Jaipur",
+            code: "Manipal_University",
             image: "new-ed/assets/cxp-assets/imgs/collage/manipal.jpg",
             coursesOffered: ["Online Masters", "Online Bachelors"],
             accreditation: ["UGC-entitled degree programme"],
@@ -34,6 +38,7 @@ export const PartnerUniversitiesData = {
         },
         {
             name: "Lovely Professional University",
+            code: "Lovely_Professional_University",
             image: "new-ed/assets/cxp-assets/imgs/collage/lpu.jpg",
             coursesOffered: ["Online Masters", "Online Bachelors"],
             accreditation: ["UGC-entitled degree programme"],
@@ -42,6 +47,7 @@ export const PartnerUniversitiesData = {
         },
         {
             name: "Uttaranchal University",
+            code: "UU",
             image: "new-ed/assets/cxp-assets/imgs/collage/uttaranchal.jpg",
             coursesOffered: ["Online Masters", "Online Bachelors"],
             accreditation: ["UGC-entitled degree programme"],
@@ -50,6 +56,7 @@ export const PartnerUniversitiesData = {
         },
         {
             name: "Jain University",
+            code: "Jain_University",
             image: "new-ed/assets/cxp-assets/imgs/collage/jain.jpg",
             coursesOffered: ["Online Masters", "Online Bachelors"],
             accreditation: ["UGC-entitled degree programme"],
@@ -58,6 +65,7 @@ export const PartnerUniversitiesData = {
         },
         {
             name: "Shoolini University",
+            code: "Shoolini_University",
             image: "new-ed/assets/cxp-assets/imgs/collage/shoolini.jpg",
             coursesOffered: ["Online Masters", "Online Bachelors"],
             accreditation: ["UGC-entitled degree programme"],
@@ -66,6 +74,7 @@ export const PartnerUniversitiesData = {
         },
         {
             name: "Vivekanand Global University",
+            code: "VGU",
             image: "new-ed/assets/cxp-assets/imgs/collage/vivekanand.jpg",
             coursesOffered: ["Online Masters", "Online Bachelors"],
             accreditation: ["UGC-entitled degree programme"],
@@ -74,6 +83,7 @@ export const PartnerUniversitiesData = {
         },
         {
             name: "NMIMS University Online",
+            code: "NMIMS",
             image: "/assets/cxp-assets/imgs/collage/nmims-university/card-banner.jpg",
             coursesOffered: ["Online Masters", "Online Bachelors"],
             accreditation: ["UGC-entitled degree programme"],
@@ -82,6 +92,7 @@ export const PartnerUniversitiesData = {
         },
         {
             name: "Sikkim Manipal University",
+            code: "Sikkim_Manipal_University",
             image: "assets/cxp-assets/imgs/collage/sikkim-university/sikkim-card.jpg",
             coursesOffered: ["Online Masters", "Online Bachelors"],
             accreditation: ["UGC-entitled degree programme"],

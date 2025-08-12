@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { universitiesData } from '@/Data Model/UniversityData';
 import GridContainer from '@/GlobalComponent/GridContainer';
 import GridComponent from '@/GlobalComponent/GridComponent';
+import {usePageContext} from "@/GlobalComponent/PageContext";
 
 const CourseItems = ({ course }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -38,6 +39,23 @@ const CourseItems = ({ course }) => {
 
 const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSelectedProgram }) => {
     const universityData = universitiesData[university] || {};
+    const { setCurrentPage, setSelectedCollege } = usePageContext();
+
+
+    const universityKeyMap = {
+        'Amity': 'Amity_University',
+        'DPU':'DYP',
+        // 'DPU':'NUI',
+        // 'DPU':'VGU',
+        'Jain':'Jain_University',
+        'LPU' :'Lovely_Professional_University',
+        'Manipal':'Manipal_University',
+        'NMIMS':'NMIMS',
+        'Shardha':'Sikkim_Manipal_University',
+        'Shoolini':'Shoolini_University',
+        'UU':'UU',
+        'VGU':'VGU',
+    };
 
     const gridPositions = [
         { gridStart: 3, gridEnd: 5, lastUsedGridEnd: 2 },
@@ -92,8 +110,12 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
                                 Courses {university} Provides
                             </div>
                             <a
-                                href="#"
                                 className="text-[14px] text-left h-[18px] text-[#024B53] flex font-medium font-outfit not-italic leading-normal gap-[8px]"
+                                onClick={() => {
+                                    const mappedKey = universityKeyMap[university];
+                                    setSelectedCollege(mappedKey);
+                                    setCurrentPage('college');
+                                }}
                             >
                                 Explore College
                                 <svg

@@ -5,6 +5,7 @@ import React from 'react';
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { gridConfigs } from "@/libs/GridConfigs";
 import GridComponent from "@/GlobalComponent/GridComponent";
+import contact_us_nav_image from "@/../public/Resources/Images/contact_us_nav_img.jpg"
 
 const ContactUsComponentDesktop = () => {
     const breakpoint = useBreakpoint();
@@ -207,7 +208,8 @@ const ContactUsComponentDesktop = () => {
                     >
                         <div className="  h-auto rounded-[12px] bg-[rgba(179,207,210,0.3)]">
 
-                            <div className="h-[219px] bg-gray-200" />
+                            {/*<img className="h-[219px] bg-gray-200" />*/}
+                            <img className="h-[219px] w-full object-cover" src={contact_us_nav_image.src}  />
 
                             {/* Message box overlay */}
                             <div className="text-left px-4 flex justify-between">
@@ -222,12 +224,19 @@ const ContactUsComponentDesktop = () => {
                                 </div>
 
                                 <div>
-                                    <button className="flex w-[115px] mt-[23px] px-4 py-3 justify-center items-center gap-[10px]
-                                           text-[#024B53] font-outfit text-[14px] font-medium leading-normal not-italic
-                                           rounded-[12px] border border-[#024B53] transition-colors hover:bg-[#e6f0ef]">
-                                        Lets Talk!
-                                    </button>
+                                    <a
+                                        href="https://wa.me/918336889553" // WhatsApp direct link (replace number)
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Chat with us on WhatsApp"
+                                        className="flex w-[115px] mt-[23px] px-4 py-3 justify-center items-center gap-[10px]
+               text-[#024B53] font-outfit text-[14px] font-medium leading-normal not-italic
+               rounded-[12px] border border-[#024B53] transition-colors hover:bg-[#e6f0ef]"
+                                    >
+                                        Let’s Talk!
+                                    </a>
                                 </div>
+
                             </div>
 
                         </div>

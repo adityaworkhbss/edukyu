@@ -2,22 +2,12 @@ import React, { useRef, useState } from 'react';
 import { ImageIcon } from "lucide-react";
 export const SpecializationMobile = ({ data }) => {
 
-    Object.values(data.Specialisation).map((item, index) => {
-        console.log(item.value); // this will run fine
-        return (
-            <div key={index}>
-                {item?.name}
-            </div>
-        );
-    })
 
-    Object.entries(data.Specialisation).forEach(([name, value], index) => {
-        console.log(name, value);
+    // console.log(":::::::::::; data ::::::::::::::;;;;;; " + data);
+
+    Object.entries(data).forEach(([name, value], index) => {
+        console.log(name);
     });
-
-
-
-    // console.log("specialisationStr", specialisationStr);
 
 
     const tabMapping = Object.entries(data?.Specialisation || {})
@@ -26,7 +16,6 @@ export const SpecializationMobile = ({ data }) => {
             return acc;
         }, {});
 
-    console.log(tabMapping);
 
 
     const tabs = Object.keys(tabMapping).map(name => ({
@@ -42,7 +31,6 @@ export const SpecializationMobile = ({ data }) => {
 
         const activeData = data?.Specialisation?.[activeTab] || {};
 
-        console.log(data?.Specialisation[activeTab] );
 
         return Object.entries(activeData).map(([name, details = {}], index) => ({
             id: index + 1,

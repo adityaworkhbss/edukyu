@@ -19,7 +19,6 @@ export class BlogService {
     }
 
     async fetchFullBlogPage(blogId: number) {
-        console.log(`Fetching blog page ${blogId}`);
         const response = await fetch(`${API_BASE_URL}/api/blogpage?blogId=${blogId}`);
         if (!response.ok) {
             throw new Error("Failed to fetch blog detail");

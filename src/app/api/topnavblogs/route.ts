@@ -44,7 +44,6 @@ export async function GET(req: NextRequest) {
             metaKey: row.metaKey,
         }));
 
-        console.log("rowsss ::: " + blogs);
 
         return NextResponse.json({ blogs });
     } catch (error) {

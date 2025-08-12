@@ -3,16 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Calendar, ImageIcon, User } from "lucide-react";
 import {useRouter} from "next/navigation";
 
-// const blogs = [
-//     { id: 1, title: "Designers are meant to be loved, not understood.", author: "John Doe", date: "July 29, 2022" },
-//     { id: 2, title: "Innovation drives creativity in 2025.", author: "Jane Smith", date: "June 18, 2023" },
-//     { id: 3, title: "The art of visual storytelling.", author: "Mark Lee", date: "Jan 8, 2024" },
-//     { id: 4, title: "How to design for impact.", author: "Elisa Wang", date: "Feb 5, 2024" },
-//     { id: 5, title: "Top UI/UX Trends of the Year.", author: "John Doe", date: "March 12, 2024" },
-//     { id: 6, title: "Figma vs Adobe XD: A comparison.", author: "Jane Smith", date: "April 10, 2024" },
-//     { id: 7, title: "Accessible design principles.", author: "Mark Lee", date: "May 3, 2024" },
-// ];
-
 export default function BlogCarousel(
     {blogs},
 ) {

@@ -3,6 +3,9 @@ import collegepage_hero_img from '@/../public/Resources/Images/collegepage_hero_
 import collegepage_hero from '@/../public/Resources/Images/collegepage_hero.png';
 
 const HeroPageMobile = ({college}) => {
+
+    console.log("college :::::::::::::::::::::    " + {college});
+
     return (
         <div
             className="relative w-full rounded-[12px] overflow-hidden p-5 mt-[32px] h-[505px] flex flex-col justify-between"
