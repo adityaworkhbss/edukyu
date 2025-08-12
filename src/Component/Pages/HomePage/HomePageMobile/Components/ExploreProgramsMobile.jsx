@@ -59,7 +59,7 @@ export const ExploreProgramsMobile = () => {
                 </div>
 
                 {/* Tabs */}
-                <div className="flex w-full text-sm text-[#383837] font-normal mt-8 border-b border-[#E0E0E0]">
+                <div className="flex w-full text-sm text-[#383837] font-normal border-b border-[#E0E0E0]">
                     {tabs.map((tab) => (
                         <button
                             key={tab.id}

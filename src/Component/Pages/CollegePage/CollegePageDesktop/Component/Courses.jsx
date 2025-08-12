@@ -91,7 +91,7 @@ const Courses = ({ college }) => {
                                             <img
                                                 src={program.image}
                                                 alt={program.title}
-                                                className="rounded-t-lg h-full w-full object-cover"
+                                                className="rounded-t-[24px] h-full w-full object-cover"
                                             />
                                         ) : (
                                             <ImageIcon

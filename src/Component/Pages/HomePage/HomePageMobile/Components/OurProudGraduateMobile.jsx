@@ -1,11 +1,11 @@
-import { useRef } from "react";
+import {useRef, useState} from "react";
 import CareerSuccessCardMobile from "@/Component/Pages/HomePage/HomePageMobile/Components/ui/CareerSuccessCardMobile";
+import {TestimonialData} from "@/Data Model/Homepage/TestimonialData";
 
 const OurProudGraduates = () => {
-    const graduates = Array.from({ length: 9 }, (_, i) => ({
-        id: i + 1,
-        image: "placeholder",
-    }));
+    const testimonials = TestimonialData.testimonials;
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const total = testimonials.length;
 
     const containerRef = useRef(null);
 
@@ -20,6 +20,9 @@ const OurProudGraduates = () => {
             containerRef.current.scrollBy({ left: 320 + 17, behavior: "smooth" });
         }
     };
+
+    // Duplicate list for seamless looping
+    const infiniteTestimonials = [...testimonials, ...testimonials];
 
     return (
         <section className="py-[64px] bg-background">
@@ -37,9 +40,9 @@ const OurProudGraduates = () => {
                 ref={containerRef}
                 className="flex gap-[17px] overflow-x-auto scroll-smooth no-scrollbar"
             >
-                {graduates.map((grad) => (
-                    <div key={grad.id} className="flex-shrink-0 w-[320px]">
-                        <CareerSuccessCardMobile />
+                {infiniteTestimonials.map((testimonial, index) => (
+                    <div key={`${testimonial.name}-${index}`} className="flex-shrink-0 w-[320px]">
+                        <CareerSuccessCardMobile  data={testimonial} />
                     </div>
                 ))}
             </div>

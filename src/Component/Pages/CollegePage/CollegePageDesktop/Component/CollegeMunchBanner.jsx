@@ -29,6 +29,8 @@ const CollegeMunchBanner = () => {
 
 
                 <button
+                    onClick={() => window.open("https://collegemanch.com/", "_blank")}
+
                     className=" w-1/2 items-center justify-center py-[12px]
                        text-white text-[14px] font-medium font-[Outfit]
                        rounded-[12px] bg-[#024B53] hover:bg-[#00313f] transition mt-4"

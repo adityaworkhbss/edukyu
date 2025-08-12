@@ -3,7 +3,6 @@ import Image from "next/image";
 import collegeImg1 from "@/../public/Resources/Images/mainpage_cc_img1.jpg";
 import collegeImg2 from "@/../public/Resources/Images/mainpage_cc_img2.jpg";
 import logoImg from "@/../public/Resources/Images/collegeMunchLogo.png";
-import GridComponent from "@/GlobalComponent/GridComponent"; // Replace with real path
 
 const CollegeMunchBanner = () => {
     return (
@@ -19,6 +18,8 @@ const CollegeMunchBanner = () => {
                     </div>
 
                     <button
+                        onClick={() => window.open("https://collegemanch.com/", "_blank")}
+
                         className=" w-1/2 items-center justify-center py-[12px]
                        text-white text-[14px] font-medium font-[Outfit]
                        rounded-[12px] bg-[#024B53] hover:bg-[#00313f] transition mt-4"
