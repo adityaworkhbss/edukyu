@@ -154,19 +154,19 @@ const MobileComparisonTable = ({ colleges, filters }) => {
             label: "Accreditation",
             key: "Accreditation",
             filterKey: "accreditation",
-            render: (college) => renderAccreditation(college.Accrediation)
+            render: (college) => renderAccreditation(college.Accrediation ?? college.Accreditation)
         },
         {
             label: "Duration",
             key: "Duration",
             filterKey: "duration",
-            render: (college) => college.Duration.replace(/,/g, ', ')
+            render: (college) => (college.Duration ? college.Duration.replace(/,/g, ', ') : '-')
         },
         {
             label: "Learning Methodology",
             key: "Learning Methodology",
             filterKey: "learningMethodology",
-            render: (college) => college["Learning Methodology"]
+            render: (college) => (college["Learning Methodology"] ?? college["Learning Methodolgy"] ?? "-")
         },
         {
             label: "Fees",
@@ -178,13 +178,13 @@ const MobileComparisonTable = ({ colleges, filters }) => {
             label: "Programs",
             key: "Programs",
             filterKey: "programs",
-            render: (college) => college.Programs.replace(/,/g, ', ')
+            render: (college) => (college.Programs ? college.Programs.replace(/,/g, ', ') : '-')
         },
         {
             label: "Specialisation",
             key: "Specialisation",
             filterKey: "specialisation",
-            render: (college) => college.Specialisation.replace(/,/g, ', ')
+            render: (college) => (college.Specialisation ? college.Specialisation.replace(/,/g, ', ') : '-')
         },
         {
             label: "Review",
@@ -196,13 +196,13 @@ const MobileComparisonTable = ({ colleges, filters }) => {
             label: "Our Recommendation",
             key: "Our Recommendation",
             filterKey: "ourRecommendation",
-            render: (college) => college["Our Recommendation"]
+            render: (college) => (college["Our Recommendation"] ?? college["Our recommendation"] ?? "-")
         },
         {
             label: "Eligibility",
             key: "Eligibility",
             filterKey: "eligibility",
-            render: (college) => college.Eligibility.replace(/,/g, ', ')
+            render: (college) => (college.Eligibility ? college.Eligibility.replace(/,/g, ', ') : '-')
         },
         {
             label: "Website",
