@@ -3,6 +3,7 @@
 
 import React, { useState } from 'react';
 import { MessageSquare } from 'lucide-react';
+import contact_us_nav_image from "../../../../public/Resources/Images/contact_us_nav_img.jpg";
 
 const ContactUsComponentMobile = () => {
     const [message, setMessage] = useState('');
@@ -14,6 +15,13 @@ const ContactUsComponentMobile = () => {
             alert(`Message sent: ${message}`);
             setMessage('');
         }
+    };
+
+    const handleWhatsAppClick = () => {
+        const phone = "918336889553"; // with country code, no + or spaces
+        const message = "Hi, I want to know more.";
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        window.open(url, "_blank");
     };
 
     return (
@@ -41,7 +49,8 @@ const ContactUsComponentMobile = () => {
                 </div>
             </div>
 
-            <div className="h-[219px] pb-5 bg-gray-200" />
+            {/*<div className="h-[219px] pb-5 bg-gray-200" />*/}
+            <img className="h-[219px] w-full object-cover" src={contact_us_nav_image.src}   alt="contact us"/>
 
             <div className="rounded-b-[12px] px-5 bg-[rgba(179,207,210,0.3)]">
                 <h3 className="text-[18px] font-medium text-[#383837] font-outfit pt-5">
@@ -51,12 +60,11 @@ const ContactUsComponentMobile = () => {
                     We&apos;re here, ready to hear what you have to say
                 </p>
                 <button
-                    onClick={handleSubmit}
+                    onClick={handleWhatsAppClick}
                     className="w-full px-4 py-3 border border-[#024B53] text-[#024B53] font-outfit text-[14px] font-medium rounded-[12px] mb-6"
                 >
                     <MessageSquare className="w-4 h-4 mr-2 inline" /> Let&apos;s Talk!
                 </button>
-
             </div>
         </div>
     );

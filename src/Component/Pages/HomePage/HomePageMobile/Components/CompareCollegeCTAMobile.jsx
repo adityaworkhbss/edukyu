@@ -2,8 +2,12 @@ import Image from "next/image";
 import mainpage_cc_img1 from "@/../public/Resources/Images/mainpage_cc_img1.jpg";
 import mainpage_cc_img2 from "@/../public/Resources/Images/mainpage_cc_img2.jpg";
 import mainpage_cc_img3 from "@/../public/Resources/Images/mainpage_cc_img3.png";
+import {usePageContext} from "@/GlobalComponent/PageContext";
 
 const CompareCollegesCTAMobile = () => {
+
+    const { setCurrentPage } = usePageContext();
+
     return (
         <div className="relative w-full rounded-[32px] h-[400px] p-5 overflow-hidden">
             {/* Background */}
@@ -17,14 +21,16 @@ const CompareCollegesCTAMobile = () => {
                 <div className="text-[#2B2B2A] font-[Outfit] text-[14px] font-normal leading-[22px] mb-4">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
-                <button className="w-full mt-2 inline-flex items-center justify-center px-6 py-3 rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-[Outfit]">
+                <button
+                    onClick={() => setCurrentPage('compare')}
+                    className="w-full mt-2 inline-flex items-center justify-center px-6 py-3 rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-[Outfit]">
                     Compare Colleges
                 </button>
             </div>
 
             {/* College Images */}
             {/* Left Image (Image 3) */}
-            <div className="absolute left-2 top-[250px] w-[100px] h-[110px] rounded-[16px] overflow-hidden z-10 shadow-md">
+            <div className="absolute left-2 top-[270px] w-[100px] h-[110px] rounded-[16px] overflow-hidden z-10 shadow-md">
                 <Image
                     src={mainpage_cc_img3}
                     alt="College Left"
@@ -35,7 +41,7 @@ const CompareCollegesCTAMobile = () => {
             </div>
 
             {/* Right Image (Image 1) */}
-            <div className="absolute right-2 top-[250px] w-[100px] h-[110px] rounded-[16px] overflow-hidden z-10 shadow-md">
+            <div className="absolute right-2 top-[270px] w-[100px] h-[110px] rounded-[16px] overflow-hidden z-10 shadow-md">
                 <Image
                     src={mainpage_cc_img1}
                     alt="College Right"
@@ -46,7 +52,7 @@ const CompareCollegesCTAMobile = () => {
             </div>
 
             {/* Center Image (Image 2) - Higher */}
-            <div className="absolute left-1/2 top-[220px] transform -translate-x-1/2 w-[108px] h-[121px] rounded-[16px] overflow-hidden z-10 shadow-md">
+            <div className="absolute left-1/2 top-[240px] transform -translate-x-1/2 w-[108px] h-[121px] rounded-[16px] overflow-hidden z-10 shadow-md">
                 <Image
                     src={mainpage_cc_img2}
                     alt="College Center"

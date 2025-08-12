@@ -1,48 +1,39 @@
-// File: app/components/Layout.js
-"use client";
+'use client';
 import React from 'react';
 import TopNav from '@/Component/Navbar/TopNav';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { gridConfigs } from '@/libs/GridConfigs';
-import BlogPage from "@/Component/Pages/BlogsPage/BlogPage/BlogPage";
 import Footer from '@/Component/Footer/Footer';
 import HomePage from "@/Component/Pages/HomePage/HomePage";
-import {BlogsMain} from "@/Component/Pages/BlogsPage/BlogsMain/BlogsMain";
 import BlogPageMain from "@/Component/Pages/BlogsPage/BlogPageMain";
+import CompareCollegePage from '@/Component/Pages/CompareCollegePage/CompareCollege';
+import { usePageContext } from '@/GlobalComponent/PageContext';
+import CollegePage from "@/Component/Pages/CollegePage/CollegePage";
 
 const Layout = () => {
     const breakpoint = useBreakpoint();
-    const config = gridConfigs[breakpoint];
+    const { currentPage, selectedCollege } = usePageContext();
 
-    const marginClass = {
-        mobile: 'ml-[20px] mr-[20px]',
-        tablet: 'ml-[20px] mr-[20px]',
-        laptop: 'ml-[56px] mr-[56px]',
-        desktop: 'mx-auto',
-    }[breakpoint];
+    const renderPage = () => {
+        switch (currentPage) {
+            case 'home': return <HomePage />;
+            case 'blog': return <BlogPageMain />;
+            // case 'blog': return <BlogPageMain />;
+            case 'compare': return <CompareCollegePage />;
+            case 'college' : return <CollegePage collegeName={selectedCollege} />;
+            default: return <HomePage />;
+        }
+    };
 
     return (
         <div className="w-full">
             <TopNav />
-
-
-
-            {/* Grid with z-axis overlap */}
             <div className="relative">
-                {/*<div*/}
-                {/*    className={`${marginClass} absolute inset-0 z-[10000000] pointer-events-none opacity-90`}*/}
-                {/*>*/}
-                {/*    <Parent*/}
-                {/*        numGrids={config.numGrids}*/}
-                {/*        gutter={config.gutter}*/}
-                {/*        gridWidth={config.gridWidth}*/}
-                {/*        gridHeight={config.gridHeight}*/}
-                {/*        color="rgba(220, 100, 255, 0.2)"*/}
-                {/*    />*/}
-                {/*</div>*/}
-                <HomePage/>
+                {renderPage()}
 
+                {/*<HomePage/>*/}
             </div>
+
             <Footer />
         </div>
     );

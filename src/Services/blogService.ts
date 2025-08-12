@@ -19,7 +19,6 @@ export class BlogService {
     }
 
     async fetchFullBlogPage(blogId: number) {
-        console.log(`Fetching blog page ${blogId}`);
         const response = await fetch(`${API_BASE_URL}/api/blogpage?blogId=${blogId}`);
         if (!response.ok) {
             throw new Error("Failed to fetch blog detail");
@@ -51,4 +50,32 @@ export class BlogService {
         }
         return await response.json();
     }
+
+
+    async fetchTopNavBlogs() {
+        const url = `${API_BASE_URL}/api/topnavblogs`;
+
+        const response = await fetch(url);
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error("Server response:", errorText);
+            throw new Error("Failed to fetch blogs for topnav");
+        }
+
+        return await response.json();
+    }
+
+    async fetchBlogsSearchKeys(){
+        const url = `${API_BASE_URL}/api/blogssearchkeys`;
+
+        const response = await fetch(url);
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error("Server response:", errorText);
+            throw new Error("Failed to fetch blogs for topnav");
+        }
+
+        return await response.json();
+    }
+
 }

@@ -11,6 +11,7 @@ interface BlogRow extends RowDataPacket {
     metaTitle: string;
     metaDesc: string;
     imageUrl: string;
+    timeStamp: string;
 }
 
 interface CountRow extends RowDataPacket {
@@ -39,7 +40,7 @@ export async function GET(req: NextRequest) {
 
         // Build query string manually
         const blogQuery = `
-            SELECT blogId, name, sortDescs, category, shortUrl, metaTitle, metaDesc, imageUrl
+            SELECT * 
             FROM blog
             ORDER BY timeStamp DESC
             LIMIT ${limit} OFFSET ${offset};
@@ -59,7 +60,10 @@ export async function GET(req: NextRequest) {
             category: row.category,
             image: row.imageUrl,
             readMoreUrl: `/blog/${row.shortUrl || row.blogId}`,
+            timeStamp: row.timeStamp,
         }));
+
+        console.log(blogs);
 
         return NextResponse.json({ blogs, page, limit, total });
     } catch (error) {

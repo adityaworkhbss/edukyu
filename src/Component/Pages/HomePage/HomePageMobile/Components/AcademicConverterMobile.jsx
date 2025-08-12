@@ -89,7 +89,7 @@ const AcademicConverterMobile = () => {
     };
 
     return (
-        <div className="px-4 py-8 flex flex-col">
+        <div className=" py-12 mt-8 flex flex-col">
             {/* Heading */}
             <div className="text-[28px] font-semibold text-[#024B53] font-[Outfit] leading-none mb-3">
                 Academic Converter Tools

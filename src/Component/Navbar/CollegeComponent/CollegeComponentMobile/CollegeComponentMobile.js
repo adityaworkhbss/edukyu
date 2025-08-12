@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { universitiesData } from "@/Data Model/UniversityData";
 import CoursesListCorrespondToCollege from "./CoursesListCorrespondToCollege";
+import {usePageContext} from "@/GlobalComponent/PageContext";
 
 const universityKeyMap = {
     'Amity University': 'Amity',
@@ -17,9 +18,22 @@ const universityKeyMap = {
     'Vivekanand Global University': 'VGU',
 };
 
+const universityKeyMap_Page = {
+    'Amity University': 'Amity_University',
+    'Dr. DY Patil University': 'DYP',
+    'Jain University': 'Jain_University',
+    'Lovely Professional University': 'Lovely_Professional_University',
+    'Manipal University': 'Manipal_University',
+    'NMIMS University': 'NMIMS',
+    'Shardha University': 'Sikkim_Manipal_University',
+    'Shoolini University': 'Shoolini_University',
+    'Uttaranchal University': 'UU',
+    'Vivekanand Global University': 'VGU',
+};
+
 const CoursesComponentMobile = ({ onClose, college }) => {
     const [openProgram, setOpenProgram] = useState(null);
-
+    const { setCurrentPage, setSelectedCollege } = usePageContext();
     const collegeKey = universityKeyMap[college];
     const courses = universitiesData[collegeKey] || {};
 
@@ -53,7 +67,15 @@ const CoursesComponentMobile = ({ onClose, college }) => {
             </div>
 
             {/* Explore College Button */}
-            <div className="flex gap-1 pt-4">
+            <div className="flex gap-1 pt-4"
+                 onClick={() => {
+                         const mappedKey = universityKeyMap_Page[college];
+                         console.log(mappedKey);
+                         setSelectedCollege(mappedKey);
+                         setCurrentPage('college');
+                        {onClose}
+                     }
+                 }>
                 <div className="text-[#024B53] font-outfit text-[14px] font-medium not-italic leading-normal">
                     Explore College
                 </div>

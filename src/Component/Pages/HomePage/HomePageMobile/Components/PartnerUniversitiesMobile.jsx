@@ -1,14 +1,17 @@
 import React, { useRef } from 'react';
+import {PartnerUniversitiesData} from "@/Data Model/Homepage/PartnerUniversitiesData";
 
 const UniversityCard = ({ name, logoSrc, certificationIcons }) => {
     return (
         <article
-            className="w-[290px]  md:w-full pb-4 px-[24px] rounded-lg border border-[#CDCDCD] bg-white"
+            className="w-[290px]  md:w-full pb-4 px-[24px] rounded-[30px] border border-[#CDCDCD] bg-white"
             aria-label={`University card for ${name}`}
         >
             <div className="bg-white flex max-w-full flex-col overflow-hidden items-stretch justify-center py-[9px] rounded-lg">
                 <img
-                    src={logoSrc}
+                    // src={logoSrc}
+                    src={`https://edukyu.com/public/${logoSrc}`}
+
                     alt={`${name} logo`}
                     className="aspect-[2.42] object-contain w-full"
                 />
@@ -79,34 +82,24 @@ export const PartnerUniversitiesMobile = () => {
         }
     };
 
-    const certificationIcons = [
-        "https://api.builder.io/api/v1/image/assets/TEMP/ed35af773b72aabdc8d32ac0fa11bf667f8df011?placeholderIfAbsent=true",
-        "https://api.builder.io/api/v1/image/assets/TEMP/8819d1debcdd8a0ae99518de71beffebf5bf37dd?placeholderIfAbsent=true",
-        "https://api.builder.io/api/v1/image/assets/TEMP/0c3659de9792dd06ae7668c12052ce22c4b7376a?placeholderIfAbsent=true",
-    ];
 
-    const universities = [
-        {
-            name: "NMIMS University Online",
-            logoSrc: "https://api.builder.io/api/v1/image/assets/TEMP/72a709f08e75d04224982c33995f174fbb184de0?placeholderIfAbsent=true",
-            certificationIcons,
-        },
-        {
-            name: "Another University",
-            logoSrc: "https://api.builder.io/api/v1/image/assets/TEMP/72a709f08e75d04224982c33995f174fbb184de0?placeholderIfAbsent=true",
-            certificationIcons,
-        },
-        {
-            name: "Another University",
-            logoSrc: "https://api.builder.io/api/v1/image/assets/TEMP/72a709f08e75d04224982c33995f174fbb184de0?placeholderIfAbsent=true",
-            certificationIcons,
-        },
-        {
-            name: "Another University",
-            logoSrc: "https://api.builder.io/api/v1/image/assets/TEMP/72a709f08e75d04224982c33995f174fbb184de0?placeholderIfAbsent=true",
-            certificationIcons,
-        },
-    ];
+    const universities = PartnerUniversitiesData.universities.map((univ, index) => {
+        // console.log(univ);
+        return {
+            id: String(index + 1),
+            name: univ.name,
+            logoUrl: univ.image,
+            courses: `${univ.coursesOffered.length}+ Courses`,
+            price: `Course ${univ.fee}`,
+            certificationIcons: [
+                'https://api.builder.io/api/v1/image/assets/fecc5b616d6b4d1daa2c8ed2d9ae0ab4/ed35af773b72aabdc8d32ac0fa11bf667f8df011?placeholderIfAbsent=true',
+                'https://api.builder.io/api/v1/image/assets/fecc5b616d6b4d1daa2c8ed2d9ae0ab4/8819d1debcdd8a0ae99518de71beffebf5bf37dd?placeholderIfAbsent=true',
+                'https://api.builder.io/api/v1/image/assets/fecc5b616d6b4d1daa2c8ed2d9ae0ab4/0c3659de9792dd06ae7668c12052ce22c4b7376a?placeholderIfAbsent=true'
+            ],
+            hasGrayBackground: index % 2 === 1
+        };
+    });
+
 
     return (
         <section className="w-full flex flex-col">

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import GridContainer from "@/GlobalComponent/GridContainer";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import { PartnerUniversitiesData } from '@/Data Model/Homepage/PartnerUniversitiesData';
+<<<<<<< HEAD
 
 export const PartnerUniversities = () => {
     const universities = PartnerUniversitiesData.universities.map((univ, index) => ({
@@ -17,12 +18,37 @@ export const PartnerUniversities = () => {
         ],
         hasGrayBackground: index % 2 === 1
     }));
+=======
+import {ImageIcon} from "lucide-react";
+import {usePageContext} from "@/GlobalComponent/PageContext";
+
+export const PartnerUniversities = () => {
+    const universities = PartnerUniversitiesData.universities.map((univ, index) => {
+        // console.log(univ.code);
+        return {
+            id: String(index + 1),
+            name: univ.name,
+            code: univ.code,
+            logoUrl: univ.image,
+            courses: `${univ.coursesOffered.length}+ Courses`,
+            price: `Course ${univ.fee}`,
+            certificationIcons: [
+                'https://api.builder.io/api/v1/image/assets/fecc5b616d6b4d1daa2c8ed2d9ae0ab4/ed35af773b72aabdc8d32ac0fa11bf667f8df011?placeholderIfAbsent=true',
+                'https://api.builder.io/api/v1/image/assets/fecc5b616d6b4d1daa2c8ed2d9ae0ab4/8819d1debcdd8a0ae99518de71beffebf5bf37dd?placeholderIfAbsent=true',
+                'https://api.builder.io/api/v1/image/assets/fecc5b616d6b4d1daa2c8ed2d9ae0ab4/0c3659de9792dd06ae7668c12052ce22c4b7376a?placeholderIfAbsent=true'
+            ],
+            hasGrayBackground: index % 2 === 1
+        };
+    });
+
+>>>>>>> 4e3476753d903645d4988d4826504e37bebd6bdd
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [cardWidth, setCardWidth] = useState(151);
     const containerRef = useRef(null);
     const cardsPerView = 4;
     const cardGap = 24;
+    const { setCurrentPage, setSelectedCollege } = usePageContext();
 
     useEffect(() => {
         const updateCardWidth = () => {
@@ -56,7 +82,11 @@ export const PartnerUniversities = () => {
     const totalTranslateX = -1 * currentIndex * (cardWidth + cardGap);
 
     return (
+<<<<<<< HEAD
         <section className="px-[56px] py-[64px] pb-[16px] relative" aria-labelledby="partner-universities-heading">
+=======
+        <section className="px-[56px] py-[64px] mt-[64px] relative" aria-labelledby="partner-universities-heading">
+>>>>>>> 4e3476753d903645d4988d4826504e37bebd6bdd
 
             <GridComponent gridStart={0} gridEnd={6}>
                 <h2
@@ -66,8 +96,13 @@ export const PartnerUniversities = () => {
                     Explore our Partner Universities
                 </h2>
             </GridComponent>
+<<<<<<< HEAD
             <GridComponent gridStart={0} gridEnd={5}>
                 <p className="text-[#515150] pb-[64px] font-[Outfit] text-[20px] pt-[16px] font-normal leading-none mb-8">
+=======
+            <GridComponent gridStart={0} gridEnd={6}>
+                <p className="text-[#515150] font-[Outfit] text-[20px]  font-normal leading-none mb-10">
+>>>>>>> 4e3476753d903645d4988d4826504e37bebd6bdd
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </p>
             </GridComponent>
@@ -82,14 +117,32 @@ export const PartnerUniversities = () => {
                         }}
                     >
                         {universities.concat(universities).map((univ, idx) => (
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4e3476753d903645d4988d4826504e37bebd6bdd
                             <div
                                 key={`${univ.id}-${idx}`}
                                 className="flex-shrink-0 bg-white p-4 pb-[16px] rounded-[22px] border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col"
                                 style={{ width: `${cardWidth}px` }}
                             >
                                 {/* Logo Area */}
+<<<<<<< HEAD
                                 <div className={`pt-[8.5px] pb-[8.5px] pl-[14.047px] pr-[14.048px] h-[96px] flex items-center justify-center ${univ.hasGrayBackground ? 'bg-gray-300' : 'bg-white'}`}>
                                     <img src={univ.logoUrl} alt={univ.name} className="object-cover" />
+=======
+                                <div className={` h-[96px] flex items-center justify-center ${univ.hasGrayBackground ? 'bg-gray-300' : 'bg-white'}`}>
+                                    {univ.logoUrl ? (
+                                        <img
+                                            // `https://edukyu.com/public/${univ.image}`
+                                            src={`https://edukyu.com/${univ.logoUrl}`}
+                                            alt={univ.title}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    ) : (
+                                        <ImageIcon size={48} className="text-secondary opacity-60" />
+                                    )}
+>>>>>>> 4e3476753d903645d4988d4826504e37bebd6bdd
                                 </div>
 
                                 {/* Name + Icons */}
@@ -98,7 +151,11 @@ export const PartnerUniversities = () => {
                                         {univ.name}
                                     </div>
 
+<<<<<<< HEAD
                                     <div className="inline-flex gap-[8px] align-center">
+=======
+                                    <div className="inline-flex gap-[8px] align-center items-center">
+>>>>>>> 4e3476753d903645d4988d4826504e37bebd6bdd
                                         <div>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <g clipPath="url(#clip0_228_629)">
@@ -136,7 +193,16 @@ export const PartnerUniversities = () => {
                                         </div>
 
                                         <div className="pt-[8px]">
+<<<<<<< HEAD
                                             <button className="flex w-[32px] h-[32px] p-2 justify-center items-center flex-shrink-0 bg-[#024B53] rounded">
+=======
+                                            <button className="flex w-[32px] h-[32px] p-2 justify-center items-center flex-shrink-0 bg-[#024B53] rounded"
+                                                    onClick={() => {
+                                                        setSelectedCollege(univ.code);
+                                                        setCurrentPage('college');
+                                                    }}
+                                            >
+>>>>>>> 4e3476753d903645d4988d4826504e37bebd6bdd
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     width="16"

@@ -5,8 +5,11 @@ import mainpage_cc_img2 from "@/../public/Resources/Images/mainpage_cc_img2.jpg"
 import mainpage_cc_img3 from "@/../public/Resources/Images/mainpage_cc_img3.png";
 import mainpage_cc_img4 from "@/../public/Resources/Images/mainpage_cc_img4.jpg";
 import banner_hero_image from "../../../../../../public/Resources/Images/banner_hero_image.png";
+import {usePageContext} from "@/GlobalComponent/PageContext";
 
 const CompareCollegesCTA = () => {
+    const { setCurrentPage } = usePageContext();
+
     return (
         <div className="w-full relative bg-[#FDBB06] rounded-[52px] px-[56px] flex flex-col md:flex-row justify-between items-center gap-8">
             {/* Text Section */}
@@ -25,7 +28,9 @@ const CompareCollegesCTA = () => {
                     </div>
                 </GridComponent>
 
-                <button className="inline-flex mt-[32px] mb-[40px] items-center justify-center gap-[10px] px-4 py-3 rounded-[12px] bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium leading-none">
+                <button className="inline-flex mt-[32px] mb-[40px] items-center justify-center gap-[10px] px-4 py-3 rounded-[12px] bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium leading-none"
+                        onClick={() => setCurrentPage('compare')}
+                >
                     Compare Colleges
                 </button>
 
