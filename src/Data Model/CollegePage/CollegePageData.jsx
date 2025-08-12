@@ -75,7 +75,8 @@ export const CollegePageData = [{
                         "discounted": "1,08,180"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type": "UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Certificate in Digital Marketing",
@@ -86,7 +87,8 @@ export const CollegePageData = [{
                         "discounted": "25,380"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type": "Diploma/Certificate"
+                    "type": "Diploma/Certificate",
+                    "specializations": []
                 }
             ],
             "benefits": [
@@ -107,13 +109,42 @@ export const CollegePageData = [{
                 ],
                 "certificate_image": "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/degree.jpg"
             },
+            "degree_sample": {
+                "image": "",
+                "description": "",
+                "highlights": []
+            },
             "admission_process": [
-                "Visit the official website of DY Patil Online and navigate to the 'Admissions' section",
-                "Enter your basic details for mobile number and email verification",
-                "Fill in personal, educational, and professional information",
-                "Upload necessary documents, including passport-size photo and signature",
-                "Make the payment online and submit the form",
-                "Once documents are verified, admission confirmation will be sent via email or SMS"
+                {
+                    "step": 1,
+                    "description": "Visit the official website of DY Patil Online and navigate to the 'Admissions' section",
+                    "image": ""
+                },
+                {
+                    "step": 2,
+                    "description": "Enter your basic details for mobile number and email verification",
+                    "image": ""
+                },
+                {
+                    "step": 3,
+                    "description": "Fill in personal, educational, and professional information",
+                    "image": ""
+                },
+                {
+                    "step": 4,
+                    "description": "Upload necessary documents, including passport-size photo and signature",
+                    "image": ""
+                },
+                {
+                    "step": 5,
+                    "description": "Make the payment online and submit the form",
+                    "image": ""
+                },
+                {
+                    "step": 6,
+                    "description": "Once documents are verified, admission confirmation will be sent via email or SMS",
+                    "image": ""
+                }
             ],
             "placement": {
                 "partners": [
@@ -210,7 +241,8 @@ export const CollegePageData = [{
                         "discounted": "88,500"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BCA",
@@ -221,7 +253,8 @@ export const CollegePageData = [{
                         "discounted": "81,000"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online B.Com",
@@ -232,7 +265,8 @@ export const CollegePageData = [{
                         "discounted": "56,250"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BBA",
@@ -243,7 +277,8 @@ export const CollegePageData = [{
                         "discounted": "81,000"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MA-IR",
@@ -254,7 +289,8 @@ export const CollegePageData = [{
                         "discounted": "51,000"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 }
             ],
             "benefits": [
@@ -276,13 +312,42 @@ export const CollegePageData = [{
                 ],
                 "certificate_image": "https://edukyu.com/assets/cxp-assets/imgs/collage/niuonline/niu-certificate.jpg"
             },
+            "degree_sample": {
+                "image": "",
+                "description": "",
+                "highlights": []
+            },
             "admission_process": [
-                "Visit the official NIU website and go to the Admissions section",
-                "Register with your email ID and mobile number",
-                "Fill out the application form with personal details",
-                "Upload required documents (mark sheets, ID proof, photograph, etc.)",
-                "Pay the application fee online",
-                "Receive admission confirmation via email/SMS"
+                {
+                    "step": 1,
+                    "description": "Visit the official NIU website and go to the Admissions section",
+                    "image": ""
+                },
+                {
+                    "step": 2,
+                    "description": "Register with your email ID and mobile number",
+                    "image": ""
+                },
+                {
+                    "step": 3,
+                    "description": "Fill out the application form with personal details",
+                    "image": ""
+                },
+                {
+                    "step": 4,
+                    "description": "Upload required documents (mark sheets, ID proof, photograph, etc.)",
+                    "image": ""
+                },
+                {
+                    "step": 5,
+                    "description": "Pay the application fee online",
+                    "image": ""
+                },
+                {
+                    "step": 6,
+                    "description": "Receive admission confirmation via email/SMS",
+                    "image": ""
+                }
             ],
             "placement": {
                 "partners": [
@@ -303,7 +368,11 @@ export const CollegePageData = [{
                     "Mock interviews with industry experts",
                     "Internship opportunities with top companies",
                     "Regular placement drives and job fairs"
-                ]
+                ],
+                "statistics": {
+                    "average_package": " ",
+                    "highest_package": " "
+                }
             },
             "faqs": [
                 {
@@ -385,7 +454,8 @@ export const CollegePageData = [{
                         "discounted": "1,30,000"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type": "PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MCA",
@@ -396,7 +466,8 @@ export const CollegePageData = [{
                         "discounted": "1,30,000"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type": "PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BBA",
@@ -407,7 +478,8 @@ export const CollegePageData = [{
                         "discounted": "1,14,400"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type": "UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BCA",
@@ -418,7 +490,8 @@ export const CollegePageData = [{
                         "discounted": "1,14,000"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type": "UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MA",
@@ -429,7 +502,8 @@ export const CollegePageData = [{
                         "discounted": "60,000"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type": "PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BA",
@@ -440,7 +514,8 @@ export const CollegePageData = [{
                         "discounted": "Not specified"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type": "UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MSc",
@@ -451,7 +526,8 @@ export const CollegePageData = [{
                         "discounted": "64,000"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type": "PG"
+                    "type": "PG",
+                    "specializations": []
                 }
             ],
             "benefits": [
@@ -473,14 +549,47 @@ export const CollegePageData = [{
                 ],
                 "certificate_image": "https://edukyu.com/assets/cxp-assets/imgs/collage/vgu/SampledegreefromVGUonline.jpg"
             },
+            "degree_sample": {
+                "image": "",
+                "description": "",
+                "highlights": []
+            },
             "admission_process": [
-                "Register Online: Visit the official website and complete registration",
-                "Receive Login Details: Get credentials for student portal",
-                "Attend Counseling: Discuss program and specialization options",
-                "Fill Out Application: Complete and submit the application form",
-                "Get Admission Notification: Check student portal for acceptance",
-                "Pay Fees: Make necessary fee payment",
-                "Start Your Program: Access Learning Management System (LMS)"
+                {
+                    "step": 1,
+                    "description": "Register Online: Visit the official website and complete registration",
+                    "image": ""
+                },
+                {
+                    "step": 2,
+                    "description": "Receive Login Details: Get credentials for student portal",
+                    "image": ""
+                },
+                {
+                    "step": 3,
+                    "description": "Attend Counseling: Discuss program and specialization options",
+                    "image": ""
+                },
+                {
+                    "step": 4,
+                    "description": "Fill Out Application: Complete and submit the application form",
+                    "image": ""
+                },
+                {
+                    "step": 5,
+                    "description": "Get Admission Notification: Check student portal for acceptance",
+                    "image": ""
+                },
+                {
+                    "step": 6,
+                    "description": "Pay Fees: Make necessary fee payment",
+                    "image": ""
+                },
+                {
+                    "step": 7,
+                    "description": "Start Your Program: Access Learning Management System (LMS)",
+                    "image": ""
+                }
             ],
             "placement": {
                 "partners": [
@@ -497,7 +606,11 @@ export const CollegePageData = [{
                     "Placement assistance with 500+ hiring partners",
                     "Resume building & interview preparation",
                     "Industry tie-ups for internships and live projects"
-                ]
+                ],
+                "statistics": {
+                    "average_package": " ",
+                    "highest_package": " "
+                }
             },
             "faqs": [
                 {
@@ -582,7 +695,8 @@ export const CollegePageData = [{
                         "International Business",
                         "Business Analytics"
                     ],
-                    "type":"PG"
+                    "type": "PG",
+                    "specialization": []
                 },
                 {
                     "name": "Online MCA",
@@ -590,7 +704,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 92,000",
                     "description": "The Right Step to Gain Skills",
-                    "type":"PG"
+                    "type": "PG",
+                    "specialization": []
                 },
                 {
                     "name": "Online BBA",
@@ -598,7 +713,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 96,000",
                     "description": "The Right Step to Gain Skills",
-                    "type":"UG"
+                    "type": "UG",
+                    "specialization": []
                 },
                 {
                     "name": "Online BCA",
@@ -606,7 +722,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 96,000",
                     "description": "The Right Step to Gain Skills",
-                    "type":"UG"
+                    "type": "UG",
+                    "specialization": []
                 },
                 {
                     "name": "Online BA",
@@ -614,16 +731,52 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 55,200",
                     "description": "The Right Step to Gain Skills",
-                    "type":"UG"
+                    "type": "UG",
+                    "specialization": []
                 }
             ],
+            "degree": {
+                "description": " ",
+                "highlights": [],
+                "certificate_image": ""
+            },
+            "degree_sample": {
+                "image": "",
+                "description": "",
+                "highlights": []
+            },
+            "benefits": [],
             "admission_process": [
-                "Start by selecting the 'Apply Now' tab on the official website",
-                "Complete the registration process on the application page",
-                "Verify your contact information through the OTP sent",
-                "Fill out the application form with all required information",
-                "Pay the specified fee after completing the application form",
-                "Upload the necessary documents and submit the form for review"
+                {
+                    "step": 1,
+                    "description": "Start by selecting the 'Apply Now' tab on the official website",
+                    "image": ""
+                },
+                {
+                    "step": 2,
+                    "description": "Complete the registration process on the application page",
+                    "image": ""
+                },
+                {
+                    "step": 3,
+                    "description": "Verify your contact information through the OTP sent",
+                    "image": ""
+                },
+                {
+                    "step": 4,
+                    "description": "Fill out the application form with all required information",
+                    "image": ""
+                },
+                {
+                    "step": 5,
+                    "description": "Pay the specified fee after completing the application form",
+                    "image": ""
+                },
+                {
+                    "step": 6,
+                    "description": "Upload the necessary documents and submit the form for review",
+                    "image": ""
+                }
             ],
             "placement": {
                 "partners": [
@@ -640,7 +793,11 @@ export const CollegePageData = [{
                     "Resume-building sessions",
                     "Collaborations between academia and industry",
                     "Tie-ups with IBM, ACCA, and ISDC"
-                ]
+                ],
+                "statistics": {
+                    "average_package": " ",
+                    "highest_package": " "
+                }
             },
             "faqs": [
                 {
@@ -714,7 +871,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 2,10,000",
                     "description": "The Right Step to Gain Skills",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online Executive MBA",
@@ -722,7 +880,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 4,00,000",
                     "description": "The Right Step to Gain Skills",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BBA",
@@ -730,7 +889,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 1,41,000",
                     "description": "The Right Step to Gain Skills",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online B.Com",
@@ -738,16 +898,52 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 99,000",
                     "description": "The Right Step to Gain Skills",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 }
             ],
+            "benefits": [],
+            "degree": {
+                "description": " ",
+                "highlights": [],
+                "certificate_image": " "
+            },
+            "degree_sample": {
+                "image": "",
+                "description": "",
+                "highlights": []
+            },
             "admission_process": [
-                "Visit the NMIMS Online website to select your course and review eligibility criteria",
-                "Start your application through the university's online portal when applications open",
-                "Fill in all required details including academic qualifications",
-                "Upload scanned copies of necessary documents",
-                "Submit the application fee online or via demand draft",
-                "Receive admission confirmation after verification"
+                {
+                    "step": 1,
+                    "description": "Visit the NMIMS Online website to select your course and review eligibility criteria",
+                    "image": ""
+                },
+                {
+                    "step": 2,
+                    "description": "Start your application through the university's online portal when applications open",
+                    "image": ""
+                },
+                {
+                    "step": 3,
+                    "description": "Fill in all required details including academic qualifications",
+                    "image": ""
+                },
+                {
+                    "step": 4,
+                    "description": "Upload scanned copies of necessary documents",
+                    "image": ""
+                },
+                {
+                    "step": 5,
+                    "description": "Submit the application fee online or via demand draft",
+                    "image": ""
+                },
+                {
+                    "step": 6,
+                    "description": "Receive admission confirmation after verification",
+                    "image": ""
+                }
             ],
             "placement": {
                 "partners": [
@@ -762,7 +958,11 @@ export const CollegePageData = [{
                     "Access to top industry employers",
                     "Flexible programs designed for working professionals",
                     "Career advancement opportunities"
-                ]
+                ],
+                "statistics": {
+                    "average_package": " ",
+                    "highest_package": " "
+                }
             },
             "faqs": [
                 {
@@ -850,7 +1050,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 1,60,000",
                     "description": "The Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BBA",
@@ -858,7 +1059,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 1,65,000",
                     "description": "The Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MCA",
@@ -866,7 +1068,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 1,50,000",
                     "description": "The Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online M.Com",
@@ -874,7 +1077,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 1,00,000",
                     "description": "The Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online B.Com",
@@ -882,9 +1086,16 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 1,27,500",
                     "description": "The Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 }
             ],
+            "benefits": [],
+            "degree": {
+                "description": " ",
+                "highlights": [],
+                "certificate_image": " "
+            },
             "admission_process": [
                 {
                     "step": 1,
@@ -926,7 +1137,11 @@ export const CollegePageData = [{
                     "2000+ Hiring Partners",
                     "Increased Practical Exposure",
                     "E-hire portal for job opportunities"
-                ]
+                ],
+                "statistics": {
+                    "average_package": " ",
+                    "highest_package": " "
+                }
             },
             "degree_sample": {
                 "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/jain-university/degree.svg",
@@ -1015,7 +1230,8 @@ export const CollegePageData = [{
                     "fees": "Rs 1,75,000",
                     "description": "The Right Choice for Right Education",
                     "url": "https://edukyu.com/manipal-university/online-mba",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BBA",
@@ -1023,7 +1239,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 1,35,000",
                     "description": "The Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MCA",
@@ -1031,7 +1248,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 1,58,000",
                     "description": "The Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BCA",
@@ -1039,7 +1257,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 1,35,000",
                     "description": "The Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online M.Com",
@@ -1047,7 +1266,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 90,000",
                     "description": "The Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online B.Com",
@@ -1055,7 +1275,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 75,000",
                     "description": "The Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MA-JMC",
@@ -1063,9 +1284,16 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 75,000",
                     "description": "The Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 }
             ],
+            "benefits": [],
+            "degree": {
+                "description": " ",
+                "highlights": [],
+                "certificate_image": " "
+            },
             "admission_process": [
                 {
                     "step": 1,
@@ -1102,7 +1330,11 @@ export const CollegePageData = [{
                     "Acquiring employability skills through assessments and tests",
                     "Access to a network of over 100 recruiters from Fortune 500 companies",
                     "Assistance in securing a job that matches the student's individual profile"
-                ]
+                ],
+                "statistics": {
+                    "average_package": " ",
+                    "highest_package": " "
+                }
             },
             "degree_sample": {
                 "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/manipal-university/degree.svg",
@@ -1191,7 +1423,8 @@ export const CollegePageData = [{
                     "fees": "Rs 1,44,000",
                     "description": "Right Choice for Right Education",
                     "url": "#",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MBA (Dual)",
@@ -1199,7 +1432,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 1,44,000",
                     "description": "Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MCA",
@@ -1207,7 +1441,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 1,12,000",
                     "description": "Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BCA",
@@ -1215,7 +1450,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 1,44,000",
                     "description": "Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MA",
@@ -1223,7 +1459,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 64,000",
                     "description": "Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BA",
@@ -1231,7 +1468,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 96,000",
                     "description": "Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online M.Com",
@@ -1239,7 +1477,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 80,000",
                     "description": "Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online B.Com",
@@ -1247,7 +1486,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 1,20,000",
                     "description": "Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online M.Sc",
@@ -1255,9 +1495,16 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 64,000",
                     "description": "Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 }
             ],
+            "benefits": [],
+            "degree": {
+                "description": " ",
+                "highlights": [],
+                "certificate_image": " "
+            },
             "admission_process": [
                 {
                     "step": 1,
@@ -1300,7 +1547,11 @@ export const CollegePageData = [{
                     "100+ Hiring Partners",
                     "Doubled Chances for Top Company Selection with Industry Project",
                     "Enhanced Career Support Services"
-                ]
+                ],
+                "statistics": {
+                    "average_package": " ",
+                    "highest_package": " "
+                }
             },
             "degree_sample": {
                 "image": "assets/cxp-assets/imgs/collage/lovely-professional-university/degree.avif",
@@ -1425,7 +1676,8 @@ export const CollegePageData = [{
                     "fees": "Rs 1,20,000",
                     "description": "Right Choice for Right Education",
                     "url": "#",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MBA (Power Program)",
@@ -1433,7 +1685,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 1,50,000",
                     "description": "Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BBA",
@@ -1441,7 +1694,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 1,17,500",
                     "description": "Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BBA (Power Program)",
@@ -1449,7 +1703,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 1,50,000",
                     "description": "Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BCA",
@@ -1457,7 +1712,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 1,50,000",
                     "description": "Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MA English",
@@ -1465,7 +1721,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 50,000",
                     "description": "Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BA (JMC)",
@@ -1473,7 +1730,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 75,000",
                     "description": "Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Pay After Placement Program",
@@ -1481,9 +1739,16 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 1,20,000",
                     "description": "Right Choice for Right Education",
-                    "type":"Diploma/Certificate"
+                    "type": "Diploma/Certificate",
+                    "specializations": []
                 }
             ],
+            "benefits": [],
+            "degree": {
+                "description": " ",
+                "highlights": [],
+                "certificate_image": " "
+            },
             "admission_process": [
                 {
                     "step": 1,
@@ -1569,7 +1834,11 @@ export const CollegePageData = [{
                     "2000+ Hiring Partners",
                     "Increased Practical Exposure",
                     "E-hire portal for job opportunities"
-                ]
+                ],
+                "statistics": {
+                    "average_package": " ",
+                    "highest_package": " "
+                }
             },
             "degree_sample": {
                 "image": "assets/cxp-assets/imgs/collage/shoolini-university/degree.jpg",
@@ -1666,7 +1935,8 @@ export const CollegePageData = [{
                     "fees": "Rs 1,79,000",
                     "description": "Right Choice for Right Education",
                     "url": "#",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MBA (DUAL)",
@@ -1674,7 +1944,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 1,79,000",
                     "description": "Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BBA",
@@ -1682,7 +1953,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 1,54,500",
                     "description": "Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MCA",
@@ -1690,7 +1962,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 1,64,000",
                     "description": "Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BCA",
@@ -1698,7 +1971,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 1,39,000",
                     "description": "Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MA",
@@ -1706,7 +1980,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 1,64,000",
                     "description": "Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BA",
@@ -1714,7 +1989,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 89,000",
                     "description": "Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BA (BMC)",
@@ -1722,7 +1998,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 1,79,000",
                     "description": "Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online M.Com",
@@ -1730,7 +2007,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 1,14,000",
                     "description": "Right Choice for Right Education",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online B.Com",
@@ -1738,9 +2016,25 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 89,000",
                     "description": "Right Choice for Right Education",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 }
             ],
+            "benefits": [
+                "Recognized by UGC, AIU, WES, and others, the university holds an A+ NAAC accreditation and ranks as a top online university according to both NIRF and QS World Ranking.",
+                "Amity Online is placed within the top 3% globally by QS, with its online MBA ranked #1 in India and #37 worldwide.",
+                "The university offers global exposure through renowned international faculty members from diverse backgrounds.",
+                "Programs at Amity University Online hold accreditation from WES in both the US and Canada.",
+                "With over 300 hiring partners, the university facilitates placements through exclusive virtual job fairs.",
+                "The university collaborates with over 300 hiring partners to facilitate placements via exclusive virtual job fairs.",
+                "The university boasts international partnerships with prestigious Ivy League universities.",
+                "The university utilizes its Learning Management System (LMS) to conduct online classes and examinations."
+            ],
+            "degree": {
+                "description": " ",
+                "highlights": [],
+                "certificate_image": " "
+            },
             "admission_process": [
                 {
                     "step": 1,
@@ -1773,16 +2067,6 @@ export const CollegePageData = [{
                     "image": "assets/cxp-assets/imgs/collage/amity-university/mail.png"
                 }
             ],
-            "benefits": [
-                "Recognized by UGC, AIU, WES, and others, the university holds an A+ NAAC accreditation and ranks as a top online university according to both NIRF and QS World Ranking.",
-                "Amity Online is placed within the top 3% globally by QS, with its online MBA ranked #1 in India and #37 worldwide.",
-                "The university offers global exposure through renowned international faculty members from diverse backgrounds.",
-                "Programs at Amity University Online hold accreditation from WES in both the US and Canada.",
-                "With over 300 hiring partners, the university facilitates placements through exclusive virtual job fairs.",
-                "The university collaborates with over 300 hiring partners to facilitate placements via exclusive virtual job fairs.",
-                "The university boasts international partnerships with prestigious Ivy League universities.",
-                "The university utilizes its Learning Management System (LMS) to conduct online classes and examinations."
-            ],
             "placement": {
                 "partners": [
                     "assets/cxp-assets/imgs/collage/amity-university/adf.png",
@@ -1804,7 +2088,11 @@ export const CollegePageData = [{
                     "100+ Hiring Partners",
                     "Doubled Chances for Top Company Selection with Industry Project",
                     "Enhanced Career Support Services"
-                ]
+                ],
+                "statistics": {
+                    "average_package": " ",
+                    "highest_package": " "
+                }
             },
             "degree_sample": {
                 "image": "assets/cxp-assets/imgs/collage/amity-university/degree.jpg",
@@ -1887,7 +2175,8 @@ export const CollegePageData = [{
                     "fees": "Rs 75,000",
                     "description": "The Right Step to Gain Skills",
                     "url": "#",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MCA",
@@ -1895,7 +2184,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 98,000",
                     "description": "The Right Step to Gain Skills",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online BA",
@@ -1903,7 +2193,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 75,000",
                     "description": "The Right Step to Gain Skills",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MA",
@@ -1911,7 +2202,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 75,000",
                     "description": "The Right Step to Gain Skills",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online M.com",
@@ -1919,7 +2211,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 90,000",
                     "description": "The Right Step to Gain Skills",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 },
                 {
                     "name": "Online B.com",
@@ -1927,7 +2220,8 @@ export const CollegePageData = [{
                     "duration": "3 years",
                     "fees": "Rs 75,000",
                     "description": "The Right Step to Gain Skills",
-                    "type":"UG"
+                    "type": "UG",
+                    "specializations": []
                 },
                 {
                     "name": "Online MBA",
@@ -1935,7 +2229,8 @@ export const CollegePageData = [{
                     "duration": "2 years",
                     "fees": "Rs 1,10,000",
                     "description": "The Right Step to Gain Skills",
-                    "type":"PG"
+                    "type": "PG",
+                    "specializations": []
                 }
             ],
             "admission_process": [
@@ -1973,6 +2268,11 @@ export const CollegePageData = [{
                 "Unique Status: First Public-Private Partnership (PPP) in the region.",
                 "Rankings: 51st among India's Best Multidisciplinary Universities, top state rank for private engineering institutes."
             ],
+            "degree": {
+                "certificate_image": " ",
+                "highlights": [],
+                "description": " "
+            },
             "placement": {
                 "partners": [
                     "assets/cxp-assets/imgs/collage/sikkim-university/google.png",
@@ -1990,7 +2290,11 @@ export const CollegePageData = [{
                 "benefits": [
                     "The university provides numerous placement opportunities with leading companies. Students can secure impressive salary packages, with a maximum of 6 LPA and an average of 3.6 LPA.",
                     "Notable recruiters include: ACC Cement, Electrolab, Shriram Finance."
-                ]
+                ],
+                "statistics": {
+                    "average_package": " ",
+                    "highest_package": " "
+                }
             },
             "degree_sample": {
                 "image": "assets/cxp-assets/imgs/collage/sikkim-university/sikkim-online.jpg",

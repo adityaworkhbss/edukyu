@@ -7,7 +7,7 @@ import {usePageContext} from "@/GlobalComponent/PageContext";
 
 export const PartnerUniversities = () => {
     const universities = PartnerUniversitiesData.universities.map((univ, index) => {
-        console.log(univ.code);
+        // console.log(univ.code);
         return {
             id: String(index + 1),
             name: univ.name,

@@ -21,7 +21,7 @@ const HeroPage = ({college}) => {
 
 
                     <div className="mb-[65px] text-[20px] font-normal text-[#025E68] font-[Outfit]">
-                        {college.university_info.about.description}
+                        {college.college.university_info.about.description}
                     </div>
 
 
@@ -53,7 +53,7 @@ const HeroPage = ({college}) => {
                 </div>
             </div>
 
-            {showForm && <Form image={college.university_info.logo} onClose={() => setShowForm(false)} />}
+            {showForm && <Form image={college.college.university_info.logo} onClose={() => setShowForm(false)} />}
         </>
 
 
