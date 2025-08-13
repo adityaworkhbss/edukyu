@@ -73,7 +73,7 @@ const CoursesComponentMobile = ({ onClose, college }) => {
                          console.log(mappedKey);
                          setSelectedCollege(mappedKey);
                          setCurrentPage('college');
-                        {onClose}
+                        // {onClose}
                      }
                  }>
                 <div className="text-[#024B53] font-outfit text-[14px] font-medium not-italic leading-normal">

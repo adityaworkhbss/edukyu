@@ -17,7 +17,7 @@ const BlogSection = () => {
         setError(null);
         try {
             const blogService = BlogService.getInstance();
-            const data = await blogService.fetchBlogs(page, itemsPerPage);
+            const data = await blogService.fetchBlogs(page, 8);
             console.log(data.blogs);
             setBlogs(data.blogs);
         } catch (err) {

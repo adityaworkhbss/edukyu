@@ -62,7 +62,7 @@ const BlogContent = ({
     return (
         <article className="w-full bg-background shadow-blog rounded-lg overflow-hidden">
             {/* Hero Section */}
-            <div className="relative bg-hero-gradient flex items-center justify-center p-8 md:p-12">
+            <div className="relative bg-hero-gradient flex items-center justify-center">
                 <div className="flex flex-col md:flex-row gap-8">
 
                     {imageurl && (

@@ -44,7 +44,7 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
 
     const universityKeyMap = {
         'Amity': 'Amity_University',
-        'DPU':'DYP',
+        'DYP':'DPU',
         // 'DPU':'NUI',
         // 'DPU':'VGU',
         'Jain':'Jain_University',
@@ -113,6 +113,9 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
                                 className="text-[14px] text-left h-[18px] text-[#024B53] flex font-medium font-outfit not-italic leading-normal gap-[8px]"
                                 onClick={() => {
                                     const mappedKey = universityKeyMap[university];
+
+                                    console.log("mappedkey :::::::::::::: " + mappedKey);
+                                    console.log("mappedkey :::::::::::::: " + university);
                                     setSelectedCollege(mappedKey);
                                     setCurrentPage('college');
                                 }}
