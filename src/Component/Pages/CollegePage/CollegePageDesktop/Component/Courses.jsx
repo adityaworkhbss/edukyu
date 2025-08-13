@@ -78,7 +78,7 @@ const Courses = ({ college }) => {
                 </div>
 
                 <div className="relative">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="inline-flex gap-6">
                         {programs.map((program) => (
                             <div
                                 key={program.id}

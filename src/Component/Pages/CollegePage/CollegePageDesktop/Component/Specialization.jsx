@@ -197,7 +197,7 @@ const Specialization = ({data}) => {
                             ))}
                         </div>
                     ) : (
-                        <div className="text-center text-gray-500">
+                        <div className="text-center text-gray-500 py-8">
                             No content available to show.
                         </div>
                     )}
