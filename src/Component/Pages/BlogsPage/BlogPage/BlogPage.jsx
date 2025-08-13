@@ -26,9 +26,9 @@ const BlogPage = ({ blogId }) => {
     }, [blogId]);
 
     return (
-        <div className="px-[56px] py-[64px] space-y-10 bg-gray-50">
-            <div className="flex flex-col lg:flex-row ">
-                <div className="lg:w-2/3 pr-4">
+        <div className=" mt-5 mb-5 space-y-8 bg-gray-50 md:px-[56px] md:my-[64px] md:space-y-10">
+            <div className="flex flex-col lg:flex-row">
+                <div className="lg:w-2/3 pr-4 pl-4">
                     <section>
                         <BlogContent
                             html={data.descs}

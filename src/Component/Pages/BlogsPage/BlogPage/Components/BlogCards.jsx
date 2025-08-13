@@ -29,7 +29,7 @@ const BlogCards = () => {
     }, []);
 
     return (
-        <div className="px-[56px] py-[64px] sm:px-[19px]">
+        <div className="px-[20px]">
             <div className="text-center mb-12">
                 <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
                     Recent Blogs Featured

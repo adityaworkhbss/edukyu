@@ -2,7 +2,69 @@
 import Image from 'next/image';
 
 export default function Form({ image, onClose }) {
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        city: '',
+        mobile: '',
+        university_name: '',
+        university_code: '', // you might map this from university_name
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        // Prepare payload (this should match your PHP array keys)
+        const payload = {
+            user_id: 'EDUKYU_CRM_230500001',
+            password: '12345',
+            name: formData.name,
+            mobile: formData.mobile,
+            email: formData.email,
+            city: formData.city,
+            university_name: formData.university_name,
+            university_code: formData.university_code,
+            prog_id: 'SD00000002',
+            prog_name: 'Partner',
+            source_name: 'WS',
+            source_id: '101',
+            data_from: window.location.href
+        };
+
+        try {
+            // First API call
+            await fetch('https://edukyu.enqbooks.com/enqbooks_api/api/Crm_leads_insert', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            // Second API call
+            await fetch('https://pujariwala.in/bai_crm_api_integrate/bai_crm_website_lead_post', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'ENQ-BOOKS-KEY': 'a990c4a560e5e76e07347f5b87fefe97'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            alert('Form submitted successfully!');
+            onClose();
+        } catch (err) {
+            console.error('Error submitting form:', err);
+            alert('Something went wrong. Please try again.');
+        }
+    };
+
     return (
+
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(0,0,0,0.6)]">
             <div className="bg-white rounded-lg shadow-lg w-full max-w-md mx-4 relative overflow-hidden">
                 {/* Optional Image at the Top */}

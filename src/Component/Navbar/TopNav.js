@@ -89,8 +89,15 @@ export default function TopNav() {
 
                         <div className="pl-5" onClick={() => setShowMobileSearch(true)}>
                             {/* Search Icon */}
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-                                <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59..." fill="#2B2B2A"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_43_4046)">
+                                    <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" fill="#2B2B2A"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_43_4046">
+                                        <rect width="24" height="24" fill="white"/>
+                                    </clipPath>
+                                </defs>
                             </svg>
                         </div>
                     </div>
@@ -98,7 +105,7 @@ export default function TopNav() {
                     {isSidebarOpen && <MobileSidebar onClose={() => setSidebarOpen(false)} />}
                     {showMobileSearch && <SearchComponentMobile onClose={() => setShowMobileSearch(false)} />}
 
-                    <div className="h-8 pl-[20px] text-[12px] rounded-b-[10px] font-normal bg-[#025E68] text-white font-outfit flex items-center">
+                    <div className="h-8 z-1000 pl-[20px] text-[12px] rounded-b-[10px] font-normal bg-[#025E68] text-white font-outfit flex items-center">
                         <Image src="/Resources/Images/refer_logo.png" alt="refer" width={16} height={16} />
                         <div className="pl-2">Earn upto Rs. 5000/-, refer your friend!!</div>
                     </div>
