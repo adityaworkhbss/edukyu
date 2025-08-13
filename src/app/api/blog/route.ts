@@ -28,8 +28,8 @@ export async function GET(req: NextRequest) {
         const connection = await mysql.createConnection({
             host: 'localhost:3360',
             user: 'root',
-            password: 'password',
-            database: 'EDUKYU',
+            password: 'root',
+            database: 'blog',
         });
 
         // Count total blogs
