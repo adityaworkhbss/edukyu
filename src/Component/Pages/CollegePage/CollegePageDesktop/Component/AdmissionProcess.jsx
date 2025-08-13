@@ -21,12 +21,12 @@ const AdmissionProcess = ({college}) => {
 
             {/* Steps */}
             <div className="mt-6 flex flex-col gap-10">
-                {steps.map((description, index) => (
+                {steps.map((step, index) => (
                     <div key={index} className="flex items-start gap-4 relative">
                         {/* Step Number Circle */}
                         <div className="bg-[#EFFDFE] rounded-[10px] p-4 z-2">
                             <div className="text-black font-semibold text-[18px] font-[Outfit]">
-                                {index + 1}
+                                {step?.step || index + 1}
                             </div>
                         </div>
 
@@ -43,7 +43,7 @@ const AdmissionProcess = ({college}) => {
                             {/*</div>*/}
 
                             <div className="mt-1 text-[#333] font-normal text-[16px] font-[Outfit]">
-                                {description}
+                                {step?.description || step}
                             </div>
 
                         </div>

@@ -56,12 +56,12 @@ const CollegePageDesktop = ({college, collegeSecondry}) => {
                     </div>
                     <div id="hiring">
                         <HiringPartnersSection
-                            logos={college.university_info.placement.partners}
-                            name={college.university_info.name}
+                            logos={college?.university_info?.placement?.partners || []}
+                            name={college?.university_info?.name || ''}
                         />
                     </div>
                     <div id="faq">
-                        <FaqsSection faqs={college.university_info.faqs}/>
+                        <FaqsSection faqs={college?.university_info?.faqs || []}/>
                     </div>
                     <div id="contact">
                         <ContactUsSection/>

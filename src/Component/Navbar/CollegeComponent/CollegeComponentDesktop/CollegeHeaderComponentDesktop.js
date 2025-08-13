@@ -27,7 +27,7 @@ export default function CollegeHeaderComponentDesktop() {
 
     const universityKeyMap = {
         'Amity University': 'Amity',
-        'Dr. DY Patil University': 'DPU',
+        'Dr. DY Patil University': 'DYP',
         'Jain University': 'Jain',
         'Lovely Professional University': 'LPU',
         'Manipal University': 'Manipal',

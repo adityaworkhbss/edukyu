@@ -12,7 +12,7 @@ export default function SearchComponentMobile({ onClose }) {
 
     const universityKeyMap = {
         'Amity University Online': 'Amity_University',
-        'D.Y. Patil University, Pune': 'DPU',
+        'D.Y. Patil University, Pune': 'DYP',
         'Jain Online University': 'Jain_University',
         'Lovely Professional University': 'Lovely_Professional_University',
         'Manipal University Jaipur': 'Manipal_University',

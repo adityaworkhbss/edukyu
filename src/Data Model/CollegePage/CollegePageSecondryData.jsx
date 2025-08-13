@@ -17,9 +17,28 @@ export const CollegePageSecondryData = [
             "Learning Methodolgy": "Online and Distance Learning",
             "Degree": "https://www.onlinemanipal.com/wp-content/uploads/2023/06/SMU-sample-certificate-Bachelor-of-Arts1.jpg",
             "Fees": "Approximately ₹30,000 - ₹1,50,000 per year",
-            "Detail Fees": "",
+            "Detail Fees": {
+                "MBA": "₹1,50,000",
+                "MCA": "₹1,20,000",
+                "MA": "₹80,000",
+                "M.Com": "₹70,000",
+                "BA": "₹60,000",
+                "B.Com": "₹50,000"
+            },
             "Programs": "MBA, MCA, MA, M.Com, BA, B.Com",
-            "Specialisation": "Management, IT, Healthcare, Engineering",
+            "Specialisation": {
+                "MBA": {
+                    "Management": {},
+                    "IT": {},
+                    "Healthcare": {},
+                    "Engineering": {}
+                },
+                "MCA": {},
+                "MA": {},
+                "M.Com": {},
+                "BA": {},
+                "B.Com": {}
+            },
             "Review": "Well-rated for its flexible programs and student support.",
             "Eligibility": "For Certificate: 10+2, For MBA: Graduation, For BBA: 10+2",
             "Any Issue": "Limited access to hands-on lab sessions for certain programs.",
@@ -43,9 +62,30 @@ export const CollegePageSecondryData = [
             "Learning Methodolgy": "Online & Blended Learning",
             "Degree": "https://www.onlinemanipal.com/wp-content/uploads/2022/11/MUJ-BBA1.png",
             "Fees": "₹75,000–₹1,75,000",
-            "Detail Fees": "",
+            "Detail Fees": {
+                "Online MBA": "₹1,75,000",
+                "Online BBA": "₹1,45,000",
+                "Online MCA": "₹1,35,000",
+                "Online BCA": "₹1,25,000",
+                "Online MA": "₹95,000",
+                "Online M.com": "₹85,000",
+                "Online B.com": "₹75,000"
+            },
             "Programs": "Online MBA, Online BBA, Online MCA, Online BCA, Online MA, Online M.com, Online B.com",
-            "Specialisation": "Online MBA, Online BBA, Online MCA, Online BCA, Online MA, Online M.com, Online B.com, Finance, IT, Healthcare, Project Management",
+            "Specialisation": {
+                "Online MBA": {
+                    "Finance": {},
+                    "IT": {},
+                    "Healthcare": {},
+                    "Project Management": {}
+                },
+                "Online BBA": {},
+                "Online MCA": {},
+                "Online BCA": {},
+                "Online MA": {},
+                "Online M.com": {},
+                "Online B.com": {}
+            },
             "Eligibility": "For Certificate: 10+2, For MBA: Graduation, For BBA: 10+2",
             "Review": "High satisfaction",
             "Any Issue": "Higher fees for technical programs",
@@ -176,9 +216,27 @@ export const CollegePageSecondryData = [
             "Learning Methodolgy": "Online",
             "Degree": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY3af9KPEbBMAr_8Z8xHq55AdD_JsTtINlnubjsuvawAwwHgfI_vkRmhTY&s=10",
             "Fees": "₹60,000–₹1,30,000",
-            "Detail Fees": "",
+            "Detail Fees": {
+                "Online MBA": "₹1,30,000",
+                "Online MCA": "₹1,20,000",
+                "Online BBA": "₹1,10,000",
+                "Online BCA": "₹1,00,000",
+                "Online MA": "₹80,000",
+                "Online MSc": "₹85,000"
+            },
             "Programs": "Online MBA, Online MCA, Online BBA, Online BCA, Online MA, Online MSc",
-            "Specialisation": "Online MBA, Online MCA, Online BBA, Online BCA, Online MA, Online MSc, Management, IT, Healthcare",
+            "Specialisation": {
+                "Online MBA": {
+                    "Management": {},
+                    "IT": {},
+                    "Healthcare": {}
+                },
+                "Online MCA": {},
+                "Online BBA": {},
+                "Online BCA": {},
+                "Online MA": {},
+                "Online MSc": {}
+            },
             "Eligibility": "For Certificate: 10+2, For MBA: Graduation, For BBA: 10+2",
             "Review": "Affordable and flexible",
             "Any Issue": "Relatively new in the market",
@@ -202,16 +260,35 @@ export const CollegePageSecondryData = [
             "Learning Methodolgy": "Online",
             "Degree": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7DnPzvkp3_yfQmJP78poYWHQv9SmIdF8yROCKR-5AvVJNvLun1m7MMQoB&s=10",
             "Fees": "₹1,27,500–₹1,96,000",
-            "Detail Fees": "",
+            "Detail Fees": {
+                "Online MBA": "₹1,96,000",
+                "Online BBA": "₹1,65,000",
+                "Online MCA (Data Science/AI)": "₹1,85,000",
+                "Online MCA": "₹1,75,000",
+                "Online M.Com": "₹1,35,000",
+                "Online B.com": "₹1,27,500"
+            },
             "Programs": "Online MBA, Online BBA, Online MCA (Data Science/AI), nline MCA, Online M.Com, Online B.com",
-            "Specialisation": "Online MBA, Online BBA, Online MCA (Data Science/AI), nline MCA, Online M.Com, Online B.com, E-commerce, Banking, Finance, Marketing",
+            "Specialisation": {
+                "Online MBA": {
+                    "E-commerce": {},
+                    "Banking": {},
+                    "Finance": {},
+                    "Marketing": {}
+                },
+                "Online BBA": {},
+                "Online MCA (Data Science/AI)": {},
+                "Online MCA": {},
+                "Online M.Com": {},
+                "Online B.com": {}
+            },
             "Eligibility": "For Certificate: 10+2, For MBA: Graduation, For BBA: 10+2",
             "Review": "Positive for working students",
             "Any Issue": "Limited courses for niche fields",
             "Our recommendation": "Recommended for professionals",
             "Website": "https://onlinejain.com/"
         },
-        "DPU": {
+        "DYP": {
             "Colleges": {
                 "text": "D.Y. Patil University, Pune",
                 "img": "https://edukyu.com//public/compare-page/dpu.png"
@@ -235,7 +312,18 @@ export const CollegePageSecondryData = [
                 "HAHM": "₹ 28,000"
             },
             "Programs": "Online MBA, Online BBA, Online Certificate Program for Digital Marketing, Online Certificate Programme in Hospital & Health Care Management",
-            "Specialisation": "Online MBA, Online BBA, Online Certificate Program for Digital Marketing,Online Certificate Programme in Hospital & Health Care Management",
+            "Specialisation": {
+                "Online MBA": {
+                    "Finance": {},
+                    "Marketing": {},
+                    "Human Resources": {},
+                    "Operations Management": {},
+                    "Information Technology Management": {}
+                },
+                "Online BBA": {},
+                "Online Certificate Program for Digital Marketing": {},
+                "Online Certificate Programme in Hospital & Health Care Management": {}
+            },
             "Eligibility": "For Certificate: 10+2, For MBA: Graduation, For BBA: 10+2",
             "Review": "Good student support",
             "Any Issue": "Limited niche specializations",
@@ -304,7 +392,16 @@ export const CollegePageSecondryData = [
             "Learning Methodolgy": "Online & Blended Learning",
             "Degree": "https://www.lpuonline.com/images/degree/mba.jpg",
             "Fees": "Rs 80,000 to Rs 1,80,000",
-            "Detail Fees": "",
+            "Detail Fees": {
+                "MBA": "₹1,80,000",
+                "MCA": "₹1,60,000",
+                "MSc": "₹1,40,000",
+                "M.Com": "₹1,20,000",
+                "MA": "₹1,10,000",
+                "BBA": "₹1,30,000",
+                "BCA": "₹1,20,000",
+                "BA": "₹80,000"
+            },
             "Programs": "MBA, MCA, MSC, M.Com, MA, BBA, BCA, BA",
             "Specialisation": {
                 "MBA": {
@@ -406,7 +503,19 @@ export const CollegePageSecondryData = [
                 "HAHM": "₹ 28,000"
             },
             "Programs": "Online MBA, Shoolini X KPMG (India MBA fees), Online BBA, Online BCA, Online MA English, Online BA, Pay After Placement Program (JMC)",
-            "Specialisation": "Online MBA, Shoolini X KPMG (India MBA fees), Online BBA, Online BCA, Online MA English, Online BA, Pay After Placement Program (JMC), Biotechnology, Management, IT",
+            "Specialisation": {
+                "Online MBA": {
+                    "Biotechnology": {},
+                    "Management": {},
+                    "IT": {}
+                },
+                "Shoolini X KPMG (India MBA fees)": {},
+                "Online BBA": {},
+                "Online BCA": {},
+                "Online MA English": {},
+                "Online BA": {},
+                "Pay After Placement Program (JMC)": {}
+            },
             "Eligibility": "For Certificate: 10+2, For MBA: Graduation, For BBA: 10+2",
             "Review": "Highly rated for research focus",
             "Any Issue": "Limited course offerings",
@@ -430,9 +539,27 @@ export const CollegePageSecondryData = [
             "Learning Methodolgy": "Online & Blended Learning",
             "Degree": "https://www.onlineuu.in/assets/images/online-degree-sample-format.jpg",
             "Fees": "₹50,000–₹1,50,000",
-            "Detail Fees": "",
+            "Detail Fees": {
+                "Online MBA": "₹1,50,000",
+                "Online MCA": "₹1,40,000",
+                "Online MBA (Hybrid Mode)": "₹1,35,000",
+                "Online BBA": "₹1,20,000",
+                "Online BCA": "₹1,10,000",
+                "Online BA": "₹50,000"
+            },
             "Programs": "Online MBA, Online MCA, Online MBA (Hybrid Mode), Online BBA, Online BCA, Online BA",
-            "Specialisation": "Online MBA, Online MCA, Online MBA (Hybrid Mode), Online BBA, Online BCA, Online BA, Law, IT, Healthcare",
+            "Specialisation": {
+                "Online MBA": {
+                    "Law": {},
+                    "IT": {},
+                    "Healthcare": {}
+                },
+                "Online MCA": {},
+                "Online MBA (Hybrid Mode)": {},
+                "Online BBA": {},
+                "Online BCA": {},
+                "Online BA": {}
+            },
             "Eligibility": "For Certificate: 10+2, For MBA: Graduation, For BBA: 10+2",
             "Review": "Positive for niche areas",
             "Any Issue": "Limited global presence",
