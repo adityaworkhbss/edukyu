@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import {PartnerUniversitiesData} from "@/Data Model/Homepage/PartnerUniversitiesData";
+import {usePageContext} from "@/GlobalComponent/PageContext";
 
 const UniversityCard = ({ name, logoSrc, certificationIcons }) => {
     return (
@@ -82,12 +83,14 @@ export const PartnerUniversitiesMobile = () => {
         }
     };
 
+    const { setCurrentPage, setSelectedCollege } = usePageContext();
 
     const universities = PartnerUniversitiesData.universities.map((univ, index) => {
         // console.log(univ);
         return {
             id: String(index + 1),
             name: univ.name,
+            code: univ.code,
             logoUrl: univ.image,
             courses: `${univ.coursesOffered.length}+ Courses`,
             price: `Course ${univ.fee}`,
@@ -102,7 +105,8 @@ export const PartnerUniversitiesMobile = () => {
 
 
     return (
-        <section className="w-full flex flex-col">
+        <section className="w-full flex flex-col"
+        >
             <h2 className="text-[#024B53] font-[Outfit] text-[28px] font-semibold leading-none">
                 Explore our Partner Universities
             </h2>
@@ -115,7 +119,12 @@ export const PartnerUniversitiesMobile = () => {
                 className="flex overflow-x-auto snap-x snap-mandatory gap-[17px] scroll-smooth w-full no-scrollbar"
             >
                 {universities.map((uni, index) => (
-                    <div key={index} className="flex-shrink-0 snap-center">
+                    <div key={index} className="flex-shrink-0 snap-center"
+                         onClick={() => {
+                             setSelectedCollege(uni.code);
+                             setCurrentPage('college');
+                         }}
+                    >
                         <UniversityCard
                             name={uni.name}
                             logoSrc={uni.logoSrc}
