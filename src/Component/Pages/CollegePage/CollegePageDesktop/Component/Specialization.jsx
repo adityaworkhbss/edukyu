@@ -197,13 +197,13 @@ const Specialization = ({data}) => {
                             ))}
                         </div>
                     ) : (
-                        <div className="text-center text-gray-500 py-8">
+                        <div className="text-center text-gray-500">
                             No content available to show.
                         </div>
                     )}
                 </div>
 
-                <div className="flex justify-between w-[90%] mt-[32px] pb-[64px]">
+                <div className="flex justify-between mt-[32px] pb-[64px]">
                     <button
                         onClick={handlePrev}
                         disabled={scrollPosition === 0}

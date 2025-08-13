@@ -65,9 +65,14 @@ const CoursesMobile = ({ college }) => {
         setActiveTab(tabId);
     };
 
+    // Wrapper component to handle GridContainer props
+    const ContentWrapper = ({ gridWidth, gutterSize, numGrids, ...props }) => {
+        return <section {...props} />;
+    };
+
     return (
         <GridContainer>
-            <section className="py-8 bg-background">
+            <ContentWrapper className="py-8 bg-background">
                 <div className="text-[#024B53] font-[Outfit] text-[28px] font-semibold leading-none mb-3">
                     Explore our Courses
                 </div>
@@ -194,7 +199,7 @@ const CoursesMobile = ({ college }) => {
                         )}
                     </div>
                 )}
-            </section>
+            </ContentWrapper>
         </GridContainer>
     );
 };

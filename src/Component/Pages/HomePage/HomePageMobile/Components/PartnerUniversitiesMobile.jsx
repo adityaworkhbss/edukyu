@@ -11,10 +11,10 @@ const UniversityCard = ({ name, logoSrc, certificationIcons }) => {
             <div className="bg-white flex max-w-full flex-col overflow-hidden items-stretch justify-center py-[9px] rounded-lg">
                 <img
                     // src={logoSrc}
-                    src={`https://edukyu.com/public/${logoSrc}`}
+                    src={`https://edukyu.com/${logoSrc}`}
 
                     alt={`${name} logo`}
-                    className="aspect-[2.42] object-contain w-full"
+                    className=" object-contain w-full"
                 />
             </div>
             <div className="w-full mt-2">
@@ -127,7 +127,7 @@ export const PartnerUniversitiesMobile = () => {
                     >
                         <UniversityCard
                             name={uni.name}
-                            logoSrc={uni.logoSrc}
+                            logoSrc={uni.logoUrl}
                             certificationIcons={uni.certificationIcons}
                         />
                     </div>

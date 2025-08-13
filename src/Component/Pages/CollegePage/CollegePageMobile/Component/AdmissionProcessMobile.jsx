@@ -15,12 +15,12 @@ const AdmissionProcessMobile = ({ college }) => {
 
             {/* Steps */}
             <div className="flex flex-col gap-6 relative">
-                {steps.map((description, index) => (
+                {steps.map((step, index) => (
                     <div key={index} className="flex items-start gap-4 relative">
                         {/* Number Circle */}
                         <div className="bg-[#EFFDFE] min-w-[32px] min-h-[32px] rounded-[6px] flex items-center justify-center z-10">
                             <span className="text-black font-[Outfit] font-semibold text-[16px]">
-                                {index + 1}
+                                {step?.step || index + 1}
                             </span>
                         </div>
 
@@ -35,7 +35,7 @@ const AdmissionProcessMobile = ({ college }) => {
                             {/*    Process: Step {index + 1}*/}
                             {/*</span>*/}
                             <span className="text-[#333] font-[Outfit] text-[14px] font-normal leading-normal">
-                                {description}
+                                {step?.description || step}
                             </span>
                         </div>
                     </div>

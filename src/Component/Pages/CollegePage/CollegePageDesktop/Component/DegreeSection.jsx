@@ -8,6 +8,8 @@ const DegreeSection = ({college}) => {
 
     const degreeInfo = college?.university_info?.degree;
 
+    console.log(degreeInfo);
+
     // Only render if description exists
     if (!degreeInfo?.description) {
         return null;

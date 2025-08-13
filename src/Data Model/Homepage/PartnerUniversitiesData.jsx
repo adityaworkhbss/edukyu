@@ -11,7 +11,7 @@ export const PartnerUniversitiesData = {
         },
         {
             name: "D.Y. Patil Vidyapeeth",
-            code: "DPU",
+            code: "DYP",
             image: "new-ed/assets/cxp-assets/imgs/collage/dpu.jpg",
             coursesOffered: ["Online Masters", "Online Bachelors"],
             accreditation: ["UGC-entitled degree programme"],

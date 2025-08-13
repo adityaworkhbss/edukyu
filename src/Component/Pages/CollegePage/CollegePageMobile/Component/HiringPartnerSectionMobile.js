@@ -2,8 +2,19 @@ import GridComponent from "@/GlobalComponent/GridComponent";
 
 const HiringPartnersSectionMobile = ({ college }) => {
 
-    const logos = college.university_info.placement.partners;
-    const names = college.university_info.name;
+    // Add null checks to prevent errors
+    if (!college || !college.university_info || !college.university_info.placement) {
+        return (
+            <section className="bg-white py-8">
+                <div className="text-center text-gray-500">
+                    Hiring partner information not available
+                </div>
+            </section>
+        );
+    }
+
+    const logos = college.university_info.placement.partners || [];
+    const names = college.university_info.name || '';
     console.log(names);
     // college.university_info.placement.partners
     return (

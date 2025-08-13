@@ -56,7 +56,7 @@ const CollegePageMobile = ({college, collegeSecondry}) => {
                         <HiringPartnersSectionMobile college={college}/>
                     </div>
                     <div id="faq">
-                        <FaqsSectionMobile faqs={college?.university_info?.faqs}/>
+                        <FaqsSectionMobile faqs={college?.university_info?.faqs || []}/>
                     </div>
                     <div id="contact">
                         <ContactUsSectionMobile/>

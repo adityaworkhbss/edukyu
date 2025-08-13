@@ -9,6 +9,17 @@ const HeroPage = ({college}) => {
 
     const [showForm, setShowForm] = useState(false);
 
+    // Add null checks to prevent errors
+    if (!college || !college.university_info) {
+        return (
+            <div className="w-full p-8">
+                <div className="text-center text-gray-500">
+                    College information not available
+                </div>
+            </div>
+        );
+    }
+
     return (
 
         <>
@@ -21,7 +32,7 @@ const HeroPage = ({college}) => {
 
 
                     <div className="mb-[65px] text-[20px] font-normal text-[#025E68] font-[Outfit]">
-                        {college.college.university_info.about.description}
+                        {college.university_info.about.description}
                     </div>
 
 
@@ -53,11 +64,8 @@ const HeroPage = ({college}) => {
                 </div>
             </div>
 
-            {showForm && <Form image={college.college.university_info.logo} onClose={() => setShowForm(false)} />}
+            {showForm && <Form image={college.university_info.logo} onClose={() => setShowForm(false)} />}
         </>
-
-
-
     );
 };
 

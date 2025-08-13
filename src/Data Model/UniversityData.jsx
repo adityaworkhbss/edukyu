@@ -62,7 +62,7 @@ export const universitiesData =
             "(DA) Data analytics": {}
         }
     },
-        "DPU": {
+        "DYP": {
         "MBA": {
             "(BCM) Block Chain Management": {},
             "(BAM) Business Analytics Management": {},
