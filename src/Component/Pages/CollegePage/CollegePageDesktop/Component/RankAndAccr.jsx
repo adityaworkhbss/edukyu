@@ -1,5 +1,6 @@
 import Image from "next/image";
 import rankLogos from "@/../public/Resources/Images/accrImag.png";
+import GridComponent from "@/GlobalComponent/GridComponent";
 
 const RankAndAccr = ({college}) => {
     // Create an array with 10 repeated logos
@@ -8,9 +9,9 @@ const RankAndAccr = ({college}) => {
     console.log(repeatedLogos);
 
     return (
-        <div className="w-full pt-[64px] flex flex-col">
+        <div className="w-full pt-[64px] flex flex-col max-w-full overflow-hidden">
             {/* Title */}
-            <h2 className="text-[48px] font-semibold font-[Outfit] text-[#024B53] mb-12">
+            <h2 className="text-[48px] font-semibold font-[Outfit] text-[#024B53] mb-12 break-words w-full">
                 Rankings & Accreditations
             </h2>
 
@@ -20,14 +21,17 @@ const RankAndAccr = ({college}) => {
                     {repeatedLogos.map((logo, index) => (
                         <div
                             key={index}
-                            className="min-w-[100px] h-[80px] flex items-center justify-center bg-white rounded-lg shadow-sm"
+                            className="min-w-[100px] h-[80px] flex items-center justify-center bg-white rounded-lg shadow-sm flex-shrink-0"
                         >
                             <img
                                 src={logo.image}
                                 alt={logo.name}
                                 width={100}
                                 height={60}
-                                className="object-contain"
+                                className="object-contain max-w-full h-auto"
+                                onError={(e) => {
+                                    e.target.style.display = 'none';
+                                }}
                             />
                         </div>
                     ))}

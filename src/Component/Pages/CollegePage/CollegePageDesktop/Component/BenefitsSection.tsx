@@ -4,6 +4,7 @@ import { CentralImage } from './UI/CentralImage';
 import GridComponent from "@/GlobalComponent/GridComponent";
 
 interface UniversityInfo {
+    name?: string;
     banner_image?: string;
     benefits?: string[]; // benefits array from API
     placement?: {
@@ -44,20 +45,16 @@ export const BenefitsSection: React.FC<{ college: College }> = ({ college }) => 
 
     return (
         <section
-            className="w-full h-[738px] pt-[64px] relative bg-white mx-auto my-0 p-0 max-md:max-w-full max-md:h-auto max-md:p-5 max-sm:p-4"
+            className="w-full h-[738px] pt-[64px] relative bg-white mx-auto my-0 p-0 max-md:max-w-full max-md:h-auto max-md:p-5 max-sm:p-4 max-w-full overflow-hidden"
             aria-labelledby="benefits-heading"
         >
             <header>
-                <GridComponent lastUsedGridEnd={0} gridStart={0} gridEnd={6}>
-                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
-                        Benefits of NIU Online
-                    </div>
-                </GridComponent>
-                <GridComponent lastUsedGridEnd={0} gridStart={0} gridEnd={6}>
-                    <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
-                        Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
-                    </div>
-                </GridComponent>
+                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
+                    Benefits of {college?.university_info?.name || 'University'}
+                </div>
+                <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-full">
+                    Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+                </div>
             </header>
 
             <CentralImage img={college?.university_info?.banner_image || ""} />

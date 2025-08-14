@@ -23,15 +23,15 @@ const HeroPage = ({college}) => {
     return (
 
         <>
-            <div className="w-full gap-6 flex">
+            <div className="w-full gap-6 flex max-w-full">
                 {/* Left Section */}
-                <div className="w-1/2 flex flex-col p-8">
-                    <div className="mb-6 text-[52px] font-semibold text-[#025E68] font-[Outfit]">
+                <div className="w-1/2 flex flex-col p-8 min-w-0">
+                    <div className="mb-6 text-[52px] font-semibold text-[#025E68] font-[Outfit] break-words">
                         {college.university_info.name}
                     </div>
 
 
-                    <div className="mb-[65px] text-[20px] font-normal text-[#025E68] font-[Outfit]">
+                    <div className="mb-[65px] text-[20px] font-normal text-[#025E68] font-[Outfit] break-words">
                         {college.university_info.about.description}
                     </div>
 
@@ -45,12 +45,12 @@ const HeroPage = ({college}) => {
                 </div>
 
                 {/* Right Section */}
-                <div className="w-1/2 relative mb-8">
-                    <div className=" ">
+                <div className="w-1/2 relative mb-8 flex-shrink-0">
+                    <div className="max-w-full">
                         <Image
                             src={collegepage_hero}
                             alt="College Page Hero"
-                            className=""
+                            className="max-w-full h-auto"
                         />
 
                     </div>
@@ -58,7 +58,7 @@ const HeroPage = ({college}) => {
                         <Image
                             src={collegepage_hero_img}
                             alt="College Page Hero Image"
-                            className=""
+                            className="max-w-full h-auto"
                         />
                     </div>
                 </div>
