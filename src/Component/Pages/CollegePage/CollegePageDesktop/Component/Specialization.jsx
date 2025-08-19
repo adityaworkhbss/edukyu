@@ -35,6 +35,24 @@ const Specialization = ({data}) => {
 
     const programs = getActivePrograms();
 
+    // Show fallback if no specialization data
+    if (!data?.Specialisation || tabs.length === 0) {
+        return (
+            <div className="w-full max-w-full overflow-hidden">
+                <GridComponent gridStart={0} gridEnd={7}>
+                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words">
+                        Specialization
+                    </div>
+                </GridComponent>
+                <GridComponent gridStart={0} gridEnd={7}>
+                    <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words">
+                        Specialization information will be available soon.
+                    </div>
+                </GridComponent>
+            </div>
+        );
+    }
+
     // Update visible cards based on screen size
     useEffect(() => {
         const updateVisibleCards = () => {
@@ -45,8 +63,10 @@ const Specialization = ({data}) => {
                 setVisibleCards(2);
             } else if (width < 1280) {
                 setVisibleCards(3);
-            } else {
+            } else if (width < 1536) {
                 setVisibleCards(4);
+            } else {
+                setVisibleCards(5);
             }
         };
 
@@ -101,27 +121,23 @@ const Specialization = ({data}) => {
     };
 
     return (
-        <section className="bg-background pt-12">
-            <div className="">
-                <div className="">
-                    <GridComponent gridStart={0} gridEnd={7}>
-                        <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
-                            Specialization
-                        </div>
-                    </GridComponent>
+        <section className="bg-background pt-12 max-w-full overflow-hidden">
+            <div className="max-w-full">
+                <div className="max-w-full">
+                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
+                        Specialization
+                    </div>
 
-                    <GridComponent gridStart={0} gridEnd={7}>
-                        <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
-                            Unlimited access to world class Specialization, hands-on projects, and job-ready certificate programs.
-                        </div>
-                    </GridComponent >
+                    <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-full">
+                        Unlimited access to world class Specialization, hands-on projects, and job-ready certificate programs.
+                    </div>
 
-                    <div className="flex bg-white border-b border-[#B2B2B2] mb-[84px]">
+                    <div className="flex bg-white border-b border-[#B2B2B2] mb-[84px] overflow-x-auto">
                         {tabs.map((tab) => (
                             <button
                                 key={tab.id}
                                 onClick={() => handleTabChange(tab.id)}
-                                className={`px-6 py-4 gap-[10px] text-sm font-medium font-[Outfit] transition-colors ${
+                                className={`px-6 py-4 gap-[10px] text-sm font-medium font-[Outfit] transition-colors whitespace-nowrap flex-shrink-0 ${
                                     activeTab === tab.id
                                         ? 'bg-white text-slate-800 border-b-2 border-teal-600'
                                         : 'text-slate-600'
@@ -134,29 +150,29 @@ const Specialization = ({data}) => {
 
                 </div>
 
-                <div className=" ">
+                <div className="max-w-full">
                     {programs.length > 0 ? (
                         <div
                             ref={containerRef}
-                            className="inline-flex overflow-x-auto scrollbar-hide gap-6"
+                            className="inline-flex overflow-x-auto scrollbar-hide gap-6 max-w-full"
                             style={{ scrollBehavior: 'smooth' }}
                         >
                             {programs.map((program) => (
                                 <div
                                     key={program.id}
-                                    className="bg-program-card border border-border rounded-[22px] shadow-sm flex-shrink-0 snap-start"
+                                    className="bg-program-card border border-border rounded-[22px] shadow-sm flex-shrink-0 snap-start min-w-0"
                                     style={{ width: `calc((100% - ${(visibleCards) * 24}px) / ${visibleCards})` }}
                                 >
                                     <div className="p-0">
                                         <div className="bg-program-image rounded-t-lg h-[132px] flex items-center justify-center">
                                             <ImageIcon size={48} className="text-secondary rounded-t-lg opacity-60 bg-cover" />
                                         </div>
-                                        <div className="py-[16px] px-[16px]">
-                                            <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none">
+                                        <div className="py-[16px] px-[16px] min-w-0">
+                                            <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none break-words">
                                                 {program.title}
                                             </h3>
-                                            <div className="inline-flex items-center gap-[8px] pt-[22px]">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <div className="inline-flex items-center gap-[8px] pt-[22px] min-w-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
                                                     <g clipPath="url(#clip0_236_281)">
                                                         <path d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z" fill="#383837"/>
                                                     </g>
@@ -167,17 +183,17 @@ const Specialization = ({data}) => {
                                                     </defs>
                                                 </svg>
 
-                                                <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
+                                                <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none break-words min-w-0">
                                                     {program.description}
                                                 </div>
                                             </div>
 
-                                            <div className="inline-flex items-center gap-[8px] pt-[16px]">
-                                                <div className="text-[#323232] pl-[5px] pr-[4px] font-[Outfit] text-[26px] font-medium leading-[21px]">
+                                            <div className="inline-flex items-center gap-[8px] pt-[16px] min-w-0">
+                                                <div className="text-[#323232] pl-[5px] pr-[4px] font-[Outfit] text-[26px] font-medium leading-[21px] flex-shrink-0">
                                                     ₹
                                                 </div>
 
-                                                <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
+                                                <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none break-words min-w-0">
                                                     {program.details}
                                                 </div>
                                             </div>
@@ -187,7 +203,7 @@ const Specialization = ({data}) => {
                                     <div className="pt-[10px] w-full pb-[16px]">
                                         <div className="flex justify-center">
                                             <button
-                                                className="flex items-center justify-center border px-[90px] py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors hover:bg-[#f3f3f3]"
+                                                className="flex items-center justify-center border w-full mx-4 py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors hover:bg-[#f3f3f3]"
                                             >
                                                 Explore
                                             </button>

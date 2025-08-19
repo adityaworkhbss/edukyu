@@ -20,16 +20,16 @@ import HiringPartnersSection from "@/Component/Pages/CollegePage/CollegePageDesk
 const CollegePageDesktop = ({college, collegeSecondry}) => {
 
      return (
-        <div className="px-[56px]">
+        <div className="px-[32px] max-w-full overflow-x-hidden">
             <HeroPage college={college} />
 
 
-            <div className="inline-flex gap-6">
-                <div className="w-1/4">
+            <div className="flex gap-4 max-w-full w-full">
+                <div className="w-1/4 flex-shrink-0">
                     <SidebarNavigation/>
                 </div>
 
-                <div className="w-3/4 space-y-[64px]">
+                <div className="w-3/4 space-y-[64px] min-w-0 max-w-full">
                     <div id="ranking">
                         <RankAndAccr college={college} />
                     </div>

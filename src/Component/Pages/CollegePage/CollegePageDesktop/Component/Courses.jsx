@@ -47,26 +47,22 @@ const Courses = ({ college }) => {
 
     const programs = getActivePrograms();
     return (
-        <section className="pt-[64px] bg-background">
-            <div>
-                <GridComponent gridStart={0} gridEnd={7}>
-                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
-                        Explore our Courses
-                    </div>
-                </GridComponent>
+        <section className="pt-[64px] bg-background max-w-full overflow-hidden">
+            <div className="max-w-full">
+                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
+                    Explore our Courses
+                </div>
 
-                <GridComponent gridStart={0} gridEnd={7}>
-                    <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
-                        Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
-                    </div>
-                </GridComponent>
+                <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-full">
+                    Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+                </div>
 
-                <div className="flex bg-white border-b border-[#B2B2B2] mb-[84px]">
+                <div className="flex bg-white border-b border-[#B2B2B2] mb-[84px] overflow-x-auto">
                     {tabs.map((tab) => (
                         <button
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
-                            className={`px-6 py-4 gap-[10px] text-sm font-medium font-[Outfit] transition-colors ${
+                            className={`px-6 py-4 gap-[10px] text-sm font-medium font-[Outfit] transition-colors whitespace-nowrap flex-shrink-0 ${
                                 activeTab === tab.id
                                     ? "bg-white text-slate-800 border-b-2 border-teal-600"
                                     : "text-slate-600"
@@ -77,12 +73,11 @@ const Courses = ({ college }) => {
                     ))}
                 </div>
 
-                <div className="relative">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {programs.map((program) => (
+                <div className="relative max-w-full">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 max-w-full">{programs.map((program) => (
                             <div
                                 key={program.id}
-                                className="bg-program-card border border-border rounded-[22px] shadow-sm"
+                                className="bg-program-card border border-border rounded-[22px] shadow-sm min-w-0"
                             >
                                 <div className="p-0">
                                     <div className="bg-program-image rounded-t-lg h-[132px] flex items-center justify-center">
@@ -92,6 +87,10 @@ const Courses = ({ college }) => {
                                                 src={program.image}
                                                 alt={program.title}
                                                 className="rounded-t-[24px] h-full w-full object-cover"
+                                                onError={(e) => {
+                                                    e.target.style.display = 'none';
+                                                    e.target.nextSibling.style.display = 'flex';
+                                                }}
                                             />
                                         ) : (
                                             <ImageIcon
@@ -99,18 +98,23 @@ const Courses = ({ college }) => {
                                                 className="text-secondary rounded-t-lg opacity-60 bg-cover"
                                             />
                                         )}
+                                        <ImageIcon
+                                            size={48}
+                                            className="text-secondary rounded-t-lg opacity-60 bg-cover hidden"
+                                        />
                                     </div>
-                                    <div className="py-[16px] px-[16px]">
-                                        <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none">
+                                    <div className="py-[16px] px-[16px] min-w-0">
+                                        <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none break-words">
                                             {program.title}
                                         </h3>
-                                        <div className="inline-flex items-center gap-[8px] pt-[22px]">
+                                        <div className="inline-flex items-center gap-[8px] pt-[22px] min-w-0">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="24"
                                                 height="24"
                                                 viewBox="0 0 24 24"
                                                 fill="none"
+                                                className="flex-shrink-0"
                                             >
                                                 <g clipPath="url(#clip0_236_281)">
                                                     <path
@@ -125,17 +129,17 @@ const Courses = ({ college }) => {
                                                 </defs>
                                             </svg>
 
-                                            <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
+                                            <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none break-words min-w-0">
                                                 {program.description}
                                             </div>
                                         </div>
 
-                                        <div className="inline-flex items-center gap-[8px] pt-[16px]">
-                                            <div className="text-[#323232] pl-[5px] pr-[4px] font-[Outfit] text-[26px] font-medium leading-[21px]">
+                                        <div className="inline-flex items-center gap-[8px] pt-[16px] min-w-0">
+                                            <div className="text-[#323232] pl-[5px] pr-[4px] font-[Outfit] text-[26px] font-medium leading-[21px] flex-shrink-0">
                                                 ₹
                                             </div>
 
-                                            <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
+                                            <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none break-words min-w-0">
                                                 {program.details}
                                             </div>
                                         </div>

@@ -29,11 +29,14 @@ export const CollegePageSecondryData = [
             "Specialisation": {
                 "MBA": {
                     "Management": {},
-                    "IT": {},
-                    "Healthcare": {},
-                    "Engineering": {}
+
+
+
+                    "MCA": {
+                        "IT": {},
+                        "Engineering": {}
+                    },
                 },
-                "MCA": {},
                 "MA": {},
                 "M.Com": {},
                 "BA": {},
@@ -75,13 +78,17 @@ export const CollegePageSecondryData = [
             "Specialisation": {
                 "Online MBA": {
                     "Finance": {},
-                    "IT": {},
-                    "Healthcare": {},
+
+
                     "Project Management": {}
                 },
                 "Online BBA": {},
-                "Online MCA": {},
-                "Online BCA": {},
+                "Online MCA": {
+                    "IT": {},
+                },
+                "Online BCA": {
+                    "IT": {},
+                },
                 "Online MA": {},
                 "Online M.com": {},
                 "Online B.com": {}
@@ -169,17 +176,20 @@ export const CollegePageSecondryData = [
                     "Data Science": {},
                     "HR Analytics": {},
                     "Digital Marketing Management": {},
-                    "Online MBA (Dual)": {},
-                    "Online BBA": {},
-                    "Online MCA": {},
+
+
+                },
+
+                "Online BCA": {
                     "Blockchain": {},
                     "ML&AI": {},
                     "Machine Learning & Artificial Intelligence": {},
                     "AR & VR": {}
                 },
-                "Online BCA": {
+                "Online MBA (Dual)": {},
+                "Online BBA": {},
+                "Online MCA": {},
 
-                },
                 "Online MA": {
 
                 },
@@ -228,10 +238,10 @@ export const CollegePageSecondryData = [
             "Specialisation": {
                 "Online MBA": {
                     "Management": {},
-                    "IT": {},
-                    "Healthcare": {}
+                    
+                   
                 },
-                "Online MCA": {},
+                "Online MCA": {"IT": {},},
                 "Online BBA": {},
                 "Online BCA": {},
                 "Online MA": {},
@@ -356,18 +366,19 @@ export const CollegePageSecondryData = [
             },
             "Programs": "MBA, Executive MBA, B.Com, BBA, Certificate Programs, Diploma Programs",
             "Specialisation": {
-                "MBA": {},
-                "Executive MBA": {},
-                "B.Com": {},
-                "BBA": {},
-                "Certificate Programs": {},
                 "Diploma Programs": {
                     "Business Management": {},
                     "Operations Management": {},
                     "Diploma in Human Resource Management": {},
                     "Diploma in Finance Management": {},
                     "Diploma in Marketing Management": {}
-                }
+                },
+                "MBA": {},
+                "Executive MBA": {},
+                "B.Com": {},
+                "BBA": {},
+                "Certificate Programs": {},
+                
             },
             "Eligibility": "For Certificate: 10+2, For MBA: Graduation, For BBA: 10+2",
             "Review": "Well-received by students",
@@ -415,7 +426,6 @@ export const CollegePageSecondryData = [
                     "Information Technology": {},
                     "International Business": {}
                 },
-                "BBA": {},
                 "MCA": {
                     "Machine Learning & AI": {},
                     "Data Science": {},
@@ -423,6 +433,8 @@ export const CollegePageSecondryData = [
                     "Full Stack Web Development": {},
                     "AR/VR (Game Development)": {}
                 },
+                "BBA": {},
+                
                 "BCA": {},
                 "M.Com": {},
                 "BA": {},

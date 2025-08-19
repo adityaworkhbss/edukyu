@@ -36,55 +36,59 @@ const FeeTable = ({ collegeSecondry }) => {
     });
 
     return (
-        <div className="w-full pt-8 pb-5  flex flex-col items-start">
-            <GridComponent gridStart={0} gridEnd={7}>
-                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
-                    Updated Fees for Each Courses in 2025
-                </div>
-            </GridComponent>
+        <div className="w-full pt-8 pb-5 flex flex-col items-start max-w-full overflow-hidden">
+            <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
+                Updated Fees for Each Courses in 2025
+            </div>
 
-            <GridComponent gridStart={0} gridEnd={7}>
-                <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
-                    Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
-                </div>
-            </GridComponent>
+            <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-full">
+                Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+            </div>
 
             {/* Table */}
             <div className="w-full rounded-[12px] overflow-x-auto">
-                <table className="min-w-full text-center border-collapse font-[Outfit]">
+                <table className="w-full text-center border-collapse font-[Outfit] min-w-full">
                     {/* Table Header */}
                     <thead>
                     <tr className="bg-[#024B53] text-white text-[28px] font-semibold ">
-                        <th className="py-3 px-4">Courses</th>
+                        <th className="py-3 px-4 text-left">Courses</th>
                         <th className="py-3 px-4">Fees</th>
                         <th className="py-3 px-4">Years</th>
                     </tr>
                     </thead>
 
-                    {/* Table Body */}
-                    <tbody>
-                    {courseData.map((item, index) => (
-                        <tr
-                            key={index}
-                            className={index % 2 === 0 ? "bg-white text-[20px]" : "bg-[#F3F3F3] text-[20px]"}
-                        >
-                            <td className="py-3 px-4">{item.course}</td>
-                            <td
-                                className={`py-3 px-4 ${item.fee === "N/A" ? "text-gray-400" : "text-black"}`}
-                            >
-                                {item.fee}
-                            </td>
-                            <td
-                                className={`py-3 px-4 ${item.duration === "N/A" ? "text-gray-400" : "text-black"}`}
-                            >
-                                {item.duration}
-                            </td>
-
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-            </div>
+                        {/* Table Body */}
+                        <tbody>
+                        {courseData.map((item, index) => {
+                            const words = item.course.split(" ");
+                            const displayCourse =
+                                words.length > 4
+                                    ? words.slice(0, 4).join(" ") + "..."
+                                    : item.course;
+                            return (
+                                <tr
+                                    key={index}
+                                    className={index % 2 === 0 ? "bg-white text-[20px]" : "bg-[#F3F3F3] text-[20px]"}
+                                >
+                                    <td className="py-3 px-4 text-left overflow-hidden" title={item.course}>
+                                        {displayCourse}
+                                    </td>
+                                    <td
+                                        className={`py-3 px-4 ${item.fee === "N/A" ? "text-gray-400" : "text-black"}`}
+                                    >
+                                        {item.fee}
+                                    </td>
+                                    <td
+                                        className={`py-3 px-4 ${item.duration === "N/A" ? "text-gray-400" : "text-black"}`}
+                                    >
+                                        {item.duration}
+                                    </td>
+                                </tr>
+                            );
+                        })}
+                        </tbody>
+                    </table>
+                </div>
         </div>
     );
 };
