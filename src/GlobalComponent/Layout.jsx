@@ -9,20 +9,29 @@ import BlogPageMain from "@/Component/Pages/BlogsPage/BlogPageMain";
 import CompareCollegePage from '@/Component/Pages/CompareCollegePage/CompareCollege';
 import { usePageContext } from '@/GlobalComponent/PageContext';
 import CollegePage from "@/Component/Pages/CollegePage/CollegePage";
+import { DevEnvironment } from "@/DevEnvironment/DevEnviroment";
+import Parent from "@/GlobalComponent/Parent";
 
 const Layout = () => {
     const breakpoint = useBreakpoint();
     const { currentPage, setCurrentPage, selectedCollege } = usePageContext();
 
+    const config = gridConfigs[breakpoint];
+
+    const marginClass = {
+        mobile: 'ml-[20px] mr-[20px]',
+        tablet: 'ml-[20px] mr-[20px]',
+        laptop: 'ml-[56px] mr-[56px]',
+        desktop: 'mx-auto',
+    }[breakpoint];
+
     const renderPage = () => {
         switch (currentPage) {
             case 'home': return <HomePage />;
             case 'blog': return <BlogPageMain />;
-            // case 'blog': return <BlogPageMain />;
             case 'compare': return <CompareCollegePage />;
-            case 'college' : 
+            case 'college':
                 if (!selectedCollege) {
-                    // If no college is selected, show an error or redirect to home
                     return (
                         <div className="w-full p-8 text-center">
                             <h2 className="text-2xl font-semibold text-red-600 mb-4">
@@ -31,7 +40,7 @@ const Layout = () => {
                             <p className="text-gray-600 mb-4">
                                 Please select a college to view its details.
                             </p>
-                            <button 
+                            <button
                                 onClick={() => setCurrentPage('home')}
                                 className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
                             >
@@ -41,19 +50,31 @@ const Layout = () => {
                     );
                 }
                 return <CollegePage collegeName={selectedCollege} />;
-            default: return <HomePage />;
+            default:
+                return <HomePage />;
         }
     };
+
+    // const config = gridConfigs[breakpoint] || gridConfigs.default;
 
     return (
         <div className="w-full">
             <TopNav />
             <div className="relative">
+                {DevEnvironment.ENABLE_GRIDS && (
+                    <div className={`${marginClass} absolute inset-0 z-[10000000] pointer-events-none opacity-90`}>
+                    <Parent
+                            numGrids={config.numGrids}
+                            gutter={config.gutter}
+                            gridWidth={config.gridWidth}
+                            gridHeight={config.gridHeight}
+                            color="rgba(220, 100, 255, 0.2)"
+                        />
+                    </div>
+                )}
+
                 {renderPage()}
-
-                {/*<HomePage/>*/}
             </div>
-
             <Footer />
         </div>
     );
