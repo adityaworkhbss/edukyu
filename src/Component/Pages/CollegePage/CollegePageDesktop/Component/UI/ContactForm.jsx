@@ -64,13 +64,13 @@ export const ContactForm = () => {
         >
             <header>
                 <GridComponent gridStart={0} gridEnd={6}>
-                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
+                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-2">
                         Contact Us
                     </div>
                 </GridComponent>
 
                 <GridComponent>
-                    <div className="text-[20px] pt-[16px] pb-[48px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
+                    <div className="text-[20px] pt-[16px] pb-[0] font-normal text-[#535862] font-[Outfit] leading-[30px]">
                         Unlimited access to world class courses, hands-on projects, and
                         job-ready certificate programs.
                     </div>
@@ -80,7 +80,7 @@ export const ContactForm = () => {
             <fieldset className="border-0 p-0 m-0">
                 <legend className="sr-only">Contact Information</legend>
 
-                <div className="flex w-full items-stretch gap-6 flex-wrap mt-12 max-md:max-w-full max-md:mt-10">
+                <div className="flex w-full items-stretch gap-6 flex-wrap mt-8 max-md:max-w-full max-md:mt-10">
                     <FormInput
                         placeholder="Enter your full name"
                         value={formData.fullName}

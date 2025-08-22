@@ -169,7 +169,11 @@ export const CollegePageSecondryData = [
             "Programs": "Online MBA, Online MBA (Dual), Online BBA, Online MCA, Online BCA, Online MA, Online BA, Online Mcom, Online Bcom",
             "Specialisation": {
                 "Online MBA": {
-                    "MBA in General Management": {},
+                    "MBA in General Management": {
+                        "image": "https://niu.edu.in/wp-content/uploads/2023/08/a2.jpg",
+                        "Duration": "2 Years",
+                        "Fees": "Starting from Rs 120/Day",
+                    },
                     "International Finance": {},
                     "Digital Entrepreneurship": {},
                     "Business Analytics": {},
@@ -238,10 +242,10 @@ export const CollegePageSecondryData = [
             "Specialisation": {
                 "Online MBA": {
                     "Management": {},
-                    
-                   
+
+
                 },
-                "Online MCA": {"IT": {},},
+                "Online MCA": { "IT": {}, },
                 "Online BBA": {},
                 "Online BCA": {},
                 "Online MA": {},
@@ -378,7 +382,7 @@ export const CollegePageSecondryData = [
                 "B.Com": {},
                 "BBA": {},
                 "Certificate Programs": {},
-                
+
             },
             "Eligibility": "For Certificate: 10+2, For MBA: Graduation, For BBA: 10+2",
             "Review": "Well-received by students",
@@ -434,7 +438,7 @@ export const CollegePageSecondryData = [
                     "AR/VR (Game Development)": {}
                 },
                 "BBA": {},
-                
+
                 "BCA": {},
                 "M.Com": {},
                 "BA": {},

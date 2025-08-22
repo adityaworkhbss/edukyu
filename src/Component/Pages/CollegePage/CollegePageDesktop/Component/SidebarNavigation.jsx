@@ -27,13 +27,13 @@ const SidebarNavigation = () => {
     };
 
     return (
-        <aside className="w-full max-w-[220px] p-3 pt-[90px] sticky top-0">
+        <aside className="w-full max-w-[250px] p-3 pt-[90px] sticky top-0 pl-6">
             <ul className="space-y-3">
                 {sections.map((item) => (
                     <li
                         key={item.id}
                         onClick={() => handleClick(item.id)}
-                        className={`cursor-pointer text-sm ${
+                        className={`cursor-pointer text-lg ${
                             active === item.id
                                 ? "font-semibold text-[#003B49]"
                                 : "text-gray-500 hover:text-[#003B49]"

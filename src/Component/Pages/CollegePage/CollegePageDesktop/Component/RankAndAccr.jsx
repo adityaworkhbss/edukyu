@@ -16,22 +16,24 @@ const RankAndAccr = ({college}) => {
             </h2>
 
             {/* Scrollable Logo Row */}
-            <div className="w-full overflow-x-auto scrollbar-hide">
-                <div className="flex gap-6 py-2 flex-nowrap">
+            <div className="w-full overflow-x-auto scrollbar-hide bg-white">
+                <div className="flex gap-3.5 py-2 flex-nowrap bg-white">
                     {repeatedLogos.map((logo, index) => (
                         <div
                             key={index}
-                            className="min-w-[100px] h-[80px] flex items-center justify-center bg-white rounded-lg shadow-sm flex-shrink-0"
+                            className="min-w-[100px] h-[80px] flex items-center justify-center bg-white rounded-lg flex-shrink-0"
                         >
                             <img
+                               // style={{ backgroundColor: 'white' }}
                                 src={logo.image}
                                 alt={logo.name}
-                                width={100}
-                                height={60}
-                                className="object-contain max-w-full h-auto"
+                                width={80}
+                                height={80}
+                                className="object-contain max-w-full h-auto "
                                 onError={(e) => {
                                     e.target.style.display = 'none';
                                 }}
+                                
                             />
                         </div>
                     ))}

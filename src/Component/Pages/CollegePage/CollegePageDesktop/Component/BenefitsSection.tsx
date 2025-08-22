@@ -45,7 +45,7 @@ export const BenefitsSection: React.FC<{ college: College }> = ({ college }) => 
 
     return (
         <section
-            className="w-full h-[738px] pt-[64px] relative bg-white mx-auto my-0 p-0 max-md:max-w-full max-md:h-auto max-md:p-5 max-sm:p-4 max-w-full overflow-hidden"
+            className="w-full h-[738px] pt-[64px] relative bg-white mx-auto my-0 p-0 max-md:max-w-full max-md:h-auto max-md:p-5 max-sm:p-4 max-w-full overflow-hidden ml-0.5"
             aria-labelledby="benefits-heading"
         >
             <header>
@@ -57,7 +57,7 @@ export const BenefitsSection: React.FC<{ college: College }> = ({ college }) => 
                 </div>
             </header>
 
-            <CentralImage img={college?.university_info?.banner_image || ""} />
+            <CentralImage  img={college?.university_info?.banner_image || ""} />
 
             {benefits.map((benefit) => (
                 <BenefitCard

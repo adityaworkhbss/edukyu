@@ -199,7 +199,8 @@ export const CollegePageData = [{
             "accreditations": [
                 {
                     "name": "NAAC A+",
-                    "image": "https://niu.edu.in/wp-content/uploads/2023/08/logo.jpg"
+                    //"image": "https://niu.edu.in/wp-content/uploads/2023/08/logo.jpg"
+                    "image" : "https://i.postimg.cc/jdBzGqVQ/clean-white-bg.png",
                 },
                 {
                     "name": "UGC Recognized",
@@ -241,7 +242,7 @@ export const CollegePageData = [{
                         "discounted": "88,500"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type": "PG",
+                    "type": "UG",
                     "specializations": []
                 },
                 {

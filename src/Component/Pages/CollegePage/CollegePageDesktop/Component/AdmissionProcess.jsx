@@ -20,7 +20,7 @@ const AdmissionProcess = ({college}) => {
 }
 
     return (
-        <div className="w-full max-w-full overflow-hidden">
+        <div className="w-full max-w-full overflow-hidden ml-0.5">
             <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
                 Admission Process of {college?.university_info?.name}
             </div>

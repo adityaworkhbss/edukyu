@@ -53,9 +53,11 @@ export default function TopNav() {
             if (activeTab) {
                 console.log("" + document.body.style.overflow)
                 document.body.style.overflow = 'hidden';
-                console.log(document.body.style.overflow)
+                console.log(document.body.style.overflow);
+                document.documentElement.style.overflow = 'hidden';
             } else {
                 document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
             }
         }
         return () => {

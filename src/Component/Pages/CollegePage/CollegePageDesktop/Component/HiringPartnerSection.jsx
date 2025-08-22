@@ -2,7 +2,7 @@ import GridComponent from "@/GlobalComponent/GridComponent";
 
 const HiringPartnersSection = ({ logos, name }) => {
     return (
-        <section className="bg-white py-12 max-w-full overflow-hidden w-full">
+        <section className="bg-white py-12 max-w-full overflow-hidden w-full ml-0.5">
             <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
                 Hiring Partner of {name}
             </div>

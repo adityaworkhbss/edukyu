@@ -36,7 +36,7 @@ const FeeTable = ({ collegeSecondry }) => {
     });
 
     return (
-        <div className="w-full pt-8 pb-5 flex flex-col items-start max-w-full overflow-hidden">
+        <div className="w-full pt-8 pb-5 flex flex-col items-start max-w-full overflow-hidden ml-0.5">
             <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
                 Updated Fees for Each Courses in 2025
             </div>
@@ -46,7 +46,7 @@ const FeeTable = ({ collegeSecondry }) => {
             </div>
 
             {/* Table */}
-            <div className="w-full rounded-[12px] overflow-x-auto">
+            <div className="w-[97%] rounded-[12px] overflow-x-auto">
                 <table className="w-full text-center border-collapse font-[Outfit] min-w-full">
                     {/* Table Header */}
                     <thead>
@@ -60,18 +60,13 @@ const FeeTable = ({ collegeSecondry }) => {
                         {/* Table Body */}
                         <tbody>
                         {courseData.map((item, index) => {
-                            const words = item.course.split(" ");
-                            const displayCourse =
-                                words.length > 4
-                                    ? words.slice(0, 4).join(" ") + "..."
-                                    : item.course;
                             return (
                                 <tr
                                     key={index}
                                     className={index % 2 === 0 ? "bg-white text-[20px]" : "bg-[#F3F3F3] text-[20px]"}
                                 >
-                                    <td className="py-3 px-4 text-left overflow-hidden" title={item.course}>
-                                        {displayCourse}
+                                    <td className="py-3 px-4 text-left break-words whitespace-normal max-w-[20px]" title={item.course}>
+                                        {item.course}
                                     </td>
                                     <td
                                         className={`py-3 px-4 ${item.fee === "N/A" ? "text-gray-400" : "text-black"}`}

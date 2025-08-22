@@ -14,7 +14,7 @@ const DegreeSection = ({college}) => {
     }
 
     return (
-        <div className="w-full py-12 max-w-full overflow-hidden">
+        <div className="w-full py-12 max-w-full overflow-hidden ml-0.5">
             {/* Text Header */}
             <div className="mb-10 text-left">
 
@@ -32,7 +32,7 @@ const DegreeSection = ({college}) => {
             <div className="flex flex-col lg:flex-row items-start gap-6 max-w-full">
                 {/* Degree Image */}
                 {degreeInfo.certificate_image && (
-                    <div className="flex flex-shrink-0">
+                    <div className="flex flex-shrink-0 w-[320px]">
                         <img
                             src={degreeInfo.certificate_image} // Rename your uploaded image to this and place in /public
                             alt="Certificate"
@@ -47,11 +47,11 @@ const DegreeSection = ({college}) => {
                 )}
 
                 {/* Bullet Points */}
-                <div className="space-y-4 flex-1 min-w-0">
+                <div className="space-y-4 flex-1 min-w-0 ">
                     {college.university_info.about.highlights.map((point, i) => (
                         <div
                             key={i}
-                            className="bg-white/60 w-full backdrop-blur-md border border-[#EAEAEA] text-[#4B4B4B] text-[15px] font-[Outfit] px-5 py-3 rounded-md break-words"
+                            className="border-r-[12px] bg-[#EFFDFE] backdrop-blur-md border border-[#FFF] text-[#333] text-[16px] font-normal font-[Outfit] px-5 py-3 rounded-md break-words w-[660px]"
                         >
                             {point}
                         </div>

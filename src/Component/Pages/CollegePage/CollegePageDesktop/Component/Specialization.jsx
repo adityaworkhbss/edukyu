@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import { ImageIcon } from "lucide-react";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import { ExploreProgramsData } from '@/Data Model/Homepage/ExploreProgramsData';
@@ -18,117 +18,115 @@ const Specialization = ({data}) => {
     }));
 
     const [activeTab, setActiveTab] = useState(tabs[0]?.id || "");
-    const containerRef = useRef(null);
-    const [visibleCards, setVisibleCards] = useState(4);
     const [scrollPosition, setScrollPosition] = useState(0);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(false);
+    const scrollContainerRef = useRef(null);
+
+    // Check scroll availability
+    const checkScrollAvailability = () => {
+        const container = scrollContainerRef.current;
+        if (!container) return;
+        const { scrollLeft, scrollWidth, clientWidth } = container;
+        setCanScrollLeft(scrollLeft > 4); // small threshold
+        setCanScrollRight(scrollLeft < (scrollWidth - clientWidth - 4));
+    };
+
+    // Handle scroll events
+    const handleScroll = (direction) => {
+        const container = scrollContainerRef.current;
+        if (!container) return;
+        const scrollAmount = Math.max(240, Math.round(container.clientWidth * 0.6)); // at least 240px
+        const newScrollLeft = direction === 'left'
+            ? Math.max(0, container.scrollLeft - scrollAmount)
+            : container.scrollLeft + scrollAmount;
+
+        container.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
+        // Re-evaluate after the smooth scroll likely completes
+        setTimeout(checkScrollAvailability, 350);
+    };
 
     // Get programs for the active tab
     const getActivePrograms = () => {
         const activeData = data?.Specialisation?.[activeTab] || {};
-        return Object.entries(activeData).map(([name, details = {}], index) => ({
-            id: index + 1,
-            title: name || "Unknown Program",
-            description: details.duration ? `Duration - ${details.duration}` : "No duration available",
-            details: details.startingFee ? `Starting @${details.startingFee} per day` : "Fee info not available"
-        }));
+        const detailFees = data?.["Detail Fees"] || {};
+        const durationInfo = data?.Duration || "";
+        
+        return Object.entries(activeData).map(([name, details = {}], index) => {
+            // Extract duration - prioritize specialization-specific duration, then general program duration
+            let duration = "Duration not available";
+            if (details.Duration) {
+                duration = `Duration - ${details.Duration}`;
+            } else if (durationInfo) {
+                const durationPattern = new RegExp(`${activeTab}[^:]*:\\s*([^,]+)`, 'i');
+                const match = durationInfo.match(durationPattern);
+                if (match) {
+                    duration = `Duration - ${match[1].trim()}`;
+                }
+            }
+            
+            // Extract fees - prioritize specialization-specific fees, then detail fees, then general fees
+            let fees = "Fees not available";
+            if (details.Fees) {
+                fees = `Fees - ${details.Fees}`;
+            } else if (detailFees) {
+                // First try to find fees for the specific specialization
+                const specializationKey = `${activeTab} (${name})`;
+                if (detailFees[specializationKey]) {
+                    fees = `Fees - ${detailFees[specializationKey]}`;
+                }
+                // If not found, try the general program fees
+                else if (detailFees[activeTab]) {
+                    fees = `Fees - ${detailFees[activeTab]}`;
+                }
+                // Try without the "Online" prefix
+                else if (detailFees[activeTab.replace("Online ", "")]) {
+                    fees = `Fees - ${detailFees[activeTab.replace("Online ", "")]}`;
+                }
+            }
+            
+            // Extract image from specialization details
+            const image = details.image || null;
+            
+            return {
+                id: index + 1,
+                title: name || "Unknown Program",
+                description: duration,
+                details: fees,
+                image: image
+            };
+        });
     };
 
     const programs = getActivePrograms();
 
-    // Show fallback if no specialization data
-    if (!data?.Specialisation || tabs.length === 0) {
-        return (
-            <div className="w-full max-w-full overflow-hidden">
-                <GridComponent gridStart={0} gridEnd={7}>
-                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words">
-                        Specialization
-                    </div>
-                </GridComponent>
-                <GridComponent gridStart={0} gridEnd={7}>
-                    <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words">
-                        Specialization information will be available soon.
-                    </div>
-                </GridComponent>
-            </div>
-        );
-    }
-
-    // Update visible cards based on screen size
+    // Check scroll availability when programs change
     useEffect(() => {
-        const updateVisibleCards = () => {
-            const width = window.innerWidth;
-            if (width < 768) {
-                setVisibleCards(1);
-            } else if (width < 1024) {
-                setVisibleCards(2);
-            } else if (width < 1280) {
-                setVisibleCards(3);
-            } else if (width < 1536) {
-                setVisibleCards(4);
-            } else {
-                setVisibleCards(5);
-            }
-        };
+        const t = setTimeout(checkScrollAvailability, 100);
+        return () => clearTimeout(t);
+    }, [programs, activeTab]);
 
-        updateVisibleCards();
-        window.addEventListener('resize', updateVisibleCards);
-        return () => window.removeEventListener('resize', updateVisibleCards);
+    // Recompute on resize
+    useEffect(() => {
+        const onResize = () => checkScrollAvailability();
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
     }, []);
 
-    const handleNext = () => {
-        const container = containerRef.current;
-        if (!container) return;
-
-        const cardWidth = container.firstChild?.offsetWidth || 0;
-        const gap = 24; // gap-6 is 24px
-        const scrollAmount = (cardWidth + gap) * visibleCards;
-
-        const newPosition = Math.min(
-            scrollPosition + scrollAmount,
-            container.scrollWidth - container.clientWidth
-        );
-
-        container.scrollTo({
-            left: newPosition,
-            behavior: 'smooth'
-        });
-        setScrollPosition(newPosition);
-    };
-
-    const handlePrev = () => {
-        const container = containerRef.current;
-        if (!container) return;
-
-        const cardWidth = container.firstChild?.offsetWidth || 0;
-        const gap = 24; // gap-6 is 24px
-        const scrollAmount = (cardWidth + gap) * visibleCards;
-
-        const newPosition = Math.max(scrollPosition - scrollAmount, 0);
-
-        container.scrollTo({
-            left: newPosition,
-            behavior: 'smooth'
-        });
-        setScrollPosition(newPosition);
-    };
-
-    const handleTabChange = (tabId) => {
-        setActiveTab(tabId);
-        setScrollPosition(0);
-        if (containerRef.current) {
-            containerRef.current.scrollLeft = 0;
-        }
-    };
+    // Remove section completely if no specialization data
+    if (!data?.Specialisation || tabs.length === 0) {
+        return null;
+    }
 
     return (
-        <section className="bg-background pt-12 max-w-full overflow-hidden">
+        <section className="bg-background pt-12 max-w-full overflow-hidden ml-0.5">
             <div className="max-w-full">
                 <div className="max-w-full">
                     <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
                         Specialization
                     </div>
 
-                    <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-full">
+                    <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-3/4">
                         Unlimited access to world class Specialization, hands-on projects, and job-ready certificate programs.
                     </div>
 
@@ -136,8 +134,8 @@ const Specialization = ({data}) => {
                         {tabs.map((tab) => (
                             <button
                                 key={tab.id}
-                                onClick={() => handleTabChange(tab.id)}
-                                className={`px-6 py-4 gap-[10px] text-sm font-medium font-[Outfit] transition-colors whitespace-nowrap flex-shrink-0 ${
+                                onClick={() => setActiveTab(tab.id)}
+                                className={`px-6 py-4 gap-[10px] text-[16px] font-medium font-[Outfit] transition-colors whitespace-nowrap flex-shrink-0 ${
                                     activeTab === tab.id
                                         ? 'bg-white text-slate-800 border-b-2 border-teal-600'
                                         : 'text-slate-600'
@@ -150,35 +148,71 @@ const Specialization = ({data}) => {
 
                 </div>
 
-                <div className="max-w-full">
-                    {programs.length > 0 ? (
-                        <div
-                            ref={containerRef}
-                            className="inline-flex overflow-x-auto scrollbar-hide gap-6 max-w-full"
-                            style={{ scrollBehavior: 'smooth' }}
-                        >
-                            {programs.map((program) => (
+                <div className="relative max-w-full">
+                    <div 
+                        className="flex gap-6 overflow-x-auto scrollbar-hide pb-4" 
+                        style={{ scrollBehavior: 'smooth' }}
+                        onScroll={checkScrollAvailability}
+                        ref={scrollContainerRef}
+                        data-scroll-container
+                    >
+                        {programs.length > 0 ? (
+                            programs.map((program) => (
                                 <div
                                     key={program.id}
-                                    className="bg-program-card border border-border rounded-[22px] shadow-sm flex-shrink-0 snap-start min-w-0"
-                                    style={{ width: `calc((100% - ${(visibleCards) * 24}px) / ${visibleCards})` }}
+                                    className="bg-program-card border border-[#CDCDCD] border-border rounded-[22px] shadow-sm min-w-0 flex-shrink-0 flex flex-col"
+                                    style={{ width: 'calc((100% - 48px) / 3.18)' }} // Shows 3.2 cards
                                 >
-                                    <div className="p-0">
-                                        <div className="bg-program-image rounded-t-lg h-[132px] flex items-center justify-center">
-                                            <ImageIcon size={48} className="text-secondary rounded-t-lg opacity-60 bg-cover" />
+                                
+                                    <div className="flex flex-col flex-1">
+                                        <div className="bg-program-image rounded-t-lg h-[96px] p-4 flex items-center justify-center">
+                                            {/* Show image from specialization */}
+                                            {program.image ? (
+                                                <img
+                                                    src={program.image}
+                                                    alt={program.title}
+                                                    className="rounded-[14px] h-full w-full object-cover"
+                                                    onError={(e) => {
+                                                        e.target.style.display = 'none';
+                                                        e.target.nextSibling.style.display = 'flex';
+                                                    }}
+                                                />
+                                            ) : (
+                                                <ImageIcon
+                                                    size={48}
+                                                    className="text-secondary rounded-[14px] opacity-60 bg-cover"
+                                                />
+                                            )}
+                                            <ImageIcon
+                                                size={48}
+                                                className="text-secondary rounded-[14px] opacity-60 bg-cover hidden"
+                                            />
                                         </div>
-                                        <div className="py-[16px] px-[16px] min-w-0">
-                                            <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none break-words">
+                                        
+                                        <div className="py-[16px] px-[16px] min-w-0 flex-1 flex flex-col">
+                                            <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium break-words min-h-[48px] flex items-start">
                                                 {program.title}
                                             </h3>
+                                            
                                             <div className="inline-flex items-center gap-[8px] pt-[22px] min-w-0">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
+                                                {/* Clock icon */}
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="24"
+                                                    height="24"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    className="flex-shrink-0"
+                                                >
                                                     <g clipPath="url(#clip0_236_281)">
-                                                        <path d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z" fill="#383837"/>
+                                                        <path
+                                                            d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z"
+                                                            fill="#383837"
+                                                        />
                                                     </g>
                                                     <defs>
                                                         <clipPath id="clip0_236_281">
-                                                            <rect width="24" height="24" fill="white"/>
+                                                            <rect width="24" height="24" fill="white" />
                                                         </clipPath>
                                                     </defs>
                                                 </svg>
@@ -200,7 +234,7 @@ const Specialization = ({data}) => {
                                         </div>
                                     </div>
 
-                                    <div className="pt-[10px] w-full pb-[16px]">
+                                    <div className="pt-[0px] w-full pb-[16px]">
                                         <div className="flex justify-center">
                                             <button
                                                 className="flex items-center justify-center border w-full mx-4 py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors hover:bg-[#f3f3f3]"
@@ -210,50 +244,42 @@ const Specialization = ({data}) => {
                                         </div>
                                     </div>
                                 </div>
-                            ))}
-                        </div>
-                    ) : (
-                        <div className="text-center text-gray-500 py-8">
-                            No content available to show.
+                            ))
+                        ) : (
+                            <div className="text-center text-gray-500 py-8">
+                                No content available to show.
+                            </div>
+                        )}
+                    </div>
+
+                    
+                    {/* Navigation Arrows - Left and Right Edges */}
+                    {programs.length > 3 && (
+                        <div className="flex justify-between items-center mt-4 px-0">
+                            <button 
+                                className={`p-3 hover:bg-gray-100 rounded-full transition-all ${
+                                    !canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
+                                }`}
+                                onClick={() => handleScroll('left')}
+                                disabled={!canScrollLeft}
+                            >
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                            </button>
+                            <button 
+                                className={`p-3 hover:bg-gray-100 rounded-full transition-all pr-[40px] ${
+                                    !canScrollRight ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
+                                }`}
+                                onClick={() => handleScroll('right')}
+                                disabled={!canScrollRight}
+                            >
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                            </button>
                         </div>
                     )}
-                </div>
-
-                <div className="flex justify-between w-[90%] mt-[32px] pb-[64px]">
-                    <button
-                        onClick={handlePrev}
-                        disabled={scrollPosition === 0}
-                        className={`bg-white z-10 p-4 hover:shadow-md rounded ${
-                            scrollPosition === 0 ? 'opacity-50 cursor-not-allowed' : ''
-                        }`}
-                        aria-label="Previous"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <g clipPath="url(#clip0_228_602)">
-                                <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#9B9B9B" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_228_602">
-                                    <rect width="32" height="32" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                    </button>
-
-                    <button
-                        onClick={handleNext}
-                        disabled={scrollPosition >= (containerRef.current?.scrollWidth - containerRef.current?.clientWidth - 1 || true)}
-                        className={`bg-white z-10 p-4 hover:shadow-md rounded ${
-                            scrollPosition >= (containerRef.current?.scrollWidth - containerRef.current?.clientWidth - 1 || 0)
-                                ? 'opacity-50 cursor-not-allowed'
-                                : ''
-                        }`}
-                        aria-label="Next"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53" />
-                        </svg>
-                    </button>
                 </div>
             </div>
         </section>

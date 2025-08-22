@@ -32,7 +32,7 @@ const FaqsSection = ({ faqs }) => {
     };
 
     return (
-        <section className="bg-white py-12">
+        <section className="bg-white py-12 ml-0.5 mr-5">
             <GridComponent gridStart={0} gridEnd={7}>
                 <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
                     FAQs
