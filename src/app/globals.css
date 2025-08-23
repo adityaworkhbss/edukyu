@@ -54,3 +54,11 @@ html, body {
   -ms-overflow-style: none;  /* IE & Edge */
   scrollbar-width: none;     /* Firefox */
 }
+
+.sticky-sidebar {
+  position: sticky;
+  top: 80px; /* Adjust based on your header height */
+  align-self: flex-start;
+  height: 100vh;
+  overflow-y: auto;
+}
