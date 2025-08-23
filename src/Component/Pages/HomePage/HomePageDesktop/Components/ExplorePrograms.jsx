@@ -1,7 +1,8 @@
 import React, {useRef, useState} from "react";
 import { ImageIcon } from "lucide-react";
 import GridComponent from "@/GlobalComponent/GridComponent";
-import { ExploreProgramsData } from '@/Data Model/Homepage/ExploreProgramsData'; // Import the data
+import { ExploreProgramsData } from '@/Data Model/Homepage/ExploreProgramsData';
+import {usePageContext} from "@/GlobalComponent/PageContext"; // Import the data
 
 const ExplorePrograms = () => {
     const [activeTab, setActiveTab] = useState("PG");
@@ -11,6 +12,10 @@ const ExplorePrograms = () => {
     const containerRef = useRef(null);
     const cardsPerView = 6;
     const cardGap = 24;
+
+    // setSelectedCourse
+
+    const { setCurrentPage, setSelectedCourse } = usePageContext();
 
     // Transform external data to match component structure
     const getActivePrograms = () => {
@@ -130,6 +135,10 @@ const ExplorePrograms = () => {
                                     <div className="flex justify-center">
                                         <button
                                             className="flex items-center  justify-center border w-full py-[12px] mx-5 text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors hover:bg-[#f3f3f3]"
+                                            onClick={() => {
+                                                setSelectedCourse("NIU");
+                                                setCurrentPage('course');
+                                            }}
                                         >
                                             Explore
                                         </button>

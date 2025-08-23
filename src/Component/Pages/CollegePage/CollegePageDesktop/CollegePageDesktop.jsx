@@ -20,57 +20,65 @@ import HiringPartnersSection from "@/Component/Pages/CollegePage/CollegePageDesk
 const CollegePageDesktop = ({college, collegeSecondry}) => {
 
      return (
-        <div className="px-[32px] max-w-full overflow-x-hidden">
-            <HeroPage college={college} />
+         <div>
+             <div>
+                 <HeroPage college={college} />
+             </div>
+
+             <div className="px-[32px] max-w-full overflow-x-hidden">
 
 
-            <div className="flex gap-4 max-w-full w-full">
-                <div className="w-1/4 flex-shrink-0">
-                    <SidebarNavigation/>
-                </div>
 
-                <div className="w-3/4 space-y-[64px] min-w-0 max-w-full">
-                    <div id="ranking">
-                        <RankAndAccr college={college} />
-                    </div>
-                    <div id="courses">
-                        <Courses college={college}/>
-                    </div>
-                    <div id="specialization">
-                        <Specialization data={collegeSecondry}/>
-                    </div>
-                    <div id="admission">
-                        <AdmissionProcess college={college}/>
-                    </div>
-                    <div id="fees">
-                        <FeeTable collegeSecondry={collegeSecondry}/>
-                    </div>
-                    <div id="benefits">
-                        <BenefitsSection college={college}/>
-                    </div>
-                    <div className="py-[64px]" id="compare">
-                        <CompareCollegesCTA/>
-                    </div>
-                    <div id="degree">
-                        <DegreeSection  college={college}/>
-                    </div>
-                    <div id="hiring">
-                        <HiringPartnersSection
-                            logos={college?.university_info?.placement?.partners || []}
-                            name={college?.university_info?.name || ''}
-                        />
-                    </div>
-                    <div id="faq">
-                        <FaqsSection faqs={college?.university_info?.faqs || []}/>
-                    </div>
-                    <div id="contact">
-                        <ContactUsSection/>
-                    </div>
-                </div>
+                 <div className="flex gap-4 max-w-full w-full">
+                     <div className="w-1/4 flex-shrink-0">
+                         <SidebarNavigation/>
+                     </div>
 
-            </div>
+                     <div className="w-3/4 space-y-[64px] min-w-0 max-w-full">
+                         <div id="ranking">
+                             <RankAndAccr college={college} />
+                         </div>
+                         <div id="courses">
+                             <Courses college={college}/>
+                         </div>
+                         <div id="specialization">
+                             <Specialization data={collegeSecondry}/>
+                         </div>
+                         <div id="admission">
+                             <AdmissionProcess college={college}/>
+                         </div>
+                         <div id="fees">
+                             <FeeTable collegeSecondry={collegeSecondry}/>
+                         </div>
+                         <div id="benefits">
+                             <BenefitsSection college={college}/>
+                         </div>
+                         <div className="py-[64px]" id="compare">
+                             <CompareCollegesCTA/>
+                         </div>
+                         <div id="degree">
+                             <DegreeSection  college={college}/>
+                         </div>
+                         <div id="hiring">
+                             <HiringPartnersSection
+                                 logos={college?.university_info?.placement?.partners || []}
+                                 name={college?.university_info?.name || ''}
+                             />
+                         </div>
+                         <div id="faq">
+                             <FaqsSection faqs={college?.university_info?.faqs || []}/>
+                         </div>
+                         <div id="contact">
+                             <ContactUsSection/>
+                         </div>
+                     </div>
 
-        </div>
+                 </div>
+
+             </div>
+
+         </div>
+
     );
 };
 
