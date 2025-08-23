@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BlogCard } from "./Component/BlogCard";
 import { BlogService } from "@/Services/blogService";
+import BackButton from "@/GlobalComponent/BackButton";
 
 export const BlogsMain = ( { category }) => {
     const [blogs, setBlogs] = useState([]);
@@ -62,6 +63,9 @@ export const BlogsMain = ( { category }) => {
 
     return (
         <div className="py-16 px-6 sm:px-14">
+            <div className="mb-6">
+                <BackButton label="Back to previous" />
+            </div>
             <div className="text-center mb-12">
                 <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
                     Blogs On The Go

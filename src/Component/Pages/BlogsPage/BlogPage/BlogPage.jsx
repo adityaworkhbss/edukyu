@@ -6,6 +6,7 @@ import BlogRecommendations from "@/Component/Pages/BlogsPage/BlogPage/Components
 import BlogCards from "@/Component/Pages/BlogsPage/BlogPage/Components/BlogCards";
 import { BlogService } from "@/Services/blogService";
 import BlogsByCategories from "@/Component/Pages/BlogsPage/BlogPage/Components/BlogsByCategories";
+import BackButton from "@/GlobalComponent/BackButton";
 
 const BlogPage = ({ blogId }) => {
     const [data, setData] = useState({
@@ -27,6 +28,9 @@ const BlogPage = ({ blogId }) => {
 
     return (
         <div className=" mt-5 mb-5 space-y-8 bg-gray-50 md:px-[56px] md:my-[64px] md:space-y-10">
+            <div className="px-4 md:px-0">
+                <BackButton label="Back to previous" />
+            </div>
             <div className="flex flex-col lg:flex-row">
                 <div className="lg:w-2/3 pr-4 pl-4">
                     <section>
