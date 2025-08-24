@@ -30,6 +30,7 @@ const ExplorePrograms = () => {
         return activeData.map((program, index) => ({
             id: index + 1,
             title: program.name,
+            image: program.image,
             description: `Duration - ${program.duration}`,
             details: `Starting @${program.startingFee}per day`
         }));
@@ -94,9 +95,18 @@ const ExplorePrograms = () => {
                         {programs.map((program) => (
                             <div key={program.id} className="bg-program-card border border-border rounded-[22px] shadow-sm">
                                 <div className="p-0">
-                                    <div className="bg-program-image rounded-t-lg  h-[132px] flex items-center  justify-center">
-                                        <ImageIcon size={48} className="text-secondary rounded-t-lg opacity-60 bg-cover" />
+                                    <div className="bg-program-image rounded-t-lg h-[132px] flex items-center justify-center overflow-hidden">
+                                        {program.image ? (
+                                            <img
+                                                src={`https://edukyu.com/${program.image}`}
+                                                alt={`${name} logo`}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        ) : (
+                                            <ImageIcon size={48} className="text-secondary opacity-60" />
+                                        )}
                                     </div>
+
                                     <div className="py-[16px] px-[16px]">
                                         <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none">
                                             {program.title}
