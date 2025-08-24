@@ -41,10 +41,8 @@ const CollegeMunchBanner = () => {
             </div>
 
             {/* Right Side Images */}
-            <div className="flex gap-4 w-1/2 z-10">
-                <div
-                    className="rounded-xl bg-white w-full h-auto object-cover"
-                />
+            <div className="flex gap-4 w-1/2 z-10 mt-16">
+                <img className="w-96 relative rounded-2xl" src="https://placehold.co/427x247" />
             </div>
 
         </div>

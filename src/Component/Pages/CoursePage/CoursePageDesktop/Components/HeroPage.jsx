@@ -28,7 +28,7 @@ const HeroPage = ({ college }) => {
                 <div className="w-1/2 flex flex-col pl-6  pt-6 min-w-0 ml-8">
                     {/* University Logo Placeholder */}
                     <div className="w-[45%] h-[84px] bg-gray-200 rounded-lg mb-4 flex items-center justify-center mt-[52px]">
-                        <span className="text-gray-500 text-sm">Logo</span>
+                       <img className="w-64" src="https://placehold.co/255x84" />
                     </div>
 
                     <div className="mb-6 text-[52px] font-semibold text-[#025E68] font-[Outfit] break-words">

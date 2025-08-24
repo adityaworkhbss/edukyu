@@ -122,11 +122,11 @@ const Specialization = ({data}) => {
         <section className="bg-background pt-12 max-w-full overflow-hidden ml-0.5">
             <div className="max-w-full">
                 <div className="max-w-full">
-                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
+                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[65%]">
                         Specialization
                     </div>
 
-                    <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-3/4">
+                    <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
                         Unlimited access to world class Specialization, hands-on projects, and job-ready certificate programs.
                     </div>
 
@@ -161,7 +161,7 @@ const Specialization = ({data}) => {
                                 <div
                                     key={program.id}
                                     className="bg-program-card border border-[#CDCDCD] border-border rounded-[22px] shadow-sm min-w-0 flex-shrink-0 flex flex-col"
-                                    style={{ width: 'calc((100% - 48px) / 3.18)' }} // Shows 3.2 cards
+                                    style={{ width: 'calc((100% - 5%) / 3.18)' }} // Shows 3.2 cards
                                 >
                                 
                                     <div className="flex flex-col flex-1">

@@ -3,20 +3,26 @@ import RankAndAccr from "@/Component/Pages/CoursePage/CoursePageDesktop/Componen
 import Courses from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/Courses";
 import Specialization from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/Specialization";
 import { Semester } from "./Components/Semester";
-import AdmissionProcess from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/AdmissionProcess";
+import OurFaculty from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/MeetOurFaculty";
+import { EligibilityCriteria } from "./Components/EligibilityCriterias";
+import { EligibilityCriteriaImage } from "./Components/EligibilityCriteria2";
+import AdmissionProcess from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/AdmissionProcess";
 import FeeTable from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/FeeTable";
 import Benefits, {BenefitsSection} from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/BenefitsSection";
 import CompareCollegesCTA from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CompareCollegeCTA";
-import DegreeSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/DegreeSection";
+import DegreeSection from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/DegreeSection";
+import ToolsCertificate from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/ToolsCertificate";
+import JobRoles from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/JobRoles";
 import ContactForm, {
     ContactUsSection
 } from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/ContactUsSection";
 import SidebarNavigation from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/SidebarNavigation";
-import CollegeMunchBanner from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CollegeMunchBanner";
+import CollegeMunchBanner from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/CourseMunchBanner";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import collegePageMobile from "@/Component/Pages/CollegePage/CollegePageMobile/CollegePageMobile";
 import FaqsSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/FaqsSection";
-import HiringPartnersSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/HiringPartnerSection";
+import HiringPartnersSection from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/HiringPartnerSection";
+
 
 const CoursePageDesktop = ({college, collegeSecondry}) => {
 
@@ -53,12 +59,19 @@ const CoursePageDesktop = ({college, collegeSecondry}) => {
                         <div id="semester">
                             <Semester />
                         </div>
+                        <div id="faculty">
+                            <OurFaculty />
+                        </div>
+                        <div id="eligibilityCriteria">
+                            <EligibilityCriteria />
+                        </div>
+                        <div id="eligibilityCriteriaimage">
+                            <EligibilityCriteriaImage />
+                        </div>
                         <div id="admission">
                             <AdmissionProcess college={college}/>
                         </div>
-                        <div id="fees">
-                            <FeeTable collegeSecondry={collegeSecondry}/>
-                        </div>
+                       
                         
                         <div className="py-[64px]" id="compare">
                             <CompareCollegesCTA/>
@@ -66,11 +79,22 @@ const CoursePageDesktop = ({college, collegeSecondry}) => {
                         <div id="degree">
                             <DegreeSection  college={college}/>
                         </div>
+                        <div id="toolscertificate">
+                            <ToolsCertificate />
+                        </div>
+                        <div id="jobroles">
+                            <JobRoles />
+                        </div>
+                       
                         <div id="hiring">
                             <HiringPartnersSection
                                 logos={college?.university_info?.placement?.partners || []}
                                 name={college?.university_info?.name || ''}
                             />
+
+                            <div id="collegemunch">
+                                <CollegeMunchBanner />
+                            </div>
                         </div>
                         <div id="faq">
                             <FaqsSection faqs={college?.university_info?.faqs || []}/>

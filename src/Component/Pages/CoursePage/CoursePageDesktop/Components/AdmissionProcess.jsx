@@ -8,7 +8,7 @@ const AdmissionProcess = ({college}) => {
     if (!steps || steps.length === 0) {
         return (
         <div className="w-full max-w-full overflow-hidden">
-            <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
+            <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[65%]">
                 Admission Process of {college?.university_info?.name}
             </div>
 
@@ -21,18 +21,18 @@ const AdmissionProcess = ({college}) => {
 
     return (
         <div className="w-full max-w-full overflow-hidden ml-0.5">
-            <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
+            <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[65%]">
                 Admission Process of {college?.university_info?.name}
             </div>
 
-            <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-full">
+            <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
                 Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
             </div>
 
             {/* Steps */}
             <div className="mt-6 flex flex-col gap-10 max-w-full">
                 {steps.map((step, index) => (
-                    <div key={index} className="flex items-start gap-4 relative max-w-full">
+                    <div key={index} className="flex items-start gap-4 relative w-[77%]">
                         {/* Step Number Circle */}
                         <div className="bg-[#EFFDFE] rounded-[10px] p-4 z-2 flex-shrink-0">
                             <div className="text-black font-semibold text-[18px] font-[Outfit]">
@@ -52,7 +52,7 @@ const AdmissionProcess = ({college}) => {
                             {/*    Process: Step {index + 1}*/}
                             {/*</div>*/}
 
-                            <div className="mt-1 text-[#333] font-normal text-[16px] font-[Outfit] break-words">
+                            <div className="mt-2 text-[#333] font-normal text-[16px] font-[Outfit] break-words">
                                 {step?.description || step}
                             </div>
 

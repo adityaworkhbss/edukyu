@@ -16,27 +16,27 @@ export const Semester: React.FC = () => {
 
   return (
     <main
-      className="relative w-[1014px] h-[506px] bg-white"
+      className="relative w-full h-[506px] bg-white"
       data-model-id="483:1998"
     >
-      <header className="absolute w-[615px] top-[63px] left-6">
-        <h1 className="[font-family:'Outfit',Helvetica] font-semibold text-colourprimary-coloursegyptian-enamel-lift-500 text-5xl tracking-[0] leading-[normal]">
+      <header className="absolute w-[65%] top-[63px]">
+        <h1 className="[font-family:'Outfit',Helvetica] font-semibold text-[#024B53] text-5xl tracking-[0] leading-[normal]">
           Semester
         </h1>
       </header>
 
-      <section className="absolute w-[615px] top-[139px] left-6">
-        <p className="[font-family:'Outfit',Helvetica] font-normal text-colourbackground-coloursblack-300 text-xl tracking-[0] leading-[normal]">
+      <section className="absolute w-[65%] top-[139px]">
+        <p className="[font-family:'Outfit',Helvetica] font-normal text-[#515150] text-xl tracking-[0] leading-[normal]">
           Unlimited access to world class courses, hands-on projects, and
           job-ready certificate programs.
         </p>
       </section>
 
-      <section className="absolute w-[934px] h-[228px] top-[214px] left-6">
+      <section className="absolute w-[100%] h-[228px] top-[214px]">
         {semesterData.map((semester, index) => (
           <div
             key={semester.id}
-            className={`absolute w-[934px] h-12 left-0 bg-[#effdfe] rounded-xl overflow-hidden cursor-pointer hover:bg-[#e0f9fa] transition-colors duration-200`}
+            className={`absolute w-[97%] h-12 left-0 bg-[#effdfe] rounded-xl overflow-hidden cursor-pointer hover:bg-[#e0f9fa] transition-colors duration-200`}
             style={{ top: `${index * 60}px` }}
             onClick={() => handleSemesterClick(semester.id)}
             role="button"
@@ -55,7 +55,7 @@ export const Semester: React.FC = () => {
             </div>
 
             <img
-              className="absolute w-6 h-6 top-3 left-[886px] aspect-[1] transition-transform duration-200"
+              className="absolute w-6 h-6 top-3 right-8 aspect-[1] transition-transform duration-200"
               style={{
                 transform:
                   expandedSemester === semester.id

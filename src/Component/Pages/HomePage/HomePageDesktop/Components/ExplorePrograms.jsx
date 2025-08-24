@@ -76,7 +76,7 @@ const ExplorePrograms = () => {
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
-                                className={` py-4 gap-[10px] text-sm font-medium font-[Outfit] transition-colors ${
+                                className={` p-4 gap-[10px] text-sm font-medium font-[Outfit] transition-colors ${
                                     activeTab === tab.id
                                         ? 'bg-white text-slate-800 border-b-2 border-teal-600'
                                         : 'text-slate-600'

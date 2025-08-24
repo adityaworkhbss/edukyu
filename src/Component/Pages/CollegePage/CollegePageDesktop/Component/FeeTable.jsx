@@ -36,24 +36,24 @@ const FeeTable = ({ collegeSecondry }) => {
     });
 
     return (
-        <div className="w-full pt-8 pb-5 flex flex-col items-start max-w-full overflow-hidden ml-0.5">
-            <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
+        <div className="w-full pt-8 pb-5 flex flex-col items-start max-w-full overflow-hidden ">
+            <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full" style={{ width: 'calc(200% / 3 - 32px)' }}>
                 Updated Fees for Each Courses in 2025
             </div>
 
-            <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-full">
+            <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-full" style={{ width: 'calc(200% / 3 - 32px)' }}>
                 Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
             </div>
 
             {/* Table */}
-            <div className="w-[97%] rounded-[12px] overflow-x-auto">
-                <table className="w-full text-center border-collapse font-[Outfit] min-w-full">
+            <div className="w-[97%] rounded-[12px] overflow-x-auto" style={{ width: 'calc(200% / 2 - 40px)' }}>
+                <table className="w-full text-center border-collapse font-[Outfit] min-w-full table-fixed">
                     {/* Table Header */}
                     <thead>
                     <tr className="bg-[#024B53] text-white text-[28px] font-semibold ">
-                        <th className="py-3 px-4 text-left">Courses</th>
-                        <th className="py-3 px-4">Fees</th>
-                        <th className="py-3 px-4">Years</th>
+                        <th className="py-3 px-4 text-left w-1/3">Courses</th>
+                        <th className="py-3 px-4 w-1/3">Fees</th>
+                        <th className="py-3 px-4 w-1/3">Years</th>
                     </tr>
                     </thead>
 
