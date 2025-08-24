@@ -12,7 +12,7 @@ const OurStudentPlaced = () => {
     }
 
     return (
-        <section className="py-10 px-4">
+        <section className="py-10">
             <GridComponent gridStart={0} gridEnd={6}>
                 <h2 className="text-[48px] font-semibold text-[#024B53] font-[Outfit] leading-normal">
                     Our Student Placed
@@ -39,7 +39,7 @@ const OurStudentPlaced = () => {
                                     fill
                                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                                 />
-                                {alumni.name && (
+                                {/* {alumni.name && (
                                     <div className="absolute bottom-0 left-0 right-0 text-center bg-gradient-to-t from-black/80 to-transparent backdrop-blur-md py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                                         <div className="text-white text-[18px] font-[Outfit] font-semibold leading-normal">
                                             {alumni.name}
@@ -50,7 +50,7 @@ const OurStudentPlaced = () => {
                                             </div>
                                         )}
                                     </div>
-                                )}
+                                )} */}
                             </div>
                         ))}
                     </div>

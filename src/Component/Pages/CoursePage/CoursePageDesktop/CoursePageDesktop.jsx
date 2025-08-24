@@ -1,16 +1,17 @@
-import HeroPage from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/HeroPage";
-import RankAndAccr from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/RankAndAccr";
-import Courses from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/Courses";
-import Specialization from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/Specialization";
+import HeroPage from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/HeroPage";
+import RankAndAccr from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/RankAndAccr";
+import Courses from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/Courses";
+import Specialization from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/Specialization";
+import { Semester } from "./Components/Semester";
 import AdmissionProcess from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/AdmissionProcess";
 import FeeTable from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/FeeTable";
-import Benefits, {BenefitsSection} from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/BenefitsSection";
+import Benefits, {BenefitsSection} from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/BenefitsSection";
 import CompareCollegesCTA from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CompareCollegeCTA";
 import DegreeSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/DegreeSection";
 import ContactForm, {
     ContactUsSection
 } from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/ContactUsSection";
-import SidebarNavigation from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/SidebarNavigation";
+import SidebarNavigation from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/SidebarNavigation";
 import CollegeMunchBanner from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CollegeMunchBanner";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import collegePageMobile from "@/Component/Pages/CollegePage/CollegePageMobile/CollegePageMobile";
@@ -44,15 +45,21 @@ const CoursePageDesktop = ({college, collegeSecondry}) => {
                         <div id="specialization">
                             <Specialization data={collegeSecondry}/>
                         </div>
+                        
+                       
+                        <div id="benefits">
+                            <BenefitsSection college={college}/>
+                        </div>
+                        <div id="semester">
+                            <Semester />
+                        </div>
                         <div id="admission">
                             <AdmissionProcess college={college}/>
                         </div>
                         <div id="fees">
                             <FeeTable collegeSecondry={collegeSecondry}/>
                         </div>
-                        <div id="benefits">
-                            <BenefitsSection college={college}/>
-                        </div>
+                        
                         <div className="py-[64px]" id="compare">
                             <CompareCollegesCTA/>
                         </div>

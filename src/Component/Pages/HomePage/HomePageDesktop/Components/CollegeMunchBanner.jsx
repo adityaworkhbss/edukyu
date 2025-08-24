@@ -20,7 +20,7 @@ const CollegeMunchBanner = () => {
                     <button
                         onClick={() => window.open("https://collegemanch.com/", "_blank")}
 
-                        className=" w-1/2 items-center justify-center py-[12px]
+                        className=" w-1/3 items-center justify-center py-[12px]
                        text-white text-[14px] font-medium font-[Outfit]
                        rounded-[12px] bg-[#024B53] hover:bg-[#00313f] transition mt-4"
                     >
@@ -30,12 +30,12 @@ const CollegeMunchBanner = () => {
             </div>
 
             {/* Right Side Images */}
-            <div className="absolute right-[40px] flex gap-4 z-10">
+            <div className="absolute right-[40px] flex gap-6 z-10">
                 <Image
                     src={collegeImg1}
                     alt="College Image 1"
                     width={189}
-                    height={300}
+                    height={212}
                     className="rounded-xl aspect-[2/2.5]"
                 />
                 <Image

@@ -88,11 +88,11 @@ const Courses = ({ college }) => {
     return (
         <section className="pt-[64px] bg-background max-w-full overflow-hidden ml-0.5">
             <div className="max-w-full">
-                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
+                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[65%]">
                     Courses
                 </div>
 
-                <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-3/4">
+                <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
 
@@ -122,7 +122,7 @@ const Courses = ({ college }) => {
                         <div
                             key={program.id}
                             className="bg-program-card border border-[#CDCDCD] border-border rounded-[22px] shadow-sm min-w-0 flex-shrink-0 flex flex-col"
-                            style={{ width: 'calc((100% - 48px) / 3.18)' }} // Shows 3.2 cards
+                            style={{ width: 'calc((100% - 4%) / 3.18)' }} // Shows 3.2 cards
                         >
                             <div className="flex flex-col flex-1">
                                 <div className="bg-program-image rounded-t-lg h-[112px] pl-4 pr-4 pt-4 flex items-center justify-center">

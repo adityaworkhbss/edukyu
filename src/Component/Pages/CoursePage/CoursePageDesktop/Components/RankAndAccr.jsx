@@ -11,7 +11,7 @@ const RankAndAccr = ({college}) => {
     return (
         <div className="w-full pt-[64px] flex flex-col max-w-full overflow-hidden">
             {/* Title */}
-            <h2 className="text-[48px] font-semibold font-[Outfit] text-[#024B53] mb-12 break-words w-full">
+            <h2 className="text-[48px] font-semibold font-[Outfit] text-[#024B53] mb-12 break-words w-[65%]">
                 Rankings & Accreditations
             </h2>
 

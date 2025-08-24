@@ -241,8 +241,8 @@ const FooterDesktop = () => {
                     {/* Colleges Section - Grid 4 to 5 */}
                     <GridComponent
                         lastUsedGridEnd={3}
-                        gridStart={5}
-                        gridEnd={6}
+                        gridStart={4}
+                        gridEnd={5}
                         fromFooter={true}
                         className="pt-[60px] text-left truncate line-clamp-1"
                     >
@@ -272,8 +272,8 @@ const FooterDesktop = () => {
                     <GridComponent
                         lastUsedGridEnd={5}
                         fromFooter={true}
-                        gridStart={7}
-                        gridEnd={8}
+                        gridStart={6}
+                        gridEnd={7}
                         className="pt-[60px] ml-6"
                     >
                         <FooterSection title="Online Courses">
@@ -286,8 +286,8 @@ const FooterDesktop = () => {
                     {/*/!* Quick Links Section - Grid 8 to 10 *!/*/}
                     <GridComponent
                         lastUsedGridEnd={7}
-                        gridStart={9}
-                        gridEnd={10}
+                        gridStart={8}
+                        gridEnd={9}
                         fromFooter={true}
                         className="pt-[60px] ml-12"
                     >
@@ -301,8 +301,8 @@ const FooterDesktop = () => {
                     {/*/!* Find us at Section - Grid 11 to 12 *!/*/}
                     <GridComponent
                         lastUsedGridEnd={9}
-                        gridStart={11}
-                        gridEnd={12}
+                        gridStart={10}
+                        gridEnd={11}
                         fromFooter={true}
                         className="pt-[60px] "
                     >

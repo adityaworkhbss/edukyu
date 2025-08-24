@@ -7,6 +7,7 @@ export const AcademicConverter = () => {
     const [sgpa, setSgpa] = useState('');
     const [cgpa, setCgpa] = useState('');
     const [convertedValue, setConvertedValue] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const tabs = [
         { id: 'sgpa-to-percentage', label: 'SGPA to Percentage' },
@@ -20,23 +21,20 @@ export const AcademicConverter = () => {
             if (!isNaN(sgpaValue) && sgpaValue >= 0 && sgpaValue <= 10) {
                 const percentageValue = ((sgpaValue - 0.75) * 10).toFixed(2);
                 setConvertedValue(percentageValue + '%');
-            } else {
-                alert('Please enter a valid SGPA between 0 and 10');
+                setErrorMessage('');
             }
         } else if (activeTab === 'cgpa-to-percentage') {
             const cgpaValue = parseFloat(cgpa);
             if (!isNaN(cgpaValue) && cgpaValue >= 0 && cgpaValue <= 10) {
                 const percentageValue = ((cgpaValue - 0.75) * 10).toFixed(2);
                 setConvertedValue(percentageValue + '%');
-            } else {
-                alert('Please enter a valid CGPA between 0 and 10');
+                setErrorMessage('');
             }
         } else if (activeTab === 'sgpa-to-cgpa') {
             const sgpaValue = parseFloat(sgpa);
             if (!isNaN(sgpaValue) && sgpaValue >= 0 && sgpaValue <= 10) {
                 setConvertedValue(sgpaValue.toFixed(2));
-            } else {
-                alert('Please enter a valid SGPA between 0 and 10');
+                setErrorMessage('');
             }
         }
     };
@@ -45,11 +43,27 @@ export const AcademicConverter = () => {
         setSgpa('');
         setCgpa('');
         setConvertedValue('');
+        setErrorMessage('');
     };
 
     const handleInputChange = (value) => {
         if (activeTab === 'cgpa-to-percentage') setCgpa(value);
         else setSgpa(value);
+        
+        // Validate input and set error message
+        if (value === '') {
+            setErrorMessage('');
+        } else {
+            const numValue = parseFloat(value);
+            if (isNaN(numValue) || numValue < 0 || numValue > 10) {
+                setErrorMessage('Please enter a valid value between 0 and 10');
+            } else {
+                setErrorMessage('');
+            }
+        }
+        
+        // Clear converted value when input changes
+        setConvertedValue('');
     };
 
     const getInputLabel = () => {
@@ -88,16 +102,23 @@ export const AcademicConverter = () => {
         }
     };
 
+    const isInputValid = () => {
+        const currentValue = getCurrentInputValue();
+        if (currentValue === '') return false;
+        const numValue = parseFloat(currentValue);
+        return !isNaN(numValue) && numValue >= 0 && numValue <= 10;
+    };
+
     return (
         <div className="px-[56px] py-[64px] mt-12">
             <div className="flex flex-col flex-1">
-                <GridComponent gridStart={0} gridEnd={7}>
+                <GridComponent gridStart={0} gridEnd={6}>
                     <div className="text-[48px] font-semibold text-[#024B53] font-[Outfit] leading-normal">
                         Academic Converter Tool
                     </div>
                 </GridComponent>
 
-                <GridComponent gridStart={0} gridEnd={7}>
+                <GridComponent gridStart={0} gridEnd={6}>
                     <div className="text-[20px] font-normal text-[#515150] font-[Outfit] leading-normal">
                         Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                     </div>
@@ -110,8 +131,9 @@ export const AcademicConverter = () => {
                             onClick={() => {
                                 setActiveTab(tab.id);
                                 setConvertedValue('');
+                                setErrorMessage('');
                             }}
-                            className={`px-6 py-4 gap-[10px] text-sm font-medium transition-colors ${
+                            className={`px-6 py-4 gap-[10px] text-sm font-medium transition-colors w-1/7 ${
                                 activeTab === tab.id
                                     ? 'bg-white text-slate-800 border-b-2 border-teal-600'
                                     : 'text-slate-600'
@@ -128,7 +150,7 @@ export const AcademicConverter = () => {
                     <div className="flex flex-col">
                         <div className="space-y-6 w-full">
                             <div>
-                                <label className="block text-lg font-medium text-slate-700 mb-3">
+                                <label className="block text-lg font-medium text-[24px] text-[#024B53] mb-3">
                                     {getInputLabel()}
                                 </label>
                                 <input
@@ -139,25 +161,37 @@ export const AcademicConverter = () => {
                                     min="0"
                                     max="10"
                                     step="0.01"
-                                    className="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-teal-600 focus:outline-none transition-colors"
+                                    className={`w-full px-4 py-3 text-lg border-2 rounded-lg focus:outline-none transition-colors ${
+                                        errorMessage ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-teal-600'
+                                    }`}
                                 />
+                                {errorMessage && (
+                                    <p className="text-red-500 text-sm mt-2">
+                                        {errorMessage}
+                                    </p>
+                                )}
                             </div>
 
                             <button
                                 onClick={handleConvert}
-                                className="w-full bg-teal-700 hover:bg-teal-800 text-white mt-[58px] font-semibold py-4 px-6 rounded-lg transition-colors shadow-md"
+                                disabled={!isInputValid()}
+                                className={`w-full mt-[58px] font-semibold py-4 px-6 rounded-lg transition-colors shadow-md ${
+                                    isInputValid() 
+                                        ? 'bg-teal-700 hover:bg-teal-800 text-white cursor-pointer' 
+                                        : 'bg-[#9B9B9B] text-[#FFF] cursor-not-allowed'
+                                }`}
                             >
                                 Convert Now
                             </button>
 
-                            {(getCurrentInputValue() || convertedValue) && (
+                            {/* {(getCurrentInputValue() || convertedValue) && (
                                 <button
                                     onClick={handleReset}
                                     className="w-full border-2 border-teal-700 text-teal-700 hover:bg-teal-700 hover:text-white font-semibold py-3 px-6 rounded-lg transition-colors"
                                 >
                                     Reset ↻
                                 </button>
-                            )}
+                            )} */}
                         </div>
                     </div>
                 </GridComponent>

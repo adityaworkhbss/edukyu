@@ -49,10 +49,10 @@ export const BenefitsSection: React.FC<{ college: College }> = ({ college }) => 
             aria-labelledby="benefits-heading"
         >
             <header>
-                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
-                    Benefits of {college?.university_info?.name || 'University'}
+                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[65%]">
+                    Benefits of MBA Online
                 </div>
-                <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-full">
+                <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
             </header>

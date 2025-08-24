@@ -10,7 +10,7 @@ const StatsSection = () => {
 
     return (
         <div className="py-[64px]">
-            <section className="py-[64px] px-[56px] bg-hero-bg text-hero-text bg-[#679EA4]">
+            <section className="py-[64px] px-[56px] bg-hero-bg text-hero-text bg-[#024B53]">
 
                 <div className="text-white font-[Outfit] text-[48px] font-semibold leading-none">
                     Why Edukyu ?

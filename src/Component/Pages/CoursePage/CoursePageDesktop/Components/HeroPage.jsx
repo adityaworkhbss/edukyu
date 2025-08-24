@@ -2,10 +2,10 @@ import Image from "next/image";
 import collegepage_hero from '@/../public/Resources/Images/collegepage_hero.png';
 import collegepage_hero_img from '@/../public/Resources/Images/collegepage_hero_img.png';
 import GridComponent from "@/GlobalComponent/GridComponent";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Form from "@/Component/Form/Form";
 
-const HeroPage = ({college}) => {
+const HeroPage = ({ college }) => {
 
     const [showForm, setShowForm] = useState(false);
 
@@ -25,14 +25,20 @@ const HeroPage = ({college}) => {
         <>
             <div className="w-full gap-6 flex max-w-full">
                 {/* Left Section */}
-                <div className="w-1/2 flex flex-col p-6 min-w-0">
+                <div className="w-1/2 flex flex-col pl-6  pt-6 min-w-0 ml-8">
+                    {/* University Logo Placeholder */}
+                    <div className="w-[45%] h-[84px] bg-gray-200 rounded-lg mb-4 flex items-center justify-center mt-[52px]">
+                        <span className="text-gray-500 text-sm">Logo</span>
+                    </div>
+
                     <div className="mb-6 text-[52px] font-semibold text-[#025E68] font-[Outfit] break-words">
-                        {college.university_info.name}
+                        MBA(Master’s in Business Administrative)
                     </div>
 
 
-                    <div className="mb-[65px] text-[20px] font-normal text-[#025E68] font-[Outfit] break-words">
-                        {college.university_info.about.description}
+                    <div className="mb-[48px] text-[20px] font-normal text-[#025E68] font-[Outfit] break-words">
+                        Manipal University Online Jaipur offers the 2-year online MBA program designed for both experienced professionals and fresh graduates. The programs offer flexibility of online learning without compromising on the quality of education.
+                        The online MBA program at Manipal University Jaipur provides students with the necessary skills and knowledge to excel in today's competitive business environment. Classes, assignments, projects, examinations, and placement opportunities are all conducted online, allowing students to learn from the comfort of their homes.
                     </div>
 
 
@@ -50,7 +56,7 @@ const HeroPage = ({college}) => {
                         <Image
                             src={collegepage_hero}
                             alt="College Page Hero"
-                            className="max-w-full h-auto"
+                            className="w-full h-auto"
                         />
 
                     </div>

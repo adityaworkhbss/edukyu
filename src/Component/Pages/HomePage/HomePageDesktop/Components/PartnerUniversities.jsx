@@ -112,7 +112,7 @@ export const PartnerUniversities = () => {
 
                                 {/* Name + Icons */}
                                 <div className=" mt-4 gap-[16px] flex flex-col justify-between flex-grow">
-                                    <div className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none pb-[46px]">
+                                    <div className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none pb-[31px]">
                                         {univ.name}
                                     </div>
 

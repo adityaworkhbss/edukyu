@@ -16,9 +16,6 @@ const OurProudGraduates = () => {
         setCurrentIndex((prev) => (prev + 1) % total);
     };
 
-    // Duplicate list for seamless looping
-    const infiniteTestimonials = [...testimonials, ...testimonials];
-
     return (
         <section className="py-[64px] px-[56px] bg-background">
             {/* Heading */}
@@ -36,24 +33,26 @@ const OurProudGraduates = () => {
             </div>
 
             {/* Cards Carousel */}
-            <div className="overflow-hidden">
-                <div
-                    className="flex flex-nowrap gap-4 transition-transform duration-500 ease-in-out"
-                    style={{
-                        transform: `translateX(-${currentIndex * (100 / 5)}%)`,
-                        width: `${(infiniteTestimonials.length / 5) * 100}%`
-                    }}
-                >
-                    {infiniteTestimonials.map((testimonial, index) => (
-                        <div key={`${testimonial.name}-${index}`} className="w-[20%] flex-shrink-0">
-                            <GridComponent gridStart={0} gridEnd={12}>
-                                <CareerSuccessCard data={testimonial} />
-                            </GridComponent>
-                        </div>
-                    ))}
+            <div className="">
+                <div className="-mx-[56px]">
+                    <div
+                        className="flex flex-nowrap transition-transform duration-500 ease-in-out"
+                        style={{
+                            // Each card is 50% of container (6/12). To center the card at `currentIndex` we translate by:
+                            // translateX(calc(25% - index * 50%)) so left neighbour is shown half, center fully, right neighbour half.
+                            transform: `translateX(calc(25% - ${currentIndex} * 50%))`
+                        }}
+                    >
+                        {testimonials.map((testimonial, index) => (
+                            <div key={`${testimonial.name}-${index}`} className="flex-none w-1/2 px-2">
+                                <GridComponent gridStart={0} gridEnd={12}>
+                                    <CareerSuccessCard data={testimonial} isActive={index === currentIndex} />
+                                </GridComponent>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
-
             {/* Navigation Buttons */}
             <div className="flex justify-between mt-[32px] pb-[64px]">
                 <button
@@ -62,7 +61,7 @@ const OurProudGraduates = () => {
                     aria-label="Previous"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                        <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#9B9B9B"/>
+                        <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#9B9B9B" />
                     </svg>
                 </button>
 
@@ -72,7 +71,7 @@ const OurProudGraduates = () => {
                     aria-label="Next"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                        <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53"/>
+                        <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53" />
                     </svg>
                 </button>
             </div>

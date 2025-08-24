@@ -11,7 +11,7 @@ export const BenefitCard: React.FC<BenefitCardProps> = ({ children, className = 
 
     return (
         <article
-            className={`flex flex-col items-center space-y-8 gap-8 border w-[295px] h-[134px] bg-[#EFFDFE] p-2 rounded-[10px] border-solid border-[#024B53] transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer ${className}`}
+            className={`flex flex-col items-center space-y-8 gap-8 border w-[30%] h-[134px] bg-[#EFFDFE] p-2 rounded-[10px] border-solid border-[#024B53] transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer ${className}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             role="article"
