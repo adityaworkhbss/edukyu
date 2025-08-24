@@ -10,7 +10,7 @@ const CareerSuccessCard = ({ data, isActive = false }) => {
     const iconFill = isActive ? '#FFFFFF' : '#024B53';
 
     return (
-        <div className={`${containerClass} rounded-[24px] p-6 flex gap-8 items-start flex-col`}>
+        <div className={`${containerClass} rounded-[24px] p-6 flex gap-8 items-start flex-col h-[340px]`}>
             {/* Left Section */}
             <div className="flex flex-row items-start gap-[50px] justify-between">
                 <div className="flex flex-row items-center gap-4">

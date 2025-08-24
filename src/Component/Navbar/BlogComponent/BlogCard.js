@@ -27,7 +27,7 @@ const BlogCard = ({ item }) => {
 
     return (
         <div
-            className="h-[339px] flex flex-col rounded-[12px] bg-white hover:bg-[rgba(179,207,210,0.5)] transition-all duration-200"
+            className="h-[360px] flex flex-col rounded-[12px] bg-white hover:bg-[rgba(179,207,210,0.5)] transition-all duration-200"
             onClick={() => handleReadMore(item.blogId)}
         >
 

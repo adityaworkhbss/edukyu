@@ -8,7 +8,7 @@ const HeroPageMobile = ({college}) => {
 
     return (
         <div
-            className="relative w-full rounded-[12px] overflow-hidden p-5 mt-[32px] h-[505px] flex flex-col justify-between"
+            className="relative w-full rounded-[12px] overflow-hidden p-5 right-0 mt-[32px] h-[505px] flex flex-col justify-between"
             style={{
                 background: ` url(${collegepage_hero.src}) center/cover no-repeat `,
             }}

@@ -94,16 +94,35 @@ const BlogComponentDesktop = () => {
 
     return (
         <div className="px-14 bg-white rounded-b-xl pt-[44px] pb-[24px]">
-            <div className="relative">
-                <form onSubmit={handleSearch}>
+            <div className="relative ">
+                <form
+                    onSubmit={handleSearch}
+                    className="flex items-center justify-between border-b border-gray-300 w-full"
+                >
                     <input
                         type="text"
                         value={searchQuery}
                         onChange={handleInputChange}
                         placeholder="Search blog topics..."
-                        className="w-full px-4 py-3 border-b border-gray-300 "
+                        className="w-full px-4 py-3 outline-none"
                     />
+
+                    <button type="submit" className="h-8 w-8 rounded bg-[#CDCDCD] pl-2">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="none"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                                d="M10.333 9.333H9.807L9.62 9.153a4.667 4.667 0 1 0-.487.487l.186.18v.527l3.334 3.327 1-.993L10.333 9.333ZM6.333 9.333A3 3 0 1 1 9.333 6.333 3 3 0 0 1 6.333 9.333Z"
+                                fill="#515150"
+                            />
+                        </svg>
+                    </button>
                 </form>
+
 
                 {searchQuery.length > 0 && filteredSuggestions.length > 0 && (
                     <ul className="absolute z-10 w-full bg-white shadow-lg rounded-lg mt-1 max-h-60 overflow-y-auto">

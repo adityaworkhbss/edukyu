@@ -35,17 +35,18 @@ const OurProudGraduates = () => {
                 </p>
             </div>
 
-            {/* Carousel Container */}
             <div
                 ref={containerRef}
-                className="flex gap-[17px] overflow-x-auto scroll-smooth no-scrollbar"
+                className="flex gap-[17px]  overflow-x-auto scroll-smooth no-scrollbar"
             >
-                {infiniteTestimonials.map((testimonial, index) => (
-                    <div key={`${testimonial.name}-${index}`} className="flex-shrink-0 w-[320px]">
-                        <CareerSuccessCardMobile  data={testimonial} />
+                {infiniteTestimonials.map((t, i) => (
+                    <div key={`${t.name}-${i}`} className="flex-shrink-0 h-[651px] w-[320px]">
+                        <CareerSuccessCardMobile data={t} />
                     </div>
                 ))}
             </div>
+
+
 
             {/* Navigation Buttons */}
             <div className="flex justify-between items-center mt-[24px] md:mt-[32px] px-[16px]">

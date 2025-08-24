@@ -93,7 +93,9 @@ const BlogComponentMobile = ({ onClose }) => {
                     </svg>
                 </div>
                 <div className="flex flex-col w-full px-4 mt-4 pb-4 relative">
-                    <form onSubmit={handleSearch}>
+                    <form
+                        className="flex items-center justify-between  w-full"
+                        onSubmit={handleSearch}>
                         <input
                             type="text"
                             value={searchQuery}
@@ -101,6 +103,21 @@ const BlogComponentMobile = ({ onClose }) => {
                             placeholder="Search blog topics..."
                             className="w-full px-4 py-2 border-b border-gray-300 "
                         />
+
+                        <button type="submit" className="h-8 w-8 rounded bg-[#CDCDCD] pl-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                fill="none"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    d="M10.333 9.333H9.807L9.62 9.153a4.667 4.667 0 1 0-.487.487l.186.18v.527l3.334 3.327 1-.993L10.333 9.333ZM6.333 9.333A3 3 0 1 1 9.333 6.333 3 3 0 0 1 6.333 9.333Z"
+                                    fill="#515150"
+                                />
+                            </svg>
+                        </button>
                     </form>
 
                     {searchQuery.length > 0 && filteredSuggestions.length > 0 && (

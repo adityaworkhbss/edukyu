@@ -36,7 +36,7 @@ const OurProudGraduates = () => {
             <div className="">
                 <div className="-mx-[56px]">
                     <div
-                        className="flex flex-nowrap transition-transform duration-500 ease-in-out"
+                        className="flex flex-nowrap transition-transform duration-500 ease-in-out gap-6"
                         style={{
                             // Each card is 50% of container (6/12). To center the card at `currentIndex` we translate by:
                             // translateX(calc(25% - index * 50%)) so left neighbour is shown half, center fully, right neighbour half.

@@ -23,7 +23,7 @@ const HeroPage = ({ college }) => {
     return (
 
         <>
-            <div className="w-full gap-6 flex max-w-full">
+            <div className="w-full gap-6 pl-[56px] flex max-w-full">
                 {/* Left Section */}
                 <div className="w-1/2 flex flex-col pl-6  pt-6 min-w-0 ml-8">
                     {/* University Logo Placeholder */}

@@ -32,7 +32,7 @@ const CoursePageDesktop = ({college, collegeSecondry}) => {
                 <HeroPage college={college} />
             </div>
 
-            <div className="px-[32px] max-w-full overflow-x-hidden">
+            <div className="px-[56px] max-w-full overflow-x-hidden">
 
 
 

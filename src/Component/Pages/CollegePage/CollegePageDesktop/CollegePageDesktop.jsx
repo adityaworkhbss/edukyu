@@ -64,7 +64,7 @@ const CollegePageDesktop = ({ college, collegeSecondry }) => {
             </div>
 
             {/* Sidebar + Main content */}
-            <div className="px-[32px] max-w-full overflow-x-hidden mt-8 flex gap-4" ref={containerRef}>
+            <div className="px-[56px] max-w-full overflow-x-hidden mt-8 flex gap-4" ref={containerRef}>
                 {/* Sidebar */}
                 <div className="w-1/4 flex-shrink-0 relative">
                     <div ref={sidebarRef} style={sidebarStyle}>

@@ -4,7 +4,7 @@ import graduate from "../../../../../../../public/Resources/Images/GraduateBanne
 
 const CareerSuccessCardMobile = ({data}) => {
     return (
-        <div className="bg-[#024B53] text-white rounded-[24px] p-6 flex flex-col gap-6 font-[Outfit]">
+        <div className="bg-[#024B53] h-[670px] text-white rounded-[24px] p-6 flex flex-col gap-6 font-[Outfit]">
             {/* Top Section */}
             <div className="flex flex-col justify-between gap-10">
                 {/* Left - Profile Section */}
