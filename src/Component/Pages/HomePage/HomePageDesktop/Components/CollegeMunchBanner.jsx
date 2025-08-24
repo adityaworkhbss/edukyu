@@ -6,7 +6,7 @@ import logoImg from "@/../public/Resources/Images/collegeMunchLogo.png";
 
 const CollegeMunchBanner = () => {
     return (
-        <div className="relative w-full inline-flex items-center rounded-[52px] bg-[#679EA440] px-[40px] py-[45px] overflow-hidden">
+        <div className="group relative w-full inline-flex items-center rounded-[52px] bg-[#679EA440] px-[40px] py-[45px] overflow-hidden">
             {/* Left Section */}
             <div className="flex flex-col z-10 w-[2/3]">
                 <div className="w-[189px] h-[72px] flex-shrink-0 rounded-[8px] inline-flex items-center justify-center">
@@ -22,7 +22,7 @@ const CollegeMunchBanner = () => {
 
                         className=" w-1/3 items-center justify-center py-[12px]
                        text-white text-[14px] font-medium font-[Outfit]
-                       rounded-[12px] bg-[#024B53] hover:bg-[#00313f] transition mt-4"
+                       rounded-[12px]  group-hover:bg-[#024B53] bg-[#9B9B9B] transition mt-4"
                     >
                         Explore College Manch
                     </button>

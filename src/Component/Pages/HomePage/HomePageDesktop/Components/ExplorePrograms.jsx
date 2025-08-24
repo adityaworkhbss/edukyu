@@ -93,7 +93,7 @@ const ExplorePrograms = () => {
                 <div className="relative">
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {programs.map((program) => (
-                            <div key={program.id} className="bg-program-card border border-border rounded-[22px] shadow-sm">
+                            <div key={program.id} className="group bg-program-card border border-border rounded-[22px] shadow-sm hover:bg-[#CDCDCD] border-[#CDCDCD]">
                                 <div className="p-0">
                                     <div className="bg-program-image rounded-t-lg h-[132px] flex items-center justify-center overflow-hidden">
                                         {program.image ? (
@@ -144,13 +144,13 @@ const ExplorePrograms = () => {
                                 <div className="pt-[10px] w-full pb-[16px] bottom-0">
                                     <div className="flex justify-center">
                                         <button
-                                            className="flex items-center  justify-center border w-full py-[12px] mx-5 text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors hover:bg-[#f3f3f3]"
+                                            className="flex items-center  justify-center border w-full py-[12px] mx-5 text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#CDCDCD] border-[#6A6A69)]"
                                             onClick={() => {
                                                 setSelectedCourse("NIU");
                                                 setCurrentPage('course');
                                             }}
                                         >
-                                            Explore
+                                            Explore More
                                         </button>
                                     </div>
                                 </div>

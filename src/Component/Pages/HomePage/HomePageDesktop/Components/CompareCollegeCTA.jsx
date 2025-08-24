@@ -11,7 +11,7 @@ const CompareCollegesCTA = () => {
     const { setCurrentPage } = usePageContext();
 
     return (
-        <div className="w-full relative bg-[#FDBB06] rounded-[52px] px-[56px] flex flex-col md:flex-row items-center gap-8">
+        <div className="w-full relative bg-[#FDBB06] rounded-[52px] px-[56px] flex flex-col md:flex-row items-center gap-8 group">
             {/* Text Section */}
             <div className="text-left flex-1">
                 <GridComponent gridStart={0} gridEnd={5}>
@@ -28,7 +28,7 @@ const CompareCollegesCTA = () => {
                     </div>
                 </GridComponent>
 
-                <button className="inline-flex mt-[32px] mb-[40px] items-center justify-center gap-[10px] px-4 py-3 rounded-[12px] bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium leading-none"
+                <button className="inline-flex mt-[32px] mb-[40px] items-center justify-center gap-[10px] px-4 py-3 rounded-[12px] bg-[#9B9B9B] group-hover:bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium leading-none"
                         onClick={() => setCurrentPage('compare')}
                 >
                     Compare Colleges

@@ -9,13 +9,13 @@ import { EligibilityCriteriaImage } from "./Components/EligibilityCriteria2";
 import AdmissionProcess from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/AdmissionProcess";
 import FeeTable from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/FeeTable";
 import Benefits, {BenefitsSection} from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/BenefitsSection";
-import CompareCollegesCTA from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CompareCollegeCTA";
+import CompareCollegesCTA from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/CompareCollegeCTA";
 import DegreeSection from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/DegreeSection";
 import ToolsCertificate from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/ToolsCertificate";
 import JobRoles from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/JobRoles";
 import ContactForm, {
     ContactUsSection
-} from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/ContactUsSection";
+} from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/ContactUsSection";
 import SidebarNavigation from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/SidebarNavigation";
 import CollegeMunchBanner from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/CourseMunchBanner";
 import GridComponent from "@/GlobalComponent/GridComponent";

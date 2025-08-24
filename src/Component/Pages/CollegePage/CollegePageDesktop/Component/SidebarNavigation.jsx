@@ -27,7 +27,7 @@ const SidebarNavigation = () => {
     };
 
     return (
-        <aside className="w-full max-w-[250px] p-3 pt-[90px] sticky top-0 pl-6">
+        <aside className="w-full max-w-[250px] pt-[90px] sticky top-0">
             <ul className="space-y-3">
                 {sections.map((item) => (
                     <li

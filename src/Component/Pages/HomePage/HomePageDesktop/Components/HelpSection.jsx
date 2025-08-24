@@ -42,7 +42,7 @@ const HelpSection = () => {
                 </div>
 
                 {/* Right Content */}
-                <div className="bg-[#F4F7FC] rounded-[22px] p-[32px] w-1/2">
+                <div className="group bg-[#F4F7FC] rounded-[22px] p-[32px] w-1/2">
                     <div className="text-[20px] font-[600] leading-none text-[#024B53] font-[Outfit] mb-[22px]">
                         Select your challenges
                     </div>
@@ -64,7 +64,7 @@ const HelpSection = () => {
 
                     <button
                         onClick={() => setShowForm(true)}
-                        className="inline-flex items-center justify-center gap-[10px] mt-[66px] px-4 py-3 text-[14px] font-[500] leading-none text-white font-[Outfit] bg-[#024B53] rounded-md">
+                        className="inline-flex items-center justify-center gap-[10px] mt-[66px] px-4 py-3 text-[14px] font-[500] leading-none text-white font-[Outfit] bg-[#9B9B9B] group-hover:bg-[#024B53] rounded-md">
                         Talk to an Expert
                     </button>
                 </div>

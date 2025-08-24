@@ -121,7 +121,7 @@ const Courses = ({ college }) => {
                         {programs.map((program) => (
                         <div
                             key={program.id}
-                            className="bg-program-card border border-[#CDCDCD] border-border rounded-[22px] shadow-sm min-w-0 flex-shrink-0 flex flex-col"
+                            className="group hover:bg-[#CDCDCD] bg-program-card border border-[#CDCDCD] border-border rounded-[22px] shadow-sm min-w-0 flex-shrink-0 flex flex-col"
                             style={{ width: 'calc((100% - 4%) / 3.18)' }} // Shows 3.2 cards
                         >
                             <div className="flex flex-col flex-1">
@@ -197,7 +197,7 @@ const Courses = ({ college }) => {
                             <div className="pt-[10px] w-full pb-[16px]">
                                 <div className="flex justify-center">
                                     <button
-                                        className="flex items-center justify-center border w-full mx-4 py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors hover:bg-[#f3f3f3]"
+                                        className="flex items-center justify-center border w-full mx-4 py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#024B53] bg-[#FFF]"
                                         // Add your onClick or Link to course details here
                                     >
                                         Explore

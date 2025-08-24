@@ -177,7 +177,7 @@ export const AcademicConverter = () => {
                                 disabled={!isInputValid()}
                                 className={`w-full mt-[58px] font-semibold py-4 px-6 rounded-lg transition-colors shadow-md ${
                                     isInputValid() 
-                                        ? 'bg-teal-700 hover:bg-teal-800 text-white cursor-pointer' 
+                                        ? 'bg-[#024B53] text-white cursor-pointer' 
                                         : 'bg-[#9B9B9B] text-[#FFF] cursor-not-allowed'
                                 }`}
                             >

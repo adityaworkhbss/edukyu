@@ -93,7 +93,7 @@ export const PartnerUniversities = () => {
 
                             <div
                                 key={`${univ.id}-${idx}`}
-                                className="flex-shrink-0 bg-white p-4 pb-[16px] rounded-[22px] border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col"
+                                className="group flex-shrink-0 bg-white p-4 pb-[16px] rounded-[22px] border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col hover:bg-[#9B9B9B]"
                                 style={{ width: `${cardWidth}px` }}
                             >
                                 {/* Logo Area */}
@@ -154,7 +154,7 @@ export const PartnerUniversities = () => {
                                         </div>
 
                                         <div className="pt-[8px]">
-                                            <button className="flex w-[32px] h-[32px] p-2 justify-center items-center flex-shrink-0 bg-[#024B53] rounded"
+                                            <button className="flex w-[32px] h-[32px] p-2 justify-center items-center flex-shrink-0 bg-[#CDCDCD] group-hover:bg-[#024B53] rounded"
                                                     onClick={() => {
                                                         setSelectedCollege(univ.code);
                                                         setCurrentPage('college');

@@ -60,7 +60,7 @@ export const ContactForm = () => {
     return (
         <form
             onSubmit={handleSubmit}
-            className="flex w-full flex-col items-stretch text-lg text-[#6A6A69] font-normal max-md:max-w-full max-md:mt-10"
+            className="group flex w-full flex-col items-stretch text-lg text-[#6A6A69] font-normal max-md:max-w-full max-md:mt-10"
         >
             <header>
                 <GridComponent gridStart={0} gridEnd={6}>
@@ -160,7 +160,7 @@ export const ContactForm = () => {
 
             <button
                 type="submit"
-                className="justify-center items-center flex gap-2.5 text-sm text-white font-medium whitespace-nowrap bg-[#024B53] mt-6 px-4 py-3 rounded-xl hover:bg-[#035a63] transition-colors"
+                className="justify-center items-center flex gap-2.5 text-sm text-white font-medium whitespace-nowrap bg-[#9B9B9B] mt-6 px-4 py-3 rounded-xl group-hover:bg-[#035a63] transition-colors"
             >
                 Submit
             </button>
