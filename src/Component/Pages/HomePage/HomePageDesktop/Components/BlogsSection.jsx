@@ -9,7 +9,7 @@ const BlogSection = () => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const itemsPerPage = 4;
+    const itemsPerPage = 16;
 
 
     const fetchBlogs = async (page) => {

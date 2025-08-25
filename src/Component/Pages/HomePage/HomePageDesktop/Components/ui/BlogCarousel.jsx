@@ -109,7 +109,10 @@ export default function BlogCarousel(
 
 
                                 {/* Blog Title */}
-                                <div className="text-[#121212] mb-[32px] font-[Outfit] text-[20px] font-medium leading-none">
+                                <div
+                                    className="text-[#121212] mb-[32px] font-[Outfit] text-[20px] font-medium leading-none
+                                     leading-[28px] min-h-[84px] line-clamp-3"
+                                >
                                     {univ.title}
                                 </div>
 

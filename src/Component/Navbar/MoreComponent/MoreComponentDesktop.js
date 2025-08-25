@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import moreImage1 from '../../../../public/Resources/Images/moreImage1.png';
 import moreImage2 from '../../../../public/Resources/Images/moreImage2.png';
 import moreImage3 from '../../../../public/Resources/Images/moreImage3.png';
@@ -26,26 +27,58 @@ const MoreComponentDesktop = () => {
                     {/* Left Menu Column */}
                     <div className="w-[250px] pb-6 mr-8 flex flex-col space-y-4">
                         {/* 1. Partner with Us */}
-                        <div className="text-[20px] font-semibold text-[#121211] font-outfit">Partner with Us</div>
+                        <Link
+                            href="https://edukyu.com/partner-with-us"
+                            className="text-[20px] font-semibold text-[#121211] font-outfit hover:text-[#024B53]"
+                        >
+                            Partner with Us
+                        </Link>
 
                         {/* 2. Calculator Tools */}
                         <div>
                             <div className="text-[18px] font-semibold text-[#121211] font-outfit mb-2">Calculator Tools</div>
                             <ul className="ml-4 space-y-1 text-[16px] text-[#515150] font-medium font-outfit">
-                                <li>SGPA to Percentage</li>
-                                <li>CGPA to Percentage</li>
-                                <li>SGPA to CGPA</li>
+                                <li>
+                                    <Link href="https://edukyu.com/sgpa-to-percentage" className="hover:text-[#024B53]">
+                                        SGPA to Percentage
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="https://edukyu.com/cgpa-to-percentage" className="hover:text-[#024B53]">
+                                        CGPA to Percentage
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="https://edukyu.com/sgpa-to-cgpa" className="hover:text-[#024B53]">
+                                        SGPA to CGPA
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
 
                         {/* 3. Career Connect */}
-                        <div className="text-[20px] font-semibold text-[#121211] font-outfit">Career Connect</div>
+                        <Link
+                            href="https://edukyu.com/contact-us"
+                            className="text-[20px] font-semibold text-[#121211] font-outfit hover:text-[#024B53]"
+                        >
+                            Career Connect
+                        </Link>
 
                         {/* 4. Trainers */}
-                        <div className="text-[20px] font-semibold text-[#121211] font-outfit">Trainers</div>
+                        <Link
+                            href="https://edukyu.com/trainers"
+                            className="text-[20px] font-semibold text-[#121211] font-outfit hover:text-[#024B53]"
+                        >
+                            Trainers
+                        </Link>
 
                         {/* 5. Events */}
-                        <div className="text-[20px] font-semibold text-[#121211] font-outfit">Events</div>
+                        <Link
+                            href="https://edukyu.com/events"
+                            className="text-[20px] font-semibold text-[#121211] font-outfit hover:text-[#024B53]"
+                        >
+                            Events
+                        </Link>
                     </div>
 
                     {/* Image Grid Section */}

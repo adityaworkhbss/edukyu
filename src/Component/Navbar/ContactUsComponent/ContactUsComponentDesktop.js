@@ -105,97 +105,108 @@ const ContactUsComponentDesktop = () => {
                                 <div className="text-[#383837] font-outfit text-[22px] font-medium leading-normal not-italic">
                                     Wanna meet us? Find us at the below mentioned location
                                 </div>
+
                                 <div className="flex flex-wrap gap-2 pt-6">
-                                    <div className="flex items-center gap-2 bg-white bg-opacity-60 py-1 rounded-full text-sm">
+                                    {/* Noida (separate chip like your example) */}
+                                    <a
+                                        href="https://maps.app.goo.gl/Kuq8PjQRxFuHhAU16"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 bg-white bg-opacity-60 py-1 px-3 rounded-full text-sm"
+                                    >
+                                        {/* Location pin icon */}
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <g clipPath="url(#clip0_70_405)">
-                                                <path d="M8.00065 1.33331C5.42065 1.33331 3.33398 3.41998 3.33398 5.99998C3.33398 9.49998 8.00065 14.6666 8.00065 14.6666C8.00065 14.6666 12.6673 9.49998 12.6673 5.99998C12.6673 3.41998 10.5807 1.33331 8.00065 1.33331ZM4.66732 5.99998C4.66732 4.15998 6.16065 2.66665 8.00065 2.66665C9.84065 2.66665 11.334 4.15998 11.334 5.99998C11.334 7.91998 9.41398 10.7933 8.00065 12.5866C6.61398 10.8066 4.66732 7.89998 4.66732 5.99998Z" fill="#024B53"/>
-                                                <path d="M8.00065 7.66665C8.92113 7.66665 9.66732 6.92045 9.66732 5.99998C9.66732 5.07951 8.92113 4.33331 8.00065 4.33331C7.08018 4.33331 6.33398 5.07951 6.33398 5.99998C6.33398 6.92045 7.08018 7.66665 8.00065 7.66665Z" fill="#323232"/>
+                                                <path
+                                                    d="M8.00065 1.33331C5.42065 1.33331 3.33398 3.41998 3.33398 5.99998C3.33398 9.49998 8.00065 14.6666 8.00065 14.6666C8.00065 14.6666 12.6673 9.49998 12.6673 5.99998C12.6673 3.41998 10.5807 1.33331 8.00065 1.33331ZM4.66732 5.99998C4.66732 4.15998 6.16065 2.66665 8.00065 2.66665C9.84065 2.66665 11.334 4.15998 11.334 5.99998C11.334 7.91998 9.41398 10.7933 8.00065 12.5866C6.61398 10.8066 4.66732 7.89998 4.66732 5.99998Z"
+                                                    fill="#024B53"
+                                                />
+                                                <path
+                                                    d="M8.00065 7.66665C8.92113 7.66665 9.66732 6.92045 9.66732 5.99998C9.66732 5.07951 8.92113 4.33331 8.00065 4.33331C7.08018 4.33331 6.33398 5.07951 6.33398 5.99998C6.33398 6.92045 7.08018 7.66665 8.00065 7.66665Z"
+                                                    fill="#323232"
+                                                />
                                             </g>
-                                            <defs>
-                                                <clipPath id="clip0_70_405">
-                                                    <rect width="16" height="16" fill="white"/>
-                                                </clipPath>
-                                            </defs>
                                         </svg>
 
                                         <span className="text-[#024B53]">Noida</span>
 
+                                        {/* External link icon */}
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <g clipPath="url(#clip0_70_427)">
-                                                <path d="M5.99935 3.33331V4.66665H10.3927L2.66602 12.3933L3.60602 13.3333L11.3327 5.60665V9.99998H12.666V3.33331H5.99935Z" fill="#024B53"/>
+                                                <path
+                                                    d="M5.99935 3.33331V4.66665H10.3927L2.66602 12.3933L3.60602 13.3333L11.3327 5.60665V9.99998H12.666V3.33331H5.99935Z"
+                                                    fill="#024B53"
+                                                />
                                             </g>
-                                            <defs>
-                                                <clipPath id="clip0_70_427">
-                                                    <rect width="16" height="16" fill="white"/>
-                                                </clipPath>
-                                            </defs>
                                         </svg>
-                                    </div>
+                                    </a>
 
+                                    {/* Other cities */}
                                     <div className="flex flex-wrap gap-3">
-                                        {["Kolkata", "Lucknow", "Bangalore"].map((city) => (
-                                            <div
-                                                key={city}
+                                        {[
+                                            { name: "Kolkata", link: "https://maps.app.goo.gl/iW1DGCXHZSJjdFDo7" },
+                                            { name: "Lucknow", link: "https://maps.app.goo.gl/AWag7JHenUkFswTq5" },
+                                            { name: "Bangalore", link: "https://maps.app.goo.gl/2FXFsCrghT1k4aN68" },
+                                        ].map((city) => (
+                                            <a
+                                                key={city.name}
+                                                href={city.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
                                                 className="flex items-center gap-2 bg-white bg-opacity-60 px-3 py-1 rounded-full text-sm"
                                             >
                                                 {/* Location pin icon */}
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
                                                     <g clipPath="url(#clip0)">
-                                                        <path d="M8 1.333C5.42 1.333 3.333 3.42 3.333 6c0 3.5 4.667 8.667 4.667 8.667s4.667-5.167 4.667-8.667C12.667 3.42 10.58 1.333 8 1.333ZM4.667 6c0-1.84 1.493-3.333 3.333-3.333s3.333 1.493 3.333 3.333c0 1.92-1.92 4.793-3.333 6.587C6.614 10.807 4.667 7.9 4.667 6Z" fill="#024B53" />
+                                                        <path
+                                                            d="M8 1.333C5.42 1.333 3.333 3.42 3.333 6c0 3.5 4.667 8.667 4.667 8.667s4.667-5.167 4.667-8.667C12.667 3.42 10.58 1.333 8 1.333ZM4.667 6c0-1.84 1.493-3.333 3.333-3.333s3.333 1.493 3.333 3.333c0 1.92-1.92 4.793-3.333 6.587C6.614 10.807 4.667 7.9 4.667 6Z"
+                                                            fill="#024B53"
+                                                        />
                                                         <path d="M8 7.667A1.667 1.667 0 1 0 8 4.333a1.667 1.667 0 0 0 0 3.334Z" fill="#323232" />
                                                     </g>
-                                                    <defs>
-                                                        <clipPath id="clip0">
-                                                            <rect width="16" height="16" fill="white" />
-                                                        </clipPath>
-                                                    </defs>
                                                 </svg>
 
                                                 {/* City name */}
-                                                <span className="text-[#024B53]">{city}</span>
+                                                <span className="text-[#024B53]">{city.name}</span>
 
                                                 {/* External link icon */}
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
                                                     <g clipPath="url(#clip1)">
-                                                        <path d="M6 3.333v1.334h4.393L2.666 12.393l.94.94 7.727-7.727v4.393h1.333V3.333H6Z" fill="#024B53" />
+                                                        <path
+                                                            d="M6 3.333v1.334h4.393L2.666 12.393l.94.94 7.727-7.727v4.393h1.333V3.333H6Z"
+                                                            fill="#024B53"
+                                                        />
                                                     </g>
-                                                    <defs>
-                                                        <clipPath id="clip1">
-                                                            <rect width="16" height="16" fill="white" />
-                                                        </clipPath>
-                                                    </defs>
                                                 </svg>
-                                            </div>
+                                            </a>
                                         ))}
                                     </div>
-
                                 </div>
                             </div>
 
                             {/* Know more section */}
-                            <div className="pt-[65px] flex gap-x-5">
-                                <div className="text-[#383837] font-outfit text-[20px] font-medium leading-normal not-italic">
-                                    Wanna know more about us, check us out here
-                                </div>
+                            {/*<div className="pt-[65px] flex gap-x-5">*/}
+                            {/*    <div className="text-[#383837] font-outfit text-[20px] font-medium leading-normal not-italic">*/}
+                            {/*        Wanna know more about us, check us out here*/}
+                            {/*    </div>*/}
 
-                                <div className="flex items-center gap-1">
-                                    <span className="text-[#024B53] font-outfit text-[14px] font-medium leading-[20px] not-italic">
-                                      Contact us page
-                                    </span>
+                            {/*    <div className="flex items-center gap-1">*/}
+                            {/*        <span className="text-[#024B53] font-outfit text-[14px] font-medium leading-[20px] not-italic">*/}
+                            {/*          Contact us page*/}
+                            {/*        </span>*/}
 
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                        <g clipPath="url(#clip0_70_435)">
-                                            <path d="M7.99935 2.66669L7.05935 3.60669L10.7793 7.33335H2.66602V8.66669H10.7793L7.05935 12.3934L7.99935 13.3334L13.3327 8.00002L7.99935 2.66669Z" fill="#024B53"/>
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_70_435">
-                                                <rect width="16" height="16" fill="white"/>
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                </div>
-                            </div>
+                            {/*        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">*/}
+                            {/*            <g clipPath="url(#clip0_70_435)">*/}
+                            {/*                <path d="M7.99935 2.66669L7.05935 3.60669L10.7793 7.33335H2.66602V8.66669H10.7793L7.05935 12.3934L7.99935 13.3334L13.3327 8.00002L7.99935 2.66669Z" fill="#024B53"/>*/}
+                            {/*            </g>*/}
+                            {/*            <defs>*/}
+                            {/*                <clipPath id="clip0_70_435">*/}
+                            {/*                    <rect width="16" height="16" fill="white"/>*/}
+                            {/*                </clipPath>*/}
+                            {/*            </defs>*/}
+                            {/*        </svg>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
                         </div>
                     </GridComponent>
 
