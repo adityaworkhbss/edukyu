@@ -1,116 +1,119 @@
-import HeroPage from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/HeroPage";
-import RankAndAccr from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/RankAndAccr";
-import Courses from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/Courses";
-import Specialization from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/Specialization";
-import { Semester } from "./Components/Semester";
-import OurFaculty from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/MeetOurFaculty";
-import { EligibilityCriteria } from "./Components/EligibilityCriterias";
-import { EligibilityCriteriaImage } from "./Components/EligibilityCriteria2";
-import AdmissionProcess from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/AdmissionProcess";
+import React, { useEffect, useRef, useState } from "react";
+import HeroPage from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/HeroPage";
+import RankAndAccr from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/RankAndAccr";
+import Courses from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/Courses";
+import Specialization from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/Specialization";
+import AdmissionProcess from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/AdmissionProcess";
 import FeeTable from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/FeeTable";
-import Benefits, {BenefitsSection} from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/BenefitsSection";
-import CompareCollegesCTA from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/CompareCollegeCTA";
-import DegreeSection from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/DegreeSection";
-import ToolsCertificate from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/ToolsCertificate";
-import JobRoles from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/JobRoles";
-import ContactForm, {
-    ContactUsSection
-} from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/ContactUsSection";
-import SidebarNavigation from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/SidebarNavigation";
-import CollegeMunchBanner from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/CourseMunchBanner";
-import GridComponent from "@/GlobalComponent/GridComponent";
-import collegePageMobile from "@/Component/Pages/CollegePage/CollegePageMobile/CollegePageMobile";
+import { BenefitsSection } from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/BenefitsSection";
+import CompareCollegesCTA from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CompareCollegeCTA";
+import DegreeSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/DegreeSection";
+import { ContactUsSection } from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/ContactUsSection";
+import SidebarNavigation from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/SidebarNavigation";
 import FaqsSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/FaqsSection";
-import HiringPartnersSection from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/HiringPartnerSection";
+import HiringPartnersSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/HiringPartnerSection";
 
+const CollegePageDesktop = ({ college, collegeSecondry }) => {
+    const sidebarRef = useRef(null);
+    const containerRef = useRef(null);
+    const [sidebarStyle, setSidebarStyle] = useState({});
 
-const CoursePageDesktop = ({college, collegeSecondry}) => {
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!sidebarRef.current || !containerRef.current) return;
+
+            const sidebar = sidebarRef.current;
+            const container = containerRef.current;
+
+            const sidebarHeight = sidebar.offsetHeight;
+            const containerRect = container.getBoundingClientRect();
+            const offsetTop = 0; // distance from top (like navbar height)
+
+            if (containerRect.top < offsetTop && containerRect.bottom > sidebarHeight + offsetTop) {
+                // Stick to top
+                setSidebarStyle({
+                    position: "fixed",
+                    top: `${offsetTop}px`,
+                    width: `${sidebar.offsetWidth}px`,
+                });
+            } else if (containerRect.bottom <= sidebarHeight + offsetTop) {
+                // Stick to bottom of container
+                setSidebarStyle({
+                    position: "absolute",
+                    bottom: "0",
+                    top: "auto",
+                    width: "100%",
+                });
+            } else {
+                // Normal flow
+                setSidebarStyle({
+                    position: "static",
+                });
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <div>
+            {/* Hero at top */}
             <div>
                 <HeroPage college={college} />
             </div>
 
-            <div className="px-[56px] max-w-full overflow-x-hidden">
-
-
-
-                <div className="flex gap-4 max-w-full w-full">
-                    <div className="w-1/4 flex-shrink-0">
-                        <SidebarNavigation/>
+            {/* Sidebar + Main content */}
+            <div className="px-[56px] max-w-full overflow-x-hidden mt-8 flex gap-4" ref={containerRef}>
+                {/* Sidebar */}
+                <div className="w-1/4 flex-shrink-0 relative">
+                    <div ref={sidebarRef} style={sidebarStyle}>
+                        <SidebarNavigation />
                     </div>
-
-                    <div className="w-3/4 space-y-[64px] min-w-0 max-w-full">
-                        <div id="ranking">
-                            <RankAndAccr college={college} />
-                        </div>
-                        <div id="courses">
-                            <Courses college={college}/>
-                        </div>
-                        <div id="specialization">
-                            <Specialization data={collegeSecondry}/>
-                        </div>
-                        
-                       
-                        <div id="benefits">
-                            <BenefitsSection college={college}/>
-                        </div>
-                        <div id="semester">
-                            <Semester />
-                        </div>
-                        <div id="faculty">
-                            <OurFaculty />
-                        </div>
-                        <div id="eligibilityCriteria">
-                            <EligibilityCriteria />
-                        </div>
-                        <div id="eligibilityCriteriaimage">
-                            <EligibilityCriteriaImage />
-                        </div>
-                        <div id="admission">
-                            <AdmissionProcess college={college}/>
-                        </div>
-                       
-                        
-                        <div className="py-[64px]" id="compare">
-                            <CompareCollegesCTA/>
-                        </div>
-                        <div id="degree">
-                            <DegreeSection  college={college}/>
-                        </div>
-                        <div id="toolscertificate">
-                            <ToolsCertificate />
-                        </div>
-                        <div id="jobroles">
-                            <JobRoles />
-                        </div>
-                       
-                        <div id="hiring">
-                            <HiringPartnersSection
-                                logos={college?.university_info?.placement?.partners || []}
-                                name={college?.university_info?.name || ''}
-                            />
-
-                            <div id="collegemunch">
-                                <CollegeMunchBanner />
-                            </div>
-                        </div>
-                        <div id="faq">
-                            <FaqsSection faqs={college?.university_info?.faqs || []}/>
-                        </div>
-                        <div id="contact">
-                            <ContactUsSection/>
-                        </div>
-                    </div>
-
                 </div>
 
+                {/* Main content */}
+                <div className="w-3/4 space-y-[64px] min-w-0 max-w-full">
+                    <div id="ranking">
+                        <RankAndAccr college={college} />
+                    </div>
+                    <div id="courses">
+                        <Courses college={college} />
+                    </div>
+                    <div id="specialization">
+                        <Specialization data={collegeSecondry} />
+                    </div>
+                    <div id="admission">
+                        <AdmissionProcess college={college} />
+                    </div>
+                    <div id="fees">
+                        <FeeTable collegeSecondry={collegeSecondry} />
+                    </div>
+                    <div id="benefits">
+                        <BenefitsSection college={college} />
+                    </div>
+                    <div className="py-[64px]" id="compare">
+                        <CompareCollegesCTA />
+                    </div>
+                    <div id="degree">
+                        <DegreeSection college={college} />
+                    </div>
+                    <div id="hiring">
+                        <HiringPartnersSection
+                            logos={college?.university_info?.placement?.partners || []}
+                            name={college?.university_info?.name || ""}
+                        />
+                    </div>
+                    <div id="faq">
+                        <FaqsSection faqs={college?.university_info?.faqs || []} />
+                    </div>
+                    <div id="contact">
+                        <ContactUsSection />
+                    </div>
+                </div>
             </div>
-
         </div>
-
     );
 };
 
-export default CoursePageDesktop;
+export default CollegePageDesktop;

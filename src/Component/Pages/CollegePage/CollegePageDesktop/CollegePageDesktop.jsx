@@ -27,7 +27,7 @@ const CollegePageDesktop = ({ college, collegeSecondry }) => {
 
             const sidebarHeight = sidebar.offsetHeight;
             const containerRect = container.getBoundingClientRect();
-            const offsetTop = 80; // distance from top (like navbar height)
+            const offsetTop = 0; // distance from top (like navbar height)
 
             if (containerRect.top < offsetTop && containerRect.bottom > sidebarHeight + offsetTop) {
                 // Stick to top

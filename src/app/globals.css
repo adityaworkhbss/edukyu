@@ -55,6 +55,10 @@ html, body {
   scrollbar-width: none;     /* Firefox */
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
+}
+
 .sticky-sidebar {
   position: sticky;
   top: 80px; /* Adjust based on your header height */
