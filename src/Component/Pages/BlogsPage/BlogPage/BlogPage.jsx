@@ -7,7 +7,7 @@ import BlogCards from "@/Component/Pages/BlogsPage/BlogPage/Components/BlogCards
 import { BlogService } from "@/Services/blogService";
 import BlogsByCategories from "@/Component/Pages/BlogsPage/BlogPage/Components/BlogsByCategories";
 
-const BlogPage = ({ blogId }) => {
+const BlogPage = ({ blogId, onLoaded }) => {
     const [data, setData] = useState({
         userid: "",
         category: "",
@@ -21,9 +21,12 @@ const BlogPage = ({ blogId }) => {
         const fetchData = async () => {
             const blogData = await BlogService.getInstance().fetchFullBlogPage(blogId);
             setData(blogData);
+            if (typeof onLoaded === 'function') {
+                onLoaded();
+            }
         };
         fetchData();
-    }, [blogId]);
+    }, [blogId, onLoaded]);
 
     return (
         <div className="px-[56px] py-[64px] space-y-10 bg-gray-50">

@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { usePageContext } from "@/GlobalComponent/PageContext";
 import React from "react";
 
 export const FeatureBlogCard = ({
@@ -11,9 +12,10 @@ export const FeatureBlogCard = ({
                                     category = "BLOG",
                                 }) => {
     const router = useRouter();
+    const { openBlogViewer } = usePageContext();
 
     const handleReadMore = () => {
-        router.push(`/blog/page/${blogId}`, undefined, { shallow: true });
+        openBlogViewer(blogId);
     };
 
     const handleImageError = (e) => {

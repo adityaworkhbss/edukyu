@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Calendar, ImageIcon, User } from "lucide-react";
 import {useRouter} from "next/navigation";
+import { usePageContext } from "@/GlobalComponent/PageContext";
 
 export default function BlogCarousel(
     {blogs},
@@ -42,8 +43,9 @@ export default function BlogCarousel(
     };
 
     const router = useRouter();
+    const { openBlogViewer } = usePageContext();
     const handleReadMore = (blogId) => {
-        router.push(`/blog/page/${blogId}`, undefined, { shallow: true });
+        openBlogViewer(blogId);
     };
 
     const totalTranslateX = -1 * currentIndex * (cardWidth + cardGap);

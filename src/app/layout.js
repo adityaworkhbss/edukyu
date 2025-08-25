@@ -2,6 +2,7 @@ import { Outfit } from 'next/font/google';
 import './globals.css';
 
 import { PageProvider } from '@/GlobalComponent/PageContext';
+import BlogViewerModal from '@/GlobalComponent/BlogViewerModal';
 
 const outfit = Outfit({
     variable: '--font-outfit',
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
             <body className={`${outfit.variable} antialiased`}>
                 <PageProvider>
                     {children}
+                    <BlogViewerModal />
                 </PageProvider>
             </body>
         </html>

@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
 import { useRouter } from "next/navigation";
+import { usePageContext } from "@/GlobalComponent/PageContext";
 import { BlogService } from "@/Services/blogService";
-import {usePageContext} from "@/GlobalComponent/PageContext";
 
 const BlogComponentMobile = ({ onClose }) => {
     const [searchQuery, setSearchQuery] = useState("");
@@ -13,9 +13,10 @@ const BlogComponentMobile = ({ onClose }) => {
     const { setCurrentPage } = usePageContext();
 
     const router = useRouter();
+    const { openBlogViewer } = usePageContext();
 
     const handleReadMore = (blogId) => {
-        router.push(`/blog/page/${blogId}`, undefined, { shallow: true });
+        openBlogViewer(blogId);
     };
 
     const fetchTopNavBlogs = async () => {
@@ -67,7 +68,7 @@ const BlogComponentMobile = ({ onClose }) => {
     const handleSuggestionClick = (id) => {
         setFilteredSuggestions([]);
         setSearchQuery("");
-        router.push(`/blog/page/${id}`, undefined, { shallow: true });
+        openBlogViewer(id);
     };
 
     const formatDate = (dateString) => {

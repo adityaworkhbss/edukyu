@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import {useRouter} from "next/navigation";
+import { usePageContext } from "@/GlobalComponent/PageContext";
 
 const BlogCard = ({ item }) => {
 
@@ -20,9 +21,10 @@ const BlogCard = ({ item }) => {
     };
 
     const router = useRouter();
+    const { openBlogViewer } = usePageContext();
 
     const handleReadMore = (blogId) => {
-        router.push(`/blog/page/${blogId}`, undefined, { shallow: true });
+        openBlogViewer(blogId);
     };
 
     return (

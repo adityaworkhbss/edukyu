@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { usePageContext } from "@/GlobalComponent/PageContext";
 import React, { useState } from "react";
 import BlogPage from "@/Component/Pages/BlogsPage/BlogPage/BlogPage";
 
@@ -14,9 +15,10 @@ export const BlogCard = ({
                              category = "BLOG",
                          }) => {
    const router = useRouter();
+   const { openBlogViewer } = usePageContext();
 
     const handleReadMore = () => {
-        router.push(`/blog/page/${blogId}`, undefined, { shallow: true });
+        openBlogViewer(blogId);
     };
 
 

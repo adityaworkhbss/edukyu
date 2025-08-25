@@ -82,10 +82,10 @@ const BlogComponentDesktop = () => {
     };
 
 
+    const { openBlogViewer } = usePageContext();
     const handleSuggestionClick = (id) => {
         setFilteredSuggestions([]);
-        router.push(`/blog/page/${id}`, undefined, { shallow: true });
-
+        openBlogViewer(id);
     };
 
     const handleCheckAllBlogs = () => {
