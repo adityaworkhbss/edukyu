@@ -46,17 +46,20 @@ const FaqsSection = ({ faqs }) => {
 
             <div className="w-full space-y-3">
                 {faqs.map((faq, index) => (
-                    <div key={index} className="bg-[#EFFDFE] rounded-[12px]">
-                        <button
-                            onClick={() => toggleFAQ(index)}
-                            className="flex items-center justify-between px-[24px] py-[14px] text-[#333] font-[Outfit] text-[16px] font-normal leading-normal w-full"
-                        >
-                            {faq.question}
-                            <ArrowIcon isOpen={openIndex === index} />
-                        </button>
+                    <div key={index}>
+                        <div className="bg-[#EFFDFE] rounded-[12px]">
+                            <button
+                                onClick={() => toggleFAQ(index)}
+                                className="flex items-center justify-between px-[24px] py-[14px] text-[#333] font-[Outfit] text-[16px] font-normal leading-normal w-full"
+                            >
+                                {faq.question}
+                                <ArrowIcon isOpen={openIndex === index} />
+                            </button>
+                        </div>
 
+                        {/* Render answer outside the colored box as a white card in the page white space */}
                         {openIndex === index && (
-                            <div className="px-[24px] pb-4 text-[14px] text-[#535862] font-[Outfit]">
+                            <div className="mt-3 px-[24px] py-4 bg-white  text-[14px] text-[#535862] font-[Outfit]">
                                 {faq.answer}
                             </div>
                         )}
