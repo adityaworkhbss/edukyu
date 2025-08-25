@@ -30,21 +30,33 @@ const EduKyuMobileFooter = () => {
     ];
 
     const courses = ['MBA', 'BBA', 'MCA', 'B.Com', 'M.Sc', 'B.Sc', 'MA', 'BA'];
-    const quickLinks = [
-        'About Us', 'Our Team', 'Partner with Us', 'Compare College', 'College Manch',
-        'Blogs', 'Refer and Earn', 'SGPA to Calculator', 'CGPA to Calculator',
-        'SGPA to CGPA', 'Contact Us'
+
+    const quickLinksData = [
+        { name: "About Us", action: () => window.open("https://edukyu.com/about-us", "_blank") },
+        { name: "Our Team", action: () => window.open("https://edukyu.com/team", "_blank") },
+        { name: "Partner with Us", action: () => window.open("https://edukyu.com/partner-with-us", "_blank") },
+        { name: "Compare College", action: () => setCurrentPage('compare') },
+        { name: "College Manch", action: () => window.open("https://collegemanch.com/", "_blank") },
+        { name: "Blogs", action: () => setCurrentPage('blog') },
+        { name: "Refer and Earn", action: () => window.open("https://edukyu.com/refer-and-earn/", "_blank") },
+        { name: "SGPA to Calculator", action: () => window.open("https://edukyu.com/sgpa-to-percentage", "_blank") },
+        { name: "CGPA to Calculator", action: () => window.open("https://edukyu.com/cgpa-to-percentage", "_blank") },
+        { name: "SGPA to CGPA", action: () => window.open("https://edukyu.com/sgpa-to-cgpa", "_blank") },
+        { name: "Contact Us", action: () => window.open("https://edukyu.com/contact-us", "_blank") }
     ];
-    const locations = ['Noida', 'Kolkata', 'Bangalore', 'Lucknow'];
+
+    const locationsData = [
+        { name: "Noida", url: "https://maps.app.goo.gl/Kuq8PjQRxFuHhAU16" },
+        { name: "Kolkata", url: "https://maps.app.goo.gl/iW1DGCXHZSJjdFDo7" },
+        { name: "Bangalore", url: "https://maps.app.goo.gl/2FXFsCrghT1k4aN68" },
+        { name: "Lucknow", url: "https://maps.app.goo.gl/AWag7JHenUkFswTq5" }
+    ];
 
     const { setCurrentPage, setSelectedCollege } = usePageContext();
-
 
     const universityKeyMap = {
         'Amity University': 'Amity_University',
         'Dr. DY Patil University':'DYP',
-        // 'DPU':'NUI',
-        // 'DPU':'VGU',
         'Jain University':'Jain_University',
         'Lovely Professional University' :'Lovely_Professional_University',
         'Manipal University':'Manipal_University',
@@ -55,23 +67,48 @@ const EduKyuMobileFooter = () => {
         'Vivekanand Global University':'VGU',
     };
 
+    const handleItemClick = (key, item, index) => {
+        if (key === 'colleges') {
+            const mappedKey = universityKeyMap[item];
+            if (mappedKey) {
+                console.log(mappedKey);
+                setSelectedCollege(mappedKey);
+                setCurrentPage('college');
+            }
+        } else if (key === 'links') {
+            const linkData = quickLinksData[index];
+            if (linkData && linkData.action) {
+                linkData.action();
+            }
+        } else if (key === 'findus') {
+            const locationData = locationsData.find(loc => loc.name === item);
+            if (locationData) {
+                window.open(locationData.url, "_blank");
+            }
+        }
+    };
 
     const renderList = (key, list) =>
         expandedSections[key] && (
             <div className="pb-5 pl-4 space-y-5">
                 {list.map((item, idx) => (
-                    <div key={idx} className="text-sm text-left text-white flex items-center"
-                        onClick={() => {
-                            console.log(key);
-                            if (key === 'colleges') {
-                                const mappedKey = universityKeyMap[item];
-                                console.log(mappedKey);
-                                setSelectedCollege(mappedKey);
-                                setCurrentPage('college');
-                            }
-                        }}>
+                    <div
+                        key={idx}
+                        className="text-sm text-left text-white flex items-center cursor-pointer hover:text-white/80 transition-colors duration-200"
+                        onClick={() => handleItemClick(key, item, idx)}
+                    >
                         {item}
                         {key === 'courses' && (
+                            <span className="pl-2 pt-[3px]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                  <path
+                                      d="M6 3.333V4.667h4.394L2.667 12.393 3.607 13.333l7.727-7.727v4.393H12.667V3.333H6Z"
+                                      fill="white"
+                                  />
+                                </svg>
+                              </span>
+                        )}
+                        {key === 'findus' && (
                             <span className="pl-2 pt-[3px]">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
                                   <path
@@ -104,8 +141,8 @@ const EduKyuMobileFooter = () => {
                         </button>
                         {item.key === 'colleges' && renderList(item.key, colleges)}
                         {item.key === 'courses' && renderList(item.key, courses)}
-                        {item.key === 'links' && renderList(item.key, quickLinks)}
-                        {item.key === 'findus' && renderList(item.key, locations)}
+                        {item.key === 'links' && renderList(item.key, quickLinksData.map(link => link.name))}
+                        {item.key === 'findus' && renderList(item.key, locationsData.map(loc => loc.name))}
                     </div>
                 ))}
             </div>

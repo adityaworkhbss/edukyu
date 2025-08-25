@@ -4,8 +4,7 @@ import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { gridConfigs } from '@/libs/GridConfigs';
 import GridContainer from '@/GlobalComponent/GridContainer';
 import GridComponent from '@/GlobalComponent/GridComponent';
-import {usePageContext} from "@/GlobalComponent/PageContext";
-// import Edukyu_Logo from '../../../public/Resources/Images/edukyu-footer-logo.png';
+import { usePageContext } from "@/GlobalComponent/PageContext";
 
 // Separate components for better organization
 const Logo = () => (
@@ -22,10 +21,11 @@ const CompanyDescription = () => (
     </p>
 );
 
-const NavLink = ({ arrowNeeded, children, href = "#", ...props }) => (
+const NavLink = ({ arrowNeeded, children, href = "#", onClick, ...props }) => (
     <a
         href={href}
-        {...props} // spread remaining props like onClick, className, etc.
+        onClick={onClick}
+        {...props}
         className={`flex items-center text-white/80 hover:text-white transition-colors duration-200 text-sm ${props.className || ''}`}
     >
         {children}
@@ -60,11 +60,7 @@ const FooterSection = ({ title, children }) => {
         <div className="">
             <h3 className="text-white text-left text-lg font-medium">{title}</h3>
             <div className="pt-[32px] space-y-4">
-                {children.map((line, index) => (
-                    <div key={index} className="h-[18px] text-white font-outfit text-[14px] font-normal">
-                        {line}
-                    </div>
-                ))}
+                {children}
             </div>
         </div>
     );
@@ -166,31 +162,29 @@ const FooterDesktop = () => {
     ];
 
     const quickLinks = [
-        "About Us",
-        "Our Team",
-        "Partner with Us",
-        "Compare College",
-        "College Manch",
-        "Blogs",
-        "Refer and Earn",
-        "SGPA to Calculator",
-        "CGPA to Calculator",
-        "SGPA to CGPA",
-        "Contact Us"
+        { name: "About Us", url: "https://edukyu.com/about-us" },
+        { name: "Our Team", url: "https://edukyu.com/team" },
+        { name: "Partner with Us", url: "https://edukyu.com/partner-with-us" },
+        { name: "Compare College", action: () => setCurrentPage('compare') },
+        { name: "College Manch", url: "https://collegemanch.com/" },
+        { name: "Blogs", action: () => setCurrentPage('blog') },
+        { name: "Refer and Earn", url: "https://edukyu.com/refer-and-earn/" },
+        { name: "SGPA to Calculator", url: "https://edukyu.com/sgpa-to-percentage" },
+        { name: "CGPA to Calculator", url: "https://edukyu.com/cgpa-to-percentage" },
+        { name: "SGPA to CGPA", url: "https://edukyu.com/sgpa-to-cgpa" },
+        { name: "Contact Us", url: "https://edukyu.com/contact-us" }
     ];
 
     const locations = [
-        "Noida",
-        "Kolkata",
-        "Bangalore",
-        "Lucknow"
+        { name: "Bangalore", url: "https://maps.app.goo.gl/2FXFsCrghT1k4aN68" },
+        { name: "Lucknow", url: "https://maps.app.goo.gl/AWag7JHenUkFswTq5" },
+        { name: "Kolkata", url: "https://maps.app.goo.gl/iW1DGCXHZSJjdFDo7" },
+        { name: "Noida", url: "https://maps.app.goo.gl/Kuq8PjQRxFuHhAU16" }
     ];
 
     const universityKeyMap = {
         'Amity University': 'Amity_University',
         'Dr. DY Patil University':'DYP',
-        // 'DPU':'NUI',
-        // 'DPU':'VGU',
         'Jain University':'Jain_University',
         'Lovely Professional University' :'Lovely_Professional_University',
         'Manipal University':'Manipal_University',
@@ -199,6 +193,15 @@ const FooterDesktop = () => {
         'Shoolini University':'Shoolini_University',
         'Uttaranchal University':'UU',
         'Vivekanand Global University':'VGU',
+    };
+
+    // Handle link clicks
+    const handleLinkClick = (link) => {
+        if (link.action) {
+            link.action();
+        } else if (link.url) {
+            window.open(link.url, "_blank");
+        }
     };
 
     return (
@@ -248,27 +251,24 @@ const FooterDesktop = () => {
                     >
                         <FooterSection title="Colleges">
                             {colleges.map((college, index) => (
-                                <NavLink
-                                    arrowNeeded={false}
-                                    key={index}
-                                    className="cursor-pointer"
-                                    onClick={() => {
+                                <div key={index} className="h-[18px] text-white font-outfit text-[14px] font-normal">
+                                    <NavLink
+                                        arrowNeeded={false}
+                                        className="cursor-pointer"
+                                        onClick={() => {
                                             const mappedKey = universityKeyMap[college];
-                                            console.log(mappedKey);
                                             setSelectedCollege(mappedKey);
                                             setCurrentPage('college');
-
-                                    }}
-                                >
-                                    {college}
-                                </NavLink>
+                                        }}
+                                    >
+                                        {college}
+                                    </NavLink>
+                                </div>
                             ))}
                         </FooterSection>
-
-
                     </GridComponent>
 
-                    {/*/!* Online Courses Section - Grid 6 to 7 *!/*/}
+                    {/* Online Courses Section - Grid 6 to 7 */}
                     <GridComponent
                         lastUsedGridEnd={5}
                         fromFooter={true}
@@ -278,12 +278,14 @@ const FooterDesktop = () => {
                     >
                         <FooterSection title="Online Courses">
                             {courses.map((course, index) => (
-                                <NavLink arrowNeeded={true} key={index}>{course}</NavLink>
+                                <div key={index} className="h-[18px] text-white font-outfit text-[14px] font-normal">
+                                    <NavLink arrowNeeded={true}>{course}</NavLink>
+                                </div>
                             ))}
                         </FooterSection>
                     </GridComponent>
 
-                    {/*/!* Quick Links Section - Grid 8 to 10 *!/*/}
+                    {/* Quick Links Section - Grid 8 to 10 */}
                     <GridComponent
                         lastUsedGridEnd={7}
                         gridStart={8}
@@ -293,12 +295,20 @@ const FooterDesktop = () => {
                     >
                         <FooterSection title="Quick Links">
                             {quickLinks.map((link, index) => (
-                                <NavLink arrowNeeded={false} key={index}>{link}</NavLink>
+                                <div key={index} className="h-[18px] text-white font-outfit text-[14px] font-normal">
+                                    <NavLink
+                                        arrowNeeded={false}
+                                        onClick={() => handleLinkClick(link)}
+                                        className="cursor-pointer"
+                                    >
+                                        {link.name}
+                                    </NavLink>
+                                </div>
                             ))}
                         </FooterSection>
                     </GridComponent>
 
-                    {/*/!* Find us at Section - Grid 11 to 12 *!/*/}
+                    {/* Find us at Section - Grid 11 to 12 */}
                     <GridComponent
                         lastUsedGridEnd={9}
                         gridStart={10}
@@ -308,7 +318,15 @@ const FooterDesktop = () => {
                     >
                         <FooterSection title="Find us at">
                             {locations.map((location, index) => (
-                                <NavLink arrowNeeded={true} key={index}>{location}</NavLink>
+                                <div key={index} className="h-[18px] text-white font-outfit text-[14px] font-normal">
+                                    <NavLink
+                                        arrowNeeded={true}
+                                        onClick={() => window.open(location.url, "_blank")}
+                                        className="cursor-pointer"
+                                    >
+                                        {location.name}
+                                    </NavLink>
+                                </div>
                             ))}
                         </FooterSection>
                     </GridComponent>
