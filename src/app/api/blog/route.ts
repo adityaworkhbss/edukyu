@@ -26,10 +26,10 @@ export async function GET(req: NextRequest) {
 
     try {
         const connection = await mysql.createConnection({
-            host: 'localhost:3360',
+            host: 'localhost',
             user: 'root',
             password: 'root',
-            database: 'blog',
+            database: 'blogdb',
         });
 
         // Count total blogs

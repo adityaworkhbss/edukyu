@@ -95,7 +95,7 @@ const ExplorePrograms = () => {
                         {programs.map((program) => (
                             <div key={program.id} className="group bg-program-card border border-border rounded-[22px] shadow-sm hover:bg-[#CDCDCD] border-[#CDCDCD]">
                                 <div className="p-0">
-                                    <div className="bg-program-image rounded-t-lg h-[132px] flex items-center justify-center overflow-hidden">
+                                    <div className="bg-program-image rounded-t-[22px] h-[132px] flex items-center justify-center overflow-hidden">
                                         {program.image ? (
                                             <img
                                                 src={`https://edukyu.com/${program.image}`}
@@ -108,7 +108,8 @@ const ExplorePrograms = () => {
                                     </div>
 
                                     <div className="py-[16px] px-[16px]">
-                                        <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none">
+
+                                        <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-tight min-h-[2.5em]">
                                             {program.title}
                                         </h3>
                                         <div className="inline-flex items-center gap-[8px] pt-[22px]">
