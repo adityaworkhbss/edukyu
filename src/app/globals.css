@@ -55,6 +55,13 @@ html, body {
   scrollbar-width: none;     /* Firefox */
 }
 
+
+#nprogress .bar {
+  background: #2563eb !important; /* Tailwind blue-600 */
+  height: 3px !important;
+  z-index: 100000 !important;
+}
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  /* Chrome, Safari, Opera */
 }
@@ -66,3 +73,4 @@ html, body {
   height: 100vh;
   overflow-y: auto;
 }
+
