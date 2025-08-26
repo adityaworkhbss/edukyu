@@ -91,7 +91,7 @@ export const ExploreProgramsMobile = () => {
                                     {program.image ? (
                                         <img
                                             src={`https://edukyu.com/${program.image}`}
-                                            alt={`${name} logo`}
+                                            alt={`${program.name} logo`}
                                             className="object-contain w-full"
                                         />
                                     ) : (
