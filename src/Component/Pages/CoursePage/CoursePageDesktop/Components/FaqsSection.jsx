@@ -24,8 +24,32 @@ const ArrowIcon = ({ isOpen }) => (
     </svg>
 );
 
-const FaqsSection = ({ faqs }) => {
+const FaqsSection = ({ course }) => {
     const [openIndex, setOpenIndex] = useState(null);
+
+    // Extract course data safely - handle both direct and nested structures
+    let courseData = {};
+    
+    if (course) {
+        // Check if course has direct properties
+        if (course.faqs) {
+            courseData = course;
+        } 
+        // Check if course has nested structure like CoursePageData
+        else {
+            const firstKey = Object.keys(course)[0];
+            if (firstKey && course[firstKey]) {
+                courseData = course[firstKey];
+            }
+        }
+    }
+
+    const faqs = courseData?.faqs || [];
+
+    // Hide component if no FAQ data
+    if (!faqs || faqs.length === 0) {
+        return null;
+    }
 
     const toggleFAQ = (index) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -40,7 +64,7 @@ const FaqsSection = ({ faqs }) => {
             </GridComponent>
             <GridComponent gridStart={0} gridEnd={7}>
                 <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
-                    Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+                    Find answers to commonly asked questions about this course and admission process.
                 </div>
             </GridComponent>
 

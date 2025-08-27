@@ -1,32 +1,41 @@
 import GridComponent from "@/GlobalComponent/GridComponent";
 
 
-const AdmissionProcess = ({college}) => {
+const AdmissionProcess = ({course}) => {
 
-    const steps = college?.university_info?.admission_process || [];
+    // Extract course data safely - handle both direct and nested structures
+    let courseData = {};
+    
+    if (course) {
+        // Check if course has direct properties
+        if (course.admissionProcess) {
+            courseData = course;
+        } 
+        // Check if course has nested structure like CoursePageData
+        else {
+            const firstKey = Object.keys(course)[0];
+            if (firstKey && course[firstKey]) {
+                courseData = course[firstKey];
+            }
+        }
+    }
 
+    const steps = courseData?.admissionProcess || [];
+    const courseName = courseData?.page?.title || "this program";
+
+    // Hide component if no admission process data
     if (!steps || steps.length === 0) {
-        return (
-        <div className="w-full max-w-full overflow-hidden">
-            <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[65%]">
-                Admission Process of {college?.university_info?.name}
-            </div>
-
-            <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-full">
-                Admission process information will be available soon.
-            </div>
-        </div>
-    );
-}
+        return null;
+    }
 
     return (
         <div className="w-full max-w-full overflow-hidden ml-0.5">
             <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[65%]">
-                Admission Process of {college?.university_info?.name}
+                Admission Process of {courseName}
             </div>
 
             <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
-                Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+                Follow these simple steps to secure your admission and start your journey towards academic excellence.
             </div>
 
             {/* Steps */}
@@ -35,9 +44,17 @@ const AdmissionProcess = ({college}) => {
                     <div key={index} className="flex items-start gap-4 relative w-[77%]">
                         {/* Step Number Circle */}
                         <div className="bg-[#EFFDFE] rounded-[10px] p-4 z-2 flex-shrink-0">
-                            <div className="text-black font-semibold text-[18px] font-[Outfit]">
-                                {step?.step || index + 1}
-                            </div>
+                            {step?.icon ? (
+                                <img 
+                                    src={step.icon} 
+                                    alt={step.title || `Step ${step?.step || index + 1}`}
+                                    className="w-6 h-6 object-contain"
+                                />
+                            ) : (
+                                <div className="text-black font-semibold text-[18px] font-[Outfit]">
+                                    {step?.step || index + 1}
+                                </div>
+                            )}
                         </div>
 
 
@@ -48,9 +65,11 @@ const AdmissionProcess = ({college}) => {
 
                         {/* Step Content */}
                         <div className="flex flex-col z-10 gap-3 min-w-0 flex-1">
-                            {/*<div className="text-black font-semibold text-[18px] font-[Outfit]">*/}
-                            {/*    Process: Step {index + 1}*/}
-                            {/*</div>*/}
+                            {step?.title && (
+                                <div className="text-black font-semibold text-[18px] font-[Outfit]">
+                                    {step.title}
+                                </div>
+                            )}
 
                             <div className="mt-2 text-[#333] font-normal text-[16px] font-[Outfit] break-words">
                                 {step?.description || step}

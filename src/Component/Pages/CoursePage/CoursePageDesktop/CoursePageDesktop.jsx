@@ -21,7 +21,7 @@ import SidebarNavigation from "@/Component/Pages/CoursePage/CoursePageDesktop/Co
 import CollegeMunchBanner from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/CourseMunchBanner";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import collegePageMobile from "@/Component/Pages/CollegePage/CollegePageMobile/CollegePageMobile";
-import FaqsSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/FaqsSection";
+import FaqsSection from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/FaqsSection";
 import HiringPartnersSection from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/HiringPartnerSection";
 
 const CollegePageDesktop = ({ course, courseSecondry }) => {
@@ -94,21 +94,52 @@ const CollegePageDesktop = ({ course, courseSecondry }) => {
                     {/* <div id="specialization">
                         <Specialization data={collegeSecondry} />
                     </div> */}
+                     <div id="benefits">
+                        <BenefitsSection course={course} />
+                    </div>
+                    <div id="semester">
+                        <Semester/>
+                    </div>
+                    <div id="ourfaculty">
+                        <OurFaculty />
+                    </div>
+                    <div id="eligibilitycriteria">
+                        <EligibilityCriteria/>
+                    </div>
+                    <div id="eligibilitycriteriaimage">
+                        <EligibilityCriteriaImage/>
+                    </div>
+
                     <div id="admission">
                         <AdmissionProcess course={course} />
                     </div>
                     {/* <div id="fees">
                         <FeeTable collegeSecondry={collegeSecondry} />
                     </div> */}
-                    <div id="benefits">
-                        <BenefitsSection course={course} />
-                    </div>
+                   
                     <div className="py-[64px]" id="compare">
                         <CompareCollegesCTA />
                     </div>
                     <div id="degree">
                         <DegreeSection course={course} />
                     </div>
+
+                    <div id="tools">
+                        <ToolsCertificate/>
+                    </div>
+                    <div id="jobroles">
+                        <JobRoles course={course} />
+                    </div>
+                    <div>
+                        <HiringPartnersSection/>
+                    </div>
+                    <div>
+                        <CollegeMunchBanner/>
+                    </div>
+                    <div>
+                        <FaqsSection course={course} />
+                    </div>
+
                     {/* <div id="hiring">
                         <HiringPartnersSection
                             logos={college?.university_info?.placement?.partners || []}

@@ -6,6 +6,11 @@ interface CentralImageMobileProps {
 }
 
 export const CentralImage: React.FC<CentralImageMobileProps> = ({ img }) => {
+    // Don't render the component if img is empty or undefined
+    if (!img || img.trim() === '') {
+        return null;
+    }
+
     return (
         <div className="flex w-[278px] flex-col justify-end items-center absolute h-[460px] left-[360px] top-[201px] max-md:relative max-md:w-full max-md:max-w-[300px] max-md:h-auto max-md:mt-0 max-md:mb-10 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-[250px] max-sm:mb-[30px]">
             <div className="w-[278px] h-[474px] absolute rounded-[0_0_50.009px_50.009px] left-0 top-0 max-md:relative max-md:w-full max-md:h-[400px] max-sm:h-[350px]">
