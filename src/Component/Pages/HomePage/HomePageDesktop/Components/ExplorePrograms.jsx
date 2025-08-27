@@ -147,7 +147,7 @@ const ExplorePrograms = () => {
                                         <button
                                             className="flex items-center  justify-center border w-full py-[12px] mx-5 text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#CDCDCD] border-[#6A6A69)]"
                                             onClick={() => {
-                                                setSelectedCourse("NIU");
+                                                setSelectedCourse("online_mba");
                                                 setCurrentPage('course');
                                             }}
                                         >

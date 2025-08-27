@@ -8,7 +8,7 @@ interface BenefitCardProps {
 export const BenefitCard: React.FC<BenefitCardProps> = ({ children, className = '' }) => {
     return (
         <article
-            className={`flex items-center justify-center border w-[295px] h-[134px] bg-[#EFFDFE] p-2 rounded-[10px] border-solid border-[#024B53] rounded-[10px] ${className}`}
+            className={`flex items-center justify-center border w-[295px] h-[134px] bg-[#EFFDFE] p-2 rounded-[10px] border-solid border-[#024B53]  ${className}`}
             role="article"
             tabIndex={0}
         >

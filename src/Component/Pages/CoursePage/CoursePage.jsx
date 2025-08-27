@@ -5,35 +5,36 @@ import {CollegePageSecondryData} from "@/Data Model/CollegePage/CollegePageSecon
 import {CollegePageData} from "@/Data Model/CollegePage/CollegePageData"
 import CoursePageDesktop from "@/Component/Pages/CoursePage/CoursePageDesktop/CoursePageDesktop";
 import CoursePageMobile from "@/Component/Pages/CoursePage/CoursePageMobile/CoursePageMobile";
+import { CoursePageData } from '@/Data Model/CoursePage/CoursePageData';
 
-const CoursePage = ({collegeName}) => {
+const CoursePage = ({courseName}) => {
     const breakpoint = useBreakpoint();
 
     // Handle legacy "DPU" key by mapping it to "DYP"
-    let actualCollegeName = collegeName;
-    if (collegeName === 'DPU') {
-        actualCollegeName = 'DYP';
-    }
+    // let actualCollegeName = collegeName;
+    // if (collegeName === 'DPU') {
+    //     actualCollegeName = 'DYP';
+    // }
 
     // Add null checks and fallback
-    const collegeData = CollegePageData?.[0]?.[actualCollegeName];
-    const collegeSecondryData = CollegePageSecondryData?.[0]?.[actualCollegeName];
+    // const collegeData = CollegePageData?.[0]?.[actualCollegeName];
+    // const collegeSecondryData = CollegePageSecondryData?.[0]?.[actualCollegeName];
 
     // Get available college names for debugging
-    const availableColleges = CollegePageData?.[0] ? Object.keys(CollegePageData[0]) : [];
+    // const availableColleges = CollegePageData?.[0] ? Object.keys(CollegePageData[0]) : [];
 
     // If college data doesn't exist, show error message
-    if (!collegeData) {
+    if (!CoursePageData) {
         return (
             <div className="w-full p-8 text-center">
                 <h2 className="text-2xl font-semibold text-red-600 mb-4">
-                    College Not Found
+                    Course Not Found
                 </h2>
                 <p className="text-gray-600 mb-4">
-                    The college "{collegeName}" was not found in our database.
+                    The course "{courseName}" was not found in our database.
                 </p>
                 <div className="text-sm text-gray-500 mb-4">
-                    Available colleges: {availableColleges.join(', ')}
+                    Available courses: {availableCourses.join(', ')}
                 </div>
                 <button
                     onClick={() => window.location.reload()}
@@ -44,13 +45,18 @@ const CoursePage = ({collegeName}) => {
             </div>
         );
     }
+    // else{
+    //     console.log(courseName);
+    //     console.log(CoursePageData[0])
+    // }
 
     return (
         <>
             {breakpoint === 'mobile' || breakpoint === 'tablet' ? (
-                <CoursePageMobile college={collegeData} collegeSecondry={collegeSecondryData} />
+                // <CoursePageMobile course={CourseData} courseSecondry={CollegePageSecondryData} /> 
+                null
             ) : (
-                <CoursePageDesktop college={collegeData} collegeSecondry={collegeSecondryData}/>
+                <CoursePageDesktop course={CoursePageData[0]} courseSecondry={CollegePageSecondryData}/>
             )}
         </>
     );

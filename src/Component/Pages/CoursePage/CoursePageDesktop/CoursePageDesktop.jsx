@@ -1,19 +1,30 @@
-import React, { useEffect, useRef, useState } from "react";
-import HeroPage from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/HeroPage";
-import RankAndAccr from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/RankAndAccr";
-import Courses from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/Courses";
-import Specialization from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/Specialization";
-import AdmissionProcess from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/AdmissionProcess";
+import { useRef, useState, useEffect } from "react";
+import HeroPage from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/HeroPage";
+import RankAndAccr from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/RankAndAccr";
+import Courses from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/Courses";
+import Specialization from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/Specialization";
+import { Semester } from "./Components/Semester";
+import OurFaculty from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/MeetOurFaculty";
+import { EligibilityCriteria } from "./Components/EligibilityCriterias";
+import { EligibilityCriteriaImage } from "./Components/EligibilityCriteria2";
+import AdmissionProcess from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/AdmissionProcess";
 import FeeTable from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/FeeTable";
-import { BenefitsSection } from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/BenefitsSection";
+import Benefits, {BenefitsSection} from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/BenefitsSection";
 import CompareCollegesCTA from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CompareCollegeCTA";
-import DegreeSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/DegreeSection";
-import { ContactUsSection } from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/ContactUsSection";
-import SidebarNavigation from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/SidebarNavigation";
+import DegreeSection from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/DegreeSection";
+import ToolsCertificate from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/ToolsCertificate";
+import JobRoles from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/JobRoles";
+import ContactForm, {
+    ContactUsSection
+} from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/ContactUsSection";
+import SidebarNavigation from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/SidebarNavigation";
+import CollegeMunchBanner from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/CourseMunchBanner";
+import GridComponent from "@/GlobalComponent/GridComponent";
+import collegePageMobile from "@/Component/Pages/CollegePage/CollegePageMobile/CollegePageMobile";
 import FaqsSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/FaqsSection";
-import HiringPartnersSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/HiringPartnerSection";
+import HiringPartnersSection from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/HiringPartnerSection";
 
-const CollegePageDesktop = ({ college, collegeSecondry }) => {
+const CollegePageDesktop = ({ course, courseSecondry }) => {
     const sidebarRef = useRef(null);
     const containerRef = useRef(null);
     const [sidebarStyle, setSidebarStyle] = useState({});
@@ -60,7 +71,7 @@ const CollegePageDesktop = ({ college, collegeSecondry }) => {
         <div>
             {/* Hero at top */}
             <div>
-                <HeroPage college={college} />
+                <HeroPage course={course} />
             </div>
 
             {/* Sidebar + Main content */}
@@ -75,30 +86,30 @@ const CollegePageDesktop = ({ college, collegeSecondry }) => {
                 {/* Main content */}
                 <div className="w-3/4 space-y-[64px] min-w-0 max-w-full">
                     <div id="ranking">
-                        <RankAndAccr college={college} />
+                        <RankAndAccr course={course} />
                     </div>
                     <div id="courses">
-                        <Courses college={college} />
+                        <Courses course={course} />
                     </div>
-                    <div id="specialization">
+                    {/* <div id="specialization">
                         <Specialization data={collegeSecondry} />
-                    </div>
+                    </div> */}
                     <div id="admission">
-                        <AdmissionProcess college={college} />
+                        <AdmissionProcess course={course} />
                     </div>
-                    <div id="fees">
+                    {/* <div id="fees">
                         <FeeTable collegeSecondry={collegeSecondry} />
-                    </div>
+                    </div> */}
                     <div id="benefits">
-                        <BenefitsSection college={college} />
+                        <BenefitsSection course={course} />
                     </div>
                     <div className="py-[64px]" id="compare">
                         <CompareCollegesCTA />
                     </div>
                     <div id="degree">
-                        <DegreeSection college={college} />
+                        <DegreeSection course={course} />
                     </div>
-                    <div id="hiring">
+                    {/* <div id="hiring">
                         <HiringPartnersSection
                             logos={college?.university_info?.placement?.partners || []}
                             name={college?.university_info?.name || ""}
@@ -106,7 +117,7 @@ const CollegePageDesktop = ({ college, collegeSecondry }) => {
                     </div>
                     <div id="faq">
                         <FaqsSection faqs={college?.university_info?.faqs || []} />
-                    </div>
+                    </div> */}
                     <div id="contact">
                         <ContactUsSection />
                     </div>
