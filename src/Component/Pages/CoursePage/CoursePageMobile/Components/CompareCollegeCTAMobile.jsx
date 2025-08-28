@@ -19,15 +19,13 @@ const CompareCollegesCTAMobile = () => {
                     Confused between colleges?
                 </div>
                 <div className="text-[#2B2B2A] font-[Outfit] text-[14px] font-normal leading-[22px] mb-4">
-                    Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+                    Compare the colleges that are on your mind, to see what all they
+                    provide and choose the best that you like. Because we want the best
+                    for you!
                 </div>
                 <button
-
-                    onClick={() =>{
-                        setCurrentPage('compare');
-                    }}
-
-                    className="w-full mt-2 inline-flex items-center justify-center px-6 py-3 rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-[Outfit]">
+                    onClick={() => setCurrentPage('compare')}
+                    className="w-full mt-2 inline-flex items-center justify-center px-6 py-3 rounded-[12px] bg-[#9B9B9B] hover:bg-[#024B53] text-white text-[14px] font-medium font-[Outfit] transition-colors duration-200">
                     Compare Colleges
                 </button>
             </div>

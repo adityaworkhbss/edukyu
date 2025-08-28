@@ -6,6 +6,12 @@ import GridComponent from "@/GlobalComponent/GridComponent";
 const RankAndAccr = ({ college }) => {
     // logos from API
     const accrs = college?.university_info?.accreditations || [];
+    
+    // Hide component if no accreditations data is available
+    if (!accrs || accrs.length === 0) {
+        return null;
+    }
+    
     // duplicate so we can animate  (hidden from user) — 
     const logos = [...accrs, ...accrs];
 
@@ -65,38 +71,34 @@ const RankAndAccr = ({ college }) => {
 
             {/* Sliding Logo Marquee */}
             <div className="w-full overflow-hidden bg-white">
-                {logos.length === 0 ? (
-                    <div className="py-6 text-center text-sm text-gray-500">No accreditations available</div>
-                ) : (
+                <div
+                    className="relative overflow-hidden"
+                    ref={containerRef}
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                >
                     <div
-                        className="relative overflow-hidden"
-                        ref={containerRef}
-                        onMouseEnter={() => setIsPaused(true)}
-                        onMouseLeave={() => setIsPaused(false)}
+                        ref={trackRef}
+                        className="flex items-center gap-2 px-4"
+                        style={{ whiteSpace: 'nowrap', transform: 'translateX(0px)' }}
                     >
-                        <div
-                            ref={trackRef}
-                            className="flex items-center gap-2 px-4"
-                            style={{ whiteSpace: 'nowrap', transform: 'translateX(0px)' }}
-                        >
-                            {logos.map((logo, index) => (
-                                <div
-                                    key={index}
-                                    className="inline-flex min-w-[100px] h-[80px] items-center justify-center bg-white rounded-lg flex-shrink-0 mx-2"
-                                >
-                                    <img
-                                        src={logo.image}
-                                        alt={logo.name || `logo-${index}`}
-                                        width={80}
-                                        height={80}
-                                        className="object-contain max-w-full h-auto"
-                                        onError={(e) => { e.target.style.display = 'none'; }}
-                                    />
-                                </div>
-                            ))}
-                        </div>
+                        {logos.map((logo, index) => (
+                            <div
+                                key={index}
+                                className="inline-flex min-w-[100px] h-[80px] items-center justify-center bg-white rounded-lg flex-shrink-0 mx-2"
+                            >
+                                <img
+                                    src={logo.image}
+                                    alt={logo.name || `logo-${index}`}
+                                    width={80}
+                                    height={80}
+                                    className="object-contain max-w-full h-auto"
+                                    onError={(e) => { e.target.style.display = 'none'; }}
+                                />
+                            </div>
+                        ))}
                     </div>
-                )}
+                </div>
             </div>
         </div>
     );

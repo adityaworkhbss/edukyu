@@ -91,23 +91,23 @@ const CollegePageDesktop = ({ course, courseSecondry }) => {
                     <div id="courses">
                         <Courses course={course} />
                     </div>
-                    {/* <div id="specialization">
-                        <Specialization data={collegeSecondry} />
-                    </div> */}
+                    <div id="specialization">
+                        <Specialization course={course} />
+                    </div>
                      <div id="benefits">
                         <BenefitsSection course={course} />
                     </div>
                     <div id="semester">
-                        <Semester/>
+                        <Semester course={course} />
                     </div>
                     <div id="ourfaculty">
                         <OurFaculty />
                     </div>
                     <div id="eligibilitycriteria">
-                        <EligibilityCriteria/>
+                        <EligibilityCriteria course={course} />
                     </div>
                     <div id="eligibilitycriteriaimage">
-                        <EligibilityCriteriaImage/>
+                        <EligibilityCriteriaImage course={course} />
                     </div>
 
                     <div id="admission">
@@ -125,7 +125,7 @@ const CollegePageDesktop = ({ course, courseSecondry }) => {
                     </div>
 
                     <div id="tools">
-                        <ToolsCertificate/>
+                        <ToolsCertificate course={course}/>
                     </div>
                     <div id="jobroles">
                         <JobRoles course={course} />

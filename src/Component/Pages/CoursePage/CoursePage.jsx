@@ -53,8 +53,8 @@ const CoursePage = ({courseName}) => {
     return (
         <>
             {breakpoint === 'mobile' || breakpoint === 'tablet' ? (
-                // <CoursePageMobile course={CourseData} courseSecondry={CollegePageSecondryData} /> 
-                null
+                <CoursePageMobile course={CoursePageData[0]} courseSecondry={CollegePageSecondryData} /> 
+                
             ) : (
                 <CoursePageDesktop course={CoursePageData[0]} courseSecondry={CollegePageSecondryData}/>
             )}

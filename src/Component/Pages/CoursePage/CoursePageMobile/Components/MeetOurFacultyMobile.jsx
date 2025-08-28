@@ -4,7 +4,7 @@ import Image from "next/image";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import { CoursePageData } from "@/Data Model/CoursePage/CoursePageData"; // use CoursePageData faculty
 
-const OurFaculty = () => {
+const OurFacultyMobile = () => {
     // Grab faculty from course data and split into groups of 4 for swipe "pages"
     const faculty = CoursePageData?.[0]?.online_mba?.faculty || [];
     const groupedCompanies = [];
@@ -114,4 +114,4 @@ const OurFaculty = () => {
     );
 };
 
-export default OurFaculty;
+export default OurFacultyMobile;

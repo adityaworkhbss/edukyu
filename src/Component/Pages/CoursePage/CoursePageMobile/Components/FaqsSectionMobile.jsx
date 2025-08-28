@@ -24,13 +24,37 @@ const ArrowIcon = ({ isOpen }) => (
     </svg>
 );
 
-const FaqsSectionMobile = ({faqs}) => {
+const FaqsSectionMobile = ({course}) => {
 
     const [openIndex, setOpenIndex] = useState(null);
 
     const toggleFAQ = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
+
+    // Extract course data safely - handle both direct and nested structures
+    let courseData = {};
+    
+    if (course) {
+        // Check if course has direct properties
+        if (course.faqs) {
+            courseData = course;
+        } 
+        // Check if course has nested structure like CoursePageData
+        else {
+            const firstKey = Object.keys(course)[0];
+            if (firstKey && course[firstKey]) {
+                courseData = course[firstKey];
+            }
+        }
+    }
+
+    const faqs = courseData?.faqs || [];
+
+    // Hide component if no FAQs data
+    if (!faqs || faqs.length === 0) {
+        return null;
+    }
 
 
     return (

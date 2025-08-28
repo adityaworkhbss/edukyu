@@ -10,6 +10,11 @@ const Courses = ({ college }) => {
 
     const courses = college?.university_info?.courses || [];
 
+    // Hide component if no courses data is available
+    if (!courses || courses.length === 0) {
+        return null;
+    }
+
     // Group courses by type
     const groupedCourses = courses.reduce((acc, course) => {
         if (!acc[course.type]) acc[course.type] = [];

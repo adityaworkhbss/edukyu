@@ -2,9 +2,43 @@ import Image from "next/image";
 import collegepage_hero_img from '@/../public/Resources/Images/collegepage_hero_img.png';
 import collegepage_hero from '@/../public/Resources/Images/collegepage_hero.png';
 
-const HeroPageMobile = ({college}) => {
+const HeroPageMobile = ({course}) => {
 
-    console.log("college :::::::::::::::::::::    " + {college});
+    // Add null checks to prevent errors
+    if (!course) {
+        return (
+            <div className="w-full p-8">
+                <div className="text-center text-gray-500">
+                    Course information not available
+                </div>
+            </div>
+        );
+    }
+
+    // Extract course data safely - handle both direct and nested structures
+    let courseData = {};
+    
+    // Check if course has direct page property
+    if (course.page) {
+        courseData = course.page;
+    } 
+    // Check if course has nested structure like CoursePageData
+    else {
+        const firstKey = Object.keys(course)[0];
+        if (firstKey && course[firstKey] && course[firstKey].page) {
+            courseData = course[firstKey].page;
+        }
+    }
+    
+    const {
+        logo = "",
+        title = "",
+        university = "",
+        description = "",
+        duration = {},
+        fees = {},
+        accreditations = []
+    } = courseData;
 
     return (
         <div
@@ -18,13 +52,13 @@ const HeroPageMobile = ({college}) => {
                 <h1
                     className="text-white font-[Outfit] text-[28px] font-semibold leading-normal mb-4 mt-3"
                 >
-                    {college.university_info.name}
+                    {title || "Course title not available"}
                 </h1>
 
                 <p
                     className="text-white font-[Outfit] text-[14px] font-normal leading-normal"
                 >
-                    {college.university_info.about.description}
+                    {description || "Course description not available"}
                 </p>
 
                 {/* Button */}

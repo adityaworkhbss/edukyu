@@ -1,23 +1,35 @@
 import React, {useState, useEffect, useRef} from "react";
 import { ImageIcon } from "lucide-react";
 import GridComponent from "@/GlobalComponent/GridComponent";
-import { ExploreProgramsData } from '@/Data Model/Homepage/ExploreProgramsData';
 
-const Specialization = ({data}) => {
-    // Create tab mapping from string
-    const tabMapping = Object.entries(data?.Specialisation || {})
-        .reduce((acc, [name, value]) => {
-            acc[name] = name; // key = value
-            return acc;
-        }, {});
+const Specialization = ({ course }) => {
+    // Extract course data safely - handle both direct and nested structures
+    let courseData = {};
+    
+    if (course) {
+        // Check if course has direct properties
+        if (course.specializations) {
+            courseData = course;
+        } 
+        // Check if course has nested structure like CoursePageData
+        else {
+            const firstKey = Object.keys(course)[0];
+            if (firstKey && course[firstKey]) {
+                courseData = course[firstKey];
+            }
+        }
+    }
 
-    // Tabs array from mapping keys
-    const tabs = Object.keys(tabMapping).map(name => ({
-        id: name,
-        label: name
-    }));
+    const specializations = courseData?.specializations || [];
 
-    const [activeTab, setActiveTab] = useState(tabs[0]?.id || "");
+    // Hide component if no specializations data
+    if (!specializations || specializations.length === 0) {
+        return null;
+    }
+
+    // Create a single tab since we're displaying all specializations together
+    const tabs = [{ id: "all", label: "All Specializations" }];
+    const [activeTab, setActiveTab] = useState("all");
     const [scrollPosition, setScrollPosition] = useState(0);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(false);
@@ -48,54 +60,13 @@ const Specialization = ({data}) => {
 
     // Get programs for the active tab
     const getActivePrograms = () => {
-        const activeData = data?.Specialisation?.[activeTab] || {};
-        const detailFees = data?.["Detail Fees"] || {};
-        const durationInfo = data?.Duration || "";
-        
-        return Object.entries(activeData).map(([name, details = {}], index) => {
-            // Extract duration - prioritize specialization-specific duration, then general program duration
-            let duration = "Duration not available";
-            if (details.Duration) {
-                duration = `Duration - ${details.Duration}`;
-            } else if (durationInfo) {
-                const durationPattern = new RegExp(`${activeTab}[^:]*:\\s*([^,]+)`, 'i');
-                const match = durationInfo.match(durationPattern);
-                if (match) {
-                    duration = `Duration - ${match[1].trim()}`;
-                }
-            }
-            
-            // Extract fees - prioritize specialization-specific fees, then detail fees, then general fees
-            let fees = "Fees not available";
-            if (details.Fees) {
-                fees = `Fees - ${details.Fees}`;
-            } else if (detailFees) {
-                // First try to find fees for the specific specialization
-                const specializationKey = `${activeTab} (${name})`;
-                if (detailFees[specializationKey]) {
-                    fees = `Fees - ${detailFees[specializationKey]}`;
-                }
-                // If not found, try the general program fees
-                else if (detailFees[activeTab]) {
-                    fees = `Fees - ${detailFees[activeTab]}`;
-                }
-                // Try without the "Online" prefix
-                else if (detailFees[activeTab.replace("Online ", "")]) {
-                    fees = `Fees - ${detailFees[activeTab.replace("Online ", "")]}`;
-                }
-            }
-            
-            // Extract image from specialization details
-            const image = details.image || null;
-            
-            return {
-                id: index + 1,
-                title: name || "Unknown Program",
-                description: duration,
-                details: fees,
-                image: image
-            };
-        });
+        return specializations.map((spec, index) => ({
+            id: index + 1,
+            title: spec.name || "Unknown Specialization",
+            description: "Duration - 24 months", // Default duration
+            details: "Fees - Contact for details", // Default fees
+            image: spec.icon || null
+        }));
     };
 
     const programs = getActivePrograms();
@@ -113,21 +84,16 @@ const Specialization = ({data}) => {
         return () => window.removeEventListener('resize', onResize);
     }, []);
 
-    // Remove section completely if no specialization data
-    if (!data?.Specialisation || tabs.length === 0) {
-        return null;
-    }
-
     return (
         <section className="bg-background pt-12 max-w-full overflow-hidden ml-0.5">
             <div className="max-w-full">
                 <div className="max-w-full">
                     <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
-                        Specialization
+                        Specializations
                     </div>
 
                     <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-3/4">
-                        Unlimited access to world class Specialization, hands-on projects, and job-ready certificate programs.
+                        Choose from {specializations.length} industry-focused specializations designed to match your career goals and interests.
                     </div>
 
                     <div className="flex bg-white border-b border-[#B2B2B2] mb-[84px] overflow-x-auto overflow-hidden">

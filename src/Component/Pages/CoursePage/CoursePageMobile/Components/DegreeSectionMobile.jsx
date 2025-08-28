@@ -13,7 +13,7 @@ const DegreeSectionMobile = ({ college }) => {
         <div className="w-full py-8 bg-white">
             {/* Title */}
             <h2 className="text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-3">
-                {degreeInfo.description}
+                Earn a globally recognized UGC-endorsed degree
             </h2>
 
             {/* Subtitle */}
@@ -41,6 +41,9 @@ const DegreeSectionMobile = ({ college }) => {
                     width={300}
                     height={220}
                     className="rounded-md border border-gray-200"
+                    onError={(e) => {
+                        e.target.style.display = 'none';
+                    }}
                 />
             )}
         </div>

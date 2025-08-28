@@ -7,8 +7,6 @@ interface JobRolesProps {
 const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
   const [activeTab, setActiveTab] = useState<'jobRoles' | 'industries'>('jobRoles');
 
-  console.log('JobRoles component - course prop:', course);
-
   // Extract course data safely - handle both direct and nested structures
   let courseData: any = {};
   
@@ -26,15 +24,9 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
     }
   }
 
-  console.log('JobRoles component - courseData:', courseData);
-
   const careerOpportunities = courseData?.careerOpportunities;
   const jobRoles = careerOpportunities?.jobRoles || [];
   const industries = careerOpportunities?.industries || [];
-
-  console.log('JobRoles component - careerOpportunities:', careerOpportunities);
-  console.log('JobRoles component - jobRoles:', jobRoles);
-  console.log('JobRoles component - industries:', industries);
 
   // Hide component if no career opportunities data
   if (!careerOpportunities || (jobRoles.length === 0 && industries.length === 0)) {
@@ -75,7 +67,7 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
         Explore diverse career opportunities and industries where you can apply your skills and build a successful career.
       </p>
 
-      <div className="absolute w-[934px] h-[236px] top-[214px] bg-white rounded-lg overflow-hidden border border-solid border-[#bebebe]">
+      <div className="absolute w-[97%] h-[236px] top-[214px] bg-white rounded-lg overflow-hidden border border-solid border-[#bebebe]">
         {/* Dynamic content columns */}
         {activeData.map((column, columnIndex) => (
           <div 
@@ -97,9 +89,9 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
           </div>
         ))}
 
-        <div className="absolute w-[894px] h-10 top-5 left-5">
+        <div className="absolute w-[97%] h-10 top-5 left-5">
           <div className="inline-flex items-center absolute top-0 left-0">
-            <div className="inline-flex items-center gap-2.5 px-2.5 py-2 relative flex-[0_0_auto]">
+            <div className="inline-flex items-center gap-5 px-2.5 py-2 relative flex-[0_0_auto]">
               <button
                 onClick={() => setActiveTab('jobRoles')}
                 className={`relative w-fit mt-[-1.00px] font-semibold text-xl tracking-[0] leading-[normal] whitespace-nowrap ${

@@ -1,42 +1,44 @@
 import React, { useRef, useState } from 'react';
 import { ImageIcon } from "lucide-react";
-export const SpecializationMobile = ({ data }) => {
 
+const SpecializationMobile = ({ course }) => {
+    // Extract course data safely - handle both direct and nested structures
+    let courseData = {};
+    
+    if (course) {
+        // Check if course has direct properties
+        if (course.specializations) {
+            courseData = course;
+        } 
+        // Check if course has nested structure like CoursePageData
+        else {
+            const firstKey = Object.keys(course)[0];
+            if (firstKey && course[firstKey]) {
+                courseData = course[firstKey];
+            }
+        }
+    }
 
-    // console.log(":::::::::::; data ::::::::::::::;;;;;; " + data);
+    const specializations = courseData?.specializations || [];
 
-    Object.entries(data).forEach(([name, value], index) => {
-        console.log(name);
-    });
+    // Hide component if no specializations data
+    if (!specializations || specializations.length === 0) {
+        return null;
+    }
 
-
-    const tabMapping = Object.entries(data?.Specialisation || {})
-        .reduce((acc, [name, value]) => {
-            acc[name] = name; // key = value
-            return acc;
-        }, {});
-
-
-
-    const tabs = Object.keys(tabMapping).map(name => ({
-        id: name,
-        label: name
-    }));
-
-    const [activeTab, setActiveTab] = useState(tabs[0]?.id || "");
+    // Create a single tab since we're displaying all specializations together
+    const tabs = [{ id: "all", label: "All Specializations" }];
+    const [activeTab, setActiveTab] = useState("all");
     const [currentIndex, setCurrentIndex] = useState(0);
     const containerRef = useRef(null);
 
     const getActivePrograms = () => {
-
-        const activeData = data?.Specialisation?.[activeTab] || {};
-
-
-        return Object.entries(activeData).map(([name, details = {}], index) => ({
+        return specializations.map((spec, index) => ({
             id: index + 1,
-            title: name || "Unknown Program",
-            description: details.duration ? `Duration - ${details.duration}` : "No duration available",
-            details: details.startingFee ? `Starting @${details.startingFee} per day` : "Fee info not available"
+            title: spec.name || "Unknown Specialization",
+            description: "Duration - 24 months", // Default duration
+            details: "Fees - Contact for details", // Default fees
+            image: spec.icon || null
         }));
     };
 
@@ -64,7 +66,7 @@ export const SpecializationMobile = ({ data }) => {
                     Specializations
                 </div>
                 <div className="text-[#515150] font-[Outfit] text-[14px] font-normal leading-none pt-3 pb-[32px]">
-                    Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+                    Choose from {specializations.length} industry-focused specializations designed to match your career goals and interests.
                 </div>
 
                 {/* Dynamic Tabs */}
@@ -89,7 +91,20 @@ export const SpecializationMobile = ({ data }) => {
                     <article className="border overflow-hidden mt-8 rounded-xl border-solid border-[#CDCDCD]">
                         <div className="flex w-full rounded-[14px] p-[24px]">
                             <div className="bg-program-image rounded-lg h-[132px] w-full flex items-center justify-center">
-                                <ImageIcon size={48} className="text-secondary opacity-60" />
+                                {programs[currentIndex]?.image ? (
+                                    <img
+                                        src={programs[currentIndex].image}
+                                        alt={programs[currentIndex].title}
+                                        className="rounded-[14px] h-full w-full object-cover"
+                                        onError={(e) => {
+                                            e.target.style.display = 'none';
+                                            e.target.nextSibling.style.display = 'flex';
+                                        }}
+                                    />
+                                ) : (
+                                    <ImageIcon size={48} className="text-secondary opacity-60" />
+                                )}
+                                <ImageIcon size={48} className="text-secondary opacity-60 hidden" />
                             </div>
                         </div>
                         <div className="w-full p-4">
@@ -169,3 +184,5 @@ export const SpecializationMobile = ({ data }) => {
             </section>
     );
 };
+
+export default SpecializationMobile;

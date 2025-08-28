@@ -4,7 +4,7 @@ interface EligibilityCriteriaProps {
   course?: any;
 }
 
-export const EligibilityCriteria: React.FC<EligibilityCriteriaProps> = ({ course }) => {
+const EligibilityCriteria: React.FC<EligibilityCriteriaProps> = ({ course }) => {
   // Extract course data safely - handle both direct and nested structures
   let courseData: any = {};
   
@@ -158,3 +158,6 @@ export const EligibilityCriteria: React.FC<EligibilityCriteriaProps> = ({ course
     </div>
   );
 };
+
+
+export default EligibilityCriteria;

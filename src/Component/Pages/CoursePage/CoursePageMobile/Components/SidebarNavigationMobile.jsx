@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const SidebarNavigationMobile = () => {
+const SidebarNavigationMobile = () => {
     const [activeTab, setActiveTab] = useState('Ranking & Accreditations');
 
     const tabs = [
@@ -43,3 +43,6 @@ export const SidebarNavigationMobile = () => {
         </div>
     );
 };
+
+
+export default SidebarNavigationMobile;

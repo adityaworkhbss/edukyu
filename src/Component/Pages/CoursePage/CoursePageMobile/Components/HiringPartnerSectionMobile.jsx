@@ -1,7 +1,7 @@
 import GridComponent from "@/GlobalComponent/GridComponent";
 import { useRef, useEffect, useState } from "react";
 
-const HiringPartnersSection = ({ logos = [], name }) => {
+const HiringPartnersSectionMobile = ({ logos = [], name }) => {
     const accs = logos || [];
     
     // Hide component if no data is available
@@ -16,7 +16,7 @@ const HiringPartnersSection = ({ logos = [], name }) => {
     const rafRef = useRef(null);
     const lastTimeRef = useRef(null);
     const [isPaused, setIsPaused] = useState(false);
-    const speed = 100; // px/s
+    const speed = 50; // Slower speed for mobile
 
     useEffect(() => {
         const track = trackRef.current;
@@ -52,24 +52,31 @@ const HiringPartnersSection = ({ logos = [], name }) => {
             lastTimeRef.current = null;
         };
     }, [isPaused, items]);
-
     return (
-        <section className="bg-white py-12 max-w-full overflow-hidden w-full ml-0.5">
-            <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words  w-[65%]">
+        <section className="bg-white py-8">
+            <div className="text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-3">
                 Hiring Partner of {name}
             </div>
-            <div className="text-[20px] pt-[16px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words  w-[65%]">
+            <div className="text-[#515150] font-[Outfit] text-[14px] mb-8">
                 Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
             </div>
 
-            <div className="w-full overflow-hidden" ref={containerRef} onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
-                <div ref={trackRef} className="flex items-center gap-6 px-4" style={{ transform: 'translateX(0px)' }}>
+            {/* Animated scrolling area */}
+            <div 
+                className="w-full overflow-hidden" 
+                ref={containerRef} 
+                onTouchStart={() => setIsPaused(true)} 
+                onTouchEnd={() => setIsPaused(false)}
+                onMouseEnter={() => setIsPaused(true)} 
+                onMouseLeave={() => setIsPaused(false)}
+            >
+                <div ref={trackRef} className="flex items-center gap-4" style={{ transform: 'translateX(0px)' }}>
                     {items.map((logo, idx) => (
-                        <div key={idx} className="inline-flex items-center justify-center h-[60px] min-w-[140px]">
+                        <div key={idx} className="inline-flex items-center justify-center h-[50px] min-w-[80px] flex-shrink-0">
                             <img
                                 src={logo}
                                 alt={`Partner ${idx + 1}`}
-                                className="h-[60px] object-contain flex-shrink-0"
+                                className="h-[50px] w-auto object-contain"
                                 onError={(e) => { e.target.style.display = 'none'; }}
                             />
                         </div>
@@ -80,4 +87,4 @@ const HiringPartnersSection = ({ logos = [], name }) => {
     );
 };
 
-export default HiringPartnersSection;
+export default HiringPartnersSectionMobile;

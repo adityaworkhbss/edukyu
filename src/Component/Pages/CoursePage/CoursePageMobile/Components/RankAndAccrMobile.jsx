@@ -2,6 +2,11 @@ import Image from "next/image";
 
 const RankAndAccrMobile = ({ college }) => {
     const logos = college?.university_info?.accreditations || [];
+    
+    // Hide component if no accreditations data is available
+    if (!logos || logos.length === 0) {
+        return null;
+    }
 
     return (
         <div className="w-full flex flex-col py-8">

@@ -44,17 +44,9 @@ const AdmissionProcess = ({course}) => {
                     <div key={index} className="flex items-start gap-4 relative w-[77%]">
                         {/* Step Number Circle */}
                         <div className="bg-[#EFFDFE] rounded-[10px] p-4 z-2 flex-shrink-0">
-                            {step?.icon ? (
-                                <img 
-                                    src={step.icon} 
-                                    alt={step.title || `Step ${step?.step || index + 1}`}
-                                    className="w-6 h-6 object-contain"
-                                />
-                            ) : (
-                                <div className="text-black font-semibold text-[18px] font-[Outfit]">
-                                    {step?.step || index + 1}
-                                </div>
-                            )}
+                            <div className="text-black font-semibold text-[18px] font-[Outfit]">
+                                {step?.step || index + 1}
+                            </div>
                         </div>
 
 
