@@ -30,31 +30,43 @@ export const ContactForm = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!formData.consent) {
-            alert('Please accept the consent to proceed.');
+            alert("Please accept the consent to proceed.");
             return;
         }
 
         if (!formData.fullName || !formData.email || !formData.city || !formData.mobileNumber || !formData.reason) {
-            alert('Please fill in all required fields.');
+            alert("Please fill in all required fields.");
             return;
         }
 
-        console.log('Form submitted:', formData);
-        alert('Thank you for your submission! We will contact you soon.');
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
 
-        // Reset form
-        setFormData({
-            fullName: '',
-            email: '',
-            city: '',
-            mobileNumber: '',
-            reason: '',
-            consent: false
-        });
+            if (res.ok) {
+                alert("Thank you for your submission! We will contact you soon.");
+                setFormData({
+                    fullName: "",
+                    email: "",
+                    city: "",
+                    mobileNumber: "",
+                    reason: "",
+                    consent: false,
+                });
+            } else {
+                alert("Failed to send message. Please try again later.");
+            }
+        } catch (err) {
+            console.error(err);
+            alert("Something went wrong.");
+        }
     };
 
     return (
