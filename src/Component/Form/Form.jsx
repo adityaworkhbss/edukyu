@@ -1,7 +1,5 @@
 'use client';
 import { useState } from "react";
-import Image from 'next/image';
-
 
 export default function Form({ image, onClose }) {
     const [formData, setFormData] = useState({
@@ -28,44 +26,27 @@ export default function Form({ image, onClose }) {
         setSuccess(false);
 
         // Basic validation
-        if (!formData.name || !formData.email || !formData.mobile || !formData.city || !formData.university_name) {
+        if (!formData.name || !formData.email || !formData.mobile || !formData.city) {
             setError('Please fill all required fields');
             setIsSubmitting(false);
             return;
         }
 
-        // Prepare payload
+        // Payload for Pujariwala API
         const payload = {
-            user_id: 'EDUKYU_CRM_230500001',
-            password: '12345',
             name: formData.name,
             mobile: formData.mobile,
             email: formData.email,
             city: formData.city,
-            university_name: formData.university_name,
-            university_code: '', // You might want to map this from university_name
-            prog_id: 'SD00000002',
-            prog_name: 'Partner',
-            source_name: 'WS',
-            source_id: '101',
-            data_from: typeof window !== 'undefined' ? window.location.href : ''
+            data_from: "Website",
+            source_id: "11",
+            source_name: "NAA"
         };
 
         try {
-            // First API call
-            const response1 = await fetch('https://edukyu.enqbooks.com/enqbooks_api/api/Crm_leads_insert', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
+            console.log("📤 Submitting payload to Pujariwala API:", payload);
 
-            const result1 = await response1.json();
-            if (!response1.ok) {
-                throw new Error(result1.message || 'Failed to submit to first API');
-            }
-
-            // Second API call
-            const response2 = await fetch('https://pujariwala.in/bai_crm_api_integrate/bai_crm_website_lead_post', {
+            const response = await fetch('https://pujariwala.in/bai_crm_api_integrate/bai_crm_website_lead_post', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -74,13 +55,16 @@ export default function Form({ image, onClose }) {
                 body: JSON.stringify(payload)
             });
 
-            const result2 = await response2.json();
-            if (!response2.ok) {
-                throw new Error(result2.message || 'Failed to submit to second API');
+            console.log("📥 Raw response object:", response);
+
+            const result = await response.json().catch(() => null);
+            console.log("📥 Parsed response JSON:", result);
+
+            if (!response.ok) {
+                throw new Error(result?.message || `Failed with status ${response.status}`);
             }
 
             setSuccess(true);
-            // Reset form on success
             setFormData({
                 name: '',
                 email: '',
@@ -89,48 +73,34 @@ export default function Form({ image, onClose }) {
                 university_name: '',
             });
 
-            // Close form after 2 seconds
             setTimeout(() => {
                 onClose();
             }, 2000);
         } catch (err) {
-            console.error('Error submitting form:', err);
+            console.error("❌ Error submitting form:", err);
             setError(err.message || 'Something went wrong. Please try again.');
         } finally {
             setIsSubmitting(false);
+            console.log("✅ Submission process finished");
         }
     };
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(0,0,0,0.6)]">
             <div className="bg-white rounded-lg shadow-lg w-full max-w-md mx-4 relative overflow-hidden">
-                {/* Optional Image at the Top */}
                 {image && (
                     <div className="w-[100px] h-[100px] flex items-center justify-center mx-auto mt-4">
-                        <img
-                            src={image}
-                            alt="Form banner"
-                            className="object-cover"
-                        />
+                        <img src={image} alt="Form banner" className="object-cover" />
                     </div>
                 )}
 
-                {/* Close Button */}
                 <button
                     onClick={onClose}
                     className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 z-10"
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 30 30"
-                    >
-                        <path d="M7 4c-.256 0-.512.097-.707.293L4.293 6.293a1 1 0 000 1.414L11.586 15l-7.293 7.293a1 1 0 000 1.414l2 2a1 1 0 001.414 0L15 18.414l7.293 7.293a1 1 0 001.414 0l2-2a1 1 0 000-1.414L18.414 15l7.293-7.293a1 1 0 000-1.414l-2-2a1 1 0 00-1.414 0L15 11.586 7.707 4.293A1 1 0 007 4z"></path>
-                    </svg>
+                    ✕
                 </button>
 
-                {/* Form Content */}
                 <div className="p-6">
                     <h2 className="text-center text-lg font-semibold">
                         Share your details and <br /> our counselor will connect you.
@@ -177,28 +147,6 @@ export default function Form({ image, onClose }) {
                             required
                         />
 
-                        <select
-                            name="university_name"
-                            value={formData.university_name}
-                            onChange={handleChange}
-                            className="w-full border border-gray-300 rounded p-2"
-                            required
-                        >
-                            <option value="" disabled>
-                                Choose Your University*
-                            </option>
-                            <option value="D.Y.Patil University">D.Y.Patil University</option>
-                            <option value="Amity University">Amity University</option>
-                            <option value="Manipal University">Manipal University</option>
-                            <option value="Lovely Professional University">Lovely Professional University</option>
-                            <option value="Jain University">Jain University</option>
-                            <option value="Shoolini University">Shoolini University</option>
-                            <option value="Uttaranchal University">Uttaranchal University</option>
-                            <option value="Vivekananda Global University">Vivekananda Global University</option>
-                            <option value="NMIMS University">NMIMS University</option>
-                            <option value="Sikkim Manipal University">Sikkim Manipal University</option>
-                        </select>
-
                         <div className="flex border border-gray-300 rounded overflow-hidden">
                             <span className="flex items-center px-2 bg-gray-100">+91</span>
                             <input
@@ -213,11 +161,7 @@ export default function Form({ image, onClose }) {
                         </div>
 
                         <label className="flex items-start space-x-2 text-sm">
-                            <input
-                                type="checkbox"
-                                className="mt-1"
-                                required
-                            />
+                            <input type="checkbox" className="mt-1" required />
                             <span>
                                 I authorise Edukyu and its associates to contact me with
                                 updates & notifications via Email, SMS, WhatsApp, and Voice
