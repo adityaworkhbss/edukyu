@@ -43,114 +43,122 @@ const EligibilityCriteria: React.FC<EligibilityCriteriaProps> = ({ course }) => 
   const activeData = activeTab === 'domestic' ? domesticData : internationalData;
   return (
     <div
-      className="relative w-full bg-white"
-      style={{ 
-        minHeight: '810px',
-        height: 'auto'
-      }}
+      className="relative w-full bg-white px-4 py-8"
       data-model-id="483:1517"
     >
-      <div className="absolute w-[65%] top-[63px] font-semibold text-[#024B53] text-[48px] tracking-[0] leading-[normal]">
+      <div className="w-full font-semibold text-[#024B53] text-[28px] md:text-[48px] tracking-[0] leading-[32px] md:leading-[normal] mb-4">
         Eligibility &amp; Criteria
       </div>
 
-      <p className="absolute w-[65%] mt-[150px] font-normal text-[#515150] text-xl tracking-[0] leading-[normal]">
+      <p className="w-full font-normal text-[#515150] text-[14px] md:text-xl tracking-[0] leading-[20px] md:leading-[normal] mb-8">
         Review the eligibility requirements and criteria for admission to ensure you meet the necessary qualifications for enrollment.
       </p>
 
-      <div className="absolute w-full h-11 top-[214px] border-b [border-bottom-style:solid] border-[#b2b2b2]">
-        {domesticData && (
-          <div className={`left-0 inline-flex items-center justify-center gap-2.5 px-6 py-3 absolute top-0 cursor-pointer transition-all duration-200 hover:bg-gray-50 ${activeTab === 'domestic' ? 'border-b-2 [border-bottom-style:solid] border-teal-600' : ''}`}
-               onClick={() => setActiveTab('domestic')}>
-            <div className={`relative w-fit mt-[-2.00px] font-semibold text-base tracking-[0] leading-5 whitespace-nowrap transition-colors duration-200 ${activeTab === 'domestic' ? 'text-[#024B53]' : 'text-slate-600'}`}>
+      {/* Tab Navigation */}
+      <div className="w-full border-b border-[#b2b2b2] mb-8">
+        <div className="flex gap-4">
+          {domesticData && (
+            <button 
+              className={`px-4 py-3 font-semibold text-[14px] md:text-base tracking-[0] leading-5 whitespace-nowrap transition-all duration-200 hover:bg-gray-50 border-b-2 ${
+                activeTab === 'domestic' 
+                  ? 'text-[#024B53] border-[#024B53]' 
+                  : 'text-slate-600 border-transparent'
+              }`}
+              onClick={() => setActiveTab('domestic')}
+            >
               Domestic
-            </div>
-          </div>
-        )}
+            </button>
+          )}
 
-        {internationalData && (
-          <div className={`${domesticData ? 'left-[117px]' : 'left-0'} inline-flex items-center justify-center gap-2.5 px-6 py-3 absolute top-0 cursor-pointer transition-all duration-200 hover:bg-gray-50 ${activeTab === 'international' ? 'border-b-2 [border-bottom-style:solid] border-teal-600' : ''}`}
-               onClick={() => setActiveTab('international')}>
-            <div className={`relative w-fit mt-[-1.00px] font-normal text-base tracking-[0] leading-5 whitespace-nowrap transition-colors duration-200 ${activeTab === 'international' ? 'text-[#024B53] font-semibold' : 'text-slate-600'}`}>
+          {internationalData && (
+            <button 
+              className={`px-4 py-3 font-semibold text-[14px] md:text-base tracking-[0] leading-5 whitespace-nowrap transition-all duration-200 hover:bg-gray-50 border-b-2 ${
+                activeTab === 'international' 
+                  ? 'text-[#024B53] border-[#024B53]' 
+                  : 'text-slate-600 border-transparent'
+              }`}
+              onClick={() => setActiveTab('international')}
+            >
               International
-            </div>
-          </div>
-        )}
+            </button>
+          )}
+        </div>
       </div>
 
-            <div className="absolute w-full top-[322px] left-6" style={{ minHeight: '424px' }}>
+      {/* Content Section */}
+      <div className="w-full space-y-6">
         {/* Educational Qualification */}
         {activeData?.educationalQualification && (
-          <div className="absolute w-full h-[75px] top-0 left-0">
+          <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
             <img
-              className="absolute w-10 h-10 top-0 left-0 aspect-[1]"
+              className="w-8 h-8 md:w-10 md:h-10 flex-shrink-0"
               alt="Educational qualification"
               src="https://c.animaapp.com/LrMXonO9/img/whocanapply--educational.svg"
             />
-
-            <p className="absolute w-[90%] top-[35px] left-16 font-normal text-[#383837] text-base tracking-[0] leading-[normal]">
-              {activeData.educationalQualification}
-            </p>
-
-            <div className="absolute w-[90%] top-0 left-16 font-semibold text-[#2B2B2A] tracking-[0] leading-[normal]">
-              Educational qualification
+            <div className="flex-1">
+              <div className="font-semibold text-[#2B2B2A] text-[14px] md:text-lg tracking-[0] leading-[normal] mb-2">
+                Educational qualification
+              </div>
+              <p className="font-normal text-[#383837] text-[12px] md:text-base tracking-[0] leading-[normal]">
+                {activeData.educationalQualification}
+              </p>
             </div>
           </div>
         )}
 
         {/* Grades */}
         {activeData?.grades && (
-          <div className="absolute w-[938px] h-[55px] top-[123px] left-0">
+          <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
             <img
-              className="absolute w-10 h-10 top-0 left-0 aspect-[1]"
+              className="w-8 h-8 md:w-10 md:h-10 flex-shrink-0"
               alt="Grades"
               src="https://c.animaapp.com/LrMXonO9/img/whocanapply--marks.svg"
             />
-
-            <p className="absolute w-[90%] top-[35px] left-16 font-normal text-[#383837] text-base tracking-[0] leading-[normal]">
-              {activeData.grades}
-            </p>
-
-            <div className="absolute w-[90%] top-0 left-16 font-semibold text-[#2B2B2A] text-lg tracking-[0] leading-[normal]">
-              Grades
+            <div className="flex-1">
+              <div className="font-semibold text-[#2B2B2A] text-[14px] md:text-lg tracking-[0] leading-[normal] mb-2">
+                Grades
+              </div>
+              <p className="font-normal text-[#383837] text-[12px] md:text-base tracking-[0] leading-[normal]">
+                {activeData.grades}
+              </p>
             </div>
           </div>
         )}
 
         {/* Aptitude Test */}
         {activeData?.aptitudeTest && (
-          <div className="absolute w-[938px] h-[95px] top-[226px] left-0">
+          <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
             <img
-              className="absolute w-10 h-10 top-0 left-0 aspect-[1]"
+              className="w-8 h-8 md:w-10 md:h-10 flex-shrink-0"
               alt="Aptitude test"
               src="https://c.animaapp.com/LrMXonO9/img/apptitude.svg"
             />
-
-            <p className="absolute w-[90%] top-[35px] left-16 font-normal text-[#383837] text-base tracking-[0] leading-[normal]">
-              {activeData.aptitudeTest}
-            </p>
-
-            <div className="absolute w-[90%] top-0 left-16 font-semibold text-[#2B2B2A] text-lg tracking-[0] leading-[normal]">
-              Aptitude test
+            <div className="flex-1">
+              <div className="font-semibold text-[#2B2B2A] text-[14px] md:text-lg tracking-[0] leading-[normal] mb-2">
+                Aptitude test
+              </div>
+              <p className="font-normal text-[#383837] text-[12px] md:text-base tracking-[0] leading-[normal]">
+                {activeData.aptitudeTest}
+              </p>
             </div>
           </div>
         )}
 
         {/* Work Experience or Other Requirements */}
         {(activeData?.workExperience || activeData?.otherRequirements) && (
-          <div className="absolute w-[938px] h-[55px] top-[369px] left-0">
+          <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
             <img
-              className="absolute w-10 h-10 top-0 left-0 aspect-[1]"
+              className="w-8 h-8 md:w-10 md:h-10 flex-shrink-0"
               alt="Additional requirements"
               src="https://c.animaapp.com/LrMXonO9/img/business-center.svg"
             />
-
-            <div className="absolute w-[90%] top-[35px] left-16 font-normal text-[#383837] text-base tracking-[0] leading-[normal]">
-              {activeData.workExperience || activeData.otherRequirements}
-            </div>
-
-            <div className="absolute w-[90%] top-0 left-16 font-semibold text-[#2B2B2A] text-lg tracking-[0] leading-[normal]">
-              {activeData.workExperience ? 'Work Experience' : 'Other Requirements'}
+            <div className="flex-1">
+              <div className="font-semibold text-[#2B2B2A] text-[14px] md:text-lg tracking-[0] leading-[normal] mb-2">
+                {activeData.workExperience ? 'Work Experience' : 'Other Requirements'}
+              </div>
+              <div className="font-normal text-[#383837] text-[12px] md:text-base tracking-[0] leading-[normal]">
+                {activeData.workExperience || activeData.otherRequirements}
+              </div>
             </div>
           </div>
         )}

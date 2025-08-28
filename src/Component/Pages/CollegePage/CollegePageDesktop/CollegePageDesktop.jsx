@@ -68,30 +68,47 @@ const CollegePageDesktop = ({ college, collegeSecondry }) => {
                 {/* Sidebar */}
                 <div className="w-1/4 flex-shrink-0 relative">
                     <div ref={sidebarRef} style={sidebarStyle}>
-                        <SidebarNavigation />
+                        <SidebarNavigation college={college} collegeSecondry={collegeSecondry} />
                     </div>
                 </div>
 
                 {/* Main content */}
                 <div className="w-3/4 space-y-[64px] min-w-0 max-w-full">
-                    <div id="ranking">
-                        <RankAndAccr college={college} />
-                    </div>
-                    <div id="courses">
-                        <Courses college={college} />
-                    </div>
-                    <div id="specialization">
-                        <Specialization data={collegeSecondry} />
-                    </div>
-                    <div id="admission">
-                        <AdmissionProcess college={college} />
-                    </div>
-                    <div id="fees">
-                        <FeeTable collegeSecondry={collegeSecondry} />
-                    </div>
-                    <div id="benefits">
-                        <BenefitsSection college={college} />
-                    </div>
+                    {Array.isArray(college?.university_info?.accreditations) && college.university_info.accreditations.length > 0 && (
+                        <div id="ranking">
+                            <RankAndAccr college={college} />
+                        </div>
+                    )}
+
+                    {Array.isArray(college?.university_info?.courses) && college.university_info.courses.length > 0 && (
+                        <div id="courses">
+                            <Courses college={college} />
+                        </div>
+                    )}
+
+                    {collegeSecondry?.Specialisation && Object.keys(collegeSecondry.Specialisation).length > 0 && (
+                        <div id="specialization">
+                            <Specialization data={collegeSecondry} />
+                        </div>
+                    )}
+
+                    {Array.isArray(college?.university_info?.admission_process) && college.university_info.admission_process.length > 0 && (
+                        <div id="admission">
+                            <AdmissionProcess college={college} />
+                        </div>
+                    )}
+
+                    {(collegeSecondry && (collegeSecondry.Programs || collegeSecondry["Detail Fees"])) && (
+                        <div id="fees">
+                            <FeeTable collegeSecondry={collegeSecondry} />
+                        </div>
+                    )}
+
+                    {((college?.university_info?.benefits && college.university_info.benefits.length > 0) || (college?.university_info?.placement && college.university_info.placement.benefits && college.university_info.placement.benefits.length > 0)) && (
+                        <div id="benefits">
+                            <BenefitsSection college={college} />
+                        </div>
+                    )}
                     <div className="py-[64px]" id="compare">
                         <CompareCollegesCTA />
                     </div>

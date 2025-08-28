@@ -52,7 +52,7 @@ const AdmissionProcess = ({college}) => {
                             {/*    Process: Step {index + 1}*/}
                             {/*</div>*/}
 
-                            <div className="mt-1 text-[#333] font-normal text-[16px] font-[Outfit] break-words">
+                            <div className="mt-3 text-[#333] font-normal text-[16px] font-[Outfit] break-words">
                                 {step?.description || step}
                             </div>
 

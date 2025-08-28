@@ -5,11 +5,12 @@ import GridComponent from "@/GlobalComponent/GridComponent";
 import { CoursePageData } from "@/Data Model/CoursePage/CoursePageData"; // use CoursePageData faculty
 
 const OurFacultyMobile = () => {
-    // Grab faculty from course data and split into groups of 4 for swipe "pages"
+    // Grab faculty from course data and split into groups of 2 so each mobile page
+    // shows two vertically stacked cards (one column, two rows)
     const faculty = CoursePageData?.[0]?.online_mba?.faculty || [];
     const groupedCompanies = [];
-    for (let i = 0; i < faculty.length; i += 4) {
-        groupedCompanies.push(faculty.slice(i, i + 4));
+    for (let i = 0; i < faculty.length; i += 2) {
+        groupedCompanies.push(faculty.slice(i, i + 2));
     }
     const containerRef = useRef(null);
 
@@ -51,14 +52,14 @@ const OurFacultyMobile = () => {
                     {groupedCompanies.map((group, groupIndex) => (
                         <div
                             key={groupIndex}
-                            className="flex-shrink-0 w-full max-w-[720px] grid grid-cols-2 gap-6 snap-start"
+                            className="flex-shrink-0 w-full max-w-full grid grid-cols-1 gap-6 snap-start"
                         >
                             {group.map((alumni, idx) => (
                                 <div
                                     key={idx}
-                                    className="flex items-center gap-4 p-4 bg-white rounded-[16px] "
+                                    className="flex items-center gap-4 p-4 bg-white rounded-[16px] w-full"
                                 >
-                                    <div className="w-20 h-20 relative rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center bg-[#F3F3F3] text-[#024B53] font-semibold">
+                                    <div className="w-16 h-16 sm:w-20 sm:h-20 relative rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center bg-[#F3F3F3] text-[#024B53] font-semibold">
                                         {alumni.image ? (
                                             <Image
                                                 src={alumni.image}

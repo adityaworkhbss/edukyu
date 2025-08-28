@@ -38,31 +38,26 @@ export const Semester: React.FC<SemesterProps> = ({ course }) => {
 
   return (
     <main
-      className="relative w-full bg-white"
-      style={{ 
-        height: expandedSemester ? 'auto' : '506px',
-        minHeight: '506px'
-      }}
+      className="relative w-full bg-white px-4 py-8"
       data-model-id="483:1998"
     >
-      <header className="absolute w-[65%] top-[63px]">
-        <h1 className="[font-family:'Outfit',Helvetica] font-semibold text-[#024B53] text-5xl tracking-[0] leading-[normal]">
+      <header className="mb-6">
+        <h1 className="[font-family:'Outfit',Helvetica] font-semibold text-[#024B53] text-[28px] md:text-5xl tracking-[0] leading-[32px] md:leading-[normal]">
           Semester
         </h1>
       </header>
 
-      <section className="absolute w-[65%] top-[139px]">
-        <p className="[font-family:'Outfit',Helvetica] font-normal text-[#515150] text-xl tracking-[0] leading-[normal]">
+      <section className="mb-8">
+        <p className="[font-family:'Outfit',Helvetica] font-normal text-[#515150] text-[14px] md:text-xl tracking-[0] leading-[20px] md:leading-[normal]">
           Explore our comprehensive curriculum designed to equip you with essential skills and knowledge across multiple semesters.
         </p>
       </section>
 
-      <section className="absolute w-[100%] top-[214px]" style={{ minHeight: '228px' }}>
+      <section className="w-full space-y-4">
         {semesters.map((semester: any, index: number) => (
-          <React.Fragment key={semester.number}>
+          <div key={semester.number} className="w-full">
             <div
-              className={`absolute w-[97%] h-12 left-0 bg-[#effdfe] rounded-xl overflow-hidden cursor-pointer hover:bg-[#e0f9fa] transition-colors duration-200`}
-              style={{ top: `${index * 60}px` }}
+              className={`w-full h-12 bg-[#effdfe] rounded-xl overflow-hidden cursor-pointer hover:bg-[#e0f9fa] transition-colors duration-200 flex items-center justify-between px-6`}
               onClick={() => handleSemesterClick(semester.number)}
               role="button"
               tabIndex={0}
@@ -75,56 +70,42 @@ export const Semester: React.FC<SemesterProps> = ({ course }) => {
                 }
               }}
             >
-              <div className="absolute top-[13px] left-6 [font-family:'Outfit',Helvetica] font-normal text-[#202020] text-base tracking-[0] leading-[normal]">
+              <div className="[font-family:'Outfit',Helvetica] font-normal text-[#202020] text-[14px] md:text-base tracking-[0] leading-[normal]">
                 Semester {semester.number}
               </div>
 
-              <img
-                className="absolute w-6 h-6 top-3 right-8 aspect-[1] transition-transform duration-200"
-                style={{
-                  transform:
-                    expandedSemester === semester.number
-                      ? "rotate(180deg)"
-                      : "rotate(0deg)",
-                }}
-                alt={`${expandedSemester === semester.number ? "Collapse" : "Expand"} Semester ${semester.number}`}
-                src={
-                  semester.number === 1
-                    ? "https://c.animaapp.com/gyQQKQRj/img/dropdown-icon.svg"
-                    : semester.number === 2
-                      ? "https://c.animaapp.com/gyQQKQRj/img/dropdown-icon-1.svg"
-                      : semester.number === 3
-                        ? "https://c.animaapp.com/gyQQKQRj/img/dropdown-icon-2.svg"
-                        : "https://c.animaapp.com/gyQQKQRj/img/dropdown-icon-3.svg"
-                }
-              />
+              <svg
+                className={`w-6 h-6 transition-transform duration-200 ${
+                  expandedSemester === semester.number ? "rotate-180" : "rotate-0"
+                }`}
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
             </div>
 
             {/* Expanded Content */}
             {expandedSemester === semester.number && (
-              <div
-                className="absolute w-[97%] left-0 bg-white border border-[#e0e0e0] rounded-xl p-6 shadow-lg"
-                style={{ 
-                  top: `${index * 60 + 60}px`,
-                  zIndex: 10
-                }}
-              >
+              <div className="w-full bg-white border border-[#e0e0e0] rounded-xl p-4 md:p-6 shadow-lg mt-2">
                 {semester.description && (
-                  <p className="[font-family:'Outfit',Helvetica] font-normal text-[#515150] text-sm mb-4 leading-relaxed">
+                  <p className="[font-family:'Outfit',Helvetica] font-normal text-[#515150] text-[12px] md:text-sm mb-4 leading-relaxed">
                     {semester.description}
                   </p>
                 )}
                 
                 {semester.courses && semester.courses.length > 0 && (
                   <div>
-                    <h4 className="[font-family:'Outfit',Helvetica] font-semibold text-[#024B53] text-sm mb-3">
+                    <h4 className="[font-family:'Outfit',Helvetica] font-semibold text-[#024B53] text-[14px] md:text-sm mb-3">
                       Courses:
                     </h4>
-                    <ul className="grid grid-cols-2 gap-2">
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {semester.courses.map((course: string, courseIndex: number) => (
                         <li 
                           key={courseIndex}
-                          className="[font-family:'Outfit',Helvetica] font-normal text-[#333] text-sm flex items-center"
+                          className="[font-family:'Outfit',Helvetica] font-normal text-[#333] text-[12px] md:text-sm flex items-center"
                         >
                           <span className="w-1.5 h-1.5 bg-[#024B53] rounded-full mr-2 flex-shrink-0"></span>
                           {course}
@@ -135,7 +116,7 @@ export const Semester: React.FC<SemesterProps> = ({ course }) => {
                 )}
               </div>
             )}
-          </React.Fragment>
+          </div>
         ))}
       </section>
     </main>

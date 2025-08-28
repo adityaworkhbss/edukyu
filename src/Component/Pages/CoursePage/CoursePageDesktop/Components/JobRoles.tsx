@@ -91,7 +91,7 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
 
         <div className="absolute w-[97%] h-10 top-5 left-5">
           <div className="inline-flex items-center absolute top-0 left-0">
-            <div className="inline-flex items-center gap-5 px-2.5 py-2 relative flex-[0_0_auto]">
+            <div className="inline-flex items-center gap-5 px-6 py-2 relative flex-[0_0_auto]">
               <button
                 onClick={() => setActiveTab('jobRoles')}
                 className={`relative w-fit mt-[-1.00px] font-semibold text-xl tracking-[0] leading-[normal] whitespace-nowrap ${
