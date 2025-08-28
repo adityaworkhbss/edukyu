@@ -57,7 +57,7 @@ const Courses = ({ college }) => {
             const { scrollLeft, scrollWidth, clientWidth } = container;
             setCanScrollLeft(scrollLeft > 0);
             setCanScrollRight(scrollLeft < (scrollWidth - clientWidth - 1));
-            console.log('Scroll check:', { scrollLeft, scrollWidth, clientWidth, canScrollLeft: scrollLeft > 0, canScrollRight: scrollLeft < (scrollWidth - clientWidth - 1) });
+            // console.log('Scroll check:', { scrollLeft, scrollWidth, clientWidth, canScrollLeft: scrollLeft > 0, canScrollRight: scrollLeft < (scrollWidth - clientWidth - 1) });
         }
     };
 

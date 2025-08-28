@@ -9,6 +9,8 @@ const HeroPage = ({college}) => {
 
     const [showForm, setShowForm] = useState(false);
 
+    console.log("banner image ::: " + college.university_info.banner_image);
+
     // Add null checks to prevent errors
     if (!college || !college.university_info) {
         return (
@@ -23,7 +25,7 @@ const HeroPage = ({college}) => {
     return (
 
         <>
-            <div className="w-full gap-6 pl-[56px] flex max-w-full">
+            <div className="w-full gap-6 pl-[56px]  flex max-w-full">
                 {/* Left Section */}
                 <div className="w-1/2 flex flex-col py-6 min-w-0">
                     <div className="mb-6 text-[52px] font-semibold text-[#025E68] font-[Outfit] break-words">
@@ -46,15 +48,18 @@ const HeroPage = ({college}) => {
 
                 {/* Right Section */}
                 <div className="w-1/2 relative mb-8 flex-shrink-0">
-                    <div className="max-w-full pl-3">
-                        <Image
-                            src={collegepage_hero}
+                    <div className="relative w-full h-full pl-3 overflow-hidden">
+                        <img
+                            src={college.university_info.banner_image}
                             alt="College Page Hero"
-                            className="max-w-full h-auto"
+                            fill
+                            className="object-cover rounded-3xl h-full [clip-path:polygon(0_0,100%_0,100%_65%,0_100%)]"
                         />
-
                     </div>
-                    <div className="absolute bottom-[-32px] right-[56px]">
+
+
+
+                    <div className="absolute top-[16px] right-[56px]">
                         <Image
                             src={collegepage_hero_img}
                             alt="College Page Hero Image"

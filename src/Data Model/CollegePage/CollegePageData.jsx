@@ -9,7 +9,7 @@ export const CollegePageData = [{
         "university_info": {
             "name": "D.Y. Patil University",
             "logo": "https://edukyu.com/assets/cxp-assets/imgs/collage/logo/dpu-logo.png",
-            "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/collage/dypatil-university/banner.avif",
+            "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/dpu-banner.jpg",
             "accreditations": [
                 {
                     "name": "NAAC",
@@ -412,7 +412,7 @@ export const CollegePageData = [{
         "university_info": {
             "name": "Vivekananda Global University",
             "logo": "https://edukyu.com/assets/cxp-assets/imgs/collage/vgu/logo.png",
-            "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/collage/vgu/banner.jpg",
+            "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/vivekanand-global-university.jpg",
             "accreditations": [
                 {
                     "name": "UGC",
@@ -646,7 +646,7 @@ export const CollegePageData = [{
         "university_info": {
             "name": "Uttaranchal University",
             "logo": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/uttarachal-logo.png",
-            "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/collage/uttaranchal-university/banner.avif",
+            "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/uu-banner.png",
             "accreditations": [
                 {
                     "name": "UGC",
@@ -1006,7 +1006,7 @@ export const CollegePageData = [{
         "university_info": {
             "name": "Jain University Online",
             "logo": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/jain.png",
-            "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/collage/jain-university/overview.jpg",
+            "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/jain-banner.jpg",
             "accreditations": [
                 {
                     "name": "NAAC A++",
@@ -1185,7 +1185,7 @@ export const CollegePageData = [{
         "university_info": {
             "name": "Manipal University Jaipur Online",
             "logo": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/manipal.png",
-            "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/collage/manipal-university/overview.jpg",
+            "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/manipal-banner.jpg",
             "accreditations": [
                 {
                     "name": "NAAC A++",
@@ -1378,7 +1378,7 @@ export const CollegePageData = [{
         "university_info": {
             "name": "Lovely Professional University Online",
             "logo": "assets/cxp-assets/imgs/new-banner/lpu.png",
-            "banner_image": "assets/cxp-assets/imgs/collage/lovely-professional-university/overview.avif",
+            "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/lpu-banner.jpg",
             "accreditations": [
                 {
                     "name": "NAAC A++",
@@ -1591,7 +1591,7 @@ export const CollegePageData = [{
         "university_info": {
             "name": "Shoolini University Online",
             "logo": "assets/cxp-assets/imgs/new-banner/shoolini.png",
-            "banner_image": "assets/cxp-assets/imgs/collage/shoolini-university/overview.jpg",
+            "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/shoolini-banner.png",
             "accreditations": [
                 {
                     "name": "WUR",
@@ -1882,7 +1882,7 @@ export const CollegePageData = [{
         "university_info": {
             "name": "Amity University Online",
             "logo": "assets/cxp-assets/imgs/new-banner/amity.png",
-            "banner_image": "assets/cxp-assets/imgs/collage/amity-university/overview.jpg",
+            "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/amity-banner.jpg",
             "accreditations": [
                 {
                     "name": "NAAC",
@@ -2142,7 +2142,7 @@ export const CollegePageData = [{
         "university_info": {
             "name": "Sikkim Manipal University",
             "logo": "assets/cxp-assets/imgs/collage/sikkim-university/sikkim-card-logo.jpg",
-            "banner_image": "assets/cxp-assets/imgs/collage/sikkim-university/sikkim.jpg",
+            "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/collage/sikkim-university/sikkim.jpg",
             "accreditations": [
                 {
                     "name": "UGC",
