@@ -145,7 +145,7 @@ const ExplorePrograms = () => {
 
                                 <div className="pt-[10px] w-full pb-[16px] bottom-0">
                                     <div className="flex justify-center">
-                                      <Link href={`/course/online_mba`} className="w-[calc(100%-40px)]">
+                                      <Link href={`/course/manipal_university/online_mba`} className="w-[calc(100%-40px)]">
                                        <button
                                             className="flex items-center  justify-center border w-full py-[12px]  text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#CDCDCD] border-[#6A6A69)]"
                                             // onClick={() => {

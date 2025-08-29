@@ -8,9 +8,9 @@ export default function BlogDetailsPage({ params }) {
 
     return (
         <>
-            <TopNav />
+            {/*<TopNav />*/}
             <BlogPage blogId={Number(blogId)} />
-            <Footer />
+            {/*<Footer />*/}
         </>
     );
 }

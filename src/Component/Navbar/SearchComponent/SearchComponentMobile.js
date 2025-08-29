@@ -10,6 +10,12 @@ export default function SearchComponentMobile({ onClose }) {
     const [showDropdown, setShowDropdown] = useState(false);
     const { setCurrentPage, setSelectedCollege } = usePageContext();
 
+    // /college/amity-university-online
+
+
+
+    // universityKeyMap[amity-university-online]
+
     const universityKeyMap = {
         'Amity University Online': 'Amity_University',
         'D.Y. Patil University, Pune': 'DYP',

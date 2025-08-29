@@ -7,8 +7,12 @@ import CoursePageDesktop from "@/Component/Pages/CoursePage/CoursePageDesktop/Co
 import CoursePageMobile from "@/Component/Pages/CoursePage/CoursePageMobile/CoursePageMobile";
 import { CoursePageData } from '@/Data Model/CoursePage/CoursePageData';
 
-const CoursePage = ({courseName}) => {
+const CoursePage = ({universityName, courseName}) => {
     const breakpoint = useBreakpoint();
+
+    // console.log("check data validation :::::::::::: " , CoursePageData[0][universityName][courseName]);
+
+    const courseData = CoursePageData[0][universityName][courseName]
 
     // Handle legacy "DPU" key by mapping it to "DYP"
     // let actualCollegeName = collegeName;
@@ -53,13 +57,16 @@ const CoursePage = ({courseName}) => {
     return (
         <>
             {breakpoint === 'mobile' || breakpoint === 'tablet' ? (
-                <CoursePageMobile course={CoursePageData[0]} courseSecondry={CollegePageSecondryData} /> 
+                <CoursePageMobile course={courseData} courseSecondry={CollegePageSecondryData} />
                 
             ) : (
-                <CoursePageDesktop course={CoursePageData[0]} courseSecondry={CollegePageSecondryData}/>
+                <CoursePageDesktop course={courseData} courseSecondry={CollegePageSecondryData}/>
             )}
         </>
     );
 };
+
+//CoursePageData[0][universityName][courseName]
+//CollegePageSecondryData[0][universityName][courseName]
 
 export default CoursePage;
