@@ -79,7 +79,9 @@ export const BenefitsSection: React.FC<{ college?: College; course?: any }> = ({
                        <div className="w-[33.333%] max-md:w-full flex flex-col gap-6">
                            {benefits.slice(0, 3).map((benefit) => (
                                <BenefitCard key={benefit.id} className="relative w-full">
-                                   {benefit.text}
+                                   {benefit.text.length > 80
+                                       ? benefit.text.substring(0, 80) + "..."
+                                       : benefit.text}
                                </BenefitCard>
                            ))}
                        </div>
@@ -95,7 +97,9 @@ export const BenefitsSection: React.FC<{ college?: College; course?: any }> = ({
                        <div className="w-[33.333%] max-md:w-full flex flex-col gap-6">
                            {benefits.slice(3, 6).map((benefit) => (
                                <BenefitCard key={benefit.id} className="relative w-full">
-                                   {benefit.text}
+                                   {benefit.text.length > 80
+                                       ? benefit.text.substring(0, 80) + "..."
+                                       : benefit.text}
                                </BenefitCard>
                            ))}
                        </div>

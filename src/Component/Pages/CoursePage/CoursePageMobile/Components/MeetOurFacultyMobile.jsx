@@ -62,7 +62,8 @@ const OurFacultyMobile = () => {
                                     <div className="w-16 h-16 sm:w-20 sm:h-20 relative rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center bg-[#F3F3F3] text-[#024B53] font-semibold">
                                         {alumni.image ? (
                                             <Image
-                                                src={alumni.image}
+
+                                                src={`https://edukyu.com/${logo.image}`}
                                                 alt={alumni.name}
                                                 width={80}
                                                 height={80}

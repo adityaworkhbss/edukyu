@@ -3,7 +3,10 @@ import Image from "next/image";
 import rankLogos from "@/../public/Resources/Images/accrImag.png";
 import GridComponent from "@/GlobalComponent/GridComponent";
 
-const RankAndAccr = ({ college }) => {
+const RankAndAccr = ( college ) => {
+
+    console.log(college);
+
     // logos from API
     const accrs = college?.university_info?.accreditations || [];
     
@@ -88,7 +91,7 @@ const RankAndAccr = ({ college }) => {
                                 className="inline-flex min-w-[100px] h-[80px] items-center justify-center bg-white rounded-lg flex-shrink-0 mx-2"
                             >
                                 <img
-                                    src={logo.image}
+                                    src={`https://edukyu.com/${logo.image}`}
                                     alt={logo.name || `logo-${index}`}
                                     width={80}
                                     height={80}

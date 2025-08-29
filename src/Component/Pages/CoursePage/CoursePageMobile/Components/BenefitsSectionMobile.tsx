@@ -45,7 +45,7 @@ export const BenefitsSectionMobile: React.FC<{ college: College }> = ({ college 
             <div className="grid grid-cols-2 gap-4 max-w-[640px] mx-auto mb-8">
                 {benefits.map((benefit, idx) => (
                     <BenefitCardMobile key={idx}>
-                        {benefit}
+                        {benefit.length > 80 ? benefit.substring(0, 80) + "..." : benefit}
                     </BenefitCardMobile>
                 ))}
             </div>
