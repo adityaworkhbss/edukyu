@@ -28,7 +28,7 @@ const RankAndAccrMobile = ({ college }) => {
                         className="flex-shrink-0 flex items-center justify-center"
                     >
                         <img
-                            src={`https://edukyu.com/${logo.image}`}
+                            src={`https://edukyu.com/${logo.icon}`}
                             alt={logo.name}
                             width={90}
                             height={90}

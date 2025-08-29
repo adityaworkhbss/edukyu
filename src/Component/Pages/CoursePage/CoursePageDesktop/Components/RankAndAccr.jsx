@@ -5,10 +5,12 @@ import GridComponent from "@/GlobalComponent/GridComponent";
 
 const RankAndAccr = ( college ) => {
 
-    console.log(college);
+    // console.log(college.course.online_mba.accreditations);
 
     // logos from API
-    const accrs = college?.university_info?.accreditations || [];
+    const accrs = college?.course?.online_mba?.accreditations || [];
+
+    console.log("accres ::: " + accrs);
     
     // Hide component if no accreditations data is available
     if (!accrs || accrs.length === 0) {
@@ -91,12 +93,12 @@ const RankAndAccr = ( college ) => {
                                 className="inline-flex min-w-[100px] h-[80px] items-center justify-center bg-white rounded-lg flex-shrink-0 mx-2"
                             >
                                 <img
-                                    src={`https://edukyu.com/${logo.image}`}
+                                    src={`https://edukyu.com${logo.icon}`}   // ✅ changed from logo.image to logo.icon
                                     alt={logo.name || `logo-${index}`}
                                     width={80}
                                     height={80}
                                     className="object-contain max-w-full h-auto"
-                                    onError={(e) => { e.target.style.display = 'none'; }}
+                                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
                                 />
                             </div>
                         ))}
