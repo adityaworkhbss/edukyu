@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import {PartnerUniversitiesData} from "@/Data Model/Homepage/PartnerUniversitiesData";
 import {usePageContext} from "@/GlobalComponent/PageContext";
+import Link from "next/link";
 
 const UniversityCard = ({ name, logoSrc, certificationIcons }) => {
     return (
@@ -112,18 +113,17 @@ export const PartnerUniversitiesMobile = () => {
                 className="flex overflow-x-auto snap-x snap-mandatory gap-[17px] scroll-smooth w-full no-scrollbar"
             >
                 {universities.map((uni, index) => (
-                    <div key={index} className="flex-shrink-0 snap-center"
-                         onClick={() => {
-                             setSelectedCollege(uni.code);
-                             setCurrentPage('college');
-                         }}
+                    <Link 
+                        key={index} 
+                        href={`/college/${encodeURIComponent((uni.name).trim().replace(/\s+/g, '-'))}`}
+                        className="flex-shrink-0 snap-center"
                     >
                         <UniversityCard
                             name={uni.name}
                             logoSrc={uni.logoSrc}
                             certificationIcons={uni.certificationIcons}
                         />
-                    </div>
+                    </Link>
                 ))}
             </div>
 

@@ -8,16 +8,17 @@ export default function CollegeRoute() {
   const { college_name } = useParams();
    const universityKeyMap = {
         'Amity-University': 'Amity_University',
-        'Dr.-DY-Patil-University':'DYP',
+        'D.Y.-Patil-Vidyapeeth':'DYP',
         'Jain-University':'Jain_University',
         'Lovely-Professional-University' :'Lovely_Professional_University',
-        'Manipal-University':'Manipal_University',
-        'NMIMS-University':'NMIMS',
+        'Manipal-University-Jaipur':'Manipal_University',
+        'NMIMS-University-Online':'NMIMS',
         'Shardha-University':'Sikkim_Manipal_University',
         'Shoolini-University':'Shoolini_University',
         'Uttaranchal-University':'UU',
         'Vivekanand-Global-University':'VGU',
-        'Noida-International-University':'NIU'
+        'Noida-International-University':'NIU',
+        'Sikkim-Manipal-University':'Sikkim_Manipal_University'
     };
 
 

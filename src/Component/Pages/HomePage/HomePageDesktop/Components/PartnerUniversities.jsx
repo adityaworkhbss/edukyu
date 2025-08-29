@@ -64,19 +64,7 @@ export const PartnerUniversities = () => {
 
     const totalTranslateX = -1 * currentIndex * (cardWidth + cardGap);
 
-    const universityKeyMap = {
-        'Amity-University': 'Amity_University',
-        'Dr.-DY-Patil-University':'DYP',
-        'Jain-University':'Jain_University',
-        'Lovely-Professional-University' :'Lovely_Professional_University',
-        'Manipal-University':'Manipal_University',
-        'NMIMS-University':'NMIMS',
-        'Shardha-University':'Sikkim_Manipal_University',
-        'Shoolini-University':'Shoolini_University',
-        'Uttaranchal-University':'UU',
-        'Vivekanand-Global-University':'VGU',
-    };
-
+   
     return (
         <section className="px-[56px] py-[64px] mt-[64px] relative" aria-labelledby="partner-universities-heading">
 

@@ -3,6 +3,7 @@ import { universitiesData } from '@/Data Model/UniversityData';
 import GridContainer from '@/GlobalComponent/GridContainer';
 import GridComponent from '@/GlobalComponent/GridComponent';
 import {usePageContext} from "@/GlobalComponent/PageContext";
+import Link from "next/link";
 
 const CourseItems = ({ course }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -42,19 +43,46 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
     const { setCurrentPage, setSelectedCollege } = usePageContext();
 
 
-    const universityKeyMap = {
-        'Amity': 'Amity_University',
-        'DPU':'DYP',
-        // 'DPU':'NUI',
-        // 'DPU':'VGU',
-        'Jain':'Jain_University',
-        'LPU' :'Lovely_Professional_University',
-        'Manipal':'Manipal_University',
-        'NMIMS':'NMIMS',
-        'Shardha':'Sikkim_Manipal_University',
-        'Shoolini':'Shoolini_University',
-        'UU':'UU',
-        'VGU':'VGU',
+    // const universityKeyMap = {
+    //     'Amity': 'Amity-University',
+    //     'DPU':'DYP',
+    //     // 'DPU':'NUI',
+    //     // 'DPU':'VGU',
+    //     'Jain':'Jain_University',
+    //     'LPU' :'Lovely_Professional_University',
+    //     'Manipal':'Manipal_University',
+    //     'NMIMS':'NMIMS',
+    //     'Shardha':'Sikkim_Manipal_University',
+    //     'Shoolini':'Shoolini_University',
+    //     'UU':'UU',
+    //     'VGU':'VGU',
+    // };
+    // const universityKeyMap3 = {
+    //     'Amity University': 'Amity',
+    //     'Dr. DY Patil University': 'DYP',
+    //     'Jain University': 'Jain',
+    //     'Lovely Professional University': 'LPU',
+    //     'Manipal University': 'Manipal',
+    //     'NMIMS University': 'NMIMS',
+    //     'Shardha University': 'Shardha',
+    //     'Shoolini University': 'Shoolini',
+    //     'Uttaranchal University': 'UU',
+    //     'Vivekanand Global University': 'VGU',
+    // };
+
+    const universityKeyMapCorrect = {
+        "Amity":'Amity-University',
+        "DYP":'D.Y.-Patil-Vidyapeeth',
+        "Jain":'Jain-University',
+        "LPU":'Lovely-Professional-University',
+        "Manipal":'Manipal-University-Jaipur',
+        "NMIMS":'NMIMS-University-Online',
+        "Shardha":'Shardha-University',
+        "Shoolini":'Shoolini-University',
+        "UU":'Uttaranchal-University',
+        "VGU":'Vivekanand-Global-University',
+        "NIU":'Noida-International-University',
+        "Sikkim_Manipal_University":'Sikkim-Manipal-University'
     };
 
     const gridPositions = [
@@ -96,6 +124,13 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
         distributedChunks[index % 3].push({ course, idx: index });
     });
 
+    const handleCollegeLinkClick = () => {
+        // Call the callback function to close navbar if provided
+        if (onCollegeNavigate) {
+            onCollegeNavigate();
+        }
+    };
+
     return (
         <GridContainer>
             <div className="overflow-hidden w-full bg-[#FFF] px-6">
@@ -109,13 +144,18 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
                             <div className="text-[#383837] text-left pr-[40px] font-outfit text-[18px] font-medium leading-[20px] not-italic">
                                 Courses {university} Provides
                             </div>
-                            <a
+                            <Link
                                 className="text-[14px] text-left h-[18px] text-[#024B53] flex font-medium font-outfit not-italic leading-normal gap-[8px]"
-                                onClick={() => {
-                                    const mappedKey = universityKeyMap[university];
-                                    setSelectedCollege(mappedKey);
-                                    setCurrentPage('college');
-                                }}
+                                // onClick={() => {
+                                //     const mappedKey = universityKeyMap[university];
+                                //     console.log("university", university);
+                                //     console.log("mappedKey", mappedKey);
+                                //     setSelectedCollege(mappedKey);
+                                //     setCurrentPage('college');
+                                // }}
+                                href={`/college/${encodeURIComponent(universityKeyMapCorrect[university])}`}
+
+                                onClick={handleCollegeLinkClick}
                             >
                                 Explore College
                                 <svg
@@ -131,7 +171,7 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
                                         />
                                     </g>
                                 </svg>
-                            </a>
+                            </Link>
                         </div>
 
                         <div className="flex pt-8 pb-6">

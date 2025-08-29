@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { universitiesData } from "@/Data Model/UniversityData";
 import CoursesListCorrespondToCollege from "./CoursesListCorrespondToCollege";
 import {usePageContext} from "@/GlobalComponent/PageContext";
+import Link from "next/link";
 
 const universityKeyMap = {
     'Amity University': 'Amity',
@@ -31,7 +32,22 @@ const universityKeyMap_Page = {
     'Vivekanand Global University': 'VGU',
 };
 
-const CoursesComponentMobile = ({ onClose, college }) => {
+const universityKeyMapCorrect = {
+    "Amity":'Amity-University',
+    "DYP":'D.Y.-Patil-Vidyapeeth',
+    "Jain":'Jain-University',
+    "LPU":'Lovely-Professional-University',
+    "Manipal":'Manipal-University-Jaipur',
+    "NMIMS":'NMIMS-University-Online',
+    "Shardha":'Shardha-University',
+    "Shoolini":'Shoolini-University',
+    "UU":'Uttaranchal-University',
+    "VGU":'Vivekanand-Global-University',
+    "NIU":'Noida-International-University',
+    "Sikkim_Manipal_University":'Sikkim-Manipal-University'
+};
+
+const CoursesComponentMobile = ({ onClose, college, onSidebarClose }) => {
     const [openProgram, setOpenProgram] = useState(null);
     const { setCurrentPage, setSelectedCollege } = usePageContext();
     const collegeKey = universityKeyMap[college];
@@ -67,15 +83,16 @@ const CoursesComponentMobile = ({ onClose, college }) => {
             </div>
 
             {/* Explore College Button */}
-            <div className="flex gap-1 pt-4"
-                 onClick={() => {
-                         const mappedKey = universityKeyMap_Page[college];
-                         console.log(mappedKey);
-                         setSelectedCollege(mappedKey);
-                         setCurrentPage('college');
-                        {onClose}
-                     }
-                 }>
+            <Link 
+                href={`/college/${encodeURIComponent(universityKeyMapCorrect[collegeKey])}`}
+                className="flex gap-1 pt-4"
+                onClick={() => {
+                    onClose(); // Close the college component
+                    if (onSidebarClose) {
+                        onSidebarClose(); // Close the entire mobile sidebar
+                    }
+                }}
+            >
                 <div className="text-[#024B53] font-outfit text-[14px] font-medium not-italic leading-normal">
                     Explore College
                 </div>
@@ -89,7 +106,7 @@ const CoursesComponentMobile = ({ onClose, college }) => {
                         </clipPath>
                     </defs>
                 </svg>
-            </div>
+            </Link>
 
             {/* Course list */}
             <div className="pt-5 flex flex-col gap-5 pb-5">

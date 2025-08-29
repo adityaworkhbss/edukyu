@@ -19,7 +19,7 @@ const colleges = [
     'Vivekanand Global University',
 ];
 
-const CollegeComponentMobileDropDown = () => {
+const CollegeComponentMobileDropDown = ({ onSidebarClose }) => {
     const [openCollege, setOpenCollege] = useState(null);
 
     const handleToggle = (college) => {
@@ -66,6 +66,7 @@ const CollegeComponentMobileDropDown = () => {
                 <CollegeComponentMobile
                     onClose={() => setOpenCollege(null)}
                     college={openCollege}
+                    onSidebarClose={onSidebarClose}
                 />
             )}
         </div>

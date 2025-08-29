@@ -15,7 +15,7 @@ const HiringPartnersSectionMobile = ({ college }) => {
 
     const logos = college.university_info.placement.partners || [];
     const names = college.university_info.name || '';
-    console.log(names);
+   // console.log(names);
     // college.university_info.placement.partners
     return (
         <section className="bg-white py-8">

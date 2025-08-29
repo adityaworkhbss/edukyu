@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { ImageIcon } from "lucide-react";
 import GridContainer from "@/GlobalComponent/GridContainer";
 import { ExploreProgramsData } from "@/Data Model/Homepage/ExploreProgramsData";
+import Link from "next/link";
 
 export const ExploreProgramsMobile = () => {
     const [activeTab, setActiveTab] = useState("PG");
@@ -126,9 +127,11 @@ export const ExploreProgramsMobile = () => {
 
                                     {/* Button section - always at bottom */}
                                     <div className="flex w-full gap-2.5 text-sm font-normal pt-[42px]">
-                                        <button className="justify-center items-center border flex gap-2.5 overflow-hidden text-[#9B9B9B] whitespace-nowrap flex-1 shrink basis-[0%] p-3 rounded-lg border-solid border-[#9B9B9B] hover:bg-gray-50 transition-colors">
-                                            <div className="text-[#9B9B9B] self-stretch my-auto">Explore</div>
-                                        </button>
+                                        <Link href={`/course/online_mba`} className="flex-1">
+                                            <button className="justify-center items-center border flex gap-2.5 overflow-hidden text-[#9B9B9B] whitespace-nowrap w-full p-3 rounded-lg border-solid border-[#9B9B9B] hover:bg-gray-50 transition-colors">
+                                                <div className="text-[#9B9B9B] self-stretch my-auto">Explore</div>
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

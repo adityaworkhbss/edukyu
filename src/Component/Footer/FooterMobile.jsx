@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import EdukyuLogo from '../../../public/Resources/Images/edukyu-footer-logo.png';
 import {usePageContext} from "@/GlobalComponent/PageContext";
 
@@ -28,6 +29,19 @@ const EduKyuMobileFooter = () => {
         'NMIMS University', 'Shardha University', 'Shoolini University', 'Uttaranchal University',
         'VIT Online', 'Vivekanand Global University',
     ];
+
+    const mapping = {
+        "Amity University": "Amity-University",
+        "Dr. DY Patil University": "D.Y.-Patil-Vidyapeeth",
+        "Jain University": "Jain-University",
+        "Lovely Professional University": "Lovely-Professional-University",
+        "Manipal University": "Manipal-University-Jaipur",
+        "NMIMS University": "NMIMS-University-Online",
+        "Shardha University": "Shardha-University",
+        "Shoolini University": "Shoolini-University",
+        "Uttaranchal University": "Uttaranchal-University",
+        "Vivekanand Global University": "Vivekanand-Global-University"
+    };
 
     const courses = ['MBA', 'BBA', 'MCA', 'B.Com', 'M.Sc', 'B.Sc', 'MA', 'BA'];
 
@@ -68,14 +82,7 @@ const EduKyuMobileFooter = () => {
     };
 
     const handleItemClick = (key, item, index) => {
-        if (key === 'colleges') {
-            const mappedKey = universityKeyMap[item];
-            if (mappedKey) {
-                console.log(mappedKey);
-                setSelectedCollege(mappedKey);
-                setCurrentPage('college');
-            }
-        } else if (key === 'links') {
+        if (key === 'links') {
             const linkData = quickLinksData[index];
             if (linkData && linkData.action) {
                 linkData.action();
@@ -86,40 +93,55 @@ const EduKyuMobileFooter = () => {
                 window.open(locationData.url, "_blank");
             }
         }
+        // Note: colleges now handled by Link components, no need for click handler
     };
 
     const renderList = (key, list) =>
         expandedSections[key] && (
             <div className="pb-5 pl-4 space-y-5">
-                {list.map((item, idx) => (
-                    <div
-                        key={idx}
-                        className="text-sm text-left text-white flex items-center cursor-pointer hover:text-white/80 transition-colors duration-200"
-                        onClick={() => handleItemClick(key, item, idx)}
-                    >
-                        {item}
-                        {key === 'courses' && (
-                            <span className="pl-2 pt-[3px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
-                                  <path
-                                      d="M6 3.333V4.667h4.394L2.667 12.393 3.607 13.333l7.727-7.727v4.393H12.667V3.333H6Z"
-                                      fill="white"
-                                  />
-                                </svg>
-                              </span>
-                        )}
-                        {key === 'findus' && (
-                            <span className="pl-2 pt-[3px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
-                                  <path
-                                      d="M6 3.333V4.667h4.394L2.667 12.393 3.607 13.333l7.727-7.727v4.393H12.667V3.333H6Z"
-                                      fill="white"
-                                  />
-                                </svg>
-                              </span>
-                        )}
-                    </div>
-                ))}
+                {list.map((item, idx) => {
+                    if (key === 'colleges') {
+                        return (
+                            <Link 
+                                key={idx}
+                                href={`/college/${encodeURIComponent(mapping[item])}`}
+                                className="text-sm text-left text-white flex items-center cursor-pointer hover:text-white/80 transition-colors duration-200"
+                            >
+                                {item}
+                            </Link>
+                        );
+                    }
+                    
+                    return (
+                        <div
+                            key={idx}
+                            className="text-sm text-left text-white flex items-center cursor-pointer hover:text-white/80 transition-colors duration-200"
+                            onClick={() => handleItemClick(key, item, idx)}
+                        >
+                            {item}
+                            {key === 'courses' && (
+                                <span className="pl-2 pt-[3px]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                      <path
+                                          d="M6 3.333V4.667h4.394L2.667 12.393 3.607 13.333l7.727-7.727v4.393H12.667V3.333H6Z"
+                                          fill="white"
+                                      />
+                                    </svg>
+                                  </span>
+                            )}
+                            {key === 'findus' && (
+                                <span className="pl-2 pt-[3px]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                      <path
+                                          d="M6 3.333V4.667h4.394L2.667 12.393 3.607 13.333l7.727-7.727v4.393H12.667V3.333H6Z"
+                                          fill="white"
+                                      />
+                                    </svg>
+                                  </span>
+                            )}
+                        </div>
+                    );
+                })}
             </div>
         );
 
