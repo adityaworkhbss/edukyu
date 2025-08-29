@@ -83,7 +83,7 @@ const Layout = () => {
 
     return (
         <div className="w-full font-[Outfit]">
-            <TopNav />
+            {/* <TopNav /> */}
             <div className="relative">
                 {DevEnvironment.ENABLE_GRIDS && (
                     <div className={`${marginClass} absolute inset-0 z-[10000000] pointer-events-none opacity-90`}>
@@ -99,7 +99,7 @@ const Layout = () => {
 
                 {renderPage()}
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };

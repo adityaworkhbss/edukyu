@@ -2,8 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import GridContainer from "@/GlobalComponent/GridContainer";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import { PartnerUniversitiesData } from '@/Data Model/Homepage/PartnerUniversitiesData';
-import {ImageIcon} from "lucide-react";
-import {usePageContext} from "@/GlobalComponent/PageContext";
+import { ImageIcon } from "lucide-react";
+import { usePageContext } from "@/GlobalComponent/PageContext";
+import Link from "next/link";
 
 export const PartnerUniversities = () => {
     const universities = PartnerUniversitiesData.universities.map((univ, index) => {
@@ -63,6 +64,19 @@ export const PartnerUniversities = () => {
 
     const totalTranslateX = -1 * currentIndex * (cardWidth + cardGap);
 
+    const universityKeyMap = {
+        'Amity-University': 'Amity_University',
+        'Dr.-DY-Patil-University':'DYP',
+        'Jain-University':'Jain_University',
+        'Lovely-Professional-University' :'Lovely_Professional_University',
+        'Manipal-University':'Manipal_University',
+        'NMIMS-University':'NMIMS',
+        'Shardha-University':'Sikkim_Manipal_University',
+        'Shoolini-University':'Shoolini_University',
+        'Uttaranchal-University':'UU',
+        'Vivekanand-Global-University':'VGU',
+    };
+
     return (
         <section className="px-[56px] py-[64px] mt-[64px] relative" aria-labelledby="partner-universities-heading">
 
@@ -120,11 +134,11 @@ export const PartnerUniversities = () => {
                                         <div>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <g clipPath="url(#clip0_228_629)">
-                                                    <path d="M18 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V4C20 2.9 19.1 2 18 2ZM9 4H11V9L10 8.25L9 9V4ZM18 20H6V4H7V13L10 10.75L13 13V4H18V20Z" fill="#383837"/>
+                                                    <path d="M18 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V4C20 2.9 19.1 2 18 2ZM9 4H11V9L10 8.25L9 9V4ZM18 20H6V4H7V13L10 10.75L13 13V4H18V20Z" fill="#383837" />
                                                 </g>
                                                 <defs>
                                                     <clipPath id="clip0_228_629">
-                                                        <rect width="24" height="24" fill="white"/>
+                                                        <rect width="24" height="24" fill="white" />
                                                     </clipPath>
                                                 </defs>
                                             </svg>
@@ -154,10 +168,45 @@ export const PartnerUniversities = () => {
                                         </div>
 
                                         <div className="pt-[8px]">
-                                            <button className="flex w-[32px] h-[32px] p-2 justify-center items-center flex-shrink-0 bg-[#CDCDCD] group-hover:bg-[#024B53] rounded"
+
+                                            <Link href={`/college/${encodeURIComponent((univ.name).trim().replace(/\s+/g, '-'))}`}>
+                                                <button className="flex w-[32px] h-[32px] p-2 justify-center items-center flex-shrink-0 bg-[#CDCDCD] group-hover:bg-[#024B53] rounded"
+                                                    // onClick={() => {
+                                                    //     setSelectedCollege(univ.code);
+                                                    //     //console.log(univ.name)
+                                                    //     // setCurrentPage(`college/${univ.name}`);
+                                                    //     setCurrentPage("college")
+                                                    // }}
+                                                >
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="16"
+                                                        height="16"
+                                                        viewBox="0 0 16 16"
+                                                        fill="none"
+                                                    >
+                                                        <g clipPath="url(#clip0_228_674)">
+                                                            <path
+                                                                d="M8.00002 2.66663L7.06002 3.60663L10.78 7.33329H2.66669V8.66663H10.78L7.06002 12.3933L8.00002 13.3333L13.3334 7.99996L8.00002 2.66663Z"
+                                                                fill="white"
+                                                            />
+                                                        </g>
+                                                        <defs>
+                                                            <clipPath id="clip0_228_674">
+                                                                <rect width="16" height="16" fill="white" />
+                                                            </clipPath>
+                                                        </defs>
+                                                    </svg>
+                                                </button>
+
+
+                                            </Link>
+                                            {/* <button className="flex w-[32px] h-[32px] p-2 justify-center items-center flex-shrink-0 bg-[#CDCDCD] group-hover:bg-[#024B53] rounded"
                                                     onClick={() => {
                                                         setSelectedCollege(univ.code);
-                                                        setCurrentPage('college');
+                                                        //console.log(univ.name)
+                                                       // setCurrentPage(`college/${univ.name}`);
+                                                       setCurrentPage("college")
                                                     }}
                                             >
                                                 <svg
@@ -179,7 +228,7 @@ export const PartnerUniversities = () => {
                                                         </clipPath>
                                                     </defs>
                                                 </svg>
-                                            </button>
+                                            </button> */}
                                         </div>
                                     </div>
 
@@ -198,11 +247,11 @@ export const PartnerUniversities = () => {
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
                             <g clipPath="url(#clip0_228_602)">
-                                <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#9B9B9B"/>
+                                <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#9B9B9B" />
                             </g>
                             <defs>
                                 <clipPath id="clip0_228_602">
-                                    <rect width="32" height="32" fill="white"/>
+                                    <rect width="32" height="32" fill="white" />
                                 </clipPath>
                             </defs>
                         </svg>
@@ -214,7 +263,7 @@ export const PartnerUniversities = () => {
                         aria-label="Next"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53"/>
+                            <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53" />
                         </svg>
                     </button>
                 </div>

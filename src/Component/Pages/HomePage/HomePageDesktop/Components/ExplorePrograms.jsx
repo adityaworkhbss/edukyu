@@ -3,6 +3,7 @@ import { ImageIcon } from "lucide-react";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import { ExploreProgramsData } from '@/Data Model/Homepage/ExploreProgramsData';
 import {usePageContext} from "@/GlobalComponent/PageContext"; // Import the data
+import Link from "next/link";
 
 const ExplorePrograms = () => {
     const [activeTab, setActiveTab] = useState("PG");
@@ -144,7 +145,19 @@ const ExplorePrograms = () => {
 
                                 <div className="pt-[10px] w-full pb-[16px] bottom-0">
                                     <div className="flex justify-center">
-                                        <button
+                                      <Link href={`/course/online_mba`} className="w-[calc(100%-40px)]">
+                                       <button
+                                            className="flex items-center  justify-center border w-full py-[12px]  text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#CDCDCD] border-[#6A6A69)]"
+                                            // onClick={() => {
+                                            //     setSelectedCourse("online_mba");
+                                            //     setCurrentPage('course');
+                                            // }}
+                                        >
+                                            Explore More
+                                        </button>
+                                      </Link>
+                                      
+                                        {/* <button
                                             className="flex items-center  justify-center border w-full py-[12px] mx-5 text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#CDCDCD] border-[#6A6A69)]"
                                             onClick={() => {
                                                 setSelectedCourse("online_mba");
@@ -152,7 +165,7 @@ const ExplorePrograms = () => {
                                             }}
                                         >
                                             Explore More
-                                        </button>
+                                        </button> */}
                                     </div>
                                 </div>
                             </div>

@@ -2,6 +2,7 @@ import { Outfit } from 'next/font/google';
 import './globals.css';
 
 import { PageProvider } from '@/GlobalComponent/PageContext';
+import RootShell from "@/GlobalComponent/RootShell";
 
 const outfit = Outfit({
     variable: '--font-outfit',
@@ -21,7 +22,7 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body className={`${outfit.variable} antialiased`}>
                 <PageProvider>
-                    {children}
+                    <RootShell>{children}</RootShell>
                 </PageProvider>
             </body>
         </html>

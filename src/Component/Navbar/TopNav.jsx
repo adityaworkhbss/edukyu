@@ -14,6 +14,7 @@ import MoreComponentDesktop from './MoreComponent/MoreComponentDesktop';
 import CoursesComponentDesktop from './CoursesComponent/CourseComponentDesktop/CoursesComponentDesktop';
 import CollegeHeaderComponentDesktop from './CollegeComponent/CollegeComponentDesktop/CollegeHeaderComponentDesktop';
 import { usePageContext } from "@/GlobalComponent/PageContext";
+import Link from "next/link";
 
 export default function TopNav() {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -84,7 +85,7 @@ export default function TopNav() {
                         </div>
 
                         <div className="flex items-center"
-                             onClick={() => setCurrentPage('home')}
+                            onClick={() => setCurrentPage('home')}
                         >
                             <Image src="/Resources/Images/Edukyu_Logo.png" alt="Edukyu" width={120} height={40} />
                         </div>
@@ -93,11 +94,11 @@ export default function TopNav() {
                             {/* Search Icon */}
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <g clipPath="url(#clip0_43_4046)">
-                                    <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" fill="#2B2B2A"/>
+                                    <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" fill="#2B2B2A" />
                                 </g>
                                 <defs>
                                     <clipPath id="clip0_43_4046">
-                                        <rect width="24" height="24" fill="white"/>
+                                        <rect width="24" height="24" fill="white" />
                                     </clipPath>
                                 </defs>
                             </svg>
@@ -115,21 +116,25 @@ export default function TopNav() {
             ) : (
                 <div className="flex justify-between pl-14 pr-14">
                     <div className="py-3 w-[123px] h-[40px]"
-                         onClick={() => {
-                             setCurrentPage('home');
-                             setActiveTab(null);
-                         }}
+                    //  onClick={() => {
+                    //      setCurrentPage('home');
+                    //      setActiveTab(null);
+                    //  }}
+
+
                     >
-                        <Image src="/Resources/Images/Edukyu_Logo.png" alt="Edukyu" width={123} height={40} />
+                        <Link href="/">
+                            <Image src="/Resources/Images/Edukyu_Logo.png" alt="Edukyu" width={123} height={40} />
+                        </Link>
                     </div>
 
                     <div className="inline-flex gap-6">
                         <div className="inline-flex gap-[29px] text-[#383837] font-outfit text-[16px] font-medium py-[22px]">
                             {['college', 'courses', 'compare', 'search', 'blog', 'more', 'contact'].map((tab) => (
                                 <a key={tab} href="#"
-                                   data-tab-button
-                                   onClick={toggleTab(tab)}
-                                   className={activeTab === tab ? 'text-[#024B53] border-b-2 border-[#024B53]' : ''}>
+                                    data-tab-button
+                                    onClick={toggleTab(tab)}
+                                    className={activeTab === tab ? 'text-[#024B53] border-b-2 border-[#024B53]' : ''}>
                                     {tab === 'college' ? 'Colleges' :
                                         tab === 'courses' ? 'Online Courses' :
                                             tab === 'compare' ? 'Compare' :
