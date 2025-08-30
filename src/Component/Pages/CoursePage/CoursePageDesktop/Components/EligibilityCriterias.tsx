@@ -43,7 +43,7 @@ export const EligibilityCriteria: React.FC<EligibilityCriteriaProps> = ({ course
   const activeData = activeTab === 'domestic' ? domesticData : internationalData;
   return (
     <div
-      className="relative w-full bg-white"
+      className="relative w-full"
       style={{ 
         minHeight: '810px',
         height: 'auto'

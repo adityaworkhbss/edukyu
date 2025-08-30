@@ -38,7 +38,7 @@ export const Semester: React.FC<SemesterProps> = ({ course }) => {
 
   return (
     <main
-      className="relative w-full bg-white"
+      className="relative w-full"
       style={{ 
         height: expandedSemester ? 'auto' : '506px',
         minHeight: '506px'

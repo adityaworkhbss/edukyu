@@ -8,7 +8,6 @@ const Grid = ({ width, height, color, gutter }) => {
                 width,
                 height,
                 backgroundColor: color,
-                marginRight: gutter,
             }}
         />
     );

@@ -1886,35 +1886,35 @@ export const CollegePageData = [{
             "accreditations": [
                 {
                     "name": "NAAC",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/naac.png"
+                    "image": "https://Edukyu.com/assets/cxp-assets/imgs/collage/amity-university/naac.png"
                 },
                 {
                     "name": "WES",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/wes.png"
+                    "image": "https://Edukyu.com/assets/cxp-assets/imgs/collage/amity-university/wes.png"
                 },
                 {
                     "name": "QS WUR",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/qswur.png"
+                    "image": "https://Edukyu.com/assets/cxp-assets/imgs/collage/amity-university/qswur.png"
                 },
                 {
                     "name": "NIRF",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/nirf.png"
+                    "image": "https://Edukyu.com/assets/cxp-assets/imgs/collage/amity-university/nirf.png"
                 },
                 {
                     "name": "UGC DEB",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/ugcdeb.png"
+                    "image": "https://Edukyu.com/assets/cxp-assets/imgs/collage/amity-university/ugcdeb.png"
                 },
                 {
                     "name": "AICTE",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/aicte.png"
+                    "image": "https://Edukyu.com/assets/cxp-assets/imgs/collage/amity-university/aicte.png"
                 },
                 {
                     "name": "AIU",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/aiu.png"
+                    "image": "https://Edukyu.com/assets/cxp-assets/imgs/collage/amity-university/aiu.png"
                 },
                 {
                     "name": "UGC",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/ugc.png"
+                    "image": "https://Edukyu.com/assets/cxp-assets/imgs/collage/amity-university/ugc.png"
                 }
             ],
             "about": {

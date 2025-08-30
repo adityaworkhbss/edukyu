@@ -8,12 +8,8 @@ const Parent = ({ numGrids, gutter, gridHeight, color }) => {
     const [gridWidth, setGridWidth] = useState('0px');
     const breakpoint = useBreakpoint();
 
-    const gapClass = {
-        mobile: 'flex w-full gap-[16px]',
-        tablet: 'flex w-full gap-[16px]',
-        laptop: 'flex w-full gap-[24px]',
-        desktop: 'flex w-full gap-[24px]',
-    }[breakpoint];
+    // use the gutter value from props to set gap so it always matches gridConfigs
+    const gapStyle = { gap: gutter };
 
     useEffect(() => {
         const calculateWidth = () => {
@@ -32,7 +28,7 @@ const Parent = ({ numGrids, gutter, gridHeight, color }) => {
     }, [numGrids, gutter]);
 
     return (
-        <div ref={containerRef} className={`${gapClass}`}>
+        <div ref={containerRef} className={`flex w-full`} style={gapStyle}>
             {Array.from({ length: numGrids }).map((_, i) => (
                 <Grid
                     key={i}

@@ -3,13 +3,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import Grid from './Grid';
 
 const GridContainer = ({
-                           numGrids,
-                           gutter,
-                           gridHeight,
-                           color = "rgba(220, 100, 255, 0.2)",
-                           children,
-                           showGrids = true
-                       }) => {
+    numGrids,
+    gutter,
+    gridHeight,
+    color = "rgba(220, 100, 255, 0.2)",
+    children,
+    showGrids = false
+}) => {
     const containerRef = useRef(null);
     const [gridWidth, setGridWidth] = useState(0);
     const [gutterSize, setGutterSize] = useState(0);

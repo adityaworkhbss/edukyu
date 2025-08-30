@@ -7,10 +7,20 @@ const RankAndAccr = ( college ) => {
 
     // console.log(college.course.online_mba.accreditations);
 
-    // logos from API
-    const accrs = college?.course?.online_mba?.accreditations || [];
+    // Access accreditations more defensively - handle different data structures
+    let accrs = [];
+    
+    // Try different possible data structures
+    if (college?.course?.page?.accreditations) {
+        accrs = college.course.page.accreditations;
+    } else if (college?.course?.online_mba?.accreditations) {
+        accrs = college.course.online_mba.accreditations;
+    } else if (college?.course?.accreditations) {
+        accrs = college.course.accreditations;
+    }
 
-    console.log("accres ::: " + accrs);
+    console.log("accrs data:", accrs);
+    console.log("full college object:", college);
     
     // Hide component if no accreditations data is available
     if (!accrs || accrs.length === 0) {
@@ -70,12 +80,12 @@ const RankAndAccr = ( college ) => {
     return (
         <div className="w-full pt-[64px] flex flex-col max-w-full overflow-hidden">
             {/* Title */}
-            <h2 className="text-[48px] font-semibold font-[Outfit] text-[#024B53] mb-12 break-words w-[65%]">
+            <h2 className="text-[48px] font-semibold font-[Outfit] text-[#024B53] mb-[69px] break-words w-[65%]">
                 Rankings & Accreditations
             </h2>
 
             {/* Sliding Logo Marquee */}
-            <div className="w-full overflow-hidden bg-white">
+            <div className="w-full overflow-hidden bg-white mb-[69px]">
                 <div
                     className="relative overflow-hidden"
                     ref={containerRef}
@@ -93,7 +103,7 @@ const RankAndAccr = ( college ) => {
                                 className="inline-flex min-w-[100px] h-[80px] items-center justify-center bg-white rounded-lg flex-shrink-0 mx-2"
                             >
                                 <img
-                                    src={`https://edukyu.com${logo.icon}`}   // ✅ changed from logo.image to logo.icon
+                                    src={logo.icon}   // ✅ fixed: changed from logos.icon to logo.icon
                                     alt={logo.name || `logo-${index}`}
                                     width={80}
                                     height={80}

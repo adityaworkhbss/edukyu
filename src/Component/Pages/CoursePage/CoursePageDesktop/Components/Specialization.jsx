@@ -85,7 +85,7 @@ const Specialization = ({ course }) => {
     }, []);
 
     return (
-        <section className="bg-background pt-12 max-w-full overflow-hidden ml-0.5">
+        <section className="bg-background pt-12 max-w-full overflow-hidden ">
             <div className="max-w-full">
                 <div className="max-w-full">
                     <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">

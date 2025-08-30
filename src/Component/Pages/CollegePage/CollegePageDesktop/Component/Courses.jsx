@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ImageIcon } from "lucide-react";
 import GridComponent from "@/GlobalComponent/GridComponent";
+import Link from "next/link";
 
 const Courses = ({ college }) => {
     const [activeTab, setActiveTab] = useState("PG");
@@ -9,6 +10,8 @@ const Courses = ({ college }) => {
     const [canScrollRight, setCanScrollRight] = useState(false);
 
     const courses = college?.university_info?.courses || [];
+    console.log(courses)
+    console.log(college)
 
     // Group courses by type
     const groupedCourses = courses.reduce((acc, course) => {
@@ -196,12 +199,22 @@ const Courses = ({ college }) => {
 
                                 <div className="pt-[10px] w-full pb-[16px]">
                                     <div className="flex justify-center">
+                                        <Link href={`/course/manipal_university/online_mba`} className="w-[calc(100%-40px)]">
                                         <button
-                                            className="flex items-center justify-center border w-full mx-4 py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#024B53] bg-[#FFF]"
+                                            className="flex items-center justify-center border w-full py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#024B53] bg-[#FFF]"
                                             // Add your onClick or Link to course details here
                                         >
                                             Explore
                                         </button>
+                                        </Link>
+                                        {/* <button
+                                            className="flex items-center justify-center border w-full mx-4 py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#024B53] bg-[#FFF]"
+                                            // Add your onClick or Link to course details here
+                                            onClick={() => console.log(courses[0].name, college.university_info.name
+)}
+                                        >
+                                            Explore
+                                        </button> */}
                                     </div>
                                 </div>
                             </div>

@@ -9,14 +9,14 @@ export const CoursePageData = [
                         "accreditations": [
                             {
                                 "name": "UGC Entitled",
-                                "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/ugc-small.png"
+                                "icon": "https://Edukyu.com/assets/cxp-assets/imgs/collage/manipal-university/mba/ugc-small.png"
                             },
                             {
                                 "name": "NAAC A+ accredited",
-                                "icon": "/assets/cxp-assets/imgs/collage/manipal-university/mba/naac-small.png"
+                                "icon": "https://Edukyu.com/assets/cxp-assets/imgs/collage/manipal-university/mba/naac-small.png"
                             }
                         ],
-                        "logo": "/assets/cxp-assets/imgs/collage/manipal-university/mba/first-section-logo.png",
+                        "logo": "https://Edukyu.com/assets/cxp-assets/imgs/collage/manipal-university/mba/first-section-logo.png",
                         "description": "Manipal University Online Jaipur offers a 2-year online MBA program tailored for both experienced professionals and fresh graduates. This program combines the flexibility of online learning with high-quality education, ensuring students gain valuable skills to excel in today's competitive business environment. Classes, assignments, projects, examinations, and placement opportunities are conducted entirely online, allowing students to learn and grow from the comfort of their homes.",
                         "duration": {
                             "length": "24 Months",
