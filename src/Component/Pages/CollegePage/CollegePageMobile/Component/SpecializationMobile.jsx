@@ -63,7 +63,7 @@ export const SpecializationMobile = ({ data }) => {
                 <div className="text-[#024B53] font-[Outfit] text-[28px] font-semibold leading-none mb-3">
                     Specializations
                 </div>
-                <div className="text-[#515150] font-[Outfit] text-[14px] font-normal leading-none pt-3 pb-[32px]">
+                <div className="text-[#515150] font-[Outfit] text-[14px] font-normal leading-none  pb-[32px]">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
 

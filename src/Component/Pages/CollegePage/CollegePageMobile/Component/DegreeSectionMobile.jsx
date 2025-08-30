@@ -10,14 +10,14 @@ const DegreeSectionMobile = ({ college }) => {
     }
 
     return (
-        <div className="w-full py-8 bg-white">
+        <div className="w-full pt-[42px] pb-8 bg-white">
             {/* Title */}
             <h2 className="text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-3">
                 {degreeInfo.description}
             </h2>
 
             {/* Subtitle */}
-            <p className="text-[#515150] font-[Outfit] text-[14px] mb-8">
+            <p className="text-[#515150] font-[Outfit] text-[14px] mb-6">
                 Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
             </p>
 

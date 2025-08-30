@@ -41,7 +41,7 @@ const FaqsSectionMobile = ({faqs}) => {
             </h2>
 
             {/* Subtitle */}
-            <p className="text-[#515150] font-[Outfit] text-[14px] mb-8">
+            <p className="text-[#515150] font-[Outfit] text-[14px] mb-6">
                 Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
             </p>
 

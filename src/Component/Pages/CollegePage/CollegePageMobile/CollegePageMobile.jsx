@@ -14,6 +14,7 @@ import {
 import CoursesMobile from "@/Component/Pages/CollegePage/CollegePageMobile/Component/CoursesMobile";
 import FaqsSectionMobile from "@/Component/Pages/CollegePage/CollegePageMobile/Component/FaqsSectionMobile";
 import HiringPartnersSectionMobile from "@/Component/Pages/CollegePage/CollegePageMobile/Component/HiringPartnerSectionMobile";
+import CollegeMunchBanner from "@/Component/Pages/CollegePage/CollegePageMobile/Component/CollegeMunchBannerMobile";
 
 const CollegePageMobile = ({ college, collegeSecondry }) => {
     const sidebarRef = useRef(null);
@@ -79,7 +80,7 @@ const CollegePageMobile = ({ college, collegeSecondry }) => {
                     <CoursesMobile college={college} />
                 </div>
                 <div id="specialization">
-                    {/* <SpecializationMobile data={collegeSecondry}/> */}
+                    <SpecializationMobile data={collegeSecondry}/>
                 </div>
                 <div id="admission">
                     <AdmissionProcessMobile college={college} />
@@ -98,6 +99,9 @@ const CollegePageMobile = ({ college, collegeSecondry }) => {
                 </div>
                 <div id="hiring">
                     <HiringPartnersSectionMobile college={college} />
+                </div>
+                <div id="collegemunch">
+                    <CollegeMunchBanner />
                 </div>
                 <div id="faq">
                     <FaqsSectionMobile faqs={college?.university_info?.faqs || []} />

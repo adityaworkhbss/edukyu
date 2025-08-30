@@ -66,7 +66,7 @@ export const ContactFormMobile = () => {
                 <h2 className="text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-3">
                     Contact Us
                 </h2>
-                <p className="text-[#515150] font-[Outfit] text-[14px] mb-8">
+                <p className="text-[#515150] font-[Outfit] text-[14px] mb-6">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </p>
             </header>
@@ -74,7 +74,7 @@ export const ContactFormMobile = () => {
             <fieldset className="border-0 p-0 m-0">
                 <legend className="sr-only">Contact Information</legend>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                     <FormInputMobile
                         placeholder="Enter Your Name"
                         value={formData.name}

@@ -100,7 +100,7 @@ const CoursesMobile = ({ college }) => {
                     <div className="relative">
                         <article className="border overflow-hidden rounded-[22px] border-border shadow-sm">
                             <div className="p-0">
-                                <div className="bg-program-image rounded-t-lg h-[132px] flex items-center justify-center">
+                                <div className="bg-program-image rounded-t-lg h-[132px] flex items-center justify-center p-6">
                                     {programs[currentIndex]?.image ? (
                                         <img
                                             src={programs[currentIndex]?.image}
@@ -156,10 +156,10 @@ const CoursesMobile = ({ college }) => {
                                 </div>
                             </div>
 
-                            <div className="pt-[10px] w-full pb-[16px]">
-                                <div className="flex justify-center">
+                            <div className="pt-[26px] w-full pb-[24px]">
+                                <div className="flex justify-center w-full]">
                                     <button
-                                        className="flex items-center justify-center border px-[90px] py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors hover:bg-[#f3f3f3]"
+                                        className="flex items-center justify-center border px-[90px] py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors hover:bg-[#f3f3f3] w-full mx-6"
                                     >
                                         Explore
                                     </button>

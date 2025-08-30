@@ -19,20 +19,24 @@ const CollegeMunchBanner = () => {
             </div>
 
             {/* Title */}
-            <h2 className="text-center text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-3">
+            <h2 className=" text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-3">
                 Want to know in detail about colleges?
             </h2>
+
+            <p className="text-[#515150] font-[Outfit] text-[14px] mb-6">
+               Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+            </p>
 
             {/* Button */}
             <button
                 onClick={() => window.open("https://collegemanch.com/", "_blank")}
-                className="rounded-[12px] bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium px-4 py-3 mb-6 hover:bg-[#00313f] transition"
+                className="rounded-[12px] bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium px-4 py-3 mb-6 hover:bg-[#00313f] transition w-1/2"
             >
                 Explore College Manch
             </button>
 
             {/* Images */}
-            <div className="w-full rounded-[12px] h-[171px] bg-gray-600">
+            <div className="w-full rounded-[12px] h-[171px] bg-gray-600 mb-5">
 
             </div>
         </div>
