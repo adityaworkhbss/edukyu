@@ -76,13 +76,13 @@ export const ContactForm = () => {
         >
             <header>
                 <GridComponent gridStart={0} gridEnd={6}>
-                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-2">
+                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
                         Contact Us
                     </div>
                 </GridComponent>
 
                 <GridComponent>
-                    <div className="text-[20px] pt-[16px] pb-[0] font-normal text-[#535862] font-[Outfit] leading-[30px]">
+                    <div className="text-[20px] pb-[0] font-normal text-[#535862] font-[Outfit] leading-[30px]">
                         Unlimited access to world class courses, hands-on projects, and
                         job-ready certificate programs.
                     </div>

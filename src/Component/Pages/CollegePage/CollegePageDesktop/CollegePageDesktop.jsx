@@ -12,6 +12,7 @@ import { ContactUsSection } from "@/Component/Pages/CollegePage/CollegePageDeskt
 import SidebarNavigation from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/SidebarNavigation";
 import FaqsSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/FaqsSection";
 import HiringPartnersSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/HiringPartnerSection";
+import CollegeMunchSection from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CollegeMunchBanner";
 
 const CollegePageDesktop = ({ college, collegeSecondry }) => {
     const sidebarRef = useRef(null);
@@ -109,7 +110,7 @@ const CollegePageDesktop = ({ college, collegeSecondry }) => {
                             <BenefitsSection college={college} />
                         </div>
                     )}
-                    <div className="py-[64px]" id="compare">
+                    <div className="pt-[79px]" id="compare">
                         <CompareCollegesCTA />
                     </div>
                     <div id="degree">
@@ -121,6 +122,10 @@ const CollegePageDesktop = ({ college, collegeSecondry }) => {
                             name={college?.university_info?.name || ""}
                         />
                     </div>
+                    <div id="collegemunch">
+                        <CollegeMunchSection />
+                    </div>
+                    
                     <div id="faq">
                         <FaqsSection faqs={college?.university_info?.faqs || []} />
                     </div>

@@ -119,33 +119,30 @@ const Specialization = ({data}) => {
     }
 
     return (
-        <section className="bg-background pt-12 max-w-full overflow-hidden ml-0.5">
+        <section className="bg-background max-w-full overflow-hidden">
             <div className="max-w-full">
-                <div className="max-w-full">
-                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[65%]">
-                        Specialization
-                    </div>
+                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none break-words mt-16 w-[65%]">
+                    Specialization
+                </div>
 
-                    <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
-                        Unlimited access to world class Specialization, hands-on projects, and job-ready certificate programs.
-                    </div>
+                <div className="text-[20px] pt-[16px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
+                    Unlimited access to world class Specialization, hands-on projects, and job-ready certificate programs.
+                </div>
 
-                    <div className="flex bg-white border-b border-[#B2B2B2] mb-[84px] overflow-x-auto overflow-hidden">
-                        {tabs.map((tab) => (
-                            <button
-                                key={tab.id}
-                                onClick={() => setActiveTab(tab.id)}
-                                className={`px-6 py-4 gap-[10px] text-[16px] font-medium font-[Outfit] transition-colors whitespace-nowrap flex-shrink-0 ${
-                                    activeTab === tab.id
-                                        ? 'bg-white text-slate-800 border-b-2 border-teal-600'
-                                        : 'text-slate-600'
-                                }`}
-                            >
-                                {tab.label}
-                            </button>
-                        ))}
-                    </div>
-
+                <div className="flex bg-white border-b border-[#B2B2B2] mb-[64px] overflow-x-auto">
+                    {tabs.map((tab) => (
+                        <button
+                            key={tab.id}
+                            onClick={() => setActiveTab(tab.id)}
+                            className={`px-6 py-4 gap-[10px] text-[16px] font-medium font-[Outfit] transition-colors whitespace-nowrap flex-shrink-0 ${
+                                activeTab === tab.id
+                                    ? "bg-white text-slate-800 border-b-2 border-teal-600"
+                                    : "text-slate-600"
+                            }`}
+                        >
+                            {tab.label}
+                        </button>
+                    ))}
                 </div>
 
                 <div className="relative max-w-full">
@@ -165,36 +162,34 @@ const Specialization = ({data}) => {
                                 >
                                 
                                     <div className="flex flex-col flex-1">
-                                        <div className="bg-program-image rounded-t-lg h-[96px] p-4 flex items-center justify-center">
-                                            {/* Show image from specialization */}
-                                            {program.image ? (
-                                                <img
-                                                    src={program.image}
-                                                    alt={program.title}
-                                                    className="rounded-[14px] h-full w-full object-cover"
-                                                    onError={(e) => {
-                                                        e.target.style.display = 'none';
-                                                        e.target.nextSibling.style.display = 'flex';
-                                                    }}
-                                                />
-                                            ) : (
-                                                <ImageIcon
-                                                    size={48}
-                                                    className="text-secondary rounded-[14px] opacity-60 bg-cover"
-                                                />
-                                            )}
+                                    <div className="bg-program-image rounded-t-lg h-[112px] pl-4 pr-4 pt-4 flex items-center justify-center">
+                                        {/* Show image from specialization */}
+                                        {program.image ? (
+                                            <img
+                                                src={program.image}
+                                                alt={program.title}
+                                                className="rounded-[14px] h-full w-full object-cover"
+                                                onError={(e) => {
+                                                    e.target.style.display = 'none';
+                                                    e.target.nextSibling.style.display = 'flex';
+                                                }}
+                                            />
+                                        ) : (
                                             <ImageIcon
                                                 size={48}
-                                                className="text-secondary rounded-[14px] opacity-60 bg-cover hidden"
+                                                className="text-secondary rounded-[14px] opacity-60 bg-cover"
                                             />
-                                        </div>
-                                        
-                                        <div className="py-[16px] px-[16px] min-w-0 flex-1 flex flex-col">
+                                        )}
+                                        <ImageIcon
+                                            size={48}
+                                            className="text-secondary rounded-[14px] opacity-60 bg-cover hidden"
+                                        />
+                                    </div>                                        <div className="py-[16px] px-[16px] min-w-0 flex-1 flex flex-col">
                                             <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium break-words min-h-[48px] flex items-start">
                                                 {program.title}
                                             </h3>
                                             
-                                            <div className="inline-flex items-center gap-[8px] pt-[22px] min-w-0">
+                                            <div className="inline-flex items-center gap-[8px] pt-[16px] min-w-0">
                                                 {/* Clock icon */}
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -234,10 +229,10 @@ const Specialization = ({data}) => {
                                         </div>
                                     </div>
 
-                                    <div className="pt-[0px] w-full pb-[16px]">
+                                    <div className="pt-[10px] w-full pb-[16px]">
                                         <div className="flex justify-center">
                                             <button
-                                                className="flex items-center justify-center border w-full mx-4 py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#024B53] bg-[#FFF]"
+                                                className="flex items-center justify-center border w-[calc(100%-40px)] py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#024B53] bg-[#FFF]"
                                             >
                                                 Explore
                                             </button>
@@ -255,7 +250,7 @@ const Specialization = ({data}) => {
                     
                     {/* Navigation Arrows - Left and Right Edges */}
                     {programs.length > 3 && (
-                        <div className="flex justify-between items-center mt-4 px-0">
+                        <div className="flex justify-between items-center mt-4 mb-[64px] px-0">
                             <button 
                                 className={`p-3 hover:bg-gray-100 rounded-full transition-all ${
                                     !canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'

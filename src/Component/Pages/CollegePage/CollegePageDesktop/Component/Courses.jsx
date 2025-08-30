@@ -89,17 +89,17 @@ const Courses = ({ college }) => {
     }, [programs]);
 
     return (
-        <section className="pt-[64px] bg-background max-w-full overflow-hidden ml-0.5">
+        <section className="bg-background max-w-full overflow-hidden">
             <div className="max-w-full">
-                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[65%]">
+                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none break-words w-[65%]">
                     Courses
                 </div>
 
-                <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
+                <div className="text-[20px] pt-[16px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
 
-                <div className="flex bg-white border-b border-[#B2B2B2] mb-[84px] overflow-x-auto">
+                <div className="flex bg-white border-b border-[#B2B2B2] mb-[64px] overflow-x-auto">
                     {tabs.map((tab) => (
                         <button
                             key={tab.id}
@@ -157,7 +157,7 @@ const Courses = ({ college }) => {
                                             {program.title}
                                         </h3>
 
-                                        <div className="inline-flex items-center gap-[8px] pt-[22px] min-w-0">
+                                        <div className="inline-flex items-center gap-[8px] pt-[16px] min-w-0">
                                             {/* Clock icon */}
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -224,7 +224,7 @@ const Courses = ({ college }) => {
 
                     {/* Navigation Arrows - Left and Right Edges */}
                     {programs.length > 3 && (
-                        <div className="flex justify-between items-center mt-4 px-0">
+                        <div className="flex justify-between items-center mt-4 mb-[64px] px-0">
                             <button
                                 className={`p-3 hover:bg-gray-100 rounded-full transition-all ${
                                     !canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'

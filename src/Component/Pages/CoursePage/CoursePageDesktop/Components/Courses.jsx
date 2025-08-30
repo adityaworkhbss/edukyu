@@ -92,7 +92,7 @@ const Courses = ({ college }) => {
 
     return (
         <section className="pt-[64px] bg-background max-w-full overflow-hidden ml-0.5">
-            <div className="max-w-full">
+            <div className="w-1/3">
                 <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[65%]">
                     Courses
                 </div>

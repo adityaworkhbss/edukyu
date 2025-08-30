@@ -76,7 +76,7 @@ const ToolsCertificate: React.FC<ToolsCertificateProps> = ({ course }) => {
           {activeCategory?.items && activeCategory.items.map((item: string, index: number) => (
             <div
               key={index}
-              className="flex items-center justify-center bg-gray-100 border border-gray-200 rounded-lg px-4 py-3 min-w-[160px] max-w-[280px] h-[52px]"
+              className="flex items-center justify-center rounded-lg px-4 py-3 min-w-[160px] max-w-[280px] h-[52px]"
             >
               <span className="text-sm font-medium text-gray-700 text-center leading-tight">
                 {item}

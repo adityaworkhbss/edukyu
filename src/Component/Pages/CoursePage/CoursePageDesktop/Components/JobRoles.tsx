@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 interface JobRolesProps {
   course?: any;
@@ -6,15 +6,42 @@ interface JobRolesProps {
 
 const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
   const [activeTab, setActiveTab] = useState<'jobRoles' | 'industries'>('jobRoles');
+  const tabsContainerRef = useRef<HTMLDivElement | null>(null);
+  const jobBtnRef = useRef<HTMLButtonElement | null>(null);
+  const indBtnRef = useRef<HTMLButtonElement | null>(null);
+
+  const [underlineStyle, setUnderlineStyle] = useState<{ left: string; width: string }>({
+    left: '0px',
+    width: '0px',
+  });
+
+  useEffect(() => {
+    function updateUnderline() {
+      const activeBtn = activeTab === 'jobRoles' ? jobBtnRef.current : indBtnRef.current;
+      const container = tabsContainerRef.current;
+      if (!activeBtn || !container) return;
+
+      const btnRect = activeBtn.getBoundingClientRect();
+      const contRect = container.getBoundingClientRect();
+
+      const left = Math.round(btnRect.left - contRect.left) + 'px';
+      const width = Math.round(btnRect.width) + 'px';
+      setUnderlineStyle({ left, width });
+    }
+
+    updateUnderline();
+    window.addEventListener('resize', updateUnderline);
+    return () => window.removeEventListener('resize', updateUnderline);
+  }, [activeTab]);
 
   // Extract course data safely - handle both direct and nested structures
   let courseData: any = {};
-  
+
   if (course) {
     // Check if course has direct properties
     if (course.careerOpportunities) {
       courseData = course;
-    } 
+    }
     // Check if course has nested structure like CoursePageData
     else {
       const firstKey = Object.keys(course)[0];
@@ -70,14 +97,13 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
       <div className="absolute w-[97%] h-[236px] top-[214px] bg-white rounded-lg overflow-hidden border border-solid border-[#bebebe]">
         {/* Dynamic content columns */}
         {activeData.map((column, columnIndex) => (
-          <div 
+          <div
             key={columnIndex}
-            className={`flex flex-col w-[182px] items-start gap-1.5 absolute top-[84px] ${
-              columnIndex === 0 ? 'left-5' : 
-              columnIndex === 1 ? 'left-[226px]' : 
-              columnIndex === 2 ? 'left-[432px]' : 
-              'left-[686px]'
-            }`}
+            className={`flex flex-col w-[182px] items-start gap-1.5 absolute top-[84px] ${columnIndex === 0 ? 'left-5' :
+                columnIndex === 1 ? 'left-[226px]' :
+                  columnIndex === 2 ? 'left-[432px]' :
+                    'left-[686px]'
+              }`}
           >
             {column.map((item, itemIndex) => (
               <div key={itemIndex} className="flex items-center gap-2.5 px-2.5 py-2 relative self-stretch w-full flex-[0_0_auto]">
@@ -89,14 +115,14 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
           </div>
         ))}
 
-        <div className="absolute w-[97%] h-10 top-5 left-5">
+        <div ref={tabsContainerRef} className="absolute w-[97%] h-10 top-5 left-5">
           <div className="inline-flex items-center absolute top-0 left-0">
             <div className="inline-flex items-center gap-5 px-6 py-2 relative flex-[0_0_auto]">
               <button
                 onClick={() => setActiveTab('jobRoles')}
-                className={`relative w-fit mt-[-1.00px] font-semibold text-xl tracking-[0] leading-[normal] whitespace-nowrap ${
-                  activeTab === 'jobRoles' ? 'text-[#024B53]' : 'text-slate-600'
-                }`}
+                ref={jobBtnRef}
+                className={`relative w-fit mt-[-1.00px] font-semibold text-xl tracking-[0] leading-[normal] whitespace-nowrap ${activeTab === 'jobRoles' ? 'text-[#024B53]' : 'text-slate-600'
+                  }`}
               >
                 Job Roles
               </button>
@@ -104,28 +130,23 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
 
             <div className="inline-flex items-center gap-2.5 px-2.5 py-2 relative flex-[0_0_auto]">
               <button
+                ref={indBtnRef}
                 onClick={() => setActiveTab('industries')}
-                className={`relative w-fit mt-[-1.00px] font-normal text-xl tracking-[0] leading-[normal] whitespace-nowrap ${
-                  activeTab === 'industries' ? 'text-[#024B53] font-semibold' : 'text-slate-600'
-                }`}
+                className={`relative w-fit mt-[-1.00px] font-normal text-xl tracking-[0] leading-[normal] whitespace-nowrap ${activeTab === 'industries' ? 'text-[#024B53] font-semibold' : 'text-slate-600'
+                  }`}
               >
                 Industries
               </button>
             </div>
           </div>
 
-          <img
-            className="w-[894px] absolute h-0.5 top-[38px] left-0"
-            alt="Line"
-            src="https://c.animaapp.com/LX7UjWl9/img/line-39.svg"
-          />
+          {/* base faint line */}
+          <div className="absolute left-0 top-[38px] h-[2px] bg-slate-200 w-full" />
 
-          <img
-            className={`absolute h-0.5 top-[38px] left-0 transition-all duration-300 ${
-              activeTab === 'jobRoles' ? 'w-[91px]' : 'w-[95px] left-[111px]'
-            }`}
-            alt="Line"
-            src="https://c.animaapp.com/LX7UjWl9/img/line-40.svg"
+          {/* active underline positioned based on measured button */}
+          <div
+            className="absolute top-[38px] h-[3px] bg-[#024B53] transition-all duration-200"
+            style={{ left: underlineStyle.left, width: underlineStyle.width }}
           />
         </div>
       </div>

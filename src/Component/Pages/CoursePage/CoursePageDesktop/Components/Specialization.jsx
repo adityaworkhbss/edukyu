@@ -88,7 +88,7 @@ const Specialization = ({ course }) => {
         <section className="bg-background pt-12 max-w-full overflow-hidden ">
             <div className="max-w-full">
                 <div className="max-w-full">
-                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
+                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none break-words w-full">
                         Specializations
                     </div>
 
@@ -127,7 +127,7 @@ const Specialization = ({ course }) => {
                                 <div
                                     key={program.id}
                                     className="group hover:bg-[#CDCDCD] bg-program-card border border-[#CDCDCD] border-border rounded-[22px] shadow-sm min-w-0 flex-shrink-0 flex flex-col"
-                                    style={{ width: 'calc((100% - 48px) / 3.18)' }} // Shows 3.2 cards
+                                    style={{ width: 'calc((100% / 3.18)' }} // Shows 3.2 cards
                                 >
                                 
                                     <div className="flex flex-col flex-1">

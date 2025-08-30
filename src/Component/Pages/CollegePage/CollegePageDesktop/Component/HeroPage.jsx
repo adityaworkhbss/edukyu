@@ -25,10 +25,10 @@ const HeroPage = ({college}) => {
     return (
 
         <>
-            <div className="w-full gap-6 pl-[56px]  flex max-w-full">
+            <div className="w-full gap-6 pl-[56px]  flex max-w-full mb-[190px]">
                 {/* Left Section */}
-                <div className="w-1/2 flex flex-col py-6 min-w-0">
-                    <div className="mb-6 text-[52px] font-semibold text-[#025E68] font-[Outfit] break-words">
+                <div className="w-1/2 flex flex-col  min-w-0">
+                    <div className="mb-6 mt-[84px] text-[52px] font-semibold text-[#025E68] font-[Outfit] break-words">
                         {college.university_info.name}
                     </div>
 

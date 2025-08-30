@@ -20,17 +20,17 @@ const AdmissionProcess = ({college}) => {
 }
 
     return (
-        <div className="w-full max-w-full overflow-hidden ml-0.5">
+        <div className="w-full max-w-full overflow-hidden">
             <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[65%]">
                 Admission Process of {college?.university_info?.name}
             </div>
 
-            <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
+            <div className="text-[20px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
                 Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
             </div>
 
             {/* Steps */}
-            <div className="mt-6 flex flex-col gap-10 max-w-full">
+            <div className=" flex flex-col gap-10 max-w-full">
                 {steps.map((step, index) => (
                     <div key={index} className="flex items-start gap-4 relative max-w-full">
                         {/* Step Number Circle */}

@@ -14,16 +14,16 @@ const DegreeSection = ({college}) => {
     }
 
     return (
-        <div className="w-full py-12 max-w-full overflow-hidden ml-0.5">
+        <div className="w-full pt-16 max-w-full overflow-hidden">
             {/* Text Header */}
-            <div className="mb-10 text-left">
+            <div className="text-left">
 
-                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
+                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[65%]">
                     {college.university_info.name}'s Program Benefits
                 </div>
 
 
-                <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-full">
+                <div className="text-[20px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
                     {college.university_info.about.description}
                 </div>
             </div>
@@ -47,7 +47,7 @@ const DegreeSection = ({college}) => {
                 )}
 
                 {/* Bullet Points */}
-                <div className="space-y-4 flex-1 min-w-0 ">
+                <div className="space-y-3 flex-1 min-w-0 ">
                     {college.university_info.about.highlights.map((point, i) => (
                         <div
                             key={i}
