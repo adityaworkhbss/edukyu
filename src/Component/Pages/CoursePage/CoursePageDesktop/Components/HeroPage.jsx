@@ -66,7 +66,7 @@ const HeroPage = ({ course }) => {
                 {/* Left Section */}
                 <div className="w-1/2 flex flex-col  pt-6 min-w-0">
                     {/* College Logo */}
-                    <div className="w-[45%] h-[84px] bg-gray-200 rounded-lg mb-4 flex items-center justify-center mt-[52px]">
+                    <div className="w-[45%] h-[84px]  rounded-lg mb-4 flex items-center justify-center mt-[52px]">
                        {logo && (
                            <img 
                                className="w-64 h-auto object-contain" 
