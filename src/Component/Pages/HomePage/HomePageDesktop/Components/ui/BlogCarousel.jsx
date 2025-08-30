@@ -118,7 +118,7 @@ export default function BlogCarousel(
 
 
                                 <button className="p-0 text-muted-foreground hover:text-foreground group inline-flex items-center gap-1 w-full"
-                                        onClick={() => handleReadMore(univ.blogId)}>
+                                        onClick={() => handleReadMore(univ.shortUrl)}>
                                     <span className="text-[#024B53] font-[Outfit] text-[14px] font-medium leading-[20px]">READ MORE</span>
 
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">

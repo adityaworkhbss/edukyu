@@ -14,6 +14,7 @@ const BlogPage = ({ blogId }) => {
         category: "",
         descs: "",
         metatitle: "",
+        shortUrl: "",
         imageurl: "",
         timestamp: "",
     });
@@ -41,6 +42,7 @@ const BlogPage = ({ blogId }) => {
                             metatitle={data.metatitle}
                             imageurl={data.imageurl}
                             timestamp={data.timestamp}
+                            shortUrl={data.shortUrl}
                         />
                     </section>
                 </div>

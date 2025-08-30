@@ -113,8 +113,8 @@ export const PartnerUniversities = () => {
                                 </div>
 
                                 {/* Name + Icons */}
-                                <div className=" mt-4 gap-[16px] flex flex-col justify-between flex-grow">
-                                    <div className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none pb-[31px]">
+                                <div className=" mt-4 flex flex-col justify-between flex-grow">
+                                    <div className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none pb-[47px]">
                                         {univ.name}
                                     </div>
 
@@ -137,13 +137,13 @@ export const PartnerUniversities = () => {
 
                                     </div>
 
-                                    <div className="inline-flex gap-[12px]">
+                                    <div className="inline-flex gap-[12px] pt-4">
                                         <div className="pl-[5px] text-[#323232] font-[Outfit] text-[26px] font-medium leading-[21px]">₹</div>
                                         <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">{univ.price}</div>
                                     </div>
 
                                     <div className="flex justify-between">
-                                        <div className="flex gap-1 mt-2 min-h-[24px] items-start">
+                                        <div className="flex gap-1 min-h-[24px] pt-[22px] items-start">
                                             {univ.certificationIcons.map((icon, i) => (
                                                 <div key={i} className="flex w-[36px] h-[36px] p-[3px] justify-center items-center flex-shrink-0 aspect-[1/1]">
                                                     <img
@@ -155,7 +155,7 @@ export const PartnerUniversities = () => {
                                             ))}
                                         </div>
 
-                                        <div className="pt-[8px]">
+                                        <div className="pt-[22px]">
 
                                             <Link href={`/college/${encodeURIComponent((univ.name).trim().replace(/\s+/g, '-'))}`}>
                                                 <button className="flex w-[32px] h-[32px] p-2 justify-center items-center flex-shrink-0 bg-[#CDCDCD] group-hover:bg-[#024B53] rounded"
@@ -227,7 +227,7 @@ export const PartnerUniversities = () => {
                     </div>
                 </div>
 
-                <div className="flex justify-between mt-[32px] pb-[64px]">
+                <div className="flex justify-between mt-[32px]">
                     <button
                         onClick={handlePrev}
                         className="bg-white z-10 p-4 hover:shadow-md rounded"

@@ -73,7 +73,7 @@ const ExplorePrograms = () => {
                         </div>
                     </GridComponent >
 
-                    <div className="flex bg-white border-b border-[#B2B2B2] mb-[84px]">
+                    <div className="flex bg-white border-b border-[#B2B2B2] mb-[64px]">
                         {tabs.map((tab) => (
                             <button
                                 key={tab.id}
@@ -94,14 +94,14 @@ const ExplorePrograms = () => {
                 <div className="relative">
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {programs.map((program) => (
-                            <div key={program.id} className="group bg-program-card border border-border rounded-[22px] shadow-sm hover:bg-[#CDCDCD] border-[#CDCDCD]">
+                            <div key={program.id} className="group bg-program-card  border border-border rounded-[14px] shadow-sm hover:bg-[#CDCDCD] border-[#CDCDCD]">
                                 <div className="p-0">
-                                    <div className="bg-program-image rounded-t-[22px] h-[132px] flex items-center justify-center overflow-hidden">
+                                    <div className="bg-program-image pt-4 px-4  h-[110px] flex items-center justify-center overflow-hidden">
                                         {program.image ? (
                                             <img
                                                 src={`https://edukyu.com/${program.image}`}
                                                 alt={`${name} logo`}
-                                                className="w-full h-full object-cover"
+                                                className="w-full h-full object-cover rounded-[14px]"
                                             />
                                         ) : (
                                             <ImageIcon size={48} className="text-secondary opacity-60" />
@@ -113,32 +113,38 @@ const ExplorePrograms = () => {
                                         <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-tight min-h-[2.5em]">
                                             {program.title}
                                         </h3>
-                                        <div className="inline-flex items-center gap-[8px] pt-[22px]">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                <g clipPath="url(#clip0_236_281)">
-                                                    <path d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z" fill="#383837"/>
-                                                </g>
-                                                <defs>
-                                                    <clipPath id="clip0_236_281">
-                                                        <rect width="24" height="24" fill="white"/>
-                                                    </clipPath>
-                                                </defs>
-                                            </svg>
 
-                                            <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
-                                                {program.description}
-                                            </div>
-                                        </div>
 
-                                        <div className="inline-flex items-center gap-[8px] pt-[16px]">
-                                            <div className="text-[#323232] pl-[5px] pr-[4px] font-[Outfit] text-[26px] font-medium leading-[21px]">
-                                                ₹
+
+                                            <div className="inline-flex items-center gap-[8px] pt-[22px] leading-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <g clipPath="url(#clip0_236_281)">
+                                                        <path d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z" fill="#383837"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_236_281">
+                                                            <rect width="24" height="24" fill="white"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+
+                                                <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
+                                                    {program.description}
+                                                </div>
                                             </div>
 
-                                            <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
-                                                {program.details}
+
+                                            <div className="inline-flex items-center pt-4 gap-[8px]">
+                                                <div className="text-[#323232] pl-[5px] pr-[4px] font-[Outfit] text-[26px] font-medium leading-[21px]">
+                                                    ₹
+                                                </div>
+
+                                                <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
+                                                    {program.details}
+                                                </div>
                                             </div>
-                                        </div>
+
+
 
                                     </div>
                                 </div>
@@ -147,7 +153,7 @@ const ExplorePrograms = () => {
                                     <div className="flex justify-center">
                                       <Link href={`/course/noida_international_university/online_mba`} className="w-[calc(100%-40px)]">
                                        <button
-                                            className="flex items-center  justify-center border w-full py-[12px]  text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#CDCDCD] border-[#6A6A69)]"
+                                            className="flex items-center  justify-center border w-full py-[12px]  text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-[12px] transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#CDCDCD] border-[#6A6A69)]"
                                             // onClick={() => {
                                             //     setSelectedCourse("online_mba");
                                             //     setCurrentPage('course');
@@ -173,7 +179,7 @@ const ExplorePrograms = () => {
                     </div>
                 </div>
 
-                <div className="flex justify-between mt-[32px] pb-[64px]">
+                <div className="flex justify-between mt-[32px]">
                     <button
                         onClick={handlePrev}
                         className="bg-white z-10 p-4 hover:shadow-md rounded"

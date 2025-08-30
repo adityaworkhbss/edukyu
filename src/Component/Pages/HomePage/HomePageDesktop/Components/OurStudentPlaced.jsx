@@ -12,7 +12,7 @@ const OurStudentPlaced = () => {
     }
 
     return (
-        <section className="py-10">
+        <section className="pb-[64px]">
             <GridComponent gridStart={0} gridEnd={6}>
                 <h2 className="text-[48px] font-semibold text-[#024B53] font-[Outfit] leading-normal">
                     Our Student Placed
@@ -22,7 +22,7 @@ const OurStudentPlaced = () => {
                 </p>
             </GridComponent>
 
-            <div className="flex overflow-x-auto space-x-6 snap-x snap-mandatory no-scrollbar mb-[32px]">
+            <div className="flex overflow-x-auto space-x-6 snap-x snap-mandatory no-scrollbar">
                 {groupedCompanies.map((group, groupIndex) => (
                     <div
                         key={groupIndex}
