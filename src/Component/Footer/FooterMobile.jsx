@@ -49,7 +49,7 @@ const EduKyuMobileFooter = () => {
         { name: "About Us", action: () => window.open("https://edukyu.com/about-us", "_blank") },
         { name: "Our Team", action: () => window.open("https://edukyu.com/team", "_blank") },
         { name: "Partner with Us", action: () => window.open("https://edukyu.com/partner-with-us", "_blank") },
-        { name: "Compare College", action: () => setCurrentPage('compare') },
+        { name: "Compare College", action: () => setCurrentPage('compare-college') },
         { name: "College Manch", action: () => window.open("https://collegemanch.com/", "_blank") },
         { name: "Blogs", action: () => setCurrentPage('blog') },
         { name: "Refer and Earn", action: () => window.open("https://edukyu.com/refer-and-earn/", "_blank") },

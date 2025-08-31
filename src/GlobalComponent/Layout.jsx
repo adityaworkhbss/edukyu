@@ -30,7 +30,7 @@ const Layout = () => {
         switch (currentPage) {
             case 'home': return <HomePage />;
             case 'blog': return <BlogPageMain />;
-            case 'compare': return <CompareCollegePage />;
+            case 'compare-college': return <CompareCollegePage />;
             case 'college':
                 if (!selectedCollege) {
                     return (

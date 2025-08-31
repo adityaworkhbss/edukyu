@@ -38,7 +38,7 @@ const CompareCollegeDesktop = ({ numGrids, gutter }) => {
 
                         <div>
                             <button className="inline-flex items-center justify-center gap-[10px] px-[16px] py-[12px] rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-outfit leading-none"
-                                    onClick={() => setCurrentPage('compare')}
+                                    onClick={() => setCurrentPage('compare-college')}
                             >
                                 Compare Colleges
                             </button>

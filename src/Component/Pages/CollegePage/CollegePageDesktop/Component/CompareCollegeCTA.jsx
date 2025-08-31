@@ -25,7 +25,7 @@ const CompareCollegesCTA = () => {
                 </div>
 
                 <button className="inline-flex mt-[8px] mb-[48px] items-center justify-center gap-[10px] px-4 py-3 rounded-[12px] bg-[#9B9B9B] group-hover:bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium leading-none"
-                        onClick={() => setCurrentPage('compare')}
+                        onClick={() => setCurrentPage('compare-college')}
                 >
                     Compare Colleges
                 </button>

@@ -22,7 +22,7 @@ const CompareCollegesCTAMobile = () => {
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
                 <button
-                    onClick={() => setCurrentPage('compare')}
+                    onClick={() => setCurrentPage('compare-college')}
                     className="w-full mt-2 inline-flex items-center justify-center px-6 py-3 rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-[Outfit]">
                     Compare Colleges
                 </button>
