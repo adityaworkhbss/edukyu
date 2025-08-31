@@ -58,6 +58,7 @@ const BlogRecommendations = ({ category }) => {
                             key={blog.blogId}
                             title={blog.title}
                             blogId={blog.blogId}
+                            shortUrl={blog.shortUrl}
                             imgUrl={blog.image}
                         />
                     );

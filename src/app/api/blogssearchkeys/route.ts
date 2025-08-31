@@ -37,6 +37,7 @@ export async function GET(req: NextRequest) {
             subtitle: row.metaTitle,
             description: row.sortDescs,
             category: row.category,
+shortUrl: row.shortUrl,
             metaDesc: row.metaDesc,
             metaKey: row.metaKey,
         }));

@@ -10,13 +10,17 @@ export const BlogCard = ({
                              title,
                              subtitle,
                              description,
+    shortUrl,
                              image,
                              category = "BLOG",
                          }) => {
    const router = useRouter();
 
+
+
+
     const handleReadMore = () => {
-        router.push(`/blog/page/${blogId}`, undefined, { shallow: true });
+        router.push(`/blog/${shortUrl}`, undefined, { shallow: true });
     };
 
 

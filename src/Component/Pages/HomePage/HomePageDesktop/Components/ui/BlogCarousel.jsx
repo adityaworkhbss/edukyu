@@ -43,7 +43,7 @@ export default function BlogCarousel(
 
     const router = useRouter();
     const handleReadMore = (blogId) => {
-        router.push(`/blog/page/${blogId}`, undefined, { shallow: true });
+        router.push(`/blog/${blogId}`, undefined, { shallow: true });
     };
 
     const totalTranslateX = -1 * currentIndex * (cardWidth + cardGap);

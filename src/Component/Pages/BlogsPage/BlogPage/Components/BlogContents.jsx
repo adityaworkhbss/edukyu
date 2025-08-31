@@ -14,6 +14,7 @@ const BlogContent = ({
                          html,
                          userid,
                          category,
+    shorturl,
                          metatitle,
                          imageurl,
                          timestamp,

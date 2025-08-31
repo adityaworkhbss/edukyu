@@ -59,6 +59,7 @@ export async function GET(req: NextRequest) {
             title: row.name,
             subtitle: row.metaTitle,
             description: row.sortDescs,
+            shortUrl: row.shortUrl,
             category: row.category,
             image: row.imageUrl,
             readMoreUrl: `/blog/${row.shortUrl || row.blogId}`,

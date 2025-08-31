@@ -2,12 +2,12 @@
 import {useRouter} from "next/navigation";
 import React from "react";
 
-const RecommendedBlogCard = ({ title, blogId, imgUrl }) => {
+const RecommendedBlogCard = ({ title, blogId, imgUrl, shortUrl }) => {
 
     const router = useRouter();
 
     const handleReadMore = () => {
-        router.push(`/blog/page/${blogId}`, undefined, { shallow: true });
+        router.push(`/blog/${shortUrl}`, undefined, { shallow: true });
     };
 
     const handleImageError = (e) => {

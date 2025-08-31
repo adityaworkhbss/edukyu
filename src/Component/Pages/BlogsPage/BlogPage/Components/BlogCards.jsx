@@ -54,6 +54,7 @@ const BlogCards = () => {
                             blogId={blog.blogId}
                             title={blog.title}
                             subtitle={blog.subtitle}
+                            shorturl={blog.shortUrl}
                             description={blog.description}
                             image={blog.image}
                             category={blog.category}
