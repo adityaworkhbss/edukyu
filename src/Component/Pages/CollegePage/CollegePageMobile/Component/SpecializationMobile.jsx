@@ -2,10 +2,14 @@ import React, { useRef, useState } from 'react';
 import { ImageIcon } from "lucide-react";
 export const SpecializationMobile = ({ data }) => {
 
+    // Early return if no data
+    if (!data || !data.Specialisation) {
+        return null;
+    }
 
     // console.log(":::::::::::; data ::::::::::::::;;;;;; " + data);
 
-    Object.entries(data).forEach(([name, value], index) => {
+    Object.entries(data || {}).forEach(([name, value], index) => {
         console.log(name);
     });
 

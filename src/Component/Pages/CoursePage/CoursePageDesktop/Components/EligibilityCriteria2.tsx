@@ -45,15 +45,15 @@ export const EligibilityCriteriaImage: React.FC<EligibilityCriteriaImageProps> =
       }}
       data-model-id="483:1562"
     >
-      <div className="absolute w-[65%] top-[63px] font-semibold text-[#024B53] text-[48px] tracking-[0] leading-[normal]">
+      <div className="absolute w-[65%] top-[64px] font-semibold text-[#024B53] text-[48px] tracking-[0] leading-[normal]">
         Fee Structure
       </div>
 
-      <p className="absolute w-[65%] mt-[150px] font-normal text-[#515150] text-xl tracking-[0] leading-[normal]">
+      <p className="absolute w-[65%] mt-[126px] font-normal text-[#515150] text-xl tracking-[0] leading-[normal]">
         Explore our flexible fee structure options designed to make quality education accessible and affordable for students worldwide.
       </p>
 
-      <div className="absolute w-full h-11 top-[214px]">
+      <div className="absolute w-full h-11 top-[194px]">
         <div className="absolute w-full h-11 top-0 left-0 border-b [border-bottom-style:solid] border-[#b2b2b2]">
           {categories.map((category: any, index: number) => (
             <div
@@ -78,11 +78,11 @@ export const EligibilityCriteriaImage: React.FC<EligibilityCriteriaImageProps> =
       </div>
 
       {/* Fee cards arranged in a responsive 3-column grid with 16px gaps */}
-      <div className="absolute w-full top-[322px]">
+      <div className="absolute w-full top-[304px]">
         <div className="max-w-[1100px] mx-auto pr-4">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {activeCategory?.fullCourseFee && (
-              <div className="bg-[#679EA4] h-[233px] rounded-[22px] overflow-hidden py-4 px-5 flex flex-col justify-center">
+              <div className="bg-[#679EA4] h-[233px] rounded-[22px] overflow-hidden py-4 px-5 flex flex-col justify-center items-center text-center">
                 <div className="font-normal text-[#383837] text-base">Full Course Fee {categories.length > 2 ? '(Four Semesters)' : ''}</div>
                 <div className="font-semibold text-[#2B2B2A] text-[32px] mt-3">{activeCategory.fullCourseFee}</div>
                 <div className="font-normal text-[#383837] text-base mt-3">Inclusive of all taxes</div>
@@ -90,7 +90,7 @@ export const EligibilityCriteriaImage: React.FC<EligibilityCriteriaImageProps> =
             )}
 
             {activeCategory?.perSemester && (
-              <div className="bg-[#B3CFD2] h-[233px] rounded-[22px] overflow-hidden py-4 px-5flex flex-col justify-center">
+              <div className="bg-[#B3CFD2] h-[233px] rounded-[22px] overflow-hidden py-4 px-5 flex flex-col justify-center items-center text-center">
                 <div className="font-normal text-[#383837] text-base">Each Semester</div>
                 <div className="font-semibold text-[#2B2B2A] text-[32px] mt-3">{activeCategory.perSemester}</div>
                 <div className="font-normal text-[#383837] text-base mt-3">*Inclusive of all taxes</div>
@@ -98,7 +98,7 @@ export const EligibilityCriteriaImage: React.FC<EligibilityCriteriaImageProps> =
             )}
 
             {activeCategory?.emi && (
-              <div className="bg-[#FFD23F] h-[233px] rounded-[22px] overflow-hidden py-4 px-5 flex flex-col justify-center">
+              <div className="bg-[#FFD23F] h-[233px] rounded-[22px] overflow-hidden py-4 px-5 flex flex-col justify-center items-center text-center">
                 <div className="font-normal text-[#383837] text-base">EMI Starting</div>
                 <div className="font-semibold text-[#2B2B2A] text-[32px] mt-3">{activeCategory.emi}</div>
                 <div className="font-normal text-[#383837] text-base mt-3">Terms &amp; Conditions apply</div>
@@ -110,7 +110,7 @@ export const EligibilityCriteriaImage: React.FC<EligibilityCriteriaImageProps> =
 
       {/* Note */}
       {activeCategory?.note && (
-        <p className="absolute w-full top-[570px] font-normal text-[#333] text-base tracking-[0] leading-[normal]">
+        <p className="absolute w-full top-[556px] font-normal text-[#333] text-base tracking-[0] leading-[normal]">
           Note - {activeCategory.note}
         </p>
       )}

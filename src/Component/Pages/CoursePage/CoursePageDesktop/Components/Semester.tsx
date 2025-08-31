@@ -38,31 +38,33 @@ export const Semester: React.FC<SemesterProps> = ({ course }) => {
 
   return (
     <main
-      className="relative w-full"
-      style={{ 
-        height: expandedSemester ? 'auto' : '506px',
-        minHeight: '506px'
-      }}
+      className="relative w-full h-full"
+      // style={{ 
+      //   height: expandedSemester ? 'auto' : 'full',
+      //   minHeight: '506px'
+      // }}
       data-model-id="483:1998"
     >
-      <header className="absolute w-[65%] top-[63px]">
+      <header className="w-[65%] pt-16">
         <h1 className="[font-family:'Outfit',Helvetica] font-semibold text-[#024B53] text-5xl tracking-[0] leading-[normal]">
           Semester
         </h1>
       </header>
 
-      <section className="absolute w-[65%] top-[139px]">
-        <p className="[font-family:'Outfit',Helvetica] font-normal text-[#515150] text-xl tracking-[0] leading-[normal]">
+      <section className="w-[65%]">
+        <p className="[font-family:'Outfit',Helvetica] font-normal text-[#515150] text-xl tracking-[0] leading-[normal] mb-[24px]">
           Explore our comprehensive curriculum designed to equip you with essential skills and knowledge across multiple semesters.
         </p>
       </section>
 
-      <section className="absolute w-[100%] top-[214px]" style={{ minHeight: '228px' }}>
+      <section className="w-[100%] relative" style={{ minHeight: '228px' }}>
         {semesters.map((semester: any, index: number) => (
           <React.Fragment key={semester.number}>
             <div
-              className={`absolute w-[97%] h-12 left-0 bg-[#effdfe] rounded-xl overflow-hidden cursor-pointer hover:bg-[#e0f9fa] transition-colors duration-200`}
-              style={{ top: `${index * 60}px` }}
+              className={`relative w-[97%] h-12 bg-[#effdfe] rounded-xl cursor-pointer hover:bg-[#e0f9fa] transition-colors duration-200`}
+              style={{ 
+                marginBottom: expandedSemester === semester.number ? '8px' : '8px' // Consistent 8px gap
+              }}
               onClick={() => handleSemesterClick(semester.number)}
               role="button"
               tabIndex={0}
@@ -75,12 +77,12 @@ export const Semester: React.FC<SemesterProps> = ({ course }) => {
                 }
               }}
             >
-              <div className="absolute top-[13px] left-6 [font-family:'Outfit',Helvetica] font-normal text-[#202020] text-base tracking-[0] leading-[normal]">
+              <div className="absolute top-[13px] left-6 [font-family:'Outfit',Helvetica] font-normal text-[#202020] text-base tracking-[0] leading-[normal] z-10">
                 Semester {semester.number}
               </div>
 
               <img
-                className="absolute w-6 h-6 top-3 right-8 aspect-[1] transition-transform duration-200"
+                className="absolute w-6 h-6 top-3 right-8 aspect-[1] transition-transform duration-200 z-10"
                 style={{
                   transform:
                     expandedSemester === semester.number
@@ -100,14 +102,10 @@ export const Semester: React.FC<SemesterProps> = ({ course }) => {
               />
             </div>
 
-            {/* Expanded Content */}
+            {/* Expanded Content - appears right below the clicked card */}
             {expandedSemester === semester.number && (
               <div
-                className="absolute w-[97%] left-0 bg-white border border-[#e0e0e0] rounded-xl p-6 shadow-lg"
-                style={{ 
-                  top: `${index * 60 + 60}px`,
-                  zIndex: 10
-                }}
+                className="relative w-[97%] bg-white border border-[#e0e0e0] rounded-xl p-6 shadow-lg mb-2"
               >
                 {semester.description && (
                   <p className="[font-family:'Outfit',Helvetica] font-normal text-[#515150] text-sm mb-4 leading-relaxed">

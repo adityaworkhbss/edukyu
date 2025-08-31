@@ -56,14 +56,14 @@ const FaqsSection = ({ course }) => {
     };
 
     return (
-        <section className="bg-white py-12 ml-0.5 mr-5">
+        <section className="bg-white pt-16 ml-0.5 mr-5">
             <GridComponent gridStart={0} gridEnd={7}>
                 <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
                     FAQs
                 </div>
             </GridComponent>
             <GridComponent gridStart={0} gridEnd={7}>
-                <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
+                <div className="text-[20px] pb-[64px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
                     Find answers to commonly asked questions about this course and admission process.
                 </div>
             </GridComponent>

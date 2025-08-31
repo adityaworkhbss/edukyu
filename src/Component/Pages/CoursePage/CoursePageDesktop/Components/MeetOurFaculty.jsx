@@ -46,7 +46,7 @@ const OurFaculty = () => {
     };
 
     return (
-        <section className="pb-10 w-full">
+        <section className="py-16 w-full">
             <GridComponent gridStart={0} gridEnd={6}>
                 <h2 className="text-[48px] font-semibold text-[#024B53] font-[Outfit] leading-normal w-full">
                     Meet Your Faculty

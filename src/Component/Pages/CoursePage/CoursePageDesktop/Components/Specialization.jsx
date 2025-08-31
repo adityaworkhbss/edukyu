@@ -89,7 +89,7 @@ const Specialization = ({ course }) => {
     }, []);
 
     return (
-        <section className="bg-background pt-12 max-w-full overflow-hidden ">
+        <section className="bg-background max-w-full overflow-hidden ">
             <div className="max-w-full">
                 <div className="max-w-full">
                     <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none break-words w-full">
@@ -100,7 +100,7 @@ const Specialization = ({ course }) => {
                         Choose from {specializations.length} industry-focused specializations designed to match your career goals and interests.
                     </div>
 
-                    <div className="flex bg-white border-b border-[#B2B2B2] mb-[84px] overflow-x-auto overflow-hidden">
+                    <div className="flex bg-white border-b border-[#B2B2B2] mb-[64px] overflow-x-auto overflow-hidden">
                         {tabs.map((tab) => (
                             <button
                                 key={tab.id}

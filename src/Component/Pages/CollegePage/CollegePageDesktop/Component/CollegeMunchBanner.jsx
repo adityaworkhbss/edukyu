@@ -18,7 +18,7 @@ const CollegeMunchBanner = () => {
                         Want to know in details about colleges?
                     </div>
 
-                <GridComponent gridStart={0} gridEnd={6}>
+                <GridComponent gridStart={0} gridEnd={8}>
                     <div className="text-[#515150] font-[Outfit] text-[20px] font-normal pt-4">
                         Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                     </div>

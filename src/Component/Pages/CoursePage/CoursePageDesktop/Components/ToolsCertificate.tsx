@@ -36,18 +36,19 @@ const ToolsCertificate: React.FC<ToolsCertificateProps> = ({ course }) => {
   const activeCategory = categories[activeTab];
   return (
       <div
-          className="relative w-full h-[438px] bg-cover bg-[50%_50%]"
+          className="relative w-full bg-cover bg-[50%_50%]"
+          style={{ height: 'auto' }}
           data-model-id="483:1602"
       >
-        <div className="absolute w-[65%] top-[63px] font-semibold text-[#024B53] text-[48px] tracking-[0] leading-[normal]">
+        <div className="w-[65%] font-semibold text-[#024B53] text-[48px] tracking-[0] leading-[normal] pt-[64px]">
           {additionalTools.title || "Additional Tool & Certificates"}
         </div>
 
-        <p className="absolute w-[65%] top-[189px] font-normal text-[#515150] text-xl tracking-[0] leading-[normal]">
+        <p className="w-[65%] mt-[16px] font-normal text-[#515150] text-xl tracking-[0] leading-[normal] mb-[24px]">
           {additionalTools.description || "Unlimited access to world class courses, hands-on projects, and job-ready certificate programs."}
         </p>
 
-        <div className="absolute w-[97%] h-11 top-[255px] border-b [border-bottom-style:solid] border-[#b2b2b2]">
+        <div className="relative w-[97%] h-11 border-b [border-bottom-style:solid] border-[#b2b2b2] mb-[64px]">
           {categories.map((category: any, index: number) => (
             <div 
               key={index}
@@ -72,13 +73,13 @@ const ToolsCertificate: React.FC<ToolsCertificateProps> = ({ course }) => {
         </div>
 
         {/* Dynamic content based on active category */}
-        <div className="absolute w-full top-[320px] flex flex-wrap gap-4">
+        <div className="w-full flex flex-wrap gap-4">
           {activeCategory?.items && activeCategory.items.map((item: string, index: number) => (
             <div
               key={index}
-              className="flex items-center justify-center rounded-lg px-4 py-3 min-w-[160px] max-w-[280px] h-[52px]"
+              className="flex items-center justify-center rounded-lg px-4 py-3 h-[52px] w-fit"
             >
-              <span className="text-sm font-medium text-gray-700 text-center leading-tight">
+              <span className="text-sm font-medium text-gray-700 text-center leading-tight whitespace-nowrap">
                 {item}
               </span>
             </div>

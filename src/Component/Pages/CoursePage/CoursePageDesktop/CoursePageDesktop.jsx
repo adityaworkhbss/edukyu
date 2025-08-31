@@ -117,7 +117,7 @@ const CollegePageDesktop = ({ course, courseSecondry }) => {
                         <FeeTable collegeSecondry={collegeSecondry} />
                     </div> */}
                    
-                    <div className="py-[64px]" id="compare">
+                    <div className="pt-[64px]" id="compare">
                         <CompareCollegesCTA />
                     </div>
                     <div id="degree">

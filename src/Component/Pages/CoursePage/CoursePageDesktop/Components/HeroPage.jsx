@@ -64,9 +64,9 @@ const HeroPage = ({ course }) => {
         <>
             <div className="w-full gap-6 pl-[56px] flex max-w-full">
                 {/* Left Section */}
-                <div className="w-1/2 flex flex-col  pt-6 min-w-0">
+                <div className="w-1/2 flex flex-col  min-w-0">
                     {/* College Logo */}
-                    <div className="w-64 h-[84px]  rounded-lg mb-4 flex items-center justify-center mt-[52px]">
+                    <div className="w-64 h-[84px]  rounded-lg mb-[28px] flex items-center justify-center mt-[52px]">
                        {logo && (
                            <img 
                                className=" h-auto object-contain" 
@@ -96,14 +96,14 @@ const HeroPage = ({ course }) => {
                     )} */}
 
                     {/* Course Description */}
-                    <div className="mb-[24px] text-[20px] font-normal text-[#025E68] font-[Outfit] break-words">
+                    <div className="mb-[48px] text-[20px] font-normal text-[#025E68] font-[Outfit] break-words">
                         {description || "No description available"}
                     </div>
 
                     
                     <button
                         onClick={() => setShowForm(true)}
-                        className="rounded-[12px] w-[150px] border border-white bg-[#025E68] text-white text-[14px] font-medium font-[Outfit] px-6 py-2 hover:bg-[#024B53] transition-colors">
+                        className="rounded-[12px] w-[150px] border border-white bg-[#025E68] text-white text-[14px] font-medium font-[Outfit] px-6 py-2 hover:bg-[#024B53] transition-colors mb-[51px]">
                         Apply Now
                     </button>
 

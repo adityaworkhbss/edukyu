@@ -34,12 +34,12 @@ const AdmissionProcess = ({course}) => {
                 Admission Process of {courseName}
             </div>
 
-            <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
+            <div className="text-[20px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
                 Follow these simple steps to secure your admission and start your journey towards academic excellence.
             </div>
 
             {/* Steps */}
-            <div className="mt-6 flex flex-col gap-10 max-w-full">
+            <div className="flex flex-col gap-10 max-w-full">
                 {steps.map((step, index) => (
                     <div key={index} className="flex items-start gap-4 relative w-[77%]">
                         {/* Step Number Circle */}

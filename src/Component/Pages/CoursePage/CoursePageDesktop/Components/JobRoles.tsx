@@ -83,27 +83,32 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
   const activeData = activeTab === 'jobRoles' ? jobRoleColumns : industryColumns;
   return (
     <div
-      className="relative w-[1014px] h-[514px]  bg-cover bg-[50%_50%]"
+      className="relative w-full bg-cover bg-[50%_50%] "
+      style={{ height: 'auto' }}
       data-model-id="483:1620"
     >
-      <div className="absolute w-[615px] top-[63px] font-semibold text-[#024B53] text-[48px] tracking-[0] leading-[normal]">
+      <div className="w-[65%] pt-[64px] font-semibold text-[#024B53] text-[48px] tracking-[0] leading-[normal]">
         Job roles &amp; Industries
       </div>
 
-      <p className="absolute w-[615px] top-[139px] font-normal text-[#515150] text-xl tracking-[0] leading-[normal]">
+      <p className="w-[65%] mt-[16px] font-normal text-[#515150] text-xl tracking-[0] leading-[normal]">
         Explore diverse career opportunities and industries where you can apply your skills and build a successful career.
       </p>
 
-      <div className="absolute w-[97%] h-[236px] top-[214px] bg-white rounded-lg overflow-hidden border border-solid border-[#bebebe]">
+      <div className="relative w-[97%] mt-[24px] rounded-lg overflow-hidden border border-solid border-[#bebebe] pb-8"
+           style={{ minHeight: '236px' }}>
         {/* Dynamic content columns */}
         {activeData.map((column, columnIndex) => (
           <div
             key={columnIndex}
-            className={`flex flex-col w-[182px] items-start gap-1.5 absolute top-[84px] ${columnIndex === 0 ? 'left-5' :
-                columnIndex === 1 ? 'left-[226px]' :
-                  columnIndex === 2 ? 'left-[432px]' :
-                    'left-[686px]'
+            className={`flex flex-col w-[182px] items-start gap-1.5 mt-[84px] ${columnIndex === 0 ? 'ml-5' :
+                columnIndex === 1 ? 'ml-[226px]' :
+                  columnIndex === 2 ? 'ml-[432px]' :
+                    'ml-[686px]'
               }`}
+            style={{ position: 'absolute', left: columnIndex === 0 ? '20px' : 
+                     columnIndex === 1 ? '226px' : 
+                     columnIndex === 2 ? '432px' : '686px' }}
           >
             {column.map((item, itemIndex) => (
               <div key={itemIndex} className="flex items-center gap-2.5 px-2.5 py-2 relative self-stretch w-full flex-[0_0_auto]">
@@ -115,39 +120,32 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
           </div>
         ))}
 
-        <div ref={tabsContainerRef} className="absolute w-[97%] h-10 top-5 left-5">
-          <div className="inline-flex items-center absolute top-0 left-0">
-            <div className="inline-flex items-center gap-5 px-6 py-2 relative flex-[0_0_auto]">
+        <div ref={tabsContainerRef} className="relative w-[97%] h-10 mt-5 ml-5">
+          <div className="inline-flex items-center relative">
+            <div className="inline-flex items-center gap-5 px-6 py-4 relative flex-[0_0_auto]">
               <button
                 onClick={() => setActiveTab('jobRoles')}
                 ref={jobBtnRef}
-                className={`relative w-fit mt-[-1.00px] font-semibold text-xl tracking-[0] leading-[normal] whitespace-nowrap ${activeTab === 'jobRoles' ? 'text-[#024B53]' : 'text-slate-600'
-                  }`}
+                className={`relative w-fit pb-3 font-semibold text-xl tracking-[0] leading-[normal] whitespace-nowrap transition-all duration-200 hover:bg-gray-50 ${
+                  activeTab === 'jobRoles' ? 'text-[#024B53] border-b-2 border-teal-600' : 'text-slate-600'
+                }`}
               >
                 Job Roles
               </button>
             </div>
 
-            <div className="inline-flex items-center gap-2.5 px-2.5 py-2 relative flex-[0_0_auto]">
+            <div className="inline-flex items-center gap-2.5 px-2.5 py-4 relative flex-[0_0_auto]">
               <button
                 ref={indBtnRef}
                 onClick={() => setActiveTab('industries')}
-                className={`relative w-fit mt-[-1.00px] font-normal text-xl tracking-[0] leading-[normal] whitespace-nowrap ${activeTab === 'industries' ? 'text-[#024B53] font-semibold' : 'text-slate-600'
-                  }`}
+                className={`relative w-fit pb-3 font-normal text-xl tracking-[0] leading-[normal] whitespace-nowrap transition-all duration-200 hover:bg-gray-50 ${
+                  activeTab === 'industries' ? 'text-[#024B53] font-semibold border-b-2 border-teal-600' : 'text-slate-600'
+                }`}
               >
                 Industries
               </button>
             </div>
           </div>
-
-          {/* base faint line */}
-          <div className="absolute left-0 top-[38px] h-[2px] bg-slate-200 w-full" />
-
-          {/* active underline positioned based on measured button */}
-          <div
-            className="absolute top-[38px] h-[3px] bg-[#024B53] transition-all duration-200"
-            style={{ left: underlineStyle.left, width: underlineStyle.width }}
-          />
         </div>
       </div>
     </div>
