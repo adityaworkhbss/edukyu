@@ -104,7 +104,7 @@ const EduKyuMobileFooter = () => {
                         return (
                             <Link 
                                 key={idx}
-                                href={`/college/${encodeURIComponent(mapping[item])}`}
+                                href={`/online-mba-programs/top-distance-mba-colleges/${encodeURIComponent(mapping[item])}`}
                                 className="text-sm text-left text-white flex items-center cursor-pointer hover:text-white/80 transition-colors duration-200"
                             >
                                 {item}

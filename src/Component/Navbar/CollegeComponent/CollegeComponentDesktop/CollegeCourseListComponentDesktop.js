@@ -147,7 +147,7 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
                             </div>
                             <Link
                                 className="text-[14px] text-left h-[18px] text-[#024B53] flex font-medium font-outfit not-italic leading-normal gap-[8px]"
-                                href={`/college/${encodeURIComponent(universityKeyMapCorrect[university])}`}
+                                href={`/online-mba-programs/top-distance-mba-colleges/${encodeURIComponent(universityKeyMapCorrect[university])}`}
                                 onClick={handleCollegeLinkClick}
                             >
                                 Explore College

@@ -115,7 +115,7 @@ export const PartnerUniversitiesMobile = () => {
                 {universities.map((uni, index) => (
                     <Link 
                         key={index} 
-                        href={`/college/${encodeURIComponent((uni.name).trim().replace(/\s+/g, '-'))}`}
+                        href={`/online-mba-programs/top-distance-mba-colleges/${encodeURIComponent((uni.name).trim().replace(/\s+/g, '-'))}`}
                         className="flex-shrink-0 snap-center"
                     >
                         <UniversityCard
