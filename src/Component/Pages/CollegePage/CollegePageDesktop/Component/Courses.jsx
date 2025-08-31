@@ -212,7 +212,7 @@ const Courses = ({ college }) => {
 
                                 <div className="pt-[10px] w-full pb-[16px]">
                                     <div className="flex justify-center">
-                                        <Link href={`/course/${collegeMap[college.university_info.name]}/${courseMap[program.title]}`} className="w-[calc(100%-40px)]">
+                                        <Link href={`/${collegeMap[college.university_info.name]}/${courseMap[program.title]}`} className="w-[calc(100%-40px)]">
                                         <button
                                             className="flex items-center justify-center border w-full py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#024B53] bg-[#FFF]"
                                             // Add your onClick or Link to course details here
