@@ -39,11 +39,11 @@ const ToolsCertificate: React.FC<ToolsCertificateProps> = ({ course }) => {
           className="relative w-full min-h-[400px] bg-cover bg-[50%_50%] px-4 py-8"
           data-model-id="483:1602"
       >
-        <div className="w-full font-semibold text-[#024B53] text-[28px] md:text-[48px] tracking-[0] leading-[32px] md:leading-[normal] mb-4">
+        <div className="w-full font-semibold text-[#024B53] text-[28px] md:text-[48px] tracking-[0] leading-[32px] md:leading-[normal] mb-3">
           {additionalTools.title || "Additional Tool & Certificates"}
         </div>
 
-        <p className="w-full font-normal text-[#515150] text-[14px] md:text-xl tracking-[0] leading-[20px] md:leading-[normal] mb-8">
+        <p className="w-full font-normal text-[#515150] text-[14px] md:text-xl tracking-[0] leading-[20px] md:leading-[normal] mb-6">
           {additionalTools.description || "Unlimited access to world class courses, hands-on projects, and job-ready certificate programs."}
         </p>
 
@@ -73,7 +73,7 @@ const ToolsCertificate: React.FC<ToolsCertificateProps> = ({ course }) => {
           {activeCategory?.items && activeCategory.items.map((item: string, index: number) => (
             <div
               key={index}
-              className="flex items-center justify-center bg-gray-100 border border-gray-200 rounded-lg px-3 py-3 min-h-[52px] text-center"
+              className="flex items-center justify-center  rounded-lg px-3 py-3 min-h-[52px] text-center"
             >
               <span className="text-[12px] md:text-sm font-medium text-gray-700 leading-tight break-words">
                 {item}

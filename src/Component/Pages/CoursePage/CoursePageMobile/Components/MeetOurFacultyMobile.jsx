@@ -1,16 +1,41 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import { CoursePageData } from "@/Data Model/CoursePage/CoursePageData"; // use CoursePageData faculty
 
 const OurFacultyMobile = () => {
-    // Grab faculty from course data and split into groups of 2 so each mobile page
-    // shows two vertically stacked cards (one column, two rows)
-    const faculty = CoursePageData?.[0]?.online_mba?.faculty || [];
+    const [selectedFaculty, setSelectedFaculty] = useState(null);
+    
+    // Grab faculty from course data and split into groups of 4 for mobile 2x2 grid
+    // CoursePageData is an array where each item is an object keyed by university (e.g. { manipal_university: { online_mba: { ... } } })
+    // The previous direct access `CoursePageData[0].online_mba` is incorrect because the university key sits one level deeper.
+    const faculty = (() => {
+        if (!Array.isArray(CoursePageData)) return [];
+        for (const uniObj of CoursePageData) {
+            if (!uniObj || typeof uniObj !== 'object') continue;
+            for (const uniKey of Object.keys(uniObj)) {
+                const online = uniObj[uniKey]?.online_mba;
+                if (online && Array.isArray(online.faculty)) return online.faculty;
+            }
+        }
+        return [];
+    })();
+    
+    // Add fallback faculty data for testing if no data is found
+    const fallbackFaculty = [
+        { name: "Dr. John Smith", position: "Professor", image: null },
+        { name: "Dr. Jane Doe", position: "Associate Professor", image: null },
+        { name: "Dr. Mike Johnson", position: "Assistant Professor", image: null },
+        { name: "Dr. Sarah Wilson", position: "Lecturer", image: null }
+    ];
+    
+    const finalFaculty = faculty.length > 0 ? faculty : fallbackFaculty;
+    console.log('Faculty data:', finalFaculty); // Debug log
+    
     const groupedCompanies = [];
-    for (let i = 0; i < faculty.length; i += 2) {
-        groupedCompanies.push(faculty.slice(i, i + 2));
+    for (let i = 0; i < finalFaculty.length; i += 4) {
+        groupedCompanies.push(finalFaculty.slice(i, i + 4));
     }
     const containerRef = useRef(null);
 
@@ -35,9 +60,9 @@ const OurFacultyMobile = () => {
     };
 
     return (
-        <section className="pb-10 w-full">
+        <section className="pb-8 w-full">
             <GridComponent gridStart={0} gridEnd={6}>
-                <h2 className="text-[48px] font-semibold text-[#024B53] font-[Outfit] leading-normal w-full">
+                <h2 className="text-[24px] font-semibold text-[#024B53] font-[Outfit] leading-normal w-full mt-8">
                     Meet Your Faculty
                 </h2>
                 {/* <p className="text-[20px] pt-4 mb-[64px] font-normal text-[#515150] font-[Outfit] leading-normal">
@@ -48,26 +73,26 @@ const OurFacultyMobile = () => {
 
 
             <div className="relative">
-                <div ref={containerRef} className="flex overflow-x-auto space-x-6 snap-x snap-mandatory no-scrollbar mb-[32px] mt-[64px]" tabIndex={0}>
+                <div ref={containerRef} className="flex overflow-x-auto space-x-6 snap-x snap-mandatory no-scrollbar mb-[32px] mt-[24px]" tabIndex={0}>
                     {groupedCompanies.map((group, groupIndex) => (
                         <div
                             key={groupIndex}
-                            className="flex-shrink-0 w-full max-w-full grid grid-cols-1 gap-6 snap-start"
+                            className="flex-shrink-0 w-full max-w-full grid grid-cols-2 gap-3 snap-start px-4"
                         >
                             {group.map((alumni, idx) => (
                                 <div
                                     key={idx}
-                                    className="flex items-center gap-4 p-4 bg-white rounded-[16px] w-full"
+                                    className="flex flex-col items-center cursor-pointer hover:opacity-80 transition-opacity duration-300"
+                                    onClick={() => setSelectedFaculty(alumni)}
                                 >
-                                    <div className="w-16 h-16 sm:w-20 sm:h-20 relative rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center bg-[#F3F3F3] text-[#024B53] font-semibold">
+                                    <div className="w-full aspect-[3/4] relative rounded-[12px] overflow-hidden flex items-center justify-center bg-[#F3F3F3] text-[#024B53] font-semibold mb-2">
                                         {alumni.image ? (
-                                            <img
-
+                                            <Image
                                                 src={`https://edukyu.com/${alumni.image}`}
                                                 alt={alumni.name}
-                                                width={80}
-                                                height={80}
+                                                fill
                                                 className="object-cover"
+                                                unoptimized
                                             />
                                         ) : (
                                             <div className="w-full h-full flex items-center justify-center text-lg">
@@ -76,12 +101,10 @@ const OurFacultyMobile = () => {
                                         )}
                                     </div>
 
-                                    <div className="flex-1 min-w-0">
-                                        <h3 className="text-[18px] font-semibold text-[#024B53] truncate">
+                                    <div className="text-center w-full">
+                                        <h3 className="text-[14px] font-medium text-[#333333] text-center leading-tight">
                                             {alumni.name}
                                         </h3>
-                                        <p className="text-sm text-[#515150] mt-1 truncate">{alumni.position}</p>
-                                        <p className="text-[13px] text-[#6B6B6B] mt-1 truncate">{alumni.qualifications}</p>
                                     </div>
                                 </div>
                             ))}
@@ -112,6 +135,68 @@ const OurFacultyMobile = () => {
                     </button>
                 </div>
             </div>
+
+            {/* Faculty Detail Modal */}
+            {selectedFaculty && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+                    <div className="bg-white rounded-[20px] p-6 max-w-sm w-full max-h-[90vh] overflow-y-auto">
+                        <div className="flex justify-between items-start mb-4">
+                            <h3 className="text-[20px] font-semibold text-[#024B53]">Faculty Details</h3>
+                            <button 
+                                onClick={() => setSelectedFaculty(null)}
+                                className="text-gray-500 hover:text-gray-700"
+                            >
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <div className="flex flex-col items-center text-center">
+                            <div className="w-32 h-40 relative rounded-[12px] overflow-hidden flex items-center justify-center bg-[#F3F3F3] text-[#024B53] font-semibold mb-4">
+                                {selectedFaculty.image ? (
+                                    <Image
+                                        src={`https://edukyu.com/${selectedFaculty.image}`}
+                                        alt={selectedFaculty.name}
+                                        fill
+                                        className="object-cover"
+                                        unoptimized
+                                    />
+                                ) : (
+                                    <div className="w-full h-full flex items-center justify-center text-xl">
+                                        {getInitials(selectedFaculty.name)}
+                                    </div>
+                                )}
+                            </div>
+                            
+                            <h4 className="text-[18px] font-semibold text-[#024B53] mb-2">
+                                {selectedFaculty.name}
+                            </h4>
+                            
+                            {selectedFaculty.position && (
+                                <p className="text-[16px] text-[#515150] mb-2">
+                                    {selectedFaculty.position}
+                                </p>
+                            )}
+                            
+                            {selectedFaculty.qualifications && (
+                                <p className="text-[14px] text-[#6B6B6B] mb-4">
+                                    {selectedFaculty.qualifications}
+                                </p>
+                            )}
+                            
+                            {selectedFaculty.bio && (
+                                <div className="text-left w-full">
+                                    <h5 className="text-[16px] font-semibold text-[#024B53] mb-2">Biography</h5>
+                                    <p className="text-[14px] text-[#515150] leading-relaxed">
+                                        {selectedFaculty.bio}
+                                    </p>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            )}
         </section>
     );
 };

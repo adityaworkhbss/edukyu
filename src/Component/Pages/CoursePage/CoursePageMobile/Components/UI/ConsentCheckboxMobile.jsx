@@ -3,7 +3,7 @@ import React from 'react';
 
 export const ConsentCheckboxMobile = ({ checked, onChange }) => {
     return (
-        <div className="flex items-start gap-3 mt-6">
+        <div className="flex items-start gap-3 mt-4">
             <button
                 type="button"
                 onClick={() => onChange(!checked)}

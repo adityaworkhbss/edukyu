@@ -10,7 +10,7 @@ import EligibilityCriteriaImage from "./Components/EligibilityCriterias2Mobile";
 import AdmissionProcessMobile from "@/Component/Pages/CoursePage/CoursePageMobile/Components/AdmissionProcessMobile";
 import FeeTableMobile from "@/Component/Pages/CollegePage/CollegePageMobile/Component/FeeTableMobile";
 import Benefits, { BenefitsSectionMobile } from "@/Component/Pages/CoursePage/CoursePageMobile/Components/BenefitsSectionMobile";
-import CompareCollegesCTAMobile from "@/Component/Pages/CollegePage/CollegePageMobile/Component/CompareCollegeCTAMobile";
+import CompareCollegesCTAMobile from "@/Component/Pages/CoursePage/CoursePageMobile/Components/CompareCollegeCTAMobile";
 import DegreeSectionMobile from "@/Component/Pages/CoursePage/CoursePageMobile/Components/DegreeSectionMobile";
 import ToolsCertificate from "@/Component/Pages/CoursePage/CoursePageMobile/Components/ToolsCertificateMobile";
 import JobRoles from "@/Component/Pages/CoursePage/CoursePageMobile/Components/JobRolesMobile";
@@ -41,6 +41,9 @@ const CoursePageMobile = ({ course, collegeSecondry }) => {
                     </div> */}
                     <div id="specialization">
                         <SpecializationMobile course={course} />
+                    </div>
+                      <div id="benefits">
+                        <BenefitsSectionMobile course={course} />
                     </div>
                     <div id="semester">
                         <Semester course={course} />

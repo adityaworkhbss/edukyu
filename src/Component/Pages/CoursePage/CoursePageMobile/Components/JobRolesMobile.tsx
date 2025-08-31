@@ -37,7 +37,7 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
       className="relative w-full min-h-[400px] bg-cover bg-[50%_50%] px-4 py-8"
       data-model-id="483:1620"
     >
-      <div className="w-full font-semibold text-[#024B53] text-[28px] md:text-[48px] tracking-[0] leading-[32px] md:leading-[normal] mb-4">
+      <div className="w-full font-semibold text-[#024B53] text-[28px] md:text-[48px] tracking-[0] leading-[32px] md:leading-[normal] mb-3">
         Job roles &amp; Industries
       </div>
 
@@ -45,7 +45,7 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
         Explore diverse career opportunities and industries where you can apply your skills and build a successful career.
       </p>
 
-      <div className="w-full min-h-[300px] bg-white rounded-lg border border-solid border-[#bebebe] overflow-hidden">
+      <div className="w-full min-h-[300px] rounded-lg border border-solid border-[#bebebe] overflow-hidden">
         {/* Tab Headers */}
         <div className="w-full p-4 border-b border-gray-200">
           <div className="flex items-center gap-8 relative">
@@ -71,14 +71,14 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
 
         {/* Content Area */}
         <div className="p-6">
-          {/* Two column layout like the image */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+          {/* Two column layout */}
+          <div className="grid grid-cols-2 gap-x-8 gap-y-4">
             {(activeTab === 'jobRoles' ? jobRoles : industries).map((item: string, index: number) => (
               <div 
                 key={index}
                 className="flex items-center py-3 border-b border-gray-100 last:border-b-0"
               >
-                <div className="font-normal text-[#333] text-[16px] tracking-[0] leading-[normal]">
+                <div className="font-normal text-[#333] text-[14px] tracking-[0] leading-[normal]">
                   {item}
                 </div>
               </div>

@@ -46,7 +46,7 @@ const EligibilityCriteria: React.FC<EligibilityCriteriaProps> = ({ course }) => 
       className="relative w-full bg-white px-4 py-8"
       data-model-id="483:1517"
     >
-      <div className="w-full font-semibold text-[#024B53] text-[28px] md:text-[48px] tracking-[0] leading-[32px] md:leading-[normal] mb-4">
+      <div className="w-full font-semibold text-[#024B53] text-[28px] md:text-[48px] tracking-[0] leading-[32px] md:leading-[normal] mb-3">
         Eligibility &amp; Criteria
       </div>
 
@@ -89,7 +89,7 @@ const EligibilityCriteria: React.FC<EligibilityCriteriaProps> = ({ course }) => 
       <div className="w-full space-y-6">
         {/* Educational Qualification */}
         {activeData?.educationalQualification && (
-          <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+          <div className="flex items-start gap-4 p-4  rounded-lg">
             <img
               className="w-8 h-8 md:w-10 md:h-10 flex-shrink-0"
               alt="Educational qualification"
@@ -108,7 +108,7 @@ const EligibilityCriteria: React.FC<EligibilityCriteriaProps> = ({ course }) => 
 
         {/* Grades */}
         {activeData?.grades && (
-          <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+          <div className="flex items-start gap-4 p-4  rounded-lg">
             <img
               className="w-8 h-8 md:w-10 md:h-10 flex-shrink-0"
               alt="Grades"
@@ -127,7 +127,7 @@ const EligibilityCriteria: React.FC<EligibilityCriteriaProps> = ({ course }) => 
 
         {/* Aptitude Test */}
         {activeData?.aptitudeTest && (
-          <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+          <div className="flex items-start gap-4 p-4  rounded-lg">
             <img
               className="w-8 h-8 md:w-10 md:h-10 flex-shrink-0"
               alt="Aptitude test"
@@ -146,7 +146,7 @@ const EligibilityCriteria: React.FC<EligibilityCriteriaProps> = ({ course }) => 
 
         {/* Work Experience or Other Requirements */}
         {(activeData?.workExperience || activeData?.otherRequirements) && (
-          <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+          <div className="flex items-start gap-4 p-4 rounded-lg">
             <img
               className="w-8 h-8 md:w-10 md:h-10 flex-shrink-0"
               alt="Additional requirements"

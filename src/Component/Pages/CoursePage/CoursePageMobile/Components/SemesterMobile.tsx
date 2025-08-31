@@ -38,16 +38,16 @@ export const Semester: React.FC<SemesterProps> = ({ course }) => {
 
   return (
     <main
-      className="relative w-full bg-white px-4 py-8"
+      className="relative w-full px-4 py-8"
       data-model-id="483:1998"
     >
-      <header className="mb-6">
-        <h1 className="[font-family:'Outfit',Helvetica] font-semibold text-[#024B53] text-[28px] md:text-5xl tracking-[0] leading-[32px] md:leading-[normal]">
+      <header className="mb-3">
+        <h1 className="text-[#024B53] text-[28px] font-[Outfit] font-[600] tracking-[0] leading-[normal]">
           Semester
         </h1>
       </header>
 
-      <section className="mb-8">
+      <section className="mb-6">
         <p className="[font-family:'Outfit',Helvetica] font-normal text-[#515150] text-[14px] md:text-xl tracking-[0] leading-[20px] md:leading-[normal]">
           Explore our comprehensive curriculum designed to equip you with essential skills and knowledge across multiple semesters.
         </p>
