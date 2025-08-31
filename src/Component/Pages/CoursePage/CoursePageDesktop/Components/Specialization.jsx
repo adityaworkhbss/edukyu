@@ -1,16 +1,16 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ImageIcon } from "lucide-react";
 import GridComponent from "@/GlobalComponent/GridComponent";
 
 const Specialization = ({ course }) => {
     // Extract course data safely - handle both direct and nested structures
     let courseData = {};
-    
+
     if (course) {
         // Check if course has direct properties
         if (course.specializations) {
             courseData = course;
-        } 
+        }
         // Check if course has nested structure like CoursePageData
         else {
             const firstKey = Object.keys(course)[0];
@@ -58,6 +58,10 @@ const Specialization = ({ course }) => {
         setTimeout(checkScrollAvailability, 350);
     };
 
+    // Small wrappers so button handlers can call them directly
+    const handlePrev = () => handleScroll('left');
+    const handleNext = () => handleScroll('right');
+
     // Get programs for the active tab
     const getActivePrograms = () => {
         return specializations.map((spec, index) => ({
@@ -101,11 +105,10 @@ const Specialization = ({ course }) => {
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
-                                className={`px-6 py-4 gap-[10px] text-[16px] font-medium font-[Outfit] transition-colors whitespace-nowrap flex-shrink-0 ${
-                                    activeTab === tab.id
+                                className={`px-6 py-4 gap-[10px] text-[16px] font-medium font-[Outfit] transition-colors whitespace-nowrap flex-shrink-0 ${activeTab === tab.id
                                         ? 'bg-white text-slate-800 border-b-2 border-teal-600'
                                         : 'text-slate-600'
-                                }`}
+                                    }`}
                             >
                                 {tab.label}
                             </button>
@@ -115,8 +118,8 @@ const Specialization = ({ course }) => {
                 </div>
 
                 <div className="relative max-w-full">
-                    <div 
-                        className="flex gap-6 overflow-x-auto scrollbar-hide pb-4" 
+                    <div
+                        className="flex gap-6 overflow-x-auto scrollbar-hide pb-4"
                         style={{ scrollBehavior: 'smooth' }}
                         onScroll={checkScrollAvailability}
                         ref={scrollContainerRef}
@@ -129,9 +132,9 @@ const Specialization = ({ course }) => {
                                     className="group hover:bg-[#CDCDCD] bg-program-card border border-[#CDCDCD] border-border rounded-[22px] shadow-sm min-w-0 flex-shrink-0 flex flex-col"
                                     style={{ width: 'calc((100% / 3.18)' }} // Shows 3.2 cards
                                 >
-                                
+
                                     <div className="flex flex-col flex-1">
-                                        <div className="bg-program-image rounded-t-lg h-[96px] p-4 flex items-center justify-center">
+                                        <div className="bg-program-image rounded-t-lg h-[110px] p-4 flex items-center justify-center">
                                             {/* Show image from specialization */}
                                             {program.image ? (
                                                 <img
@@ -154,12 +157,12 @@ const Specialization = ({ course }) => {
                                                 className="text-secondary rounded-[14px] opacity-60 bg-cover hidden"
                                             />
                                         </div>
-                                        
-                                        <div className="py-[16px] px-[16px] min-w-0 flex-1 flex flex-col">
+
+                                        <div className="py-[20px] px-[16px] min-w-0 flex-1 flex flex-col">
                                             <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium break-words min-h-[48px] flex items-start">
                                                 {program.title}
                                             </h3>
-                                            
+
                                             <div className="inline-flex items-center gap-[8px] pt-[22px] min-w-0">
                                                 {/* Clock icon */}
                                                 <svg
@@ -200,7 +203,7 @@ const Specialization = ({ course }) => {
                                         </div>
                                     </div>
 
-                                    <div className="pt-[0px] w-full pb-[16px]">
+                                    <div className="pt-[16px] w-full pb-[16px]">
                                         <div className="flex justify-center">
                                             <button
                                                 className="flex items-center justify-center border w-full mx-4 py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#024B53] bg-[#FFF]"
@@ -218,30 +221,34 @@ const Specialization = ({ course }) => {
                         )}
                     </div>
 
-                    
+
                     {/* Navigation Arrows - Left and Right Edges */}
                     {programs.length > 3 && (
                         <div className="flex justify-between items-center mt-4 px-0">
-                            <button 
-                                className={`p-3 hover:bg-gray-100 rounded-full transition-all ${
-                                    !canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
-                                }`}
-                                onClick={() => handleScroll('left')}
-                                disabled={!canScrollLeft}
+                            <button
+                                onClick={handlePrev}
+                                className="bg-white z-10 p-4 hover:shadow-md rounded"
+                                aria-label="Previous"
                             >
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                    <g clipPath="url(#clip0_228_602)">
+                                        <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#9B9B9B" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_228_602">
+                                            <rect width="32" height="32" fill="white" />
+                                        </clipPath>
+                                    </defs>
                                 </svg>
                             </button>
-                            <button 
-                                className={`p-3 hover:bg-gray-100 rounded-full transition-all pr-[40px] ${
-                                    !canScrollRight ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
-                                }`}
-                                onClick={() => handleScroll('right')}
-                                disabled={!canScrollRight}
+
+                            <button
+                                onClick={handleNext}
+                                className="bg-white z-10 p-4 hover:shadow-md rounded"
+                                aria-label="Next"
                             >
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                    <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53" />
                                 </svg>
                             </button>
                         </div>

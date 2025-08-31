@@ -61,7 +61,7 @@ export const BenefitsSection: React.FC<{ college?: College; course?: any }> = ({
 
     return (
         <section
-            className="w-full h-[738px] pt-[64px] bg-white mx-auto my-0 p-0 max-md:max-w-full max-md:h-auto max-md:p-5 max-sm:p-4 max-w-full overflow-hidden "
+            className="w-full h-full pt-[64px] bg-white mx-auto my-0 p-0 max-md:max-w-full max-md:h-auto max-md:p-5 max-sm:p-4 max-w-full overflow-hidden "
             aria-labelledby="benefits-heading"
         >
             <header className=''>

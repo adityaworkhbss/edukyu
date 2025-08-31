@@ -6,7 +6,19 @@ import { CoursePageData } from "@/Data Model/CoursePage/CoursePageData"; // use 
 
 const OurFaculty = () => {
     // Grab faculty from course data and split into groups of 4 for swipe "pages"
-    const faculty = CoursePageData?.[0]?.online_mba?.faculty || [];
+    // CoursePageData is an array where each item is an object keyed by university (e.g. { manipal_university: { online_mba: { ... } } })
+    // The previous direct access `CoursePageData[0].online_mba` is incorrect because the university key sits one level deeper.
+    const faculty = (() => {
+        if (!Array.isArray(CoursePageData)) return [];
+        for (const uniObj of CoursePageData) {
+            if (!uniObj || typeof uniObj !== 'object') continue;
+            for (const uniKey of Object.keys(uniObj)) {
+                const online = uniObj[uniKey]?.online_mba;
+                if (online && Array.isArray(online.faculty)) return online.faculty;
+            }
+        }
+        return [];
+    })();
     const groupedCompanies = [];
     for (let i = 0; i < faculty.length; i += 4) {
         groupedCompanies.push(faculty.slice(i, i + 4));
@@ -51,35 +63,43 @@ const OurFaculty = () => {
                     {groupedCompanies.map((group, groupIndex) => (
                         <div
                             key={groupIndex}
-                            className="flex-shrink-0 w-full max-w-[720px] grid grid-cols-2 gap-6 snap-start"
+                            className="flex-shrink-0 w-full max-w-[420px] grid grid-cols-2 gap-6 snap-start"
                         >
                             {group.map((alumni, idx) => (
                                 <div
                                     key={idx}
-                                    className="flex items-center gap-4 p-4 bg-white rounded-[16px] "
+                                    className="aspect-square rounded-[16px] overflow-hidden relative bg-[#D9D9D9] group"
                                 >
-                                    <div className="w-20 h-20 relative rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center bg-[#F3F3F3] text-[#024B53] font-semibold">
-                                        {alumni.image ? (
-                                            <img
-                                                src={`https://edukyu.com/${alumni.image}`}
-                                                alt={alumni.name}
-                                                width={80}
-                                                height={80}
-                                                className="object-cover"
-                                            />
-                                        ) : (
-                                            <div className="w-full h-full flex items-center justify-center text-lg">
-                                                {getInitials(alumni.name)}
+                                    {alumni.image ? (
+                                        <Image
+                                            src={`https://edukyu.com${alumni.image}`}
+                                            alt={alumni.name}
+                                            fill
+                                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                            unoptimized
+                                        />
+                                    ) : (
+                                        <div className="w-full h-full flex items-center justify-center text-2xl text-[#024B53] font-semibold bg-[#F3F3F3]">
+                                            {getInitials(alumni.name)}
+                                        </div>
+                                    )}
+
+                                    <div
+                                        className="absolute bottom-0 left-0 right-0 text-center bg-gradient-to-t from-black/80 to-transparent backdrop-blur-md py-2 hidden group-hover:block transition-transform duration-300"
+                                    >
+                                        <div className="text-white text-[18px] font-[Outfit] font-semibold leading-normal">
+                                            {alumni.name}
+                                        </div>
+                                        {alumni.position && (
+                                            <div className="text-white/80 text-[16px] font-[Outfit] font-normal leading-normal">
+                                                {alumni.position}
                                             </div>
                                         )}
-                                    </div>
-
-                                    <div className="flex-1 min-w-0">
-                                        <h3 className="text-[18px] font-semibold text-[#024B53] truncate">
-                                            {alumni.name}
-                                        </h3>
-                                        <p className="text-sm text-[#515150] mt-1 truncate">{alumni.position}</p>
-                                        <p className="text-[13px] text-[#6B6B6B] mt-1 truncate">{alumni.qualifications}</p>
+                                        {alumni.qualifications && (
+                                            <div className="text-white/80 text-[16px] font-[Outfit] font-normal leading-normal">
+                                                {alumni.qualifications}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             ))}
