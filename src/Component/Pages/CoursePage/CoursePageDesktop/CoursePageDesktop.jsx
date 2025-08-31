@@ -9,7 +9,7 @@ import { EligibilityCriteria } from "./Components/EligibilityCriterias";
 import { EligibilityCriteriaImage } from "./Components/EligibilityCriteria2";
 import AdmissionProcess from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/AdmissionProcess";
 import FeeTable from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/FeeTable";
-import Benefits, {BenefitsSection} from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/BenefitsSection";
+import Benefits, { BenefitsSection } from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/BenefitsSection";
 import CompareCollegesCTA from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/CompareCollegeCTA";
 import DegreeSection from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/DegreeSection";
 import ToolsCertificate from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/ToolsCertificate";
@@ -79,7 +79,7 @@ const CollegePageDesktop = ({ course, courseSecondry }) => {
                 {/* Sidebar */}
                 <div className="w-[calc((25%_-_12px))] flex-shrink-0 relative">
                     <div ref={sidebarRef} style={sidebarStyle}>
-                        <SidebarNavigation />
+                        <SidebarNavigation course={course} />
                     </div>
                 </div>
 
@@ -94,7 +94,7 @@ const CollegePageDesktop = ({ course, courseSecondry }) => {
                     <div id="specialization">
                         <Specialization course={course} />
                     </div>
-                     <div id="benefits">
+                    <div id="benefits">
                         <BenefitsSection course={course} />
                     </div>
                     <div id="semester">
@@ -116,7 +116,7 @@ const CollegePageDesktop = ({ course, courseSecondry }) => {
                     {/* <div id="fees">
                         <FeeTable collegeSecondry={collegeSecondry} />
                     </div> */}
-                   
+
                     <div className="pt-[64px]" id="compare">
                         <CompareCollegesCTA />
                     </div>
@@ -125,16 +125,16 @@ const CollegePageDesktop = ({ course, courseSecondry }) => {
                     </div>
 
                     <div id="tools">
-                        <ToolsCertificate course={course}/>
+                        <ToolsCertificate course={course} />
                     </div>
                     <div id="jobroles">
                         <JobRoles course={course} />
                     </div>
                     <div>
-                        <HiringPartnersSection/>
+                        <HiringPartnersSection />
                     </div>
                     <div>
-                        <CollegeMunchBanner/>
+                        <CollegeMunchBanner />
                     </div>
                     <div>
                         <FaqsSection course={course} />
