@@ -24,7 +24,7 @@ const CompareCollegesCTAMobile = () => {
                 <button
 
                     onClick={() =>{
-                        setCurrentPage('compare');
+                        setCurrentPage('compare-college');
                     }}
 
                     className="w-full  inline-flex items-center justify-center px-6 py-3 rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-[Outfit]">
