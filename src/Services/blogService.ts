@@ -18,8 +18,11 @@ export class BlogService {
         return await response.json();
     }
 
-    async fetchFullBlogPage(blogId: number) {
+    async fetchFullBlogPage(blogId: string) {
+        console.log(`Fetching blog page ${blogId}`);
         const response = await fetch(`${API_BASE_URL}/api/blogpage?blogId=${blogId}`);
+
+        console.log("Fetching blog page response", response);
         if (!response.ok) {
             throw new Error("Failed to fetch blog detail");
         }
@@ -29,6 +32,7 @@ export class BlogService {
             category: blog.category,
             descs: blog.descs,
             metatitle: blog.metatitle,
+            shortUrl: blog.shortUrl,
             imageurl: blog.imageurl,
             timestamp: blog.timestamp,
         };
@@ -56,6 +60,8 @@ export class BlogService {
         const url = `${API_BASE_URL}/api/topnavblogs`;
 
         const response = await fetch(url);
+
+        console.log("Fetching topnav blogs page :::::::::: ", response);
         if (!response.ok) {
             const errorText = await response.text();
             console.error("Server response:", errorText);

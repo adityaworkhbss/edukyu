@@ -1,9 +1,14 @@
+'use client';
+
 import React, { useState, useEffect } from "react";
 import { BlogCard } from "./Component/BlogCard";
 import { BlogService } from "@/Services/blogService";
 import BackButton from "@/GlobalComponent/BackButton";
 
 export const BlogsMain = ( { category }) => {
+
+    console.log("catergory ::::::::::: ", category);
+
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -96,6 +101,7 @@ export const BlogsMain = ( { category }) => {
                                 subtitle={blog.subtitle}
                                 description={blog.description}
                                 image={blog.image}
+                                shortUrl={blog.shortUrl}
                                 category={blog.category}
                                 readMoreUrl={blog.readMoreUrl}
                             />

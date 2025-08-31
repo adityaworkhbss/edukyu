@@ -49,6 +49,8 @@ export async function GET(req: NextRequest) {
 
         const [rows] = await connection.query<BlogRow[]>(blogQuery)
 
+        console.log("rest ret :::::: ", rows);
+
         await connection.end();
 
         // Format the blog data

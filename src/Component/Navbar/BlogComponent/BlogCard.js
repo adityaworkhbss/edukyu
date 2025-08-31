@@ -22,13 +22,13 @@ const BlogCard = ({ item }) => {
     const router = useRouter();
 
     const handleReadMore = (blogId) => {
-        router.push(`/blog/page/${blogId}`, undefined, { shallow: true });
+        router.push(`/blog/${blogId}`, undefined, { shallow: true });
     };
 
     return (
         <div
             className="h-[360px] flex flex-col rounded-[12px] bg-white transition-all duration-200 hover:bg-[rgba(179,207,210,0.5)] cursor-pointer"
-            onClick={() => handleReadMore(item.blogId)}
+            onClick={() => handleReadMore(item.shortUrl)}
         >
 
 

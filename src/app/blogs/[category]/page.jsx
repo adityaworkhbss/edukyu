@@ -1,11 +1,14 @@
-// app/blog/[blogId]/page.jsx
-
-"use client";
 import BlogPage from "@/Component/Pages/BlogsPage/BlogPage/BlogPage";
-import {BlogsMain} from "@/Component/Pages/BlogsPage/BlogsMain/BlogsMain";
+import { BlogsMain } from "@/Component/Pages/BlogsPage/BlogsMain/BlogsMain";
 
 export default function BlogDetailsPage({ params }) {
-    const { category } = params;
+    let { category } = params;
+
+    console.log(" caterogu :::::::::: ", category);
+
+    if (!category) {
+        category = "all";
+    }
 
     return <BlogsMain category={category} />;
 }

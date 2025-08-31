@@ -6,6 +6,7 @@ export const FeatureBlogCard = ({
                                     blogId,
                                     title,
                                     subtitle,
+                                    shorturl,
                                     description,
                                     image,
                                     category = "BLOG",
@@ -13,7 +14,7 @@ export const FeatureBlogCard = ({
     const router = useRouter();
 
     const handleReadMore = () => {
-        router.push(`/blog/page/${blogId}`, undefined, { shallow: true });
+        router.push(`/blog/${shorturl}`, undefined, { shallow: true });
     };
 
     const handleImageError = (e) => {
