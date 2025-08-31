@@ -242,7 +242,19 @@ export const CollegePageData = [{
                         "discounted": "88,500"
                     },
                     "description": "The Right Step to Gain Skills",
-                    "type": "UG",
+                    "type": "PG",
+                    "specializations": []
+                },
+                {
+                    "name": "Online MCA",
+                    "image": "https://niu.edu.in/wp-content/uploads/2023/08/a2.jpg",
+                    "duration": "2 years",
+                    "fees": {
+                        "original": "1,18,000",
+                        "discounted": "88,500"
+                    },
+                    "description": "The Right Step to Gain Skills",
+                    "type": "PG",
                     "specializations": []
                 },
                 {

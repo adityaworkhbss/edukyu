@@ -88,6 +88,19 @@ const Courses = ({ college }) => {
         setTimeout(checkScrollAvailability, 100);
     }, [programs]);
 
+    const collegeMap = {
+        "Noida International University": "noida_international_university",
+        "Manipal University Jaipur Online": "manipal_university",
+        "Amity University": "amity_university",
+        "NMIMS University Online (CDOE)": "nmims_university",
+        "Sikkim Manipal University": "sikkim_manipal_university"
+    }
+
+    const courseMap = {
+        "Online MBA": "online_mba",
+        "Online MCA": "online_mca"
+    }
+
     return (
         <section className="bg-background max-w-full overflow-hidden">
             <div className="max-w-full">
@@ -107,7 +120,7 @@ const Courses = ({ college }) => {
                             className={`px-6 py-4 gap-[10px] text-[16px] font-medium font-[Outfit] transition-colors whitespace-nowrap flex-shrink-0 ${activeTab === tab.id
                                 ? "bg-white text-slate-800 border-b-2 border-teal-600"
                                 : "text-slate-600"
-                            }`}
+                                }`}
                         >
                             {tab.label}
                         </button>
@@ -199,7 +212,7 @@ const Courses = ({ college }) => {
 
                                 <div className="pt-[10px] w-full pb-[16px]">
                                     <div className="flex justify-center">
-                                        <Link href={`/course/manipal_university/online_mba`} className="w-[calc(100%-40px)]">
+                                        <Link href={`/course/${collegeMap[college.university_info.name]}/${courseMap[program.title]}`} className="w-[calc(100%-40px)]">
                                         <button
                                             className="flex items-center justify-center border w-full py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#024B53] bg-[#FFF]"
                                             // Add your onClick or Link to course details here
@@ -210,8 +223,8 @@ const Courses = ({ college }) => {
                                         {/* <button
                                             className="flex items-center justify-center border w-full mx-4 py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#024B53] bg-[#FFF]"
                                             // Add your onClick or Link to course details here
-                                            onClick={() => console.log(courses[0].name, college.university_info.name
-)}
+                                            onClick={() => console.log(program.title, college.university_info.name
+                                            )}
                                         >
                                             Explore
                                         </button> */}
@@ -226,25 +239,23 @@ const Courses = ({ college }) => {
                     {programs.length > 3 && (
                         <div className="flex justify-between items-center mt-4 mb-[64px] px-0">
                             <button
-                                className={`p-3 hover:bg-gray-100 rounded-full transition-all ${
-                                    !canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
-                                }`}
+                                className={`p-3 hover:bg-gray-100 rounded-full transition-all ${!canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
+                                    }`}
                                 onClick={() => handleScroll('left')}
                                 disabled={!canScrollLeft}
                             >
                                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </button>
                             <button
-                                className={`p-3 hover:bg-gray-100 rounded-full transition-all pr-[40px] ${
-                                    !canScrollRight ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
-                                }`}
+                                className={`p-3 hover:bg-gray-100 rounded-full transition-all pr-[40px] ${!canScrollRight ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
+                                    }`}
                                 onClick={() => handleScroll('right')}
                                 disabled={!canScrollRight}
                             >
                                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </button>
                         </div>
