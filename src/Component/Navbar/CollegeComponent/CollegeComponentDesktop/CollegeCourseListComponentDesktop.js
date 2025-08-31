@@ -43,34 +43,6 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
     const universityData = universitiesData[university] || {};
     const { setCurrentPage, setSelectedCollege } = usePageContext();
 
-
-    // const universityKeyMap = {
-    //     'Amity': 'Amity-University',
-    //     'DPU':'DYP',
-    //     // 'DPU':'NUI',
-    //     // 'DPU':'VGU',
-    //     'Jain':'Jain_University',
-    //     'LPU' :'Lovely_Professional_University',
-    //     'Manipal':'Manipal_University',
-    //     'NMIMS':'NMIMS',
-    //     'Shardha':'Sikkim_Manipal_University',
-    //     'Shoolini':'Shoolini_University',
-    //     'UU':'UU',
-    //     'VGU':'VGU',
-    // };
-    // const universityKeyMap3 = {
-    //     'Amity University': 'Amity',
-    //     'Dr. DY Patil University': 'DYP',
-    //     'Jain University': 'Jain',
-    //     'Lovely Professional University': 'LPU',
-    //     'Manipal University': 'Manipal',
-    //     'NMIMS University': 'NMIMS',
-    //     'Shardha University': 'Shardha',
-    //     'Shoolini University': 'Shoolini',
-    //     'Uttaranchal University': 'UU',
-    //     'Vivekanand Global University': 'VGU',
-    // };
-
     const universityKeyMapCorrect = {
         "Amity":'Amity-University',
         "DYP":'D.Y.-Patil-Vidyapeeth',
@@ -92,27 +64,55 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
         { gridStart: 9, gridEnd: 11, lastUsedGridEnd: 8 },
     ];
 
-    const getBaseProgramName = (formattedName) => formattedName.split(' (')[0];
+    // Fixed: More robust function to extract base program name
+    const getBaseProgramName = (formattedName) => {
+        if (!formattedName) return '';
+        // Remove course count in parentheses: "MBA (5 Courses)" -> "MBA"
+        return formattedName.split(' (')[0].trim();
+    };
+
     const defaultCourseType = "MBA";
 
+    // Create formatted programs with course counts
     const formattedPrograms = Object.keys(universityData).map(program => {
-        const courseCount = Object.keys(universityData[program]).length;
+        const courseCount = Object.keys(universityData[program] || {}).length;
         return courseCount > 0 ? `${program} (${courseCount} Courses)` : program;
     });
 
+    // Fixed: Better initialization and dependency management
     useEffect(() => {
         if (formattedPrograms.length > 0) {
-            const defaultProgram =
-                formattedPrograms.find(p => getBaseProgramName(p).toLowerCase() === defaultCourseType.toLowerCase()) ||
-                formattedPrograms[0];
-            setSelectedProgram(defaultProgram);
+            // Try to find MBA first, otherwise use the first available program
+            const defaultProgram = formattedPrograms.find(p =>
+                getBaseProgramName(p).toLowerCase() === defaultCourseType.toLowerCase()
+            ) || formattedPrograms[0];
+
+            // Only update if different to avoid infinite loops
+            if (selectedProgram !== defaultProgram) {
+                setSelectedProgram(defaultProgram);
+            }
         }
-    }, [formattedPrograms, setSelectedProgram, university]);
+    }, [university, formattedPrograms.length]); // Removed selectedProgram and setSelectedProgram from dependencies
 
-    const handleSelect = (name) => setSelectedProgram(name);
+    // Fixed: Ensure we're working with the correct program name
+    const handleSelect = (programName) => {
+        console.log('Selecting program:', programName); // Debug log
+        setSelectedProgram(programName);
+    };
 
+    // Fixed: Better handling of selected courses
     const baseProgram = getBaseProgramName(selectedProgram);
-    const selectedCourses = universityData[baseProgram] ? Object.keys(universityData[baseProgram]) : [];
+    const selectedCourses = (universityData[baseProgram] && typeof universityData[baseProgram] === 'object')
+        ? Object.keys(universityData[baseProgram])
+        : [];
+
+    console.log('Current state:', { // Debug logs
+        university,
+        selectedProgram,
+        baseProgram,
+        availablePrograms: Object.keys(universityData),
+        selectedCoursesCount: selectedCourses.length
+    });
 
     const totalExpected = 30;
     const filledCourses = [...selectedCourses];
@@ -127,7 +127,7 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
 
     const handleCollegeLinkClick = () => {
         // Call the callback function to close navbar if provided
-        if (onCollegeNavigate) {
+        if (typeof onCollegeNavigate === 'function') {
             onCollegeNavigate();
         }
     };
@@ -147,15 +147,7 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
                             </div>
                             <Link
                                 className="text-[14px] text-left h-[18px] text-[#024B53] flex font-medium font-outfit not-italic leading-normal gap-[8px]"
-                                // onClick={() => {
-                                //     const mappedKey = universityKeyMap[university];
-                                //     console.log("university", university);
-                                //     console.log("mappedKey", mappedKey);
-                                //     setSelectedCollege(mappedKey);
-                                //     setCurrentPage('college');
-                                // }}
                                 href={`/college/${encodeURIComponent(universityKeyMapCorrect[university])}`}
-
                                 onClick={handleCollegeLinkClick}
                             >
                                 Explore College
@@ -178,23 +170,26 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
                         <div className="flex pt-8 pb-6">
                             <GridComponent lastUsedGridEnd={0} gridStart={1} gridEnd={2}>
                                 <div>
-                                    {formattedPrograms.map((program, index) => (
-                                        <button
-                                            key={index}
-                                            onClick={() => handleSelect(program)}
-                                            className={`w-full mb-1 h-[36px] -ml-2 text-left text-[12px] px-[8px] py-[12px] flex items-center gap-[8px] rounded-[8px] transition-colors duration-200
-                                                ${getBaseProgramName(selectedProgram) === getBaseProgramName(program)
-                                                ? 'bg-[#024B53] text-white font-medium border'
-                                                : 'bg-white text-[#333] hover:bg-[#B3CFD280]'}
-                                            `}
-                                        >
-                                            {program}
-                                        </button>
-                                    ))}
+                                    {formattedPrograms.map((program, index) => {
+                                        const isSelected = getBaseProgramName(selectedProgram) === getBaseProgramName(program);
+                                        return (
+                                            <button
+                                                key={index}
+                                                onClick={() => handleSelect(program)}
+                                                className={`w-full mb-1 h-[36px] -ml-2 text-left text-[12px] px-[8px] py-[12px] flex items-center gap-[8px] rounded-[8px] transition-colors duration-200
+                                                    ${isSelected
+                                                    ? 'bg-[#024B53] text-white font-medium border'
+                                                    : 'bg-white text-[#333] hover:bg-[#B3CFD280]'}
+                                                `}
+                                            >
+                                                {program}
+                                            </button>
+                                        );
+                                    })}
                                 </div>
                             </GridComponent>
 
-                            <div className="bg-[#679EA4] w-px h-auto ml-1 mr-3"></div>
+                            <div className="bg-[#679EA4] w-px h-auto ml-1 mr-2"></div>
 
                             {gridPositions.map(({ gridStart, gridEnd, lastUsedGridEnd }, columnIndex) => {
                                 const chunk = distributedChunks[columnIndex];
@@ -204,7 +199,9 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
                                         gridStart={gridStart}
                                         gridEnd={gridEnd}
                                         lastUsedGridEnd={lastUsedGridEnd}
-                                        className="flex flex-col gap-y-1 gap-x-6"
+                                        className={`flex flex-col gap-y-1 ${
+                                            gridStart === 6 || gridStart === 9 ? "ml-6" : ""
+                                        }`}
                                     >
                                         {chunk.map(({ course, idx }) => {
                                             if (course === null) {

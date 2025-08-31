@@ -65,7 +65,7 @@ export default function CollegeHeaderComponentDesktop() {
                     {colleges.map((university, index) => (
                         <div
                             key={index}
-                            className={`inline-flex px-6 py-3 justify-center items-center gap-3 bg-white rounded-sm cursor-pointer whitespace-nowrap flex-shrink-0
+                            className={`inline-flex px-6 py-3 justify-center items-center gap-3 bg-white  cursor-pointer whitespace-nowrap flex-shrink-0
                                 ${selectedUniversity === university ? 'border-b-2 border-[#024B53]' : ''}`}
                             onClick={handleToggle(university)}
                         >

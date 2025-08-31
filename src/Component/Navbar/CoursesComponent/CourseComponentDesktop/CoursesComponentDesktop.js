@@ -140,13 +140,16 @@ const CoursesComponentDesktop = () => {
                                     gridStart={gridStart}
                                     gridEnd={gridEnd}
                                     lastUsedGridEnd={lastUsedGridEnd}
-                                    className="flex flex-col gap-y-1 gap-x-6"
+                                    className={`flex flex-col gap-y-1 ${
+                                        gridStart === 6 || gridStart === 9 ? "ml-6" : ""
+                                    }`}
+
                                 >
                                     {chunk.map(({ course, idx }) =>
                                         course === null ? (
                                             <div
                                                 key={idx}
-                                                className="w-full h-[36px] rounded-[8px] bg-transparent invisible"
+                                                className="w-full h-[36px] rounded-[8px] bg-transparent invisible mr-6"
                                             />
                                         ) : (
                                             <CourseItems key={idx} course={course} />

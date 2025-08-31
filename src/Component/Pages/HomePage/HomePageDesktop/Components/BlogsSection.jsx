@@ -63,7 +63,7 @@ const BlogSection = () => {
                         <p className="text-red-500">{error}</p>
                     </div>
                 ) : blogs.length > 0 ? (
-                    <div className="">
+                    <div className="col-span-4 gap-x-6">
                         {/*{blogs.map((blog) => (*/}
                         {/*    <BlogCarousel*/}
                         {/*        blog*/}

@@ -35,7 +35,7 @@ const BlogsByCategories = () => {
 
     const handleCategoryClick = (category) => {
         const encoded = encodeURIComponent(category); // Encode spaces & special chars
-        router.push(`/blog/${encoded}`);
+        router.push(`/blogs/${encoded}`);
     };
 
     return (

@@ -144,7 +144,7 @@ const BlogComponentDesktop = () => {
                     Our top blogs, fresh out of minds...
                 </div>
                 <div className="inline-flex gap-[24px]">
-                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-[24px]">
+                    <div className="w-full grid grid-cols-1 lg:grid-cols-2 lg:grid-cols-2 lg:grid-cols-4 gap-[24px]">
                         {blogs.map((item, index) => (
                             <BlogCard key={index} item={item} />
                         ))}
