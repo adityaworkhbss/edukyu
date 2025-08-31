@@ -4,6 +4,7 @@ import GridContainer from '@/GlobalComponent/GridContainer';
 import GridComponent from '@/GlobalComponent/GridComponent';
 import {usePageContext} from "@/GlobalComponent/PageContext";
 import Link from "next/link";
+import GridComponentSec from "@/GlobalComponent/GridComponentSec";
 
 const CourseItems = ({ course }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -198,7 +199,7 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
                             {gridPositions.map(({ gridStart, gridEnd, lastUsedGridEnd }, columnIndex) => {
                                 const chunk = distributedChunks[columnIndex];
                                 return (
-                                    <GridComponent
+                                    <GridComponentSec
                                         key={columnIndex}
                                         gridStart={gridStart}
                                         gridEnd={gridEnd}
@@ -216,7 +217,7 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
                                             }
                                             return <CourseItems key={idx} course={course} />;
                                         })}
-                                    </GridComponent>
+                                    </GridComponentSec>
                                 );
                             })}
                         </div>

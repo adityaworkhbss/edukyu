@@ -6,6 +6,8 @@ import { DevEnvironment } from '@/DevEnvironment/DevEnviroment';
 import GridContainer from '@/GlobalComponent/GridContainer';
 import GridComponent from '@/GlobalComponent/GridComponent';
 import CourseItems from './CourseItems';
+import GridContainerSec from "@/GlobalComponent/GridContainerSec";
+import GridComponentSec from "@/GlobalComponent/GridComponentSec";
 
 const CoursesComponentDesktop = () => {
     const courseTypeFullForms = {
@@ -73,7 +75,8 @@ const CoursesComponentDesktop = () => {
     });
 
     return (
-        <GridContainer>
+        <GridContainerSec
+        >
             <div className="overflow-hidden rounded-b-xl w-full bg-[#FFF] px-14">
                 <div className="flex pt-6 border-gray-200">
                     <div className="text-[#383837] text-left pr-[40px] font-outfit text-[18px] font-medium leading-[20px] not-italic">
@@ -101,7 +104,7 @@ const CoursesComponentDesktop = () => {
                 </div>
 
                 <div className="flex pt-8 pb-6">
-                    <GridComponent
+                    <GridComponentSec
                         lastUsedGridEnd={0}
                         gridStart={1}
                         gridEnd={2}
@@ -124,7 +127,7 @@ const CoursesComponentDesktop = () => {
                                 </button>
                             ))}
                         </div>
-                    </GridComponent>
+                    </GridComponentSec>
 
                     <div className="bg-[#679EA4] w-px h-auto ml-3 mr-3"></div>
 
@@ -132,7 +135,7 @@ const CoursesComponentDesktop = () => {
                         ({ gridStart, gridEnd, lastUsedGridEnd }, columnIndex) => {
                             const chunk = distributedChunks[columnIndex];
                             return (
-                                <GridComponent
+                                <GridComponentSec
                                     key={columnIndex}
                                     gridStart={gridStart}
                                     gridEnd={gridEnd}
@@ -149,13 +152,13 @@ const CoursesComponentDesktop = () => {
                                             <CourseItems key={idx} course={course} />
                                         )
                                     )}
-                                </GridComponent>
+                                </GridComponentSec>
                             );
                         }
                     )}
                 </div>
             </div>
-        </GridContainer>
+        </GridContainerSec>
     );
 };
 

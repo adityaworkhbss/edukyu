@@ -6,20 +6,22 @@ import CompareCollegeImage from '../../../../public/Resources/Images/CompareColl
 import GridContainer from '@/GlobalComponent/GridContainer';
 import GridComponent from '@/GlobalComponent/GridComponent';
 import {usePageContext} from "@/GlobalComponent/PageContext";
+import GridContainerSec from "@/GlobalComponent/GridContainerSec";
+import GridComponentSec from "@/GlobalComponent/GridComponentSec";
 
 const CompareCollegeDesktop = ({ numGrids, gutter }) => {
     const { setCurrentPage } = usePageContext();
 
     return (
         <div className="w-full rounded-b-xl bg-white px-14 py-6">
-            <GridContainer
+            <GridContainerSec
                 numGrids={numGrids}
                 gutter={gutter}
                 gridHeight="auto"
                 showGrids={false}
             >
 
-                <GridComponent
+                <GridComponentSec
                     lastUsedGridEnd={0}
                     gridStart={1}
                     gridEnd={7}
@@ -42,10 +44,10 @@ const CompareCollegeDesktop = ({ numGrids, gutter }) => {
                             </button>
                         </div>
                     </div>
-                </GridComponent>
+                </GridComponentSec>
 
                 {/* Image Section - Grid 7 to 12 */}
-                <GridComponent
+                <GridComponentSec
                     lastUsedGridEnd={8}
                     gridStart={8}
                     gridEnd={12}
@@ -59,8 +61,8 @@ const CompareCollegeDesktop = ({ numGrids, gutter }) => {
                             placeholder="blur"
                         />
                     </div>
-                </GridComponent>
-            </GridContainer>
+                </GridComponentSec>
+            </GridContainerSec>
         </div>
     );
 };

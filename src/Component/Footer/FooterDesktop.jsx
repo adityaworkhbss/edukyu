@@ -3,8 +3,9 @@ import { Mail, Phone } from 'lucide-react';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { gridConfigs } from '@/libs/GridConfigs';
 import GridContainer from '@/GlobalComponent/GridContainer';
-import GridComponent from '@/GlobalComponent/GridComponent';
+import GridComponentSec from '@/GlobalComponent/GridComponentSec';
 import { usePageContext } from "@/GlobalComponent/PageContext";
+import GridContainerSec from "@/GlobalComponent/GridContainerSec";
 
 // Separate components for better organization
 const Logo = () => (
@@ -237,14 +238,14 @@ const FooterDesktop = () => {
     return (
         <footer className="bg-[#024B53] text-white rounded-b-xl">
             <div className={`${marginClass}`}>
-                <GridContainer
+                <GridContainerSec
                     numGrids={config.numGrids}
                     gutter={config.gutter}
                     gridHeight="auto"
                     showGrids={true}
                 >
                     {/* Logo and Company Description - Grid 1 to 3 */}
-                    <GridComponent
+                    <GridComponentSec
                         lastUsedGridEnd={0}
                         gridStart={1}
                         gridEnd={3}
@@ -269,15 +270,15 @@ const FooterDesktop = () => {
                                 <SocialIcons />
                             </div>
                         </div>
-                    </GridComponent>
+                    </GridComponentSec>
 
                     {/* Colleges Section - Grid 4 to 5 */}
-                    <GridComponent
+                    <GridComponentSec
                         lastUsedGridEnd={3}
                         gridStart={4}
                         gridEnd={5}
                         fromFooter={true}
-                        className="pt-[60px] text-left truncate line-clamp-1"
+                        className="pt-[60px] ml-6 text-left truncate line-clamp-1"
                     >
                         <FooterSection title="Colleges">
                             {colleges.map((college, index) => (
@@ -299,10 +300,10 @@ const FooterDesktop = () => {
                                 </div>
                             ))}
                         </FooterSection>
-                    </GridComponent>
+                    </GridComponentSec>
 
                     {/* Online Courses Section - Grid 6 to 7 */}
-                    <GridComponent
+                    <GridComponentSec
                         lastUsedGridEnd={5}
                         fromFooter={true}
                         gridStart={6}
@@ -316,15 +317,15 @@ const FooterDesktop = () => {
                                 </div>
                             ))}
                         </FooterSection>
-                    </GridComponent>
+                    </GridComponentSec>
 
                     {/* Quick Links Section - Grid 8 to 10 */}
-                    <GridComponent
+                    <GridComponentSec
                         lastUsedGridEnd={7}
                         gridStart={8}
                         gridEnd={9}
                         fromFooter={true}
-                        className="pt-[60px] ml-12"
+                        className="pt-[60px] ml-6"
                     >
                         <FooterSection title="Quick Links">
                             {quickLinks.map((link, index) => (
@@ -339,15 +340,15 @@ const FooterDesktop = () => {
                                 </div>
                             ))}
                         </FooterSection>
-                    </GridComponent>
+                    </GridComponentSec>
 
                     {/* Find us at Section - Grid 11 to 12 */}
-                    <GridComponent
+                    <GridComponentSec
                         lastUsedGridEnd={9}
                         gridStart={10}
                         gridEnd={11}
                         fromFooter={true}
-                        className="pt-[60px] "
+                        className="pt-[60px] ml-6"
                     >
                         <FooterSection title="Find us at">
                             {locations.map((location, index) => (
@@ -362,10 +363,10 @@ const FooterDesktop = () => {
                                 </div>
                             ))}
                         </FooterSection>
-                    </GridComponent>
-                </GridContainer>
+                    </GridComponentSec>
+                </GridContainerSec>
 
-                <GridContainer
+                <GridContainerSec
                     numGrids={config.numGrids}
                     gutter={config.gutter}
                     gridHeight="auto"
@@ -373,7 +374,7 @@ const FooterDesktop = () => {
                 >
 
                     {/*/!* Bottom Section - Full Width *!/*/}
-                    <GridComponent
+                    <GridComponentSec
                         lastUsedGridEnd={0}
                         gridStart={1}
                         gridEnd={12}
@@ -413,9 +414,9 @@ const FooterDesktop = () => {
                                 </div>
                             </div>
                         </div>
-                    </GridComponent>
+                    </GridComponentSec>
 
-                </GridContainer>
+                </GridContainerSec>
             </div>
         </footer>
     );

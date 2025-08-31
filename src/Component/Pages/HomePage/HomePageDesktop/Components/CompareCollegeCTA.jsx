@@ -6,6 +6,7 @@ import mainpage_cc_img3 from "@/../public/Resources/Images/mainpage_cc_img3.png"
 import mainpage_cc_img4 from "@/../public/Resources/Images/mainpage_cc_img4.jpg";
 import banner_hero_image from "../../../../../../public/Resources/Images/banner_hero_image.png";
 import {usePageContext} from "@/GlobalComponent/PageContext";
+import GridComponentSec from "@/GlobalComponent/GridComponentSec";
 
 const CompareCollegesCTA = () => {
     const { setCurrentPage } = usePageContext();
@@ -14,19 +15,19 @@ const CompareCollegesCTA = () => {
         <div className="w-full relative bg-[#FDBB06] rounded-[52px] px-[56px] flex flex-col md:flex-row items-center gap-8 group">
             {/* Text Section */}
             <div className="text-left flex-1">
-                <GridComponent gridStart={0} gridEnd={5}>
+                <GridComponent gridStart={0} gridEnd={6}>
                     <div className="text-[#024B53] pt-[40px] font-[Outfit] text-[36px] font-semibold leading-none">
                         Confused between colleges?
                     </div>
                 </GridComponent>
 
-                <GridComponent gridStart={0} gridEnd={5}>
+                <GridComponentSec gridStart={0} gridEnd={7}>
                     <div className="text-[#515150] font-[Outfit] text-[20px] pt-[16px] font-normal leading-none">
                         Compare the colleges that are on your mind, to see what all they
                         provide and choose the best that you like. Because we want the best
                         for you!
                     </div>
-                </GridComponent>
+                </GridComponentSec>
 
                 <button className="inline-flex mt-[32px] mb-[40px] items-center justify-center gap-[10px] px-4 py-3 rounded-[12px] bg-[#9B9B9B] group-hover:bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium leading-none"
                         onClick={() => setCurrentPage('compare')}

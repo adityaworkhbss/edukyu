@@ -31,7 +31,7 @@ const HomePageDesktop = () => {
 
             <AcademicConverter />
 
-            <div className="pl-[56px]">
+            <div className="pl-[56px] pr-[56px]">
                 <OurStudentPlaced />
             </div>
 

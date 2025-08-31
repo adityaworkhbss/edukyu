@@ -10,10 +10,10 @@ const HeroSection = () => {
 
     return (
         <>
-            <section className="relative pb-[64px]">
+            <section className="relative pl-1 overflow-hidden">
                 {/* Background SVG */}
                 <svg
-                    className="absolute inset-0 z-0 w-full h-full"
+                    className="absolute inset-0 z-0 w-full pb-[64px] h-[700px] overflow-hidden"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 1366 687"
                     preserveAspectRatio="none"
@@ -25,44 +25,46 @@ const HeroSection = () => {
                 </svg>
 
                 {/* Main content container */}
-                <div className="relative z-10 px-10  grid grid-cols-12 items-center">
+                <div className="relative z-10 grid grid-cols-12 items-center px-12 gap-x-6">
                     {/* Left Text Block */}
-                    <div className="col-span-12 md:col-span-6 lg:col-span-6 z-40">
-                        <h1 className="text-white font-[Outfit] text-[52px] font-semibold leading-[1.2]">
+                    <div className="col-span-12 md:col-span-6 lg:col-span-6 z-40 -pr-3 grid grid-cols-12">
+                        <h1 className="col-span-12 text-white font-[Outfit] text-[52px] font-semibold leading-[1.2]">
                             Lets Help Navigate Your Career & Expand Your Skillset
                         </h1>
-                        <p className="text-white font-[Outfit] text-[20px] font-normal mt-6">
-                            Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
-                        </p>
-                        <div className="flex gap-4 pt-12">
+
+                        <div className="col-span-12 md:col-span-10 lg:col-span-10">
+                            <p className="text-white font-[Outfit] text-[20px] font-normal mt-6">
+                                Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
+                            </p>
+                        </div>
+
+                        <div className="col-span-12 flex gap-4 pt-12">
                             <button
                                 onClick={() => setShowForm(true)}
-                                className="bg-white text-[#024B53] border border-white rounded-[12px] px-6 py-2 font-medium text-base hover:bg-white/90 transition-colors">
+                                className="bg-white text-[#024B53] border border-white rounded-[12px] px-6 py-2 font-medium text-base hover:bg-white/90 transition-colors"
+                            >
                                 Apply Now
                             </button>
-                            {/*<button className="bg-transparent text-white border border-white rounded-[12px] px-6 py-2 font-medium text-base hover:bg-white hover:text-[#024B53] transition-colors">*/}
-                            {/*    Explore More*/}
-                            {/*</button>*/}
                         </div>
                     </div>
 
-                    <div className="col-span-12 md:col-span-6 lg:col-span-6 relative w-full h-[500px] mt-10 md:mt-0">
-                        {/* Main Hero Image - slightly scaled up */}
+                    {/* Right Image Block */}
+                    <div className="col-span-12 md:col-span-6 lg:col-span-6 relative w-full h-[500px] mt-40 ">
+                        {/* Main Hero Image */}
                         <Image
                             src={banner_hero_image}
                             alt="banner_hero_image"
                             fill
-                            className="object-contain z-20 relative scale-[1.75] transform origin-center"
+                            className="object-contain z-20 -ml-28 mt-10 relative scale-[1] transform origin-center"
                         />
-                        {/* Background Image behind */}
+                        {/* Background Image */}
                         <Image
                             src={banner_image}
                             alt="banner_image"
                             fill
-                            className="absolute object-contain z-10 scale-[1.75]"
+                            className="absolute object-contain -ml-30 w-full z-10 mt-8 scale-[2]"
                         />
                     </div>
-
                 </div>
             </section>
 

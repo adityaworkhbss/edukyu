@@ -6,13 +6,14 @@ import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { gridConfigs } from "@/libs/GridConfigs";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import contact_us_nav_image from "@/../public/Resources/Images/contact_us_nav_img.jpg"
+import GridComponentSec from "@/GlobalComponent/GridComponentSec";
 
 const ContactUsComponentDesktop = () => {
     const breakpoint = useBreakpoint();
     const config = gridConfigs[breakpoint];
 
     return (
-        <GridComponent
+        <GridComponentSec
             numGrids={config.numGrids}
             gutter={config.gutter}
             gridHeight="auto"
@@ -20,7 +21,7 @@ const ContactUsComponentDesktop = () => {
         >
             <div className="bg-[#FFF] rounded-b-xl px-14 py-6 w-full ">
                 <div className="flex justify-between">
-                    <GridComponent
+                    <GridComponentSec
                         lastUsedGridEnd={0}
                         gridStart={1}
                         gridEnd={6}
@@ -208,10 +209,10 @@ const ContactUsComponentDesktop = () => {
                             {/*    </div>*/}
                             {/*</div>*/}
                         </div>
-                    </GridComponent>
+                    </GridComponentSec>
 
 
-                    <GridComponent
+                    <GridComponentSec
                         lastUsedGridEnd={6}
                         gridStart={8}
                         gridEnd={12}
@@ -251,10 +252,10 @@ const ContactUsComponentDesktop = () => {
                             </div>
 
                         </div>
-                    </GridComponent>
+                    </GridComponentSec>
                 </div>
             </div>
-        </GridComponent>
+        </GridComponentSec>
     );
 };
 

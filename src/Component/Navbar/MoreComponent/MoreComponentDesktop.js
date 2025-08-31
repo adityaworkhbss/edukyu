@@ -8,6 +8,8 @@ import moreImage2 from '../../../../public/Resources/Images/moreImage2.png';
 import moreImage3 from '../../../../public/Resources/Images/moreImage3.png';
 import GridContainer from '@/GlobalComponent/GridContainer';
 import GridComponent from '@/GlobalComponent/GridComponent';
+import GridContainerSec from "@/GlobalComponent/GridContainerSec";
+import GridComponentSec from "@/GlobalComponent/GridComponentSec";
 
 const cardData = [
     { image: moreImage1 },
@@ -17,7 +19,7 @@ const cardData = [
 
 const MoreComponentDesktop = () => {
     return (
-        <GridContainer>
+        <GridContainerSec>
             <div className="w-full rounded-b-xl bg-white px-14 py-6">
                 <p className="text-[22px] pb-8 text-left font-medium not-italic leading-normal text-[#383837] font-outfit mb-6">
                     Apart from colleges and courses, we have a lot more to offer you, please check all our services...
@@ -82,7 +84,7 @@ const MoreComponentDesktop = () => {
                     </div>
 
                     {/* Image Grid Section */}
-                    <GridComponent lastUsedGridEnd={1} gridStart={3} gridEnd={12}>
+                    <GridComponentSec lastUsedGridEnd={1} gridStart={3} gridEnd={12}>
                         <div className="flex gap-x-6 gap-y-5 flex-wrap h-full">
                             {cardData.map((card, idx) => (
                                 <div
@@ -98,10 +100,10 @@ const MoreComponentDesktop = () => {
                                 </div>
                             ))}
                         </div>
-                    </GridComponent>
+                    </GridComponentSec>
                 </div>
             </div>
-        </GridContainer>
+        </GridContainerSec>
     );
 };
 
