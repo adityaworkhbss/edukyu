@@ -21,7 +21,7 @@ const CompareCollegesCTA = () => {
                     </div>
                 </GridComponent>
 
-                <GridComponentSec gridStart={0} gridEnd={7}>
+                <GridComponentSec gridStart={0} gridEnd={5}>
                     <div className="text-[#515150] font-[Outfit] text-[20px] pt-[16px] font-normal leading-none">
                         Compare the colleges that are on your mind, to see what all they
                         provide and choose the best that you like. Because we want the best
