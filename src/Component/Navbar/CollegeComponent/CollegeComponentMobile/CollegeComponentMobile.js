@@ -84,7 +84,7 @@ const CoursesComponentMobile = ({ onClose, college, onSidebarClose }) => {
 
             {/* Explore College Button */}
             <Link 
-                href={`/college/${encodeURIComponent(universityKeyMapCorrect[collegeKey])}`}
+                href={`/online-mba-programs/top-distance-mba-colleges/${encodeURIComponent(universityKeyMapCorrect[collegeKey])}`}
                 className="flex gap-1 pt-4"
                 onClick={() => {
                     onClose(); // Close the college component

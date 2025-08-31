@@ -293,7 +293,7 @@ const FooterDesktop = () => {
                                         //     setSelectedCollege(mappedKey);
                                         //     setCurrentPage('college');
                                         // }}
-                                        href={`/college/${encodeURIComponent((mapping[college]))}`}
+                                        href={`/online-mba-programs/top-distance-mba-colleges/${encodeURIComponent((mapping[college]))}`}
                                     >
                                         {college}
                                     </NavLink>

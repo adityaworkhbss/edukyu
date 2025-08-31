@@ -157,7 +157,7 @@ export const PartnerUniversities = () => {
 
                                         <div className="pt-[22px]">
 
-                                            <Link href={`/college/${encodeURIComponent((univ.name).trim().replace(/\s+/g, '-'))}`}>
+                                            <Link href={`/online-mba-programs/top-distance-mba-colleges/${encodeURIComponent((univ.name).trim().replace(/\s+/g, '-'))}`}>
                                                 <button className="flex w-[32px] h-[32px] p-2 justify-center items-center flex-shrink-0 bg-[#CDCDCD] group-hover:bg-[#024B53] rounded"
                                                     // onClick={() => {
                                                     //     setSelectedCollege(univ.code);
