@@ -173,7 +173,7 @@ export default function TopNav() {
                     {activeTab === "college" && <CollegeHeaderComponentDesktop onNavbarClose={() => setActiveTab(null)} />}
                     {activeTab === "courses" && <CoursesComponentDesktop />}
                     {activeTab === "compare" && <CompareCollegeDesktop onNavbarClose={() => setActiveTab(null)} />}
-                    {activeTab === "search" && <SearchComponentDesktop />}
+                    {activeTab === "search" && <SearchComponentDesktop onNavbarClose={() => setActiveTab(null)} />}
                     {activeTab === "blog" && <BlogComponentDesktop />}
                     {activeTab === "more" && <MoreComponentDesktop />}
                     {activeTab === "contact" && <ContactUsComponentDesktop />}

@@ -146,69 +146,74 @@ export const PartnerUniversitiesMobile = () => {
                 style={{ scrollSnapType: 'x mandatory' }}
             >
                 {universities.map((uni, index) => (
-                    <article
+                    <Link
                         key={index}
-                        className="w-full flex-shrink-0 border overflow-hidden rounded-xl border-solid border-[#CDCDCD] scroll-snap-align-start flex flex-col"
+                        href={`/college/${encodeURIComponent((uni.name).trim().replace(/\s+/g, '-'))}`}
+                        className="flex-shrink-0 snap-center"
                     >
-                        <div className="p-6">
-                            <div className="bg-program-image rounded-lg h-[132px] w-full flex items-center justify-center overflow-hidden">
-                                <img
-                                    src={`https://edukyu.com/${uni.logoSrc}`}
-                                    alt={`${uni.name} logo`}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                        </div>
-                        <div className="w-full p-6 pt-0 flex flex-col flex-1">
-                            {/* Title section - fixed height */}
-                            <div className="text-[#024B53] font-[Outfit] text-[24px] font-medium leading-none mb-[26px]">
-                                {uni.name}
-                            </div>
-
-                            {/* Content section - grows to fill space */}
-                            <div className="flex flex-col justify-between flex-1">
-                                <div className="flex flex-col w-full text-sm text-[#515150] font-normal gap-4">
-                                    <div className="inline-flex gap-2 items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <g clipPath="url(#clip0_228_629)">
-                                                <path d="M18 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V4C20 2.9 19.1 2 18 2ZM9 4H11V9L10 8.25L9 9V4ZM18 20H6V4H7V13L10 10.75L13 13V4H18V20Z" fill="#383837" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_228_629">
-                                                    <rect width="24" height="24" fill="white" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                        <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
-                                            20+ Courses
-                                        </div>
-                                    </div>
-                                    <div className="inline-flex gap-2 items-center">
-                                        <div className="pl-[5px] text-[#323232] font-[Outfit] text-[26px] font-medium leading-[21px]">₹</div>
-                                        <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
-                                            Course Starting @ Rs 8,790/-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Certification icons section - always at bottom */}
-                                <div className="flex w-full items-center gap-2 self-stretch pt-[42px]">
-                                    {uni.certificationIcons.map((iconSrc, index) => (
-                                        <div
-                                            key={index}
-                                            className="flex w-10 h-10 p-[8px_2.508px_7.333px_2.508px] justify-center items-center bg-white rounded"
-                                        >
-                                            <img
-                                                src={iconSrc}
-                                                alt="Certification icon"
-                                                className="w-[40px] h-[40px] shrink-0 object-contain aspect-[1.62]"
-                                            />
-                                        </div>
-                                    ))}
+                        <article
+                            className="w-full flex-shrink-0 border overflow-hidden rounded-xl border-solid border-[#CDCDCD] scroll-snap-align-start flex flex-col"
+                        >
+                            <div className="p-6">
+                                <div className="bg-program-image rounded-lg h-[132px] w-full flex items-center justify-center overflow-hidden">
+                                    <img
+                                        src={`https://edukyu.com/${uni.logoSrc}`}
+                                        alt={`${uni.name} logo`}
+                                        className="w-full h-full object-cover"
+                                    />
                                 </div>
                             </div>
-                        </div>
-                    </article>
+                            <div className="w-full p-6 pt-0 flex flex-col flex-1">
+                                {/* Title section - fixed height */}
+                                <div className="text-[#024B53] font-[Outfit] text-[24px] font-medium leading-none mb-[26px]">
+                                    {uni.name}
+                                </div>
+
+                                {/* Content section - grows to fill space */}
+                                <div className="flex flex-col justify-between flex-1">
+                                    <div className="flex flex-col w-full text-sm text-[#515150] font-normal gap-4">
+                                        <div className="inline-flex gap-2 items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <g clipPath="url(#clip0_228_629)">
+                                                    <path d="M18 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V4C20 2.9 19.1 2 18 2ZM9 4H11V9L10 8.25L9 9V4ZM18 20H6V4H7V13L10 10.75L13 13V4H18V20Z" fill="#383837" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_228_629">
+                                                        <rect width="24" height="24" fill="white" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                            <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
+                                                20+ Courses
+                                            </div>
+                                        </div>
+                                        <div className="inline-flex gap-2 items-center">
+                                            <div className="pl-[5px] text-[#323232] font-[Outfit] text-[26px] font-medium leading-[21px]">₹</div>
+                                            <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
+                                                Course Starting @ Rs 8,790/-
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Certification icons section - always at bottom */}
+                                    <div className="flex w-full items-center gap-2 self-stretch pt-[42px]">
+                                        {uni.certificationIcons.map((iconSrc, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex w-10 h-10 p-[8px_2.508px_7.333px_2.508px] justify-center items-center bg-white rounded"
+                                            >
+                                                <img
+                                                    src={iconSrc}
+                                                    alt="Certification icon"
+                                                    className="w-[40px] h-[40px] shrink-0 object-contain aspect-[1.62]"
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </Link>
                 ))}
             </div>
 

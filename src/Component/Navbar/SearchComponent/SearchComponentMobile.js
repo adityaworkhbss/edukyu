@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { CollegePageSecondryData } from '@/Data Model/CollegePage/CollegePageSecondryData';
 import { usePageContext } from "@/GlobalComponent/PageContext";
+import Link from 'next/link';
 
 export default function SearchComponentMobile({ onClose }) {
     const [searchQuery, setSearchQuery] = useState('');
@@ -17,16 +18,52 @@ export default function SearchComponentMobile({ onClose }) {
     // universityKeyMap[amity-university-online]
 
     const universityKeyMap = {
-        'Amity University Online': 'Amity_University',
-        'D.Y. Patil University, Pune': 'DYP',
-        'Jain Online University': 'Jain_University',
-        'Lovely Professional University': 'Lovely_Professional_University',
-        'Manipal University Jaipur': 'Manipal_University',
-        'NMIMS CDOE': 'NMIMS',
-        'Shoolini University': 'Shoolini_University',
-        'Online UU': 'UU',
-        'Vivekanand Global University': 'VGU'
+        'Amity University Online': 'Amity-University',
+        'D.Y. Patil University, Pune': 'D.Y.-Patil-Vidyapeeth',
+        'Jain Online University': 'Jain-University',
+        'Lovely Professional University': 'Lovely-Professional-University',
+        'Manipal University Jaipur': 'Manipal-University-Jaipur',
+        'NMIMS CDOE': 'NMIMS-University-Online',
+        'Shoolini University': 'Shoolini-University',
+        'Online UU': 'Uttaranchal-University',
+        'Vivekanand Global University': 'Vivekanand-Global-University'
     };
+
+    const handleTrendingClick = (collegeName) => {
+        setSearchQuery(collegeName);
+        handleSuggestionClick(collegeName);
+    };
+
+    // Get college names from universityKeyMap for all colleges (5 total)
+    const collegeNames = Object.keys(universityKeyMap);
+
+    const allCollegesList = [
+        {
+            name: collegeNames[0], // Amity University Online
+            img: 'https://edukyu.com/college_image/Amity_University.png',
+            type: 'trending' // First 3 are trending
+        },
+        {
+            name: collegeNames[1], // D.Y. Patil University, Pune
+            img: 'https://edukyu.com/college_image/DYP.png',
+            type: 'trending'
+        },
+        {
+            name: collegeNames[2], // Jain Online University
+            img: 'https://edukyu.com/college_image/Jain_University.png',
+            type: 'trending'
+        },
+        {
+            name: collegeNames[3], // Lovely Professional University
+            img: 'https://edukyu.com/college_image/Lovely_Professional_University.png',
+            type: 'search' // Last 2 are search
+        },
+        {
+            name: collegeNames[4], // Manipal University Jaipur
+            img: 'https://edukyu.com/college_image/Manipal_University.png',
+            type: 'search'
+        }
+    ];
 
     const allColleges = Object.values(CollegePageSecondryData[0]).map(college => ({
         name: college.Colleges?.text || '',
@@ -61,21 +98,13 @@ export default function SearchComponentMobile({ onClose }) {
     const handleSuggestionClick = (collegeName) => {
         setSearchQuery(collegeName);
         setShowDropdown(false);
-
-        const matchedKey = Object.keys(universityKeyMap).find(
-            key => key.toLowerCase().trim() === collegeName.toLowerCase().trim()
-        );
-
-        if (matchedKey) {
-            setSelectedCollege(universityKeyMap[matchedKey]);
-            setCurrentPage('college'); // or 'compare' if needed
+        
+        // Close the mobile search overlay when a suggestion is clicked
+        if (onClose) {
+            onClose();
         }
-
+        
         console.log('Selected:', collegeName);
-    };
-
-    const handleTrendingClick = (search) => {
-        setSearchQuery(search);
     };
 
     const trendingSearches = [
@@ -97,7 +126,7 @@ export default function SearchComponentMobile({ onClose }) {
     ];
 
     return (
-        <div className="fixed h-full top-0 left-0 w-full bg-white shadow-lg z-50 flex flex-col overflow-y-auto">
+        <div className="fixed h-full top-0 left-0 w-full bg-white shadow-lg z-50 flex flex-col overflow-y-auto rounded-b-xl">
             {/* Header with back */}
             <div className="flex h-[58px] px-5 items-center shrink-0">
                 <div onClick={onClose} className="cursor-pointer">
@@ -143,14 +172,15 @@ export default function SearchComponentMobile({ onClose }) {
                     {showDropdown && (
                         <div className="absolute top-full left-0 mt-2 w-full bg-white shadow-lg rounded-lg border border-gray-200 max-h-60 overflow-y-auto z-50">
                             {suggestions.map((college, idx) => (
-                                <div
+                                <Link
                                     key={idx}
+                                    href={universityKeyMap.hasOwnProperty(college.name) ? `/college/${universityKeyMap[college.name]}` : '#'}
                                     onClick={() => handleSuggestionClick(college.name)}
                                     className="flex items-center gap-3 p-3 hover:bg-gray-100 cursor-pointer"
                                 >
                                     <img src={college.img} alt={college.name} className="w-8 h-8 rounded" />
                                     <span className="text-sm text-gray-700">{college.name}</span>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     )}
@@ -162,15 +192,40 @@ export default function SearchComponentMobile({ onClose }) {
                 <div className="text-[22px] pb-6 font-medium text-[#383837] font-outfit leading-none">
                     Top trending searches
                 </div>
-                <div className="flex flex-wrap gap-3 justify-start">
-                    {trendingSearches.map((search, index) => (
-                        <button
-                            key={index}
-                            onClick={() => handleTrendingClick(search)}
-                            className="inline-flex items-center gap-[8px] px-[8px] py-[12px] rounded-[8px] bg-transparent hover:bg-[rgba(179,207,210,0.5)] transition-all duration-200 text-[14px] font-normal text-[#024B53] font-outfit whitespace-nowrap"
-                        >
-                            {search}
-                        </button>
+                <div className="flex flex-col">
+                    {allCollegesList.map((college, index) => (
+                        <div key={index}>
+                            <Link
+                                href={universityKeyMap.hasOwnProperty(college.name) ? `/college/${universityKeyMap[college.name]}` : '#'}
+                                onClick={() => handleTrendingClick(college.name)}
+                                className="flex items-center gap-3 p-3 cursor-pointer transition-all duration-200"
+                            >
+                                <div className="w-8 h-8 rounded flex items-center justify-center">
+                                    {college.type === 'trending' ? (
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M16 6L18.29 8.29L13.41 13.17L9.41 9.17L2 16.59L3.41 18L9.41 12L13.41 16L19.71 9.71L22 12V6H16Z" fill="#024B53" />
+                                        </svg>
+                                    ) : (
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <g clipPath="url(#clip0_43_4046)">
+                                                <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" fill="#024B53" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_43_4046">
+                                                    <rect width="24" height="24" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    )}
+                                </div>
+                                <span className="text-[14px] font-normal text-[#024B53] font-outfit flex-1">
+                                    {college.name}
+                                </span>
+                            </Link>
+                            {index < allCollegesList.length - 1 && (
+                                <div className="h-[1px] w-full bg-[#CDCDCD] mx-3" />
+                            )}
+                        </div>
                     ))}
                 </div>
             </div>
