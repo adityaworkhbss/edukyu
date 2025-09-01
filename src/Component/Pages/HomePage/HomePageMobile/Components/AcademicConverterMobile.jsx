@@ -89,7 +89,7 @@ const AcademicConverterMobile = () => {
     };
 
     return (
-        <div className=" py-12 mt-8 flex flex-col">
+        <div className=" py-8 mt-8 flex flex-col">
             {/* Heading */}
             <div className="text-[28px] font-semibold text-[#024B53] font-[Outfit] leading-none mb-3">
                 Academic Converter Tools
@@ -102,7 +102,7 @@ const AcademicConverterMobile = () => {
 
 
             {/* Tabs */}
-            <div className="flex border-b border-[#E0E0E0] overflow-x-auto no-scrollbar mb-[42px]">
+            <div className="flex border-b border-[#E0E0E0] overflow-x-auto no-scrollbar mb-[48px]">
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
@@ -141,7 +141,7 @@ const AcademicConverterMobile = () => {
             </button>
 
             {convertedValue && (
-                <div className="mt-8">
+                <div className="mt-6">
                     <p className="text-[#024B53] font-[Outfit] text-[24px] font-medium leading-normal mb-5">{getOutputLabel()}</p>
                     <div className="inline-flex justify-between items-center w-full">
                         <p className="text-[#024B53] font-[Outfit] text-[52px] font-semibold leading-normal">
@@ -162,7 +162,7 @@ const AcademicConverterMobile = () => {
             )}
 
 
-            <div className="pt-[52px] w-full rounded-lg overflow-hidden">
+            <div className="pt-[52px] w-full rounded-[22px] overflow-hidden">
                 <Image
                     src={academic_converter}
                     alt="Academic Converter Graphic"

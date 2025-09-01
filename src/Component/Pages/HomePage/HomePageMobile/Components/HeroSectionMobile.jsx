@@ -9,7 +9,7 @@ const HeroSectionMobile = () => {
 
     return (
         <>
-            <section className="relative pt-[32px] mt-[12px] px-[20px] overflow-hidden text-left">
+            <section className="relative pt-[32px] mb-14 mt-[12px] px-[20px] text-left">
 
                 {/* Background SVG */}
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 498" fill="none" className="absolute top-0 left-0 z-0">
@@ -42,13 +42,13 @@ const HeroSectionMobile = () => {
                         src={banner_image}
                         alt="City Background"
                         fill
-                        className="absolute object-contain z-10 scale-[1.25]"
+                        className="absolute object-contain z-10 scale-[1.5]"
                     />
                     <Image
                         src={banner_hero_image}
                         alt="Students"
                         fill
-                        className="relative object-contain z-20 scale-[1.25]"
+                        className="relative object-contain z-20 scale-[1]"
                     />
                 </div>
             </section>

@@ -83,12 +83,19 @@ export default function TopNav() {
                                 <path d="M2 16V18H22V16H2ZM2 11V13H22V11H2ZM2 6V8H22V6H2Z" fill="#2B2B2A" />
                             </svg>
                         </div>
-
-                        <div className="flex items-center"
-                            onClick={() => setCurrentPage('home')}
+                        <Link href="/">
+                            <div className="flex items-center"
+                           // onClick={() => setCurrentPage('home')}
                         >
                             <Image src="/Resources/Images/Edukyu_Logo.png" alt="Edukyu" width={120} height={40} />
                         </div>
+                        </Link>
+
+                        {/* <div className="flex items-center"
+                            onClick={() => setCurrentPage('home')}
+                        >
+                            <Image src="/Resources/Images/Edukyu_Logo.png" alt="Edukyu" width={120} height={40} />
+                        </div> */}
 
                         <div className="pl-5" onClick={() => setShowMobileSearch(true)}>
                             {/* Search Icon */}
@@ -163,9 +170,9 @@ export default function TopNav() {
             {/* Dropdown content wrapper */}
             {activeTab && (
                 <div ref={dropdownRef} className="absolute rounded-b-xl top-16 left-0 w-full z-50">
-                    {activeTab === "college" && <CollegeHeaderComponentDesktop />}
+                    {activeTab === "college" && <CollegeHeaderComponentDesktop onNavbarClose={() => setActiveTab(null)} />}
                     {activeTab === "courses" && <CoursesComponentDesktop />}
-                    {activeTab === "compare" && <CompareCollegeDesktop />}
+                    {activeTab === "compare" && <CompareCollegeDesktop onNavbarClose={() => setActiveTab(null)} />}
                     {activeTab === "search" && <SearchComponentDesktop />}
                     {activeTab === "blog" && <BlogComponentDesktop />}
                     {activeTab === "more" && <MoreComponentDesktop />}

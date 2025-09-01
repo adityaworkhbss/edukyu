@@ -9,7 +9,7 @@ const CompareCollegesCTAMobile = () => {
     const { setCurrentPage } = usePageContext();
 
     return (
-        <div className="relative w-full rounded-[32px] h-[400px] p-5 overflow-hidden">
+        <div className="relative w-full rounded-[32px] h-[400px] mt-8 p-5 overflow-hidden">
             {/* Background */}
             <div className="absolute inset-0 top-0 h-[300px] rounded-[40px] bg-[#FDBB06] z-0" />
 
@@ -22,7 +22,7 @@ const CompareCollegesCTAMobile = () => {
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
                 <button
-                    onClick={() => setCurrentPage('compare')}
+                    onClick={() => setCurrentPage('compare-college')}
                     className="w-full mt-2 inline-flex items-center justify-center px-6 py-3 rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-[Outfit]">
                     Compare Colleges
                 </button>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { universitiesData } from '@/Data Model/UniversityData';
 import GridContainer from '@/GlobalComponent/GridContainer';
 import GridComponent from '@/GlobalComponent/GridComponent';
-import {usePageContext} from "@/GlobalComponent/PageContext";
+import { usePageContext } from "@/GlobalComponent/PageContext";
 import Link from "next/link";
 import GridComponentSec from "@/GlobalComponent/GridComponentSec";
 
@@ -39,23 +39,23 @@ const CourseItems = ({ course }) => {
     );
 };
 
-const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSelectedProgram }) => {
+const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSelectedProgram, onNavbarClose }) => {
     const universityData = universitiesData[university] || {};
     const { setCurrentPage, setSelectedCollege } = usePageContext();
 
     const universityKeyMapCorrect = {
-        "Amity":'Amity-University',
-        "DYP":'D.Y.-Patil-Vidyapeeth',
-        "Jain":'Jain-University',
-        "LPU":'Lovely-Professional-University',
-        "Manipal":'Manipal-University-Jaipur',
-        "NMIMS":'NMIMS-University-Online',
-        "Shardha":'Shardha-University',
-        "Shoolini":'Shoolini-University',
-        "UU":'Uttaranchal-University',
-        "VGU":'Vivekanand-Global-University',
-        "NIU":'Noida-International-University',
-        "Sikkim_Manipal_University":'Sikkim-Manipal-University'
+        "Amity": 'Amity-University',
+        "DYP": 'D.Y.-Patil-Vidyapeeth',
+        "Jain": 'Jain-University',
+        "LPU": 'Lovely-Professional-University',
+        "Manipal": 'Manipal-University-Jaipur',
+        "NMIMS": 'NMIMS-University-Online',
+        "Shardha": 'Shardha-University',
+        "Shoolini": 'Shoolini-University',
+        "UU": 'Uttaranchal-University',
+        "VGU": 'Vivekanand-Global-University',
+        "NIU": 'Noida-International-University',
+        "Sikkim_Manipal_University": 'Sikkim-Manipal-University'
     };
 
     const gridPositions = [
@@ -148,7 +148,11 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
                             <Link
                                 className="text-[14px] text-left h-[18px] text-[#024B53] flex font-medium font-outfit not-italic leading-normal gap-[8px]"
                                 href={`/college/${encodeURIComponent(universityKeyMapCorrect[university])}`}
-                                onClick={handleCollegeLinkClick}
+                                onClick={() => {
+                                    if (onNavbarClose) {
+                                        onNavbarClose(); // Close the navbar dropdown
+                                    }
+                                }}
                             >
                                 Explore College
                                 <svg
@@ -178,8 +182,8 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
                                                 onClick={() => handleSelect(program)}
                                                 className={`w-full mb-1 h-[36px] -ml-2 text-left text-[12px] px-[8px] py-[12px] flex items-center gap-[8px] rounded-[8px] transition-colors duration-200
                                                     ${isSelected
-                                                    ? 'bg-[#024B53] text-white font-medium border'
-                                                    : 'bg-white text-[#333] hover:bg-[#B3CFD280]'}
+                                                        ? 'bg-[#024B53] text-white font-medium border'
+                                                        : 'bg-white text-[#333] hover:bg-[#B3CFD280]'}
                                                 `}
                                             >
                                                 {program}
@@ -199,9 +203,8 @@ const CollegeCourseListComponentDesktop = ({ university, selectedProgram, setSel
                                         gridStart={gridStart}
                                         gridEnd={gridEnd}
                                         lastUsedGridEnd={lastUsedGridEnd}
-                                        className={`flex flex-col gap-y-1 ${
-                                            gridStart === 6 || gridStart === 9 ? "ml-6" : ""
-                                        }`}
+                                        className={`flex flex-col gap-y-1 ${gridStart === 6 || gridStart === 9 ? "ml-6" : ""
+                                            }`}
                                     >
                                         {chunk.map(({ course, idx }) => {
                                             if (course === null) {

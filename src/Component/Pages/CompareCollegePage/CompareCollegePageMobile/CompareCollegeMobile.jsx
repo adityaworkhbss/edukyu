@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import MobileCollegeHeader from './Components/MobileCollegeHeader';
 import MobileSearchBar from './Components/MobileSearchBar';

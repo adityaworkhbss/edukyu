@@ -25,12 +25,12 @@ const OurProudGraduates = () => {
     const infiniteTestimonials = [...testimonials, ...testimonials];
 
     return (
-        <section className="py-[64px] bg-background">
+        <section className="py-[32px] bg-background">
             <div className="mb-[32px]">
                 <h2 className="text-[#024B53] font-[Outfit] text-[28px] font-semibold leading-none">
                     Testimonials
                 </h2>
-                <p className="text-[#515150] font-[Outfit] text-[14px] font-normal leading-none pt-3 pb-[32px]">
+                <p className="text-[#515150] font-[Outfit] text-[14px] font-normal leading-none pt-3 ">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </p>
             </div>
@@ -40,7 +40,7 @@ const OurProudGraduates = () => {
                 className="flex gap-[17px]  overflow-x-auto scroll-smooth no-scrollbar"
             >
                 {infiniteTestimonials.map((t, i) => (
-                    <div key={`${t.name}-${i}`} className="flex-shrink-0 h-[651px] w-[320px]">
+                    <div key={`${t.name}-${i}`} className="flex-shrink-0 h-[651px] w-full">
                         <CareerSuccessCardMobile data={t} />
                     </div>
                 ))}
