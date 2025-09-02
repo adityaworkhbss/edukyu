@@ -62,7 +62,7 @@ const BlogContent = ({
     };
 
     return (
-        <article className="w-full bg-background shadow-blog rounded-lg overflow-hidden">
+        <article className="w-full rounded-lg overflow-hidden">
             {/* Hero Section */}
             <div className=" bg-hero-gradient flex items-center">
                 {imageurl && (
@@ -143,24 +143,7 @@ const BlogContent = ({
             {/* Blog Content */}
             <div className="py-[64px]">
                 <div
-                    className="
-    prose prose-lg max-w-none
-    prose-headings:text-teal-primary
-    prose-h1:text-3xl prose-h1:font-bold prose-h1:mb-6
-    prose-h2:text-2xl prose-h2:font-semibold prose-h2:mb-4 prose-h2:mt-8
-    prose-h3:text-xl prose-h3:font-semibold prose-h3:mb-3 prose-h3:mt-6
-
-    prose-a:text-teal-primary prose-a:no-underline hover:prose-a:underline
-    prose-strong:text-teal-secondary prose-strong:font-semibold
-    prose-ul:my-4 prose-ol:my-4
-    prose-li:text-foreground prose-li:mb-2
-    prose-img:rounded-lg prose-img:shadow-md prose-img:my-6
-    prose-blockquote:border-l-4 prose-blockquote:border-teal-primary
-    prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:bg-muted
-    prose-blockquote:py-2 prose-blockquote:rounded-r-md
-
-    prose-p:text-[18px]
-  "
+                    className="blog-content"
                     dangerouslySetInnerHTML={{ __html: html }}
                 />
 
