@@ -233,6 +233,7 @@ const BlogComponentMobile = ({ onClose }) => {
                     newMap.set(blog.metaKey, {
                         title: blog.subtitle,
                         id: blog.blogId,
+                        shortUrl: blog.shortUrl,
                     });
                 }
             });
@@ -260,7 +261,7 @@ const BlogComponentMobile = ({ onClose }) => {
             .filter(([_, val]) =>
                 val.title.toLowerCase().includes(value.toLowerCase())
             )
-            .map(([key, val]) => ({ key, title: val.title, id: val.id }));
+            .map(([key, val]) => ({ key, title: val.title, id: val.id , shortUrl: val.shortUrl }));
 
         setFilteredSuggestions(suggestions);
     };
@@ -273,7 +274,7 @@ const BlogComponentMobile = ({ onClose }) => {
     const handleSuggestionClick = (id) => {
         setFilteredSuggestions([]);
         setSearchQuery("");
-        router.push(`/blog/${shortDescBlogIdMap[id]}`, undefined, { shallow: true });
+        router.push(`/blog/${id}`, undefined, { shallow: true });
     };
 
     const formatDate = (dateString) => {
@@ -329,7 +330,7 @@ const BlogComponentMobile = ({ onClose }) => {
                             {filteredSuggestions.map((item, idx) => (
                                 <li
                                     key={idx}
-                                    onClick={() => handleSuggestionClick(item.id)}
+                                    onClick={() => handleSuggestionClick(item.shortUrl)}
                                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
                                 >
                                     {item.title}

@@ -37,7 +37,7 @@ const CollegeMunchBanner = () => {
                     src={collegeImg1}
                     alt="College Image 1"
                     height={152}
-                    className="rounded-[12px] object-cover w-1/2"
+                    className="rounded-[12px] object-cover w-1/2 aspect-[135/152]"
                 />
                 <Image
                     src={collegeImg2}

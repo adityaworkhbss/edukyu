@@ -171,17 +171,24 @@ export default function SearchComponentMobile({ onClose }) {
                     {/* Suggestions dropdown */}
                     {showDropdown && (
                         <div className="absolute top-full left-0 mt-2 w-full bg-white shadow-lg rounded-lg border border-gray-200 max-h-60 overflow-y-auto z-50">
-                            {suggestions.map((college, idx) => (
-                                <Link
-                                    key={idx}
-                                    href={universityKeyMap.hasOwnProperty(college.name) ? `/college/${universityKeyMap[college.name]}` : '#'}
-                                    onClick={() => handleSuggestionClick(college.name)}
-                                    className="flex items-center gap-3 p-3 hover:bg-gray-100 cursor-pointer"
-                                >
-                                    <img src={college.img} alt={college.name} className="w-8 h-8 rounded" />
-                                    <span className="text-sm text-gray-700">{college.name}</span>
-                                </Link>
-                            ))}
+                            {suggestions.map((college, idx) => {
+                                if (!universityKeyMap.hasOwnProperty(college.name)) {
+                                    return null; // skip rendering
+                                }
+
+                                return (
+                                    <Link
+                                        key={idx}
+                                        href={`/online-mba-programs/top-distance-mba-colleges/${universityKeyMap[college.name]}`}
+                                        onClick={() => handleSuggestionClick(college.name)}
+                                        className="flex items-center gap-3 p-3 hover:bg-gray-100 cursor-pointer"
+                                    >
+                                        <img src={college.img} alt={college.name} className="w-8 h-8 rounded" />
+                                        <span className="text-sm text-gray-700">{college.name}</span>
+                                    </Link>
+                                );
+                            })}
+
                         </div>
                     )}
                 </div>

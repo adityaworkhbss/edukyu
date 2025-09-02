@@ -31,7 +31,8 @@ const BlogComponentDesktop = () => {
                 if (blog.metaKey && blog.subtitle && blog.blogId) {
                     newMap.set(blog.metaKey, {
                         title: blog.subtitle,
-                        id: blog.blogId
+                        id: blog.blogId,
+                        shortUrl: blog.shortUrl,
                     });
                 }
             });
@@ -73,10 +74,13 @@ const BlogComponentDesktop = () => {
         setSearchQuery(value);
 
         const suggestions = Array.from(searchMetaMap.entries())
-            .filter(([_, val]) =>
-                val.title.toLowerCase().includes(value.toLowerCase())
-            )
-            .map(([key, val]) => ({ key, title: val.title, id: val.id }));
+            .filter(([_, val]) => {
+                const match = val.title.toLowerCase().includes(value.toLowerCase());
+                return match;
+            })
+            .map(([key, val]) => {
+                return { key, title: val.title, id: val.id, shortUrl: val.shortUrl };
+            });
 
         setFilteredSuggestions(suggestions);
     };
@@ -127,7 +131,7 @@ const BlogComponentDesktop = () => {
                         {filteredSuggestions.map((item, idx) => (
                             <li
                                 key={idx}
-                                onClick={() => handleSuggestionClick(item.id)}
+                                onClick={() => handleSuggestionClick(item.shortUrl)}
                                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
                             >
                                 {item.title}

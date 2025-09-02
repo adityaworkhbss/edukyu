@@ -67,7 +67,7 @@ const OurProudGraduates = () => {
                 style={{ scrollSnapType: 'x mandatory' }}
             >
                 {infiniteTestimonials.map((t, i) => (
-                    <div key={`${t.name}-${i}`} className="flex-shrink-0 h-[651px] w-full scroll-snap-align-start">
+                    <div key={`${t.name}-${i}`} className="flex-shrink-0 w-full scroll-snap-align-start">
                         <CareerSuccessCardMobile data={t} />
                     </div>
                 ))}
