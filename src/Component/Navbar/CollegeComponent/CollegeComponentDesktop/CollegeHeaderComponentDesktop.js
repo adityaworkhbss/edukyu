@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import CollegeCourseListComponentDesktop from './CollegeCourseListComponentDesktop';
 import { DevEnvironment } from '@/DevEnvironment/DevEnviroment';
 
-export default function CollegeHeaderComponentDesktop() {
+export default function CollegeHeaderComponentDesktop({ onNavbarClose }) {
     const defaultCollege = DevEnvironment.DEFAULT_COLLEGE;
     const [selectedUniversity, setSelectedUniversity] = useState(defaultCollege);
     const [selectedProgram, setSelectedProgram] = useState("MBA");
@@ -108,6 +108,7 @@ export default function CollegeHeaderComponentDesktop() {
                 university={universityKeyMap[selectedUniversity]}
                 selectedProgram={selectedProgram}
                 setSelectedProgram={setSelectedProgram}
+                onNavbarClose={onNavbarClose}
             />
         </div>
     );

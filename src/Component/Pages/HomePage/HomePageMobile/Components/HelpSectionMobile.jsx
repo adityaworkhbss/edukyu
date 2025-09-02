@@ -27,7 +27,7 @@ const HelpSectionMobile = () => {
                 </h2>
 
                 {/* Paragraph */}
-                <p className="text-[14px] text-[#515150] font-[400] font-[Outfit] mb-3 leading-normal">
+                <p className="text-[14px] text-[#515150] font-[400] font-[Outfit]leading-normal">
                     Let us know what all challenges you are facing, our dedicated team will get back to you with the resolution. Because we are always here to help you.{" "}
                     <span className="text-[#A38906]">#kyukibadhanjarurihai</span>
                 </p>
@@ -65,7 +65,7 @@ const HelpSectionMobile = () => {
                     {/* CTA Button */}
                     <button
                         onClick={() => setShowForm(true)}
-                        className="w-full mt-6 py-3 text-[14px] font-[500] text-white font-[Outfit] rounded-[12px] bg-[#024B53]">
+                        className="w-full mt-9 py-3 text-[14px] font-[500] text-white font-[Outfit] rounded-[12px] bg-[#024B53]">
                         Talk to an Expert
                     </button>
                 </div>

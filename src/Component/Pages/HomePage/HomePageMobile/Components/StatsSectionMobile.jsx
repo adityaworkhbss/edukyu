@@ -17,7 +17,7 @@ const StatsSectionMobile = () => {
                 </div>
 
 
-                <div className="py-[64px]">
+                <div className="pt-[64px]">
                     <div className="grid grid-cols-1 gap-8 text-center items-center">
                         {stats.map((stat, index) => (
                             <React.Fragment key={index}>
@@ -31,7 +31,7 @@ const StatsSectionMobile = () => {
                                 </div>
 
                                 {index < stats.length - 1 && (
-                                    <div className="h-px w-[127px] bg-white/50 mx-auto my-[24px]" />
+                                    <div className="h-px w-[127px] bg-white/50 mx-auto" />
                                 )}
                             </React.Fragment>
                         ))}

@@ -2,14 +2,15 @@ import Image from "next/image";
 import mainpage_cc_img1 from "@/../public/Resources/Images/mainpage_cc_img1.jpg";
 import mainpage_cc_img2 from "@/../public/Resources/Images/mainpage_cc_img2.jpg";
 import mainpage_cc_img3 from "@/../public/Resources/Images/mainpage_cc_img3.png";
-import {usePageContext} from "@/GlobalComponent/PageContext";
+import { usePageContext } from "@/GlobalComponent/PageContext";
+import Link from "next/link";
 
 const CompareCollegesCTAMobile = () => {
 
     const { setCurrentPage } = usePageContext();
 
     return (
-        <div className="relative w-full rounded-[32px] h-[400px] p-5 overflow-hidden">
+        <div className="relative w-full rounded-[32px] h-[400px] mt-8 p-5 overflow-hidden">
             {/* Background */}
             <div className="absolute inset-0 top-0 h-[300px] rounded-[40px] bg-[#FDBB06] z-0" />
 
@@ -21,11 +22,18 @@ const CompareCollegesCTAMobile = () => {
                 <div className="text-[#2B2B2A] font-[Outfit] text-[14px] font-normal leading-[22px] mb-4">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
-                <button
+                <Link href="/compare">
+                    <button
+                        //onClick={() => setCurrentPage('compare-college')}
+                        className="w-full mt-2 inline-flex items-center justify-center px-6 py-3 rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-[Outfit]">
+                        Compare Colleges
+                    </button>
+                </Link>
+                {/* <button
                     onClick={() => setCurrentPage('compare-college')}
                     className="w-full mt-2 inline-flex items-center justify-center px-6 py-3 rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-[Outfit]">
                     Compare Colleges
-                </button>
+                </button> */}
             </div>
 
             {/* College Images */}

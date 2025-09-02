@@ -10,6 +10,7 @@ import CollegeComponentMobileDropDown
     from "@/Component/Navbar/CollegeComponent/CollegeComponentMobile/CollegeComponentMobileDropDown";
 import CourseComponentMobileDropDown
     from "@/Component/Navbar/CoursesComponent/CourseComponentMobile/CourseComponentMobileDropDown";
+import CompareCollegeMobile from "../CompareCollegeComponent/CompareCollegeMobile";
 
 export default function MobileSidebar({ onClose }) {
     const [isCollegeOpen, setIsCollegeOpen] = useState(false);
@@ -17,6 +18,7 @@ export default function MobileSidebar({ onClose }) {
     const [isContactUsOpen, setIsContactUsOpen] = useState(false);
     const [isMoreOpen, setIsMoreOpen] = useState(false);
     const [isCoursesOpen, setIsCoursesOpen] = useState(false);
+    const [isCompareOpen, setIsCompareOpen] = useState(false);
 
     return (
         <div className="fixed top-0 left-0 w-full h-full bg-white shadow-lg z-50 flex flex-col overflow-y-auto">
@@ -65,8 +67,23 @@ export default function MobileSidebar({ onClose }) {
                 {isCoursesOpen && <CourseComponentMobileDropDown />}
 
                 {/* Compare */}
-                <div className="inline-flex justify-between">Compare</div>
+                <div className="inline-flex justify-between items-center">
+                    <span onClick={() => setIsCompareOpen(!isCompareOpen)}>Compare</span>
+                    <button onClick={() => setIsCompareOpen(!isCompareOpen)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                            <path d={isCompareOpen
+                                ? "M7.41 8.59L12 13.17L16.59 8.59L18 10L12 16L6 10L7.41 8.59Z"
+                                : "M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"}
+                                  fill="#025E68" />
+                        </svg>
+                    </button>
+                </div>
                 <div className="w-full h-[1px] bg-[#DBDBDB]" />
+                {isCompareOpen && (
+                    <div className="pl-[44px] pt-[16px] pb-[54px]">
+                        <CompareCollegeMobile onNavbarClose={onClose} onSidebarClose={onClose} />
+                    </div>
+                )}
 
                 {/* Blogs */}
                 <div className="inline-flex justify-between items-center">

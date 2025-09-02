@@ -43,7 +43,7 @@ const BlogRecommendations = ({ category }) => {
                 <img
                     src="https://edukyu.com/assets/img/cxp/blog/eligible-img.png"
                     alt="Category Banner"
-                    className="w-full object-cover shadow-md"
+                    className="w-full object-cover shadow-md rounded-[60px]"
                     loading="lazy"
                 />
             </div>

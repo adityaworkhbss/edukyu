@@ -1,6 +1,6 @@
-import {useRef, useState} from "react";
+import { useRef, useState } from "react";
 import CareerSuccessCardMobile from "@/Component/Pages/HomePage/HomePageMobile/Components/ui/CareerSuccessCardMobile";
-import {TestimonialData} from "@/Data Model/Homepage/TestimonialData";
+import { TestimonialData } from "@/Data Model/Homepage/TestimonialData";
 
 const OurProudGraduates = () => {
     const testimonials = TestimonialData.testimonials;
@@ -9,38 +9,65 @@ const OurProudGraduates = () => {
 
     const containerRef = useRef(null);
 
+    const measureStep = () => {
+        const container = containerRef.current;
+        if (!container) return null;
+        const first = container.querySelector('div.flex-shrink-0');
+        if (!first) return null;
+        const cardRect = first.getBoundingClientRect();
+        const style = window.getComputedStyle(container);
+        // modern browsers support gap on flex containers
+        const gap = parseFloat(style.gap) || parseFloat(style.columnGap) || 17;
+        return { step: Math.round(cardRect.width + gap), cardWidth: Math.round(cardRect.width), gap };
+    };
+
     const handlePrev = () => {
-        if (containerRef.current) {
-            containerRef.current.scrollBy({ left: -(320 + 17), behavior: "smooth" });
-        }
+        const container = containerRef.current;
+        if (!container) return;
+        const metrics = measureStep();
+        if (!metrics) { container.scrollBy({ left: -(320 + 17), behavior: 'smooth' }); return; }
+        const { step } = metrics;
+        const scrollLeft = Math.round(container.scrollLeft);
+        const currentIndex = Math.round(scrollLeft / step);
+        const prevIndex = Math.max(currentIndex - 1, 0);
+        const target = prevIndex * step;
+        container.scrollTo({ left: target, behavior: 'smooth' });
     };
 
     const handleNext = () => {
-        if (containerRef.current) {
-            containerRef.current.scrollBy({ left: 320 + 17, behavior: "smooth" });
-        }
+        const container = containerRef.current;
+        if (!container) return;
+        const metrics = measureStep();
+        if (!metrics) { container.scrollBy({ left: 320 + 17, behavior: 'smooth' }); return; }
+        const { step } = metrics;
+        const scrollLeft = Math.round(container.scrollLeft);
+        const currentIndex = Math.round(scrollLeft / step);
+        const nextIndex = Math.min(currentIndex + 1, infiniteTestimonials.length - 1);
+        const target = nextIndex * step;
+        container.scrollTo({ left: target, behavior: 'smooth' });
     };
 
     // Duplicate list for seamless looping
     const infiniteTestimonials = [...testimonials, ...testimonials];
 
     return (
-        <section className="py-[64px] bg-background">
+        <section className="py-[32px] bg-background">
             <div className="mb-[32px]">
                 <h2 className="text-[#024B53] font-[Outfit] text-[28px] font-semibold leading-none">
                     Testimonials
                 </h2>
-                <p className="text-[#515150] font-[Outfit] text-[14px] font-normal leading-none pt-3 pb-[32px]">
+                <p className="text-[#515150] font-[Outfit] text-[14px] font-normal leading-none pt-3 ">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </p>
             </div>
 
             <div
                 ref={containerRef}
-                className="flex gap-[17px]  overflow-x-auto scroll-smooth no-scrollbar"
+                className="flex gap-[17px] overflow-x-auto scroll-smooth no-scrollbar"
+                style={{ scrollSnapType: 'x mandatory' }}
             >
                 {infiniteTestimonials.map((t, i) => (
-                    <div key={`${t.name}-${i}`} className="flex-shrink-0 h-[651px] w-[320px]">
+                    <div key={`${t.name}-${i}`} className="flex-shrink-0 w-full scroll-snap-align-start">
                         <CareerSuccessCardMobile data={t} />
                     </div>
                 ))}

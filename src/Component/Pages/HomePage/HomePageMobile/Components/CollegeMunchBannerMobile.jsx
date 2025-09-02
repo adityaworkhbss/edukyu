@@ -6,7 +6,7 @@ import logoImg from "@/../public/Resources/Images/collegeMunchLogo.png";
 
 const CollegeMunchBanner = () => {
     return (
-        <div className="relative w-full my-8 pb-8 rounded-[32px] bg-[rgba(103,158,164,0.25)] px-5 flex flex-col ">
+        <div className="relative w-full my-8 mb-12 pb-8 rounded-[32px] bg-[rgba(103,158,164,0.25)] px-5 flex flex-col ">
             {/* Logo */}
             <div className="mb-[-5]">
                 <Image
@@ -19,14 +19,14 @@ const CollegeMunchBanner = () => {
             </div>
 
             {/* Title */}
-            <h2 className="text-center text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-4">
+            <h2 className="text-center text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-8">
                 Want to know in detail about colleges?
             </h2>
 
             {/* Button */}
             <button
                 onClick={() => window.open("https://collegemanch.com/", "_blank")}
-                className="rounded-[12px] bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium px-6 py-2 mb-4 hover:bg-[#00313f] transition"
+                className="rounded-[12px] bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium px-6 py-2 mb-8 hover:bg-[#00313f] transition"
             >
                 Explore College Manch
             </button>
@@ -37,7 +37,7 @@ const CollegeMunchBanner = () => {
                     src={collegeImg1}
                     alt="College Image 1"
                     height={152}
-                    className="rounded-[12px] object-cover w-1/2"
+                    className="rounded-[12px] object-cover w-1/2 aspect-[135/152]"
                 />
                 <Image
                     src={collegeImg2}

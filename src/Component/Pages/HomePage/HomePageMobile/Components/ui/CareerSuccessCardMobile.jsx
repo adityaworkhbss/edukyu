@@ -1,8 +1,15 @@
 import Image from "next/image";
 import testimonial_image from "../../../../../../../public/Resources/Images/testimonial_photo.png";
 import graduate from "../../../../../../../public/Resources/Images/GraduateBanner.png";
+import {useState} from "react";
 
 const CareerSuccessCardMobile = ({data}) => {
+    const [showFullText, setShowFullText] = useState(false);
+    const maxLength = 80; // limit before truncation
+
+    const toggleText = () => {
+        setShowFullText(!showFullText);
+    };
     return (
         <div className="bg-[#024B53] h-[670px] text-white rounded-[24px] p-6 flex flex-col gap-6 font-[Outfit]">
             {/* Top Section */}
@@ -106,10 +113,21 @@ const CareerSuccessCardMobile = ({data}) => {
                     “
                 </div>
 
-                {/* Testimonial text */}
-                <div className="pt-[40px] text-white text-center text-[14px] font-normal font-[Outfit]">
-                    {data.content}
+                <div className="pt-[40px] text-[14px] text-center font-normal relative z-10">
+                    {showFullText || data.content.length <= maxLength
+                        ? data.content
+                        : `${data.content.substring(0, maxLength)}...`}
                 </div>
+
+                {data.content.length > maxLength && (
+                    <button
+                        onClick={toggleText}
+                        className="mt-3 text-[#FFF] font-[Outfit] text-[16px] font-bold relative z-10"
+                    >
+                        {showFullText ? "View Less" : "View More"}
+                    </button>
+                )}
+
             </div>
         </div>
     );
