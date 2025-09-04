@@ -11,7 +11,7 @@ import GridContainerSec from "@/GlobalComponent/GridContainerSec";
 const Logo = () => (
     <div className="flex h-[66px]">
         <div className="flex py-[11px] pr-[48px]">
-            <img src="/Resources/Images/Edukyu_Logo.png" alt="logo" className="w-[141px] h-[44px]" />
+            <img src="/Resources/Images/edukyu-footer-logo.png" alt="logo" className="w-[141px] h-[44px]" />
         </div>
     </div>
 );
