@@ -87,11 +87,11 @@ const CollegePageDesktop = ({ college, collegeSecondry }) => {
                         </div>
                     )}
 
-                    {collegeSecondry?.Specialisation && Object.keys(collegeSecondry.Specialisation).length > 0 && (
+                    {/* {collegeSecondry?.Specialisation && Object.keys(collegeSecondry.Specialisation).length > 0 && (
                         <div id="specialization">
                             <Specialization data={collegeSecondry} />
                         </div>
-                    )}
+                    )} */}
 
                     {Array.isArray(college?.university_info?.admission_process) && college.university_info.admission_process.length > 0 && (
                         <div id="admission">

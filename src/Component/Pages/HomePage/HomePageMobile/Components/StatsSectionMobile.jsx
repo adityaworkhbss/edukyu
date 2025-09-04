@@ -2,10 +2,10 @@ import React from "react";
 
 const StatsSectionMobile = () => {
     const stats = [
-        { number: "197+", label: "Courses" },
-        { number: "9000+", label: "Alumni" },
-        { number: "10+", label: "Universities" },
-        { number: "8+", label: "years of Experience" }
+        { number: "197+", label: "UG/PG Courses" },
+        { number: "9000+", label: "Alumni Students" },
+        { number: "10+", label: "Alumni Universities" },
+        { number: "8+", label: "Years of Experience" }
     ];
 
     return (
@@ -21,8 +21,8 @@ const StatsSectionMobile = () => {
                     <div className="grid grid-cols-1 gap-8 text-center items-center">
                         {stats.map((stat, index) => (
                             <React.Fragment key={index}>
-                                <div className="space-y-[16px] col-span-1">
-                                    <div className="text-white text-center font-[Outfit] text-[56px] font-semibold leading-normal">
+                                <div className=" col-span-1">
+                                    <div className="text-white text-center font-[Outfit] text-[56px] font-semibold leading-normal mb-4">
                                         {stat.number}
                                     </div>
                                     <div className="text-white text-center font-[Outfit] text-[24px] font-normal leading-normal">

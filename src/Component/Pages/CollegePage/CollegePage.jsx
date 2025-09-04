@@ -4,7 +4,7 @@ import CollegePageMobile from "@/Component/Pages/CollegePage/CollegePageMobile/C
 import CollegePageDesktop from "@/Component/Pages/CollegePage/CollegePageDesktop/CollegePageDesktop";
 
 import {CollegePageSecondryData} from "@/Data Model/CollegePage/CollegePageSecondryData";
-import {CollegePageData} from "@/Data Model/CollegePage/CollegePageData"
+import CollegePageData from "@/Data Model/CollegePage/CollegePageData"
 
 const CollegePage = ({collegeName}) => {
     const breakpoint = useBreakpoint();

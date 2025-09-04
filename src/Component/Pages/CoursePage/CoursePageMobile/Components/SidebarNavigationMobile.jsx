@@ -6,7 +6,7 @@ const SidebarNavigationMobile = () => {
     const tabs = [
         { label: 'Ranking & Accreditations', id: 'ranking' },
         { label: 'Courses', id: 'courses' },
-        { label: 'Specialization', id: 'specialization' },
+        // { label: 'Specialization', id: 'specialization' },
         { label: 'Admission Process', id: 'admission' },
         { label: 'Fees', id: 'fees' },
         { label: 'Benefits', id: 'benefits' },

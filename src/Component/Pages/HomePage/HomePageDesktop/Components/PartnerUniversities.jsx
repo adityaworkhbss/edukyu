@@ -5,6 +5,7 @@ import { PartnerUniversitiesData } from '@/Data Model/Homepage/PartnerUniversiti
 import { ImageIcon } from "lucide-react";
 import { usePageContext } from "@/GlobalComponent/PageContext";
 import Link from "next/link";
+import CollegePageData from "@/Data Model/CollegePage/CollegePageData";
 
 export const PartnerUniversities = () => {
     const universities = PartnerUniversitiesData.universities.map((univ, index) => {
@@ -24,6 +25,13 @@ export const PartnerUniversities = () => {
             hasGrayBackground: index % 2 === 1
         };
     });
+
+      // Function to get logo from CollegePageData
+    const getCollegeLogo = (universityCode) => {
+        const collegeData = CollegePageData[0][universityCode];
+        console.log(collegeData.university_info.logo)
+        return collegeData.university_info.logo;
+    };
 
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -95,15 +103,15 @@ export const PartnerUniversities = () => {
 
                             <div
                                 key={`${univ.id}-${idx}`}
-                                className="group flex-shrink-0 bg-white p-4 pb-[16px] rounded-[22px] border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col hover:bg-[#9B9B9B]"
+                                className="group flex-shrink-0 bg-white p-4 pb-[16px] rounded-[22px] border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col hover:bg-[#CDCDCD]"
                                 style={{ width: `${cardWidth}px` }}
                             >
                                 {/* Logo Area */}
                                 <div className={` h-[96px] flex items-center justify-center ${univ.hasGrayBackground ? 'bg-gray-300' : 'bg-white'}`}>
                                     {univ.logoUrl ? (
                                         <img
-                                            // `https://edukyu.com/public/${univ.image}`
                                             src={`https://edukyu.com/${univ.logoUrl}`}
+                                            // src={getCollegeLogo(univ.code)}
                                             alt={univ.title}
                                             className="w-full h-full object-cover"
                                         />
@@ -158,7 +166,7 @@ export const PartnerUniversities = () => {
                                         <div className="pt-[22px]">
 
                                             <Link href={`/online-mba-programs/top-distance-mba-colleges/${encodeURIComponent((univ.name).trim().replace(/\s+/g, '-'))}`}>
-                                                <button className="flex w-[32px] h-[32px] p-2 justify-center items-center flex-shrink-0 bg-[#CDCDCD] group-hover:bg-[#024B53] rounded"
+                                                <button className="flex w-[32px] h-[32px] p-2 justify-center items-center flex-shrink-0 bg-[#024B53] rounded"
                                                     // onClick={() => {
                                                     //     setSelectedCollege(univ.code);
                                                     //     //console.log(univ.name)

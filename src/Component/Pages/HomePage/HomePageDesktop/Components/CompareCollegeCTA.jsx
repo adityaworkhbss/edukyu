@@ -7,6 +7,7 @@ import mainpage_cc_img4 from "@/../public/Resources/Images/mainpage_cc_img4.jpg"
 import banner_hero_image from "../../../../../../public/Resources/Images/banner_hero_image.png";
 import {usePageContext} from "@/GlobalComponent/PageContext";
 import GridComponentSec from "@/GlobalComponent/GridComponentSec";
+import Link from "next/link";
 
 const CompareCollegesCTA = () => {
     const { setCurrentPage } = usePageContext();
@@ -28,12 +29,17 @@ const CompareCollegesCTA = () => {
                         for you!
                     </div>
                 </GridComponentSec>
+                <Link href="/compare">
+                    <button className="inline-flex mt-[32px] mb-[40px] items-center justify-center gap-[10px] px-4 py-3 rounded-[12px] bg-[#9B9B9B] group-hover:bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium leading-none cursor-pointer">
+                        Compare Colleges
+                    </button>
+                </Link>
 
-                <button className="inline-flex mt-[32px] mb-[40px] items-center justify-center gap-[10px] px-4 py-3 rounded-[12px] bg-[#9B9B9B] group-hover:bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium leading-none"
+                {/* <button className="inline-flex mt-[32px] mb-[40px] items-center justify-center gap-[10px] px-4 py-3 rounded-[12px] bg-[#9B9B9B] group-hover:bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium leading-none cursor-pointer"
                         onClick={() => setCurrentPage('compare-college')}
                 >
                     Compare Colleges
-                </button>
+                </button> */}
 
             </div>
 

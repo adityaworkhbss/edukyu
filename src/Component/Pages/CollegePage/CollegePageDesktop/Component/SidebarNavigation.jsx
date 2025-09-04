@@ -10,7 +10,7 @@ const SidebarNavigation = ({ college = {}, collegeSecondry = {} }) => {
         return {
             ranking: Array.isArray(ui.accreditations) && ui.accreditations.length > 0,
             courses: Array.isArray(ui.courses) && ui.courses.length > 0,
-            specialization: Boolean(collegeSecondry?.Specialisation && Object.keys(collegeSecondry.Specialisation).length > 0),
+            // specialization: Boolean(collegeSecondry?.Specialisation && Object.keys(collegeSecondry.Specialisation).length > 0),
             admission: Array.isArray(ui.admission_process) && ui.admission_process.length > 0,
             fees: Boolean((collegeSecondry && (collegeSecondry.Programs || collegeSecondry["Detail Fees"]))),
             benefits: Boolean((ui.benefits && ui.benefits.length > 0) || (ui.placement && ui.placement.benefits && ui.placement.benefits.length > 0)),

@@ -1,4 +1,4 @@
-export const CollegePageData = [{
+const CollegePageData = [{
     "DYP": {
         "database": {
             "host": "localhost",
@@ -1389,7 +1389,7 @@ export const CollegePageData = [{
         },
         "university_info": {
             "name": "Lovely Professional University Online",
-            "logo": "assets/cxp-assets/imgs/new-banner/lpu.png",
+            "logo": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/lpu.png",
             "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/lpu-banner.jpg",
             "accreditations": [
                 {
@@ -1602,7 +1602,7 @@ export const CollegePageData = [{
         },
         "university_info": {
             "name": "Shoolini University Online",
-            "logo": "assets/cxp-assets/imgs/new-banner/shoolini.png",
+            "logo": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/shoolini.png",
             "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/shoolini-banner.png",
             "accreditations": [
                 {
@@ -1893,7 +1893,7 @@ export const CollegePageData = [{
         },
         "university_info": {
             "name": "Amity University Online",
-            "logo": "assets/cxp-assets/imgs/new-banner/amity.png",
+            "logo": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/amity.png",
             "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/new-banner/amity-banner.jpg",
             "accreditations": [
                 {
@@ -2153,7 +2153,7 @@ export const CollegePageData = [{
         },
         "university_info": {
             "name": "Sikkim Manipal University",
-            "logo": "assets/cxp-assets/imgs/collage/sikkim-university/sikkim-card-logo.jpg",
+            "logo": "https://edukyu.com/assets/cxp-assets/imgs/collage/sikkim-university/sikkim-card-logo.jpg",
             "banner_image": "https://edukyu.com/assets/cxp-assets/imgs/collage/sikkim-university/sikkim.jpg",
             "accreditations": [
                 {
@@ -2342,3 +2342,5 @@ export const CollegePageData = [{
         }
     }
 }]
+
+export default CollegePageData;

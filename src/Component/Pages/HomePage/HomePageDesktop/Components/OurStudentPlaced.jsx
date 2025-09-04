@@ -35,7 +35,7 @@ const OurStudentPlaced = () => {
                             src={alumni.image}
                             alt={alumni.name}
                             fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            className="object-cover"
                         />
                         {alumni.name && (
                             <div className="absolute bottom-0 left-0 right-0 text-center bg-gradient-to-t from-black/80 to-transparent backdrop-blur-md py-2 hidden group-hover:block transition-transform duration-300">

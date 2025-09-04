@@ -39,9 +39,9 @@ const CoursePageMobile = ({ course, collegeSecondry }) => {
                     {/* <div id="courses">
                         <CoursesMobile course={course} />
                     </div> */}
-                    <div id="specialization">
+                    {/* <div id="specialization">
                         <SpecializationMobile course={course} />
-                    </div>
+                    </div> */}
                       <div id="benefits">
                         <BenefitsSectionMobile course={course} />
                     </div>

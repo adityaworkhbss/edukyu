@@ -79,9 +79,9 @@ const CollegePageMobile = ({ college, collegeSecondry }) => {
                 <div id="courses">
                     <CoursesMobile college={college} />
                 </div>
-                <div id="specialization">
+                {/* <div id="specialization">
                     <SpecializationMobile data={collegeSecondry}/>
-                </div>
+                </div> */}
                 <div id="admission">
                     <AdmissionProcessMobile college={college} />
                 </div>

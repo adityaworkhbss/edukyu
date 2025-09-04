@@ -299,7 +299,7 @@ const BlogComponentMobile = ({ onClose }) => {
                         <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="#2B2B2A" />
                     </svg>
                 </div>
-                <div className="flex flex-col w-full px-4 mt-4 pb-4 relative">
+                <div className="flex flex-col w-full px-4  relative">
                     <form
                         className="flex items-center justify-between  w-full"
                         onSubmit={handleSearch}>
@@ -326,17 +326,41 @@ const BlogComponentMobile = ({ onClose }) => {
                     </form>
 
                     {searchQuery.length > 0 && filteredSuggestions.length > 0 && (
-                        <ul className="absolute top-[48px] w-full bg-white shadow-lg rounded-lg mt-1 max-h-60 overflow-y-auto z-10">
+                        <div className="fixed top-[50px] left-0 right-0 bg-white shadow-lg rounded-b-lg border border-gray-200 max-h-60 overflow-y-auto z-50 mx-5">
                             {filteredSuggestions.map((item, idx) => (
-                                <li
-                                    key={idx}
-                                    onClick={() => handleSuggestionClick(item.shortUrl)}
-                                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                                >
-                                    {item.title}
-                                </li>
+                                <div key={idx}>
+                                    <div
+                                        onClick={() => handleSuggestionClick(item.shortUrl)}
+                                        className="flex items-center gap-3 p-3 cursor-pointer transition-all duration-200 hover:bg-gray-50"
+                                    >
+                                        <div className="w-8 h-8 rounded flex items-center justify-center">
+                                            {idx === 0 ? (
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M16 6L18.29 8.29L13.41 13.17L9.41 9.17L2 16.59L3.41 18L9.41 12L13.41 16L19.71 9.71L22 12V6H16Z" fill="#024B53" />
+                                                </svg>
+                                            ) : (
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                    <g clipPath="url(#clip0_43_4046)">
+                                                        <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" fill="#024B53" />
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_43_4046">
+                                                            <rect width="24" height="24" fill="white" />
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            )}
+                                        </div>
+                                        <span className="text-[14px] font-normal text-[#024B53] font-outfit flex-1">
+                                            {item.title}
+                                        </span>
+                                    </div>
+                                    {idx < filteredSuggestions.length - 1 && (
+                                        <div className="h-[1px] w-full bg-[#CDCDCD] mx-3" />
+                                    )}
+                                </div>
                             ))}
-                        </ul>
+                        </div>
                     )}
                 </div>
             </div>
