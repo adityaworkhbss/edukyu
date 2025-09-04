@@ -38,12 +38,12 @@ const BlogRecommendations = ({ category }) => {
 
 
     return (
-        <section className="mt-10 bg-gray-50 p-6 rounded-xl shadow-sm">
+        <section className="mt-10">
             <div className="mb-4">
                 <img
                     src="https://edukyu.com/assets/img/cxp/blog/eligible-img.png"
                     alt="Category Banner"
-                    className="w-full object-cover shadow-md"
+                    className="w-full object-cover shadow-md rounded-[60px]"
                     loading="lazy"
                 />
             </div>

@@ -227,22 +227,23 @@ export async function GET(req: NextRequest) {
 
     try {
         const connection = await mysql.createConnection({
-            // host: 'localhost',
-            // user: 'root',
-            // password: 'root',
-            // database: 'blogdb',
             host: 'localhost',
-            port: 3306,
             user: 'root',
-            password: 'password',
-            database: 'EDUKYU',
+            password: 'root',
+            database: 'blogdb',
+            // host: 'localhost',
+            // port: 3306,
+            // user: 'root',
+            // password: 'password',
+            // database: 'EDUKYU',
         });
 
         const [rows] = await connection.query<BlogContentRow[]>(
-            `SELECT userid, category, descs, shortUrl, metaTitle, imageUrl, timeStamp  FROM blog WHERE blogId = ?`,
+            `SELECT userid, name, category, descs, shortUrl, metaTitle, imageUrl, timeStamp  FROM blog WHERE blogId = ?`,
             [blogId]
         );
 
+        // console.log("selected row ::::::::::::: ", rows);
 
         await connection.end();
 
@@ -256,6 +257,7 @@ export async function GET(req: NextRequest) {
             category: rows[0].category,
             descs: rows[0].descs,
             metatitle: rows[0].metaTitle,
+            title: rows[0].name,
             shortDesc: rows[0].shortDesc,
             shortUrl: rows[0].shortUrl,
             imageurl: rows[0].imageUrl,

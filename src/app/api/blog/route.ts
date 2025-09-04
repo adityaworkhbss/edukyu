@@ -26,15 +26,15 @@ export async function GET(req: NextRequest) {
 
     try {
         const connection = await mysql.createConnection({
-            host: 'localhost',
-            port: 3306,
-            user: 'root',
-            password: 'password',
-            database: 'EDUKYU',
             // host: 'localhost',
+            // port: 3306,
             // user: 'root',
-            // password: 'root',
-            // database: 'blogdb',
+            // password: 'password',
+            // database: 'EDUKYU',
+            host: 'localhost',
+            user: 'root',
+            password: 'root',
+            database: 'blogdb',
         });
 
         // Count total blogs

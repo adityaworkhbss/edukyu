@@ -21,10 +21,10 @@ export default function RootShell({ children }) {
     return (
         <div className="w-full font-[Outfit]">
             <TopNav />
-            <div className="relative">
+            <div className="">
                 {DevEnvironment.ENABLE_GRIDS && (
-                    <div className={`${marginClass} absolute z-[1000000000000] inset-0 pointer-events-none opacity-90`}>
-                        <Parent {...config} color="rgba(220, 100, 255, 0.2)" />
+                    <div className={`${marginClass} absolute z-[1000000000000] `}>
+                        <Parent {...config} />
                     </div>
                 )}
                 {children}
