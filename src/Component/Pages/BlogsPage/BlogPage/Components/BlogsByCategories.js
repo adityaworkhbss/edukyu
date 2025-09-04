@@ -39,7 +39,7 @@ const BlogsByCategories = () => {
     };
 
     return (
-        <div className="py-6 px-2 bg-white">
+        <div className="py-6 px-2 ">
             <h2 className="text-2xl font-semibold text-slate-800 mb-6">Categories</h2>
 
             <div className="space-y-1">
@@ -47,7 +47,7 @@ const BlogsByCategories = () => {
                     <div
                         key={index}
                         onClick={() => handleCategoryClick(category)}
-                        className="flex items-center justify-between p-3 hover:bg-slate-50 rounded-lg cursor-pointer transition-colors group"
+                        className="flex items-center justify-between p-3 rounded-lg cursor-pointer transition-colors group"
                     >
                         <span className="text-slate-700 group-hover:text-slate-900">
                             {category}

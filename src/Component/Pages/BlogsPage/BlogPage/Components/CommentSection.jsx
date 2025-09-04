@@ -1,232 +1,189 @@
 import React, { useState } from 'react';
-import {
-    Calendar,
-    MessageCircle,
-    Share2,
-    User,
-    Tag,
-    Facebook,
-    Twitter,
-    Linkedin,
-    Send,
-    Mail,
-    Phone,
-    UserCircle,
-    CheckCircle,
-    AlertCircle
-} from "lucide-react";
+import { FormInput } from './ui/FormInput';
+import { ConsentCheckbox } from './ui/ConsentCheckbox';
+import GridComponent from "@/GlobalComponent/GridComponent";
+import {ContactForm} from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/UI/ContactForm";
 
-const CommentSection = () => {
+const reasons = [
+    'General Inquiry',
+    'Course Information',
+    'Technical Support',
+    'Partnership',
+    'Other'
+];
+
+export const CommentSection = () => {
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
-        phone: '',
-        comment: ''
+        city: '',
+        mobileNumber: '',
+        reason: '',
+        consent: false
     });
-    const [errors, setErrors] = useState({});
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const validateForm = () => {
-        const newErrors = {};
+    const [isReasonDropdownOpen, setIsReasonDropdownOpen] = useState(false);
 
-        if (!formData.fullName.trim()) {
-            newErrors.fullName = 'Full name is required';
-        }
-
-        if (!formData.email.trim()) {
-            newErrors.email = 'Email is required';
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-            newErrors.email = 'Please enter a valid email address';
-        }
-
-        if (!formData.phone.trim()) {
-            newErrors.phone = 'Phone number is required';
-        } else if (!/^[\+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/[\s\-\(\)]/g, ''))) {
-            newErrors.phone = 'Please enter a valid phone number';
-        }
-
-        if (!formData.comment.trim()) {
-            newErrors.comment = 'Comment is required';
-        } else if (formData.comment.trim().length < 10) {
-            newErrors.comment = 'Comment must be at least 10 characters long';
-        }
-
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
+    const handleInputChange = (field) => (value) => {
+        setFormData(prev => ({
+            ...prev,
+            [field]: value
+        }));
     };
 
-    const handleInputChange = (field, value) => {
-        setFormData(prev => ({ ...prev, [field]: value }));
-        if (errors[field]) {
-            setErrors(prev => ({ ...prev, [field]: '' }));
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (!formData.consent) {
+            alert("Please accept the consent to proceed.");
+            return;
         }
-    };
 
-    const handleSubmit = async () => {
-        if (!validateForm()) return;
+        if (!formData.fullName || !formData.email || !formData.city || !formData.mobileNumber || !formData.reason) {
+            alert("Please fill in all required fields.");
+            return;
+        }
 
-        setIsSubmitting(true);
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
 
-        // Simulate API call
-        setTimeout(() => {
-            setIsSubmitting(false);
-            setIsSubmitted(true);
-            setFormData({ fullName: '', email: '', phone: '', comment: '' });
-
-            // Reset success message after 5 seconds
-            setTimeout(() => setIsSubmitted(false), 5000);
-        }, 1500);
+            if (res.ok) {
+                alert("Thank you for your submission! We will contact you soon.");
+                setFormData({
+                    fullName: "",
+                    email: "",
+                    city: "",
+                    mobileNumber: "",
+                    reason: "",
+                    consent: false,
+                });
+            } else {
+                alert("Failed to send message. Please try again later.");
+            }
+        } catch (err) {
+            console.error(err);
+            alert("Something went wrong.");
+        }
     };
 
     return (
-        <div className="bg-white shadow-lg border border-slate-200 overflow-hidden">
-            <div className="bg-gradient-to-r from-teal-600 to-teal-700 px-8 py-6">
-                <div className="flex items-center gap-3">
-                    <MessageCircle className="w-6 h-6 text-white" />
-                    <h3 className="text-2xl font-bold text-white">Write Your Comment</h3>
-                </div>
-                <p className="text-teal-100 mt-2">Share your thoughts and join the conversation</p>
-            </div>
 
-            {isSubmitted && (
-                <div className="mx-8 mt-6 p-4 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-                    <div>
-                        <p className="text-emerald-800 font-medium">Comment submitted successfully!</p>
-                        <p className="text-emerald-600 text-sm">Thank you for your feedback. We'll review it shortly.</p>
+
+        <form
+            onSubmit={handleSubmit}
+            className="group flex w-full flex-col items-stretch text-lg text-[#6A6A69] font-normal max-md:max-w-full max-md:mt-10"
+        >
+            <header>
+                {/*<GridComponent gridStart={0} gridEnd={6}>*/}
+                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
+                        Contact Us
                     </div>
-                </div>
-            )}
+                {/*</GridComponent>*/}
 
-            <div className="p-8 space-y-6">
-                <div className="grid md:grid-cols-3 gap-6">
-                    <div className="space-y-2">
-                        <label className="flex items-center gap-2 text-sm font-semibold text-slate-700">
-                            <UserCircle className="w-4 h-4" />
-                            Full Name *
-                        </label>
-                        <input
-                            type="text"
-                            value={formData.fullName}
-                            onChange={(e) => handleInputChange('fullName', e.target.value)}
-                            placeholder="Enter your full name"
-                            className={`w-full px-4 py-3 border rounded-lg transition-all duration-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 ${
-                                errors.fullName
-                                    ? 'border-red-300 focus:ring-red-500'
-                                    : 'border-slate-300 focus:ring-teal-500 focus:border-teal-500'
-                            }`}
-                        />
-                        {errors.fullName && (
-                            <div className="flex items-center gap-1 text-red-600 text-sm">
-                                <AlertCircle className="w-3 h-3" />
-                                {errors.fullName}
-                            </div>
-                        )}
+                {/*<GridComponent>*/}
+                    <div className="text-[20px] pb-[0] font-normal text-[#535862] font-[Outfit] leading-[30px]">
+                        Unlimited access to world class courses, hands-on projects, and
+                        job-ready certificate programs.
                     </div>
+                {/*</GridComponent>*/}
+            </header>
 
-                    <div className="space-y-2">
-                        <label className="flex items-center gap-2 text-sm font-semibold text-slate-700">
-                            <Mail className="w-4 h-4" />
-                            Email Address *
-                        </label>
-                        <input
-                            type="email"
-                            value={formData.email}
-                            onChange={(e) => handleInputChange('email', e.target.value)}
-                            placeholder="Enter your email address"
-                            className={`w-full px-4 py-3 border rounded-lg transition-all duration-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 ${
-                                errors.email
-                                    ? 'border-red-300 focus:ring-red-500'
-                                    : 'border-slate-300 focus:ring-teal-500 focus:border-teal-500'
-                            }`}
-                        />
-                        {errors.email && (
-                            <div className="flex items-center gap-1 text-red-600 text-sm">
-                                <AlertCircle className="w-3 h-3" />
-                                {errors.email}
-                            </div>
-                        )}
-                    </div>
+            <fieldset className="border-0 p-0 m-0">
+                <legend className="sr-only">Contact Information</legend>
 
-                    <div className="space-y-2">
-                        <label className="flex items-center gap-2 text-sm font-semibold text-slate-700">
-                            <Phone className="w-4 h-4" />
-                            Phone Number *
-                        </label>
-                        <input
-                            type="tel"
-                            value={formData.phone}
-                            onChange={(e) => handleInputChange('phone', e.target.value)}
-                            placeholder="Enter your phone number"
-                            className={`w-full px-4 py-3 border rounded-lg transition-all duration-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 ${
-                                errors.phone
-                                    ? 'border-red-300 focus:ring-red-500'
-                                    : 'border-slate-300 focus:ring-teal-500 focus:border-teal-500'
-                            }`}
-                        />
-                        {errors.phone && (
-                            <div className="flex items-center gap-1 text-red-600 text-sm">
-                                <AlertCircle className="w-3 h-3" />
-                                {errors.phone}
-                            </div>
-                        )}
-                    </div>
-                </div>
-
-                <div className="space-y-2">
-                    <label className="flex items-center gap-2 text-sm font-semibold text-slate-700">
-                        <MessageCircle className="w-4 h-4" />
-                        Your Comment *
-                    </label>
-                    <textarea
-                        value={formData.comment}
-                        onChange={(e) => handleInputChange('comment', e.target.value)}
-                        placeholder="Share your thoughts, questions, or feedback..."
-                        rows={5}
-                        className={`w-full px-4 py-3 border rounded-lg transition-all duration-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 resize-none ${
-                            errors.comment
-                                ? 'border-red-300 focus:ring-red-500'
-                                : 'border-slate-300 focus:ring-teal-500 focus:border-teal-500'
-                        }`}
+                <div className="flex w-full items-stretch gap-6 flex-wrap mt-8 max-md:max-w-full max-md:mt-10">
+                    <FormInput
+                        placeholder="Enter your full name"
+                        value={formData.fullName}
+                        onChange={handleInputChange('fullName')}
                     />
-                    <div className="flex justify-between items-center">
-                        {errors.comment ? (
-                            <div className="flex items-center gap-1 text-red-600 text-sm">
-                                <AlertCircle className="w-3 h-3" />
-                                {errors.comment}
-                            </div>
-                        ) : (
-                            <span className="text-slate-500 text-sm">
-                                {formData.comment.length}/500 characters
-                            </span>
-                        )}
-                    </div>
+                    <FormInput
+                        placeholder="Enter your email id"
+                        value={formData.email}
+                        onChange={handleInputChange('email')}
+                        type="email"
+                    />
                 </div>
 
-                <div className="flex justify-end pt-4">
+                <div className="flex w-full items-stretch gap-6 flex-wrap mt-6 max-md:max-w-full">
+                    <FormInput
+                        placeholder="Enter your city"
+                        value={formData.city}
+                        onChange={handleInputChange('city')}
+                    />
+                    <FormInput
+                        placeholder="Enter your mobile number"
+                        value={formData.mobileNumber}
+                        onChange={handleInputChange('mobileNumber')}
+                        type="tel"
+                    />
+                </div>
+
+                <div className="relative mt-6">
                     <button
                         type="button"
-                        onClick={handleSubmit}
-                        disabled={isSubmitting}
-                        className="flex items-center gap-2 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                        onClick={() => setIsReasonDropdownOpen(!isReasonDropdownOpen)}
+                        className="justify-center items-stretch border flex gap-[40px_100px] flex-wrap w-full px-4 py-3.5 rounded-xl border-solid border-[#6A6A69] max-md:max-w-full text-left"
+                        aria-expanded={isReasonDropdownOpen}
+                        aria-haspopup="listbox"
                     >
-                        {isSubmitting ? (
-                            <>
-                                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                Submitting...
-                            </>
-                        ) : (
-                            <>
-                                <Send className="w-4 h-4" />
-                                Submit Comment
-                            </>
-                        )}
+            <span className="text-[#6A6A69] flex-1">
+              {formData.reason || 'Select your reason'}
+            </span>
+                        <img
+                            src="https://api.builder.io/api/v1/image/assets/fecc5b616d6b4d1daa2c8ed2d9ae0ab4/0b695d8b1e437e4a397a2e7fef70dacba5d2adbc?placeholderIfAbsent=true"
+                            className={`aspect-[1] object-contain w-6 shrink-0 transition-transform ${
+                                isReasonDropdownOpen ? 'rotate-180' : ''
+                            }`}
+                            alt="Dropdown arrow"
+                        />
                     </button>
+
+                    {isReasonDropdownOpen && (
+                        <div
+                            className="absolute top-full left-0 right-0 bg-white border border-[#6A6A69] rounded-xl mt-1 shadow-lg z-10"
+                            role="listbox"
+                        >
+                            {reasons.map((reason, index) => (
+                                <button
+                                    key={index}
+                                    type="button"
+                                    onClick={() => {
+                                        handleInputChange('reason')(reason);
+                                        setIsReasonDropdownOpen(false);
+                                    }}
+                                    className="w-full text-left px-4 py-3 hover:bg-gray-50 text-[#6A6A69] first:rounded-t-xl last:rounded-b-xl"
+                                    role="option"
+                                    aria-selected={formData.reason === reason}
+                                >
+                                    {reason}
+                                </button>
+                            ))}
+                        </div>
+                    )}
                 </div>
-            </div>
-        </div>
+            </fieldset>
+
+            <ConsentCheckbox
+                checked={formData.consent}
+                onChange={handleInputChange('consent')}
+            />
+
+            <button
+                type="submit"
+                className="justify-center items-center flex gap-2.5 text-sm text-white font-medium whitespace-nowrap bg-[#9B9B9B] mt-6 px-4 py-3 rounded-xl group-hover:bg-[#035a63] transition-colors"
+            >
+                Submit
+            </button>
+        </form>
     );
 };
 
-export default CommentSection;
+
+
+
+

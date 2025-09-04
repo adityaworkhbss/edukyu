@@ -38,7 +38,7 @@ const BlogRecommendations = ({ category }) => {
 
 
     return (
-        <section className="mt-10 bg-gray-50 p-6 rounded-xl shadow-sm">
+        <section className="mt-10">
             <div className="mb-4">
                 <img
                     src="https://edukyu.com/assets/img/cxp/blog/eligible-img.png"

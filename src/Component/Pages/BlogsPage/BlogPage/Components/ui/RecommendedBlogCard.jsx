@@ -15,7 +15,7 @@ const RecommendedBlogCard = ({ title, blogId, imgUrl, shortUrl }) => {
     };
 
     return (
-        <div className="overflow-hidden shadow-lg bg-white">
+        <div className="overflow-hidden rounded-[22px] bg-white">
             {/* Image */}
             <img
                 src={`https://edukyu.com/public/${imgUrl}`}
