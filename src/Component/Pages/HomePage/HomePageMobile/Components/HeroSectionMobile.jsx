@@ -46,7 +46,7 @@ const HeroSectionMobile = () => {
                 </div>
 
                 {/* Images Layered */}
-                <div className="relative w-full h-[280px] mt-10 overflow-hidden">
+                <div className="relative w-full h-[250px] mt-10 overflow-hidden">
                     <Image
                         src={banner_image}
                         alt="City Background"

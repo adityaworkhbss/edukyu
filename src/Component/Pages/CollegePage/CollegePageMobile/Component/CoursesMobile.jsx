@@ -9,7 +9,7 @@ const CoursesMobile = ({ college }) => {
 
     const courses = college?.university_info?.courses || [];
 
-    console.log(college);
+    console.log(" college :::::::::::::: ", college);
 
 
     // Group courses by type
@@ -100,10 +100,10 @@ const CoursesMobile = ({ college }) => {
                     <div className="relative">
                         <article className="border overflow-hidden rounded-[22px] border-border shadow-sm">
                             <div className="p-0">
-                                <div className="bg-program-image rounded-t-lg h-[132px] flex items-center justify-center p-6">
+                                <div className="bg-program-image rounded-[14px] h-[132px] flex items-center justify-center p-6">
                                     {programs[currentIndex]?.image ? (
                                         <img
-                                            src={programs[currentIndex]?.image}
+                                            src={`https://edukyu.com/${programs[currentIndex]?.image}`}
                                             alt={programs[currentIndex]?.title}
                                             className="rounded-t-lg h-full w-full object-cover"
                                         />
@@ -114,44 +114,48 @@ const CoursesMobile = ({ college }) => {
                                         />
                                     )}
                                 </div>
-                                <div className="py-[16px] px-[16px]">
-                                    <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none">
-                                        {programs[currentIndex]?.title}
-                                    </h3>
-                                    <div className="inline-flex items-center gap-[8px] pt-[22px]">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24"
-                                            height="24"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                        >
-                                            <g clipPath="url(#clip0_236_281)">
-                                                <path
-                                                    d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z"
-                                                    fill="#383837"
-                                                />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_236_281">
-                                                    <rect width="24" height="24" fill="white" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
 
-                                        <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
-                                            {programs[currentIndex]?.description}
-                                        </div>
-                                    </div>
+                                    <div className="pb-[16px] px-[16px]">
+                                        <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none">
+                                            {programs[currentIndex]?.title}
+                                        </h3>
 
-                                    <div className="inline-flex items-center gap-[8px] pt-[16px]">
-                                        <div className="text-[#323232] pl-[5px] pr-[4px] font-[Outfit] text-[26px] font-medium leading-[21px]">
-                                            ₹
-                                        </div>
+                                        <div className="flex flex-col">
+                                            <div className="inline-flex items-center gap-[8px] pt-[22px]">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="24"
+                                                    height="24"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                >
+                                                    <g clipPath="url(#clip0_236_281)">
+                                                        <path
+                                                            d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z"
+                                                            fill="#383837"
+                                                        />
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_236_281">
+                                                            <rect width="24" height="24" fill="white" />
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
 
-                                        <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
-                                            {programs[currentIndex]?.details}
-                                        </div>
+                                                <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
+                                                    {programs[currentIndex]?.description}
+                                                </div>
+                                            </div>
+
+                                            <div className="inline-flex items-center gap-[8px] pt-[16px]">
+                                                <div className="text-[#323232] pl-[5px] pr-[4px] font-[Outfit] text-[26px] font-medium leading-[21px]">
+                                                    ₹
+                                                </div>
+
+                                                <div className="text-[#383837] font-[Outfit] text-[16px] font-medium leading-none">
+                                                    {programs[currentIndex]?.details}
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>

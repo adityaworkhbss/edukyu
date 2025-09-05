@@ -76,14 +76,14 @@ const OurProudGraduates = () => {
 
 
             {/* Navigation Buttons */}
-            <div className="flex justify-between items-center mt-[24px] md:mt-[32px] px-[16px]">
-                <button onClick={handlePrev} className="bg-white p-3" aria-label="Previous">
+            <div className="flex justify-between items-center mt-[24px] md:mt-[32px]">
+                <button onClick={handlePrev} className="bg-white p-[4.5px]" aria-label="Previous">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
                         <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#9B9B9B" />
                     </svg>
                 </button>
 
-                <button onClick={handleNext} className="bg-white p-3" aria-label="Next">
+                <button onClick={handleNext} className="bg-white p-[4.5px]" aria-label="Next">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
                         <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53" />
                     </svg>

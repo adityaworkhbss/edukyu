@@ -52,7 +52,7 @@ export const ExploreProgramsMobile = () => {
     };
 
     return (
-            <section className="mt-12">
+            <section className="mt-[32px]">
                 <div className="text-[#024B53] font-[Outfit] text-[28px] font-semibold leading-none">
                     Explore our Courses
                 </div>
@@ -79,7 +79,7 @@ export const ExploreProgramsMobile = () => {
 
                 <div
                     ref={containerRef}
-                    className="flex gap-4 overflow-x-auto scroll-smooth scrollbar-hide mt-8 pb-4"
+                    className="flex gap-4 overflow-x-auto scroll-smooth scrollbar-hide mt-8 pb-[32px]"
                     style={{ scrollSnapType: 'x mandatory' }}
                 >
                     {programs.map((program, index) => (
@@ -88,17 +88,18 @@ export const ExploreProgramsMobile = () => {
                             className="w-full flex-shrink-0 border overflow-hidden rounded-xl border-solid border-[#CDCDCD] scroll-snap-align-start flex flex-col"
                         >
                             <div className="flex w-full rounded-[14px]  p-[24px]">
-                                <div className="bg-program-image rounded-lg h-[132px] w-full flex items-center justify-center">
+                                <div className="bg-program-image rounded-lg h-[132px] w-full flex items-center overflow-hidden">
                                     {program.image ? (
                                         <img
                                             src={`https://edukyu.com/${program.image}`}
                                             alt={`${program.name} logo`}
-                                            className="object-contain w-full rounded-[12px]"
+                                            className="w-full h-full object-cover rounded-[12px]"
                                         />
                                     ) : (
-                                        <ImageIcon size={48} className="text-secondary opacity-60" />
+                                        <ImageIcon size={48} className="text-secondary opacity-60 mx-auto" />
                                     )}
                                 </div>
+
                             </div>
                             <div className="w-full px-4 pb-4 flex flex-col flex-1">
                                 {/* Title section - fixed height */}
@@ -141,13 +142,13 @@ export const ExploreProgramsMobile = () => {
 
                 {/* Navigation Buttons */}
                 {programs.length > 1 && (
-                    <div className="flex justify-between mt-[32px] pb-[32px]">
-                        <button onClick={handlePrev} className="bg-white z-10 p-4 hover:shadow-md rounded" aria-label="Previous">
+                    <div className="flex justify-between pb-[32px]">
+                        <button onClick={handlePrev} className="bg-white z-10 p-[4.5] hover:shadow-md rounded" aria-label="Previous">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
                                 <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#9B9B9B"/>
                             </svg>
                         </button>
-                        <button onClick={handleNext} className="bg-white z-10 p-4 hover:shadow-md rounded" aria-label="Next">
+                        <button onClick={handleNext} className="bg-white z-10 p-[4.5] hover:shadow-md rounded" aria-label="Next">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
                                 <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53"/>
                             </svg>

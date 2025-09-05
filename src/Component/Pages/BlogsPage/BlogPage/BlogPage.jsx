@@ -71,7 +71,7 @@ const BlogPage = ({ blogId }) => {
     };
 
     return (
-        <div >
+        <div className="pt-5">
             {/*<div className="px-4 md:px-0">
           <BackButton label="Back to previous" />
       </div>*/}
@@ -88,8 +88,8 @@ const BlogPage = ({ blogId }) => {
                 handleShare={handleShare}
             />
 
-            <div className="px-[56px]">
-                <div className="flex flex-col lg:flex-row col-span-12 gap-x-6 mt-12">
+            <div className="px-[20px] sm:px-[56px]">
+            <div className="flex flex-col lg:flex-row col-span-12 gap-x-6 mt-12">
                     <div className="col-span-8">
                         <section>
                             <BlogContent

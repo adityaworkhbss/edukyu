@@ -5,10 +5,7 @@ import { BlogCard } from "./Component/BlogCard";
 import { BlogService } from "@/Services/blogService";
 import BackButton from "@/GlobalComponent/BackButton";
 
-export const BlogsMain = ( { category }) => {
-
-    console.log("catergory ::::::::::: ", category);
-
+export const BlogsMain = ({ category }) => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -51,12 +48,11 @@ export const BlogsMain = ( { category }) => {
     };
 
     useEffect(() => {
-        if(category === 'all') {
+        if (category === "all") {
             fetchBlogs(currentPage);
         } else {
             fetchCategoryBlogs(currentPage, category);
         }
-
     }, [currentPage, category]);
 
     const handlePageChange = (page) => {
@@ -67,32 +63,37 @@ export const BlogsMain = ( { category }) => {
     };
 
     return (
-        <div className="py-16 px-6 sm:px-14">
-            <div className="mb-6">
+        <div className="py-10 mt-4 px-4 sm:py-16 sm:px-14">
+            <div className="mb-4 sm:mb-6">
                 <BackButton label="Back to previous" />
             </div>
-            <div className="text-center mb-12">
-                <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
+
+            <div className="text-center mb-8 sm:mb-12">
+                <h1 className="text-2xl sm:text-4xl font-bold text-primary mb-3 sm:mb-4">
                     Blogs On The Go
                 </h1>
-                <p className="text-lg text-gray-600">
+                <p className="text-base sm:text-lg text-gray-600">
                     Stay updated with the latest trends in education
                 </p>
             </div>
 
             {loading ? (
                 <div className="text-center">
-                    <div className="text-4xl font-bold text-primary mb-4">Loading Blogs...</div>
+                    <div className="text-2xl sm:text-4xl font-bold text-primary mb-4">
+                        Loading Blogs...
+                    </div>
                     <div className="spinner" />
                 </div>
             ) : error ? (
                 <div className="text-center">
-                    <div className="text-4xl font-bold text-primary mb-4">Error Loading Blogs</div>
+                    <div className="text-2xl sm:text-4xl font-bold text-primary mb-4">
+                        Error Loading Blogs
+                    </div>
                     <p className="text-red-500">{error}</p>
                 </div>
             ) : blogs.length > 0 ? (
                 <>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                         {blogs.map((blog, index) => (
                             <BlogCard
                                 key={index}
@@ -109,11 +110,11 @@ export const BlogsMain = ( { category }) => {
                     </div>
 
                     {totalPages > 1 && (
-                        <div className="flex justify-center items-center gap-2 mt-12 flex-wrap">
+                        <div className="flex justify-center items-center gap-2 mt-8 sm:mt-12 flex-wrap">
                             <button
                                 onClick={() => handlePageChange(currentPage - 1)}
                                 disabled={currentPage === 1}
-                                className={`px-4 py-2 rounded border transition ${
+                                className={`px-3 py-1 sm:px-4 sm:py-2 rounded border transition ${
                                     currentPage === 1
                                         ? "opacity-50 cursor-not-allowed"
                                         : "hover:bg-gray-100"
@@ -126,7 +127,7 @@ export const BlogsMain = ( { category }) => {
                                 <button
                                     key={page}
                                     onClick={() => handlePageChange(page)}
-                                    className={`px-4 py-2 rounded border transition ${
+                                    className={`px-3 py-1 sm:px-4 sm:py-2 rounded border transition ${
                                         currentPage === page
                                             ? "bg-primary text-white"
                                             : "hover:bg-gray-100"
@@ -139,7 +140,7 @@ export const BlogsMain = ( { category }) => {
                             <button
                                 onClick={() => handlePageChange(currentPage + 1)}
                                 disabled={currentPage === totalPages}
-                                className={`px-4 py-2 rounded border transition ${
+                                className={`px-3 py-1 sm:px-4 sm:py-2 rounded border transition ${
                                     currentPage === totalPages
                                         ? "opacity-50 cursor-not-allowed"
                                         : "hover:bg-gray-100"
@@ -151,8 +152,8 @@ export const BlogsMain = ( { category }) => {
                     )}
                 </>
             ) : (
-                <div className="text-center py-12">
-                    <p className="text-xl text-gray-600">No blogs found</p>
+                <div className="text-center py-10 sm:py-12">
+                    <p className="text-lg sm:text-xl text-gray-600">No blogs found</p>
                 </div>
             )}
         </div>

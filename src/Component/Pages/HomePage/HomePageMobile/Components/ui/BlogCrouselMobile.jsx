@@ -64,7 +64,7 @@ export default function BlogCrouselMobile(
 
 
     return (
-        <div className="relative w-full py-8">
+        <div className="relative w-full pt-8">
 
             {/* Card Container */}
             <div
@@ -151,7 +151,7 @@ export default function BlogCrouselMobile(
             <div className="flex justify-between mt-[32px] pb-[64px]">
                 <button
                     onClick={handlePrev}
-                    className="bg-white z-10 p-4 hover:shadow-md rounded"
+                    className="bg-white z-10 p-[4.5px] hover:shadow-md rounded"
                     aria-label="Previous"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -168,7 +168,7 @@ export default function BlogCrouselMobile(
 
                 <button
                     onClick={handleNext}
-                    className="bg-white z-10 p-4 hover:shadow-md rounded"
+                    className="bg-white z-10 p-[4.5px] hover:shadow-md rounded"
                     aria-label="Next"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">

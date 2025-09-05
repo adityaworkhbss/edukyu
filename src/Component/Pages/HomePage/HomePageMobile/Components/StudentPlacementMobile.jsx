@@ -11,7 +11,7 @@ export const StudentPlacementMobile = () => {
     }
 
     return (
-        <section className="mt-16">
+        <section className="mt-8">
             <h2 className="text-[28px] text-[#024B53] font-[Outfit] font-semibold leading-normal">
                 Our Student Placed
             </h2>

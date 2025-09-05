@@ -15,7 +15,7 @@ import CollegeMunchBannerMobile from "@/Component/Pages/HomePage/HomePageMobile/
 
 const HomePageMobile = () => {
     return (
-        <div className="bg-white flex w-full mt-4 flex-col overflow-hidden mx-auto pb-8">
+        <div className="bg-white flex w-full mt-4 flex-col overflow-hidden mx-auto">
 
             <div className="bg-white self-stretch flex w-full flex-col overflow-hidden items-stretch font-normal pb-[64px]">
                 <HeroSectionMobile />
@@ -40,7 +40,7 @@ const HomePageMobile = () => {
             <StatsSectionMobile />
             <HelpSectionMobile />
 
-            <div className="self-stretch flex w-full flex-col items-stretch px-[19px]">
+            <div className="self-stretch flex w-full flex-col items-stretch px-[20px]">
 
                 <CollegeMunchBannerMobile/>
                 <BlogSection />

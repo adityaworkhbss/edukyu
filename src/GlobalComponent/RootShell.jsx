@@ -23,7 +23,7 @@ export default function RootShell({ children }) {
             <TopNav />
             <div className="">
                 {DevEnvironment.ENABLE_GRIDS && (
-                    <div className={`${marginClass} absolute z-[1000000000000] `}>
+                    <div className={`${marginClass} absolute z-[10000] `}>
                         <Parent {...config} />
                     </div>
                 )}

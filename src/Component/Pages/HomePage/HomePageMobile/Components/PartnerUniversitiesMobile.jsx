@@ -153,7 +153,7 @@ export const PartnerUniversitiesMobile = () => {
 
             <div
                 ref={containerRef}
-                className="flex gap-4 overflow-x-auto scroll-smooth scrollbar-hide mt-8 pb-4"
+                className="flex gap-4 overflow-x-auto scroll-smooth scrollbar-hide"
                 style={{ scrollSnapType: 'x mandatory' }}
             >
                 {universities.map((uni, index) => (
@@ -164,7 +164,7 @@ export const PartnerUniversitiesMobile = () => {
                     >
                         <article className="w-full border overflow-hidden rounded-[30px] border-solid border-[#CDCDCD] scroll-snap-align-start flex flex-col hover:shadow-md transition-shadow duration-200">
                             <div className="p-6">
-                                <div className="bg-program-image rounded-lg h-[105px] w-full flex items-center justify-center overflow-hidden">
+                                <div className="bg-program-image rounded-lg h-[132px] w-full flex items-center justify-center overflow-hidden">
                                     <img
                                         src={`https://edukyu.com/${uni.logoSrc}`}
                                         alt={`${uni.name} logo`}
@@ -228,10 +228,10 @@ export const PartnerUniversitiesMobile = () => {
 
             {/* Navigation Buttons */}
             {universities.length > 1 && (
-                <div className="flex justify-between mt-[32px] pb-[32px]">
+                <div className="flex justify-between mt-[36.5px] pb-[32px]">
                     <button
                         onClick={handlePrev}
-                        className="bg-white z-10 px-4 hover:shadow-md rounded"
+                        className="bg-white z-10 p-[4.5] hover:shadow-md rounded"
                         aria-label="Previous"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
@@ -240,7 +240,7 @@ export const PartnerUniversitiesMobile = () => {
                     </button>
                     <button
                         onClick={handleNext}
-                        className="bg-white z-10 px-4 hover:shadow-md rounded"
+                        className="bg-white z-10 p-[4.5] hover:shadow-md rounded"
                         aria-label="Next"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">

@@ -30,7 +30,7 @@ const CollegeMunchBanner = () => {
             {/* Button */}
             <button
                 onClick={() => window.open("https://collegemanch.com/", "_blank")}
-                className="rounded-[12px] bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium px-4 py-3 mb-6 hover:bg-[#00313f] transition w-1/2"
+                className="rounded-[12px] bg-[#024B53] text-white font-[Outfit] w-full text-[14px] font-medium px-4 py-3 mb-6 hover:bg-[#00313f] transition w-1/2"
             >
                 Explore College Manch
             </button>
