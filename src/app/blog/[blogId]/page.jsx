@@ -13,3 +13,5 @@ export default function BlogDetailsPage({ params }) {
         </>
     );
 }
+
+export const revalidate = 300;

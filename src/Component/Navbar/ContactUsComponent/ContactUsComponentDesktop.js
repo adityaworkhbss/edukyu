@@ -2,6 +2,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { gridConfigs } from "@/libs/GridConfigs";
 import GridComponent from "@/GlobalComponent/GridComponent";
@@ -221,7 +222,7 @@ const ContactUsComponentDesktop = () => {
                         <div className="  h-auto rounded-[12px] bg-[rgba(179,207,210,0.3)]">
 
                             {/*<img className="h-[219px] bg-gray-200" />*/}
-                            <img className="h-[219px] w-full object-cover" src={contact_us_nav_image.src}  />
+                            <Image src={contact_us_nav_image} alt="Contact banner" className="h-[219px] w-full object-cover" />
 
                             {/* Message box overlay */}
                             <div className="text-left px-4 flex justify-between">

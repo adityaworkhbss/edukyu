@@ -33,10 +33,13 @@ const BlogCard = ({ item }) => {
 
 
             <div className="relative w-full h-[150px] mb-5 rounded-t-xl overflow-hidden">
-                <img
+                <Image
                     src={`https://edukyu.com/public/${item.image}`}
                     alt={item.title || "Blog Image"}
-                    className="w-full h-[150px] items-center rounded-t-xl object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                    priority={false}
+                    className="object-cover"
                 />
 
             </div>

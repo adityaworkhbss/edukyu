@@ -3,6 +3,8 @@ import './globals.css';
 
 import { PageProvider } from '@/GlobalComponent/PageContext';
 import RootShell from "@/GlobalComponent/RootShell";
+import NextTopLoader from 'nextjs-toploader';
+import HoverPrefetch from '@/GlobalComponent/HoverPrefetch';
 
 const outfit = Outfit({
     variable: '--font-outfit',
@@ -20,7 +22,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
+            <head>
+                <link rel="preconnect" href="https://edukyu.com" crossOrigin="anonymous" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link rel="dns-prefetch" href="https://edukyu.com" />
+            </head>
             <body className={`${outfit.variable} antialiased`}>
+                <NextTopLoader color="#2563eb" showSpinner={false} height={3} />
+                <HoverPrefetch />
                 <PageProvider>
                     <RootShell>{children}</RootShell>
                 </PageProvider>
