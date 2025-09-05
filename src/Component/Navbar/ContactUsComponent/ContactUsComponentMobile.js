@@ -3,6 +3,7 @@
 
 import React, { useState } from "react";
 import { MessageSquare } from "lucide-react";
+import Image from "next/image";
 import contact_us_nav_image from "../../../../public/Resources/Images/contact_us_nav_img.jpg";
 
 const ContactUsComponentMobile = () => {
@@ -98,10 +99,11 @@ const ContactUsComponentMobile = () => {
                 {/*</div>*/}
             </div>
 
-            <img
+            <Image
                 className="h-[219px] w-full object-cover"
-                src={contact_us_nav_image.src}
+                src={contact_us_nav_image}
                 alt="contact us"
+                priority={false}
             />
 
             <div className="rounded-b-[12px] px-5 bg-[rgba(179,207,210,0.3)]">

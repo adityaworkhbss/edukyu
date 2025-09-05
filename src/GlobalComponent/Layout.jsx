@@ -1,17 +1,18 @@
-'use client';
+"use client";
 import React from 'react';
+import dynamic from 'next/dynamic';
 import TopNav from '@/Component/Navbar/TopNav';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { gridConfigs } from '@/libs/GridConfigs';
 import Footer from '@/Component/Footer/Footer';
-import HomePage from "@/Component/Pages/HomePage/HomePage";
-import BlogPageMain from "@/Component/Pages/BlogsPage/BlogPageMain";
-import CompareCollegePage from '@/Component/Pages/CompareCollegePage/CompareCollege';
+const HomePage = dynamic(() => import("@/Component/Pages/HomePage/HomePage"), { ssr: false });
+const BlogPageMain = dynamic(() => import("@/Component/Pages/BlogsPage/BlogPageMain"), { ssr: false });
+const CompareCollegePage = dynamic(() => import('@/Component/Pages/CompareCollegePage/CompareCollege'), { ssr: false });
 import { usePageContext } from '@/GlobalComponent/PageContext';
-import CollegePage from "@/Component/Pages/CollegePage/CollegePage";
+const CollegePage = dynamic(() => import("@/Component/Pages/CollegePage/CollegePage"), { ssr: false });
 import { DevEnvironment } from "@/DevEnvironment/DevEnviroment";
 import Parent from "@/GlobalComponent/Parent";
-import CoursePage from "@/Component/Pages/CoursePage/CoursePage";
+const CoursePage = dynamic(() => import("@/Component/Pages/CoursePage/CoursePage"), { ssr: false });
 
 const Layout = () => {
     const breakpoint = useBreakpoint();

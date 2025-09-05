@@ -88,7 +88,7 @@ export default function TopNav() {
                             <div className="flex items-center"
                            // onClick={() => setCurrentPage('home')}
                         >
-                            <Image src="/Resources/Images/Edukyu_Logo.png" alt="Edukyu" width={120} height={40} />
+                            <Image src="/Resources/Images/Edukyu_Logo.png" alt="Edukyu" width={120} height={40} priority />
                         </div>
                         </Link>
 
@@ -132,7 +132,7 @@ export default function TopNav() {
 
                     >
                         <Link href="/">
-                            <Image src="/Resources/Images/Edukyu_Logo.png" alt="Edukyu" width={123} height={40} />
+                            <Image src="/Resources/Images/Edukyu_Logo.png" alt="Edukyu" width={123} height={40} priority />
                         </Link>
                     </div>
 

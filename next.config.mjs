@@ -2,7 +2,9 @@
 const nextConfig = {
     images: {
         formats: ['image/avif', 'image/webp'],
-        // domains: ['edukyu.com'],
+        remotePatterns: [
+            { protocol: 'https', hostname: 'edukyu.com', pathname: '/**' },
+        ],
     },
     experimental: {
         optimizePackageImports: [
