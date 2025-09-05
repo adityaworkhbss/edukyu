@@ -103,7 +103,7 @@ const CoursesMobile = ({ college }) => {
                                 <div className="bg-program-image rounded-[14px] h-[132px] flex items-center justify-center p-6">
                                     {programs[currentIndex]?.image ? (
                                         <img
-                                            src={`https://edukyu.com/${programs[currentIndex]?.image}`}
+                                            src={programs[currentIndex]?.image}
                                             alt={programs[currentIndex]?.title}
                                             className="rounded-t-lg h-full w-full object-cover"
                                         />

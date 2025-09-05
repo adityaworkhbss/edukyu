@@ -189,7 +189,7 @@ export default function SearchComponentDesktop({ onNavbarClose }) {
                             {suggestions.map((college, idx) => (
                                 <div key={idx}>
                                     <Link
-                                        href={universityKeyMap.hasOwnProperty(college.name) ? `/college/${universityKeyMap[college.name]}` : '#'}
+                                        href={universityKeyMap.hasOwnProperty(college.name) ? `/online-mba-programs/top-distance-mba-colleges/${universityKeyMap[college.name]}` : '#'}
                                         onClick={() => handleSuggestionClick(college.name)}
                                         className="flex items-center gap-3 p-3 cursor-pointer transition-all duration-200 hover:bg-gray-50"
                                     >
