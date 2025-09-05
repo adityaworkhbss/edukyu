@@ -1,18 +1,19 @@
-'use client';
+"use client";
 
+import dynamic from 'next/dynamic';
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 
 import MobileSidebar from './MobileSidebar/MobileSidebar';
-import CompareCollegeDesktop from './CompareCollegeComponent/CompareCollegeDesktop';
-import SearchComponentDesktop from './SearchComponent/SearchComponentDesktop';
-import SearchComponentMobile from './SearchComponent/SearchComponentMobile';
-import BlogComponentDesktop from './BlogComponent/BlogComponentDesktop';
-import ContactUsComponentDesktop from './ContactUsComponent/ContactUsComponentDesktop';
-import MoreComponentDesktop from './MoreComponent/MoreComponentDesktop';
-import CoursesComponentDesktop from './CoursesComponent/CourseComponentDesktop/CoursesComponentDesktop';
-import CollegeHeaderComponentDesktop from './CollegeComponent/CollegeComponentDesktop/CollegeHeaderComponentDesktop';
+const CompareCollegeDesktop = dynamic(() => import('./CompareCollegeComponent/CompareCollegeDesktop'));
+const SearchComponentDesktop = dynamic(() => import('./SearchComponent/SearchComponentDesktop'));
+const SearchComponentMobile = dynamic(() => import('./SearchComponent/SearchComponentMobile'));
+const BlogComponentDesktop = dynamic(() => import('./BlogComponent/BlogComponentDesktop'));
+const ContactUsComponentDesktop = dynamic(() => import('./ContactUsComponent/ContactUsComponentDesktop'));
+const MoreComponentDesktop = dynamic(() => import('./MoreComponent/MoreComponentDesktop'));
+const CoursesComponentDesktop = dynamic(() => import('./CoursesComponent/CourseComponentDesktop/CoursesComponentDesktop'));
+const CollegeHeaderComponentDesktop = dynamic(() => import('./CollegeComponent/CollegeComponentDesktop/CollegeHeaderComponentDesktop'));
 import { usePageContext } from "@/GlobalComponent/PageContext";
 import Link from "next/link";
 
