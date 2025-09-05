@@ -63,7 +63,7 @@ const FeeTable = ({ collegeSecondry }) => {
                             return (
                                 <tr
                                     key={index}
-                                    className={index % 2 === 0 ? "bg-white text-[20px]" : "bg-[#F3F3F3] text-[20px]"}
+                                    className={index % 2 === 0 ? "bg-[#B3CFD2] text-[20px]" : "bg-white text-[20px]"}
                                 >
                                     <td className="py-3 px-4 text-left break-words whitespace-normal max-w-[20px]" title={item.course}>
                                         {item.course}

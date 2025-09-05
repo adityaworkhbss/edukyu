@@ -42,7 +42,7 @@ const FeeTableMobile = ({ collegeSecondry }) => {
                     </thead>
                     <tbody className="rounded-[12px]">
                     {courseData.map((item, index) => (
-                        <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-[#E5F4F4]"}>
+                        <tr key={index} className={index % 2 === 0 ? "bg-[#B3CFD2]" : "bg-[#EFFDFE]"}>
                             <td className="py-3 px-4 text-black text-[16px]">{item.course}</td>
                             <td className={`py-3 px-4 text-[16px] ${item.fee === "N/A" ? "text-gray-400" : "text-black"}`}>
                                 {item.fee}

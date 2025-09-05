@@ -71,7 +71,7 @@ const BlogPage = ({ blogId }) => {
     };
 
     return (
-        <div className="pt-5">
+        <div className="pt-5 sm:pt-0">
             {/*<div className="px-4 md:px-0">
           <BackButton label="Back to previous" />
       </div>*/}

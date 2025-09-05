@@ -137,7 +137,7 @@ const Courses = ({ college }) => {
                         {programs.map((program) => (
                             <div
                                 key={program.id}
-                                className="group hover:bg-[#CDCDCD] bg-program-card border border-[#CDCDCD] border-border rounded-[22px] shadow-sm min-w-0 flex-shrink-0 flex flex-col"
+                                className="group bg-program-card border border-[#CDCDCD] border-border rounded-[22px] shadow-sm min-w-0 flex-shrink-0 flex flex-col"
                                 style={{ width: 'calc((100% - 4%) / 3.18)' }} // Shows 3.2 cards
                             >
                                 <div className="flex flex-col flex-1">
