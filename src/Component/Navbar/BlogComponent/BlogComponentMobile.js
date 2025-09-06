@@ -336,7 +336,7 @@ const BlogComponentMobile = ({ onClose }) => {
                     </form>
 
                     {searchQuery.length > 0 && filteredSuggestions.length > 0 && (
-                        <div className="fixed top-[50px] left-0 right-0 bg-white shadow-lg rounded-b-lg border border-gray-200 max-h-60 overflow-y-auto z-50 mx-5">
+                        <div className="fixed top-[50px] left-0 right-0 bg-white shadow-lg rounded-b-lg border border-gray-200 max-h-60 overflow-y-auto z-50 mx-5 scrollbar-hide">
                             {filteredSuggestions.map((item, idx) => (
                                 <div key={idx}>
                                     <div
