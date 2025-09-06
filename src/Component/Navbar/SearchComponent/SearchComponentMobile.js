@@ -103,12 +103,12 @@ export default function SearchComponentMobile({ onClose }) {
         }
 
         const query = searchQuery.toLowerCase();
-        
+
         // Filter from allCollegesList (the ones with proper icons and types) that match the search
         const filteredColleges = allCollegesList.filter(college =>
             college.name.toLowerCase().includes(query)
         );
-        
+
         // Also filter from general college data if needed
         const filteredGeneral = allColleges.filter(college =>
             college.name.toLowerCase().includes(query) ||
@@ -118,7 +118,7 @@ export default function SearchComponentMobile({ onClose }) {
         // Combine and prioritize allCollegesList results
         const combinedResults = [
             ...filteredColleges,
-            ...filteredGeneral.filter(general => 
+            ...filteredGeneral.filter(general =>
                 !filteredColleges.some(college => college.name === general.name)
             )
         ].slice(0, 5); // Limit total results
@@ -136,12 +136,12 @@ export default function SearchComponentMobile({ onClose }) {
     const handleSuggestionClick = (collegeName) => {
         setSearchQuery(collegeName);
         setShowDropdown(false);
-        
+
         // Close the mobile search overlay when a suggestion is clicked
         if (onClose) {
             onClose();
         }
-        
+
         console.log('Selected:', collegeName);
     };
 
@@ -176,11 +176,11 @@ export default function SearchComponentMobile({ onClose }) {
                             {/* Search icon */}
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <g clip-path="url(#clip0_43_4046)">
-                                    <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" fill="#2B2B2A"/>
+                                    <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" fill="#2B2B2A" />
                                 </g>
                                 <defs>
                                     <clipPath id="clip0_43_4046">
-                                        <rect width="24" height="24" fill="white"/>
+                                        <rect width="24" height="24" fill="white" />
                                     </clipPath>
                                 </defs>
                             </svg>
@@ -190,7 +190,7 @@ export default function SearchComponentMobile({ onClose }) {
 
                     {/* Suggestions dropdown */}
                     {showDropdown && (
-                        <div className="fixed top-[50px] left-0 right-0 bg-white shadow-lg rounded-b-lg border border-gray-200 max-h-60 overflow-y-auto z-50 mx-5">
+                        <div className="fixed top-[50px] left-0 right-0 bg-white shadow-lg rounded-b-lg border border-gray-200 max-h-60 overflow-y-auto z-50 mx-5 scrollbar-hide">
                             {suggestions.map((college, idx) => (
                                 <div key={idx}>
                                     <Link

@@ -1,6 +1,7 @@
 import Image from "next/image";
-import collegepage_hero_img from '@/../public/Resources/Images/collegepage_hero_img.png';
+import coursepage_hero_img from '@/../public/Resources/Images/coursepage_hero_img.png';
 import collegepage_hero from '@/../public/Resources/Images/collegepage_hero.png';
+import coursepage_hero from '@/../public/Resources/Images/Rectangle 15.png'
 
 const HeroPageMobile = ({course}) => {
 
@@ -42,9 +43,12 @@ const HeroPageMobile = ({course}) => {
 
     return (
         <div
-            className="relative w-full rounded-[12px] overflow-hidden p-5 mt-[32px] h-[505px] flex flex-col justify-between"
+            className="relative w-full rounded-[12px] overflow-hidden p-5 mt-[32px] h-[575px] flex flex-col justify-between"
             style={{
-                background: ` url(${collegepage_hero.src}) center/cover no-repeat `,
+                backgroundImage: "url('/Resources/Images/Rectangle%2015.png')",
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
             }}
         >
             {/* Text Content */}
@@ -75,7 +79,7 @@ const HeroPageMobile = ({course}) => {
             {/* Foreground Student Image */}
             <div className="absolute bottom-[-10px] right-0 z-2">
                 <Image
-                    src={collegepage_hero_img}
+                    src={coursepage_hero_img}
                     alt="Student"
                     className="w-auto h-[300px] object-contain"
                 />

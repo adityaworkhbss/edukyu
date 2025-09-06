@@ -9,7 +9,7 @@ const CompareCollegesCTAMobile = () => {
     const { setCurrentPage } = usePageContext();
 
     return (
-        <div className="relative w-full rounded-[32px] h-[400px] p-5 mb-3 overflow-hidden">
+        <div className="relative w-full rounded-[32px] h-[475px] p-5 mb-3 overflow-hidden">
             {/* Background */}
             <div className="absolute inset-0 top-0 h-[340px] rounded-[40px] bg-[#FDBB06] z-0" />
 
@@ -30,23 +30,23 @@ const CompareCollegesCTAMobile = () => {
 
             {/* College Images */}
             {/* Left Image (Image 3) */}
-            <div className="absolute left-10 mt-[56px] w-[100px] h-[110px] rounded-[16px] overflow-hidden z-10 shadow-md">
+            <div className="absolute left-10 mt-[56px] w-[108px] h-[121px] mb-[32px] rounded-[16px] overflow-hidden z-10 shadow-md">
                 <Image
                     src={mainpage_cc_img3}
                     alt="College Left"
-                    width={100}
-                    height={110}
+                    width={108}
+                    height={121}
                     className="object-cover w-full h-full"
                 />
             </div>
 
             {/* Right Image (Image 1) */}
-            <div className="absolute right-10 mt-[56px] w-[100px] h-[110px] rounded-[16px] overflow-hidden z-10 shadow-md">
+            <div className="absolute right-10 mt-[56px] w-[108px] h-[121px] mb-[32px] rounded-[16px] overflow-hidden z-10 shadow-md">
                 <Image
                     src={mainpage_cc_img1}
                     alt="College Right"
-                    width={100}
-                    height={110}
+                    width={108}
+                    height={121}
                     className="object-cover w-full h-full"
                 />
             </div>

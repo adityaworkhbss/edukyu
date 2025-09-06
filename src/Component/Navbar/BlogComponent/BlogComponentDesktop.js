@@ -8,7 +8,7 @@ import {useRouter} from "next/navigation";
 import Layout from "@/GlobalComponent/Layout";
 import {usePageContext} from "@/GlobalComponent/PageContext";
 
-const BlogComponentDesktop = () => {
+const BlogComponentDesktop = ({ onNavbarClose }) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [blogs, setBlogs] = useState([]);
     const [searchMetaMap, setSearchMetaMap] = useState(new Map());
@@ -88,8 +88,12 @@ const BlogComponentDesktop = () => {
 
     const handleSuggestionClick = (id) => {
         setFilteredSuggestions([]);
-        router.push(`/blog/${id}`, undefined, { shallow: true });
-
+        // Close the navbar first
+        if (onNavbarClose) {
+            onNavbarClose();
+        }
+        // Navigate to the blog (this will trigger the loading overlay in RootShell)
+        router.push(`/blog/${id}`);
     };
 
     const handleCheckAllBlogs = () => {
@@ -172,7 +176,7 @@ const BlogComponentDesktop = () => {
                 <div className="inline-flex gap-[24px]">
                     <div className="w-full grid grid-cols-1 lg:grid-cols-4 gap-[24px]">
                         {blogs.map((item, index) => (
-                            <BlogCard key={index} item={item} />
+                            <BlogCard key={index} item={item} onNavbarClose={onNavbarClose} />
                         ))}
                     </div>
 

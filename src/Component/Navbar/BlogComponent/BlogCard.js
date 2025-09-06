@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import {useRouter} from "next/navigation";
 
-const BlogCard = ({ item }) => {
+const BlogCard = ({ item, onNavbarClose }) => {
 
     const formatDate = (dateString) => {
         try {
@@ -22,7 +22,12 @@ const BlogCard = ({ item }) => {
     const router = useRouter();
 
     const handleReadMore = (blogId) => {
-        router.push(`/blog/${blogId}`, undefined, { shallow: true });
+        // Close the navbar first
+        if (onNavbarClose) {
+            onNavbarClose();
+        }
+        // Navigate to the blog (this will trigger the loading overlay in RootShell)
+        router.push(`/blog/${blogId}`);
     };
 
     return (

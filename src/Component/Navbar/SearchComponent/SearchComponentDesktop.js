@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { CollegePageSecondryData } from '@/Data Model/CollegePage/CollegePageSecondryData';
-import {usePageContext} from "@/GlobalComponent/PageContext"; // adjust import path
+import { usePageContext } from "@/GlobalComponent/PageContext"; // adjust import path
 import Link from 'next/link';
 
 export default function SearchComponentDesktop({ onNavbarClose }) {
@@ -95,7 +95,7 @@ export default function SearchComponentDesktop({ onNavbarClose }) {
         }
     ];
 
-   
+
 
     // Flatten all colleges into an array
     const allColleges = Object.values(CollegePageSecondryData[0]).map(college => ({
@@ -113,12 +113,12 @@ export default function SearchComponentDesktop({ onNavbarClose }) {
         }
 
         const query = searchQuery.toLowerCase();
-        
+
         // Filter from allCollegesList (the ones with proper icons and types) that match the search
         const filteredColleges = allCollegesList.filter(college =>
             college.name.toLowerCase().includes(query)
         );
-        
+
         // Also filter from general college data if needed
         const filteredGeneral = allColleges.filter(college =>
             college.name.toLowerCase().includes(query) ||
@@ -128,7 +128,7 @@ export default function SearchComponentDesktop({ onNavbarClose }) {
         // Combine and prioritize allCollegesList results
         const combinedResults = [
             ...filteredColleges,
-            ...filteredGeneral.filter(general => 
+            ...filteredGeneral.filter(general =>
                 !filteredColleges.some(college => college.name === general.name)
             )
         ].slice(0, 5); // Limit total results
@@ -148,12 +148,12 @@ export default function SearchComponentDesktop({ onNavbarClose }) {
     const handleSuggestionClick = (collegeName) => {
         setSearchQuery(collegeName);
         setShowDropdown(false);
-        
+
         // Close the navbar when a suggestion is clicked
         if (onNavbarClose) {
             onNavbarClose();
         }
-        
+
         console.log('Selected:', collegeName);
     };
 
@@ -184,8 +184,8 @@ export default function SearchComponentDesktop({ onNavbarClose }) {
                         </button>
                     </div>
 
-                                        {showDropdown && (
-                        <div className="absolute top-full mt-2 w-full bg-white shadow-lg rounded-b-lg border border-gray-200 max-h-60 overflow-y-auto z-50">
+                    {showDropdown && (
+                        <div className="absolute top-full mt-2 w-full bg-white shadow-lg rounded-b-lg border border-gray-200 max-h-60 overflow-y-auto z-50 scrollbar-hide">
                             {suggestions.map((college, idx) => (
                                 <div key={idx}>
                                     <Link

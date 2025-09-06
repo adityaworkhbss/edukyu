@@ -88,11 +88,19 @@ export default function MobileSidebar({ onClose }) {
                 {/* Blogs */}
                 <div className="inline-flex justify-between items-center">
                     <span onClick={() => setIsBlogOpen(!isBlogOpen)}>Blogs</span>
+                    <button onClick={() => setIsBlogOpen(!isBlogOpen)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                            <path d={isBlogOpen
+                                ? "M7.41 8.59L12 13.17L16.59 8.59L18 10L12 16L6 10L7.41 8.59Z"
+                                : "M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"}
+                                  fill="#025E68" />
+                        </svg>
+                    </button>
                 </div>
                 <div className="w-full h-[1px] bg-[#DBDBDB]" />
                 {isBlogOpen && (
                     <div className="pl-[44px] pt-[16px] pb-[54px]">
-                        <BlogComponentMobile onClose={() => setIsBlogOpen(false)} />
+                        <BlogComponentMobile onClose={onClose} />
                     </div>
                 )}
 

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import collegepage_hero from '@/../public/Resources/Images/collegepage_hero.png';
 import collegepage_hero_img from '@/../public/Resources/Images/collegepage_hero_img.png';
+import coursepage_hero from '@/../public/Resources/Images/Rectangle 13.png';
 import GridComponent from "@/GlobalComponent/GridComponent";
 import React, { useState } from "react";
 import Form from "@/Component/Form/Form";
@@ -113,19 +114,19 @@ const HeroPage = ({ course }) => {
                 <div className="w-1/2 relative mb-8 flex-shrink-0">
                     <div className="max-w-full pl-3">
                         <Image
-                            src={collegepage_hero}
+                            src={coursepage_hero}
                             alt="College Page Hero"
                             className="w-full h-auto"
                         />
 
                     </div>
-                    <div className="absolute bottom-[-32px] right-[56px]">
+                    {/* <div className="absolute bottom-[-32px] right-[56px]">
                         <Image
                             src={collegepage_hero_img}
                             alt="College Page Hero Image"
                             className="max-w-full h-auto"
                         />
-                    </div>
+                    </div> */}
                 </div>
             </div>
 

@@ -216,7 +216,12 @@ const BlogComponentMobile = ({ onClose }) => {
     };
 
     const handleReadMore = (blogId) => {
-        router.push(`/blog/${blogId}`, undefined, { shallow: true });
+        // Close the mobile navbar first
+        if (onClose) {
+            onClose();
+        }
+        // Navigate to the blog (this will trigger the loading overlay in RootShell)
+        router.push(`/blog/${blogId}`);
     };
 
     const fetchTopNavBlogs = async () => {
@@ -274,7 +279,12 @@ const BlogComponentMobile = ({ onClose }) => {
     const handleSuggestionClick = (id) => {
         setFilteredSuggestions([]);
         setSearchQuery("");
-        router.push(`/blog/${id}`, undefined, { shallow: true });
+        // Close the mobile navbar first
+        if (onClose) {
+            onClose();
+        }
+        // Navigate to the blog (this will trigger the loading overlay in RootShell)
+        router.push(`/blog/${id}`);
     };
 
     const formatDate = (dateString) => {
@@ -398,7 +408,10 @@ const BlogComponentMobile = ({ onClose }) => {
                 <button className="inline-flex w-full items-center justify-center gap-[10px] px-[16px] py-[12px] bg-[#024B53] text-white text-[14px] font-outfit font-medium leading-normal rounded-[8px]"
                         onClick={() => {
                             setCurrentPage('blog');
-                            setActiveTab(null);
+                            if (onClose) {
+                                onClose();
+                            }
+                            router.push('/blogs');
                         }}>
                     Check all Blogs
                 </button>
