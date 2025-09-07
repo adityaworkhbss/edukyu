@@ -87,7 +87,7 @@ export const ExploreProgramsMobile = () => {
                             key={program.id}
                             className="w-full flex-shrink-0 border overflow-hidden rounded-xl border-solid border-[#CDCDCD] scroll-snap-align-start flex flex-col"
                         >
-                            <div className="flex w-full rounded-[14px]  p-[24px]">
+                            <div className="flex w-full rounded-[30px]  p-[24px]">
                                 <div className="bg-program-image rounded-lg h-[132px] w-full flex items-center overflow-hidden">
                                     {program.image ? (
                                         <img

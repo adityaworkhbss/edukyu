@@ -29,7 +29,7 @@ export const StudentPlacementMobile = () => {
                         {group.map((alumni, idx) => (
                             <div
                                 key={idx}
-                                className="relative aspect-square bg-[#D9D9D9] rounded-lg overflow-hidden group"
+                                className="relative aspect-square bg-[#D9D9D9] rounded-[12px] overflow-hidden group"
                             >
                                 <Image
                                     src={alumni.image}
