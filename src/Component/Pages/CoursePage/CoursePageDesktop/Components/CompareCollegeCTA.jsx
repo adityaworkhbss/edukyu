@@ -24,11 +24,12 @@ const CompareCollegesCTA = () => {
                     for you!
                 </div>
 
-                <button className="inline-flex mt-[32px] mb-[40px] items-center justify-center gap-[10px] px-4 py-3 rounded-[12px] bg-[#9B9B9B] group-hover:bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium leading-none"
-                        onClick={() => setCurrentPage('compare-college')}
-                >
+               <Link
+                    href="/compare-colleges"
+                    className="inline-flex mt-[32px] mb-[40px] items-center justify-center gap-[10px] px-4 py-3 rounded-[12px] bg-[#9B9B9B] hover:bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium leading-none"
+               >
                     Compare Colleges
-                </button>
+                </Link>
             </div>
 
             {/* Images - Two rows on the right */}

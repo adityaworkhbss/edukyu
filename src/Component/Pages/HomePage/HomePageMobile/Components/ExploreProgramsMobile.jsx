@@ -129,7 +129,7 @@ export const ExploreProgramsMobile = () => {
                                     {/* Button section - always at bottom */}
                                     <div className="flex w-full gap-2.5 text-sm font-normal pt-[42px]">
                                         <Link href={`/manipal_university/online_mba`} className="flex-1">
-                                            <button className="justify-center items-center border flex gap-2.5 overflow-hidden text-[#9B9B9B] whitespace-nowrap w-full p-3 rounded-lg border-solid border-[#9B9B9B] hover:bg-gray-50 transition-colors">
+                                            <button className="justify-center items-center border flex gap-2.5 overflow-hidden text-[#9B9B9B] whitespace-nowrap w-full p-3 rounded-lg border-solid border-[#9B9B9B] transition-colors">
                                                 <div className="text-[#9B9B9B] self-stretch my-auto">Explore</div>
                                             </button>
                                         </Link>

@@ -23,6 +23,9 @@ import GridComponent from "@/GlobalComponent/GridComponent";
 import collegePageMobile from "@/Component/Pages/CollegePage/CollegePageMobile/CollegePageMobile";
 import FaqsSectionMobile from "@/Component/Pages/CoursePage/CoursePageMobile/Components/FaqsSectionMobile";
 import HiringPartnersSectionMobile from "@/Component/Pages/CoursePage/CoursePageMobile/Components/HiringPartnerSectionMobile";
+
+
+
 const CoursePageMobile = ({ course, collegeSecondry }) => {
 
     return (

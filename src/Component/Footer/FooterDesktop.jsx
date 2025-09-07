@@ -180,7 +180,7 @@ const FooterDesktop = () => {
         { name: "About Us", url: "https://edukyu.com/about-us" },
         { name: "Our Team", url: "https://edukyu.com/team" },
         { name: "Partner with Us", url: "https://edukyu.com/partner-with-us" },
-        { name: "Compare College", action: () => setCurrentPage('compare-college') },
+        { name: "Compare College", action: () => setCurrentPage('compare-colleges') },
         { name: "College Manch", url: "https://collegemanch.com/" },
         { name: "Blogs", action: () => setCurrentPage('blog') },
         { name: "Refer and Earn", url: "https://edukyu.com/refer-and-earn/" },

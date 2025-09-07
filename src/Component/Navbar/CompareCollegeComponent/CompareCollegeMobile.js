@@ -12,7 +12,7 @@ const CompareCollegeMobile = ({ onNavbarClose, onSidebarClose }) => {
     const handleCompareClick = () => {
         // Close the navbar components if provided
         if (onNavbarClose) {
-            onNavbarClose(); // Close the compare component
+            onNavbarClose(); // Close the compare-colleges component
         }
         if (onSidebarClose) {
             onSidebarClose(); // Close the entire mobile sidebar
@@ -58,16 +58,25 @@ const CompareCollegeMobile = ({ onNavbarClose, onSidebarClose }) => {
 
                 {/* Compare Button */}
                 <div className="text-center">
-                    <Link href="/compare">
-                        <button 
-                            className="inline-flex items-center justify-center gap-[10px] px-[24px] py-[14px] rounded-[12px] bg-[#024B53] text-white text-[16px] font-medium font-outfit leading-none cursor-pointer min-w-[200px]"
-                            onClick={handleCompareClick}
+                    <Link
+                        href="/compare-colleges"
+                        onClick={handleCompareClick}
+                        className="inline-flex items-center justify-center gap-[10px] px-[24px] py-[14px] rounded-[12px] bg-[#024B53] text-white text-[16px] font-medium font-outfit leading-none cursor-pointer min-w-[200px] hover:bg-[#036068]"
+                    >
+                        <svg
+                            className="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
                         >
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                            </svg>
-                            Compare Colleges
-                        </button>
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                            />
+                        </svg>
+                        Compare Colleges
                     </Link>
                 </div>
             </div>

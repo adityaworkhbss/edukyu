@@ -9,9 +9,6 @@ const HeroPage = ({college}) => {
 
     const [showForm, setShowForm] = useState(false);
 
-    // console.log("banner image ::: " + college.university_info.banner_image);
-
-    // Add null checks to prevent errors
     if (!college || !college.university_info) {
         return (
             <div className="w-full p-8">

@@ -9,13 +9,11 @@ export const PageProvider = ({ children }) => {
     const [selectedCollege, setSelectedCollege] = useState(null);
     const [selectedCourse, setSelectedCourse] = useState(null);
 
-    // Wrapper around setCurrentPage that also updates browser history
     const setCurrentPage = useCallback((page) => {
         setCurrentPageState(page);
         window.history.pushState({ page }, "", `/${page === "home" ? "" : page}`);
     }, []);
 
-    // Handle browser back/forward
     useEffect(() => {
         const handlePop = (event) => {
             const page = event.state?.page || "home";

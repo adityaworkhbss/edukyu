@@ -1,12 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import mainpage_cc_img1 from "@/../public/Resources/Images/mainpage_cc_img1.jpg";
-import mainpage_cc_img2 from "@/../public/Resources/Images/mainpage_cc_img2.jpg";
 import mainpage_cc_img3 from "@/../public/Resources/Images/mainpage_cc_img3.png";
-import {usePageContext} from "@/GlobalComponent/PageContext";
 
 const CompareCollegesCTAMobile = () => {
-
-    const { setCurrentPage } = usePageContext();
 
     return (
         <div className="relative w-full rounded-[32px] h-[475px] p-5 mb-3 overflow-hidden">
@@ -21,15 +18,14 @@ const CompareCollegesCTAMobile = () => {
                 <div className="text-[#2B2B2A] font-[Outfit] text-[14px] font-normal leading-[22px] mb-6">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
-                <button
-                    onClick={() => setCurrentPage('compare-college')}
-                    className="w-full  inline-flex items-center justify-center px-6 py-3 rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-[Outfit]">
+                <Link
+                    href="/compare-colleges"
+                    className="w-full inline-flex items-center justify-center px-6 py-3 rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-[Outfit] hover:bg-[#036068]"
+                >
                     Compare Colleges
-                </button>
+                </Link>
             </div>
 
-            {/* College Images */}
-            {/* Left Image (Image 3) */}
             <div className="absolute left-10 mt-[56px] w-[108px] h-[121px] mb-[32px] rounded-[16px] overflow-hidden z-10 shadow-md">
                 <Image
                     src={mainpage_cc_img3}
@@ -40,7 +36,6 @@ const CompareCollegesCTAMobile = () => {
                 />
             </div>
 
-            {/* Right Image (Image 1) */}
             <div className="absolute right-10 mt-[56px] w-[108px] h-[121px] mb-[32px] rounded-[16px] overflow-hidden z-10 shadow-md">
                 <Image
                     src={mainpage_cc_img1}

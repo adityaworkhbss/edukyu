@@ -8,7 +8,7 @@ export default function CompareRoute() {
 
     return (
         <div className="w-full font-[Outfit]">
-           <CompareCollege />;
+            <CompareCollege />;
         </div>
     );
 }

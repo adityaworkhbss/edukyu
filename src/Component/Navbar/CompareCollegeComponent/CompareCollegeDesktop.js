@@ -38,16 +38,16 @@ const CompareCollegeDesktop = ({ numGrids, gutter, onNavbarClose }) => {
                         </div>
 
                         <div>
-                            <Link href="/compare">
-                                <button className="inline-flex items-center justify-center gap-[10px] px-[16px] py-[12px] rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-outfit leading-none cursor-pointer" 
-                                       onClick={() => {
-                                           if (onNavbarClose) {
-                                               onNavbarClose(); // Close the navbar dropdown
-                                           }
-                                       }}
-                                >
-                                    Compare Colleges
-                                </button>
+                            <Link
+                                href="/compare-colleges"
+                                className="inline-flex items-center justify-center gap-[10px] px-[16px] py-[12px] rounded-[12px] bg-[#024B53] text-white text-[14px] font-medium font-outfit leading-none cursor-pointer hover:bg-[#036068]"
+                                onClick={() => {
+                                    if (onNavbarClose) {
+                                        onNavbarClose(); // Close the navbar dropdown
+                                    }
+                                }}
+                            >
+                                Compare Colleges
                             </Link>
                         </div>
                     </div>

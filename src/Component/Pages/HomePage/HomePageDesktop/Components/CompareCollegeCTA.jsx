@@ -29,14 +29,14 @@ const CompareCollegesCTA = () => {
                         for you!
                     </div>
                 </GridComponentSec>
-                <Link href="/compare">
+                <Link href="/compare-colleges">
                     <button className="inline-flex mt-[32px] mb-[40px] items-center justify-center gap-[10px] px-4 py-3 rounded-[12px] bg-[#9B9B9B] group-hover:bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium leading-none cursor-pointer">
                         Compare Colleges
                     </button>
                 </Link>
 
                 {/* <button className="inline-flex mt-[32px] mb-[40px] items-center justify-center gap-[10px] px-4 py-3 rounded-[12px] bg-[#9B9B9B] group-hover:bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium leading-none cursor-pointer"
-                        onClick={() => setCurrentPage('compare-college')}
+                        onClick={() => setCurrentPage('compare-colleges-college')}
                 >
                     Compare Colleges
                 </button> */}
