@@ -107,13 +107,13 @@ export const PartnerUniversities = () => {
                                 style={{ width: `${cardWidth}px` }}
                             >
                                 {/* Logo Area */}
-                                <div className={` h-[96px] flex items-center justify-center ${univ.hasGrayBackground ? 'bg-gray-300' : 'bg-white'}`}>
+                                <div className={` h-[96px] flex items-center justify-center `}>
                                     {univ.logoUrl ? (
                                         <img
                                             src={`https://edukyu.com/${univ.logoUrl}`}
                                             // src={getCollegeLogo(univ.code)}
                                             alt={univ.title}
-                                            className="w-full h-full object-cover"
+                                            className="w-full h-full object-cover rounded-[14px]"
                                         />
                                     ) : (
                                         <ImageIcon size={48} className="text-secondary opacity-60" />

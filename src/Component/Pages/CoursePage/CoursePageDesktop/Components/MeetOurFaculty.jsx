@@ -75,7 +75,7 @@ const OurFaculty = () => {
                                             src={`https://edukyu.com${alumni.image}`}
                                             alt={alumni.name}
                                             fill
-                                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                            className="object-cover "
                                             unoptimized
                                         />
                                     ) : (
