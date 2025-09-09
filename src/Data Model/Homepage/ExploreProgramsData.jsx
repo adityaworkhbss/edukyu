@@ -27,6 +27,13 @@ export const ExploreProgramsData = {
             "startingFee": "INR 1,200/-",
             "usp": "Comprehensive commerce knowledge.",
              "image": "new-ed/assets/cxp-assets/imgs/discover-our-courses/doc-6.jpg",
+        },
+        {
+            "name": "Master of Commerce (M.Com)",
+            "duration": "2 Years",
+            "startingFee": "INR 1,200/-",
+            "usp": "Comprehensive commerce knowledge.",
+             "image": "new-ed/assets/cxp-assets/imgs/discover-our-courses/doc-6.jpg",
         }
     ],
     "UG Programs": [
@@ -46,6 +53,7 @@ export const ExploreProgramsData = {
         },
         {
             "name": "Bachelor of Commerce (B.Com)",
+             "image": "new-ed/assets/cxp-assets/imgs/discover-our-courses/doc-2.jpg",
             "duration": "3 Years",
             "startingFee": "INR 1,200/-",
             "usp": "In-depth financial and accounting knowledge"

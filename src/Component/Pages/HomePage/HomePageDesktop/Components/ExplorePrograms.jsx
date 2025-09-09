@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useRef, useState, useEffect} from "react";
 import { ImageIcon } from "lucide-react";
 import GridComponent from "@/GlobalComponent/GridComponent";
 import { ExploreProgramsData } from '@/Data Model/Homepage/ExploreProgramsData';
@@ -10,8 +10,10 @@ const ExplorePrograms = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [cardWidth, setCardWidth] = useState(151);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
     const containerRef = useRef(null);
-    const cardsPerView = 6;
+    const cardsPerView = 4;
     const cardGap = 24;
     const defaultUniversitiy = "manipal_university";
 
@@ -46,16 +48,54 @@ const ExplorePrograms = () => {
         { id: "DC", label: "Diploma/Certificate" }
     ];
 
+    // Function to check scroll position and update arrow states
+    const checkScrollPosition = () => {
+        const maxIndex = programs.length - cardsPerView;
+        setCanScrollLeft(currentIndex > 0);
+        setCanScrollRight(currentIndex < maxIndex);
+    };
+
+    // Update card width based on container size
+    useEffect(() => {
+        const updateCardWidth = () => {
+            if (containerRef.current) {
+                const totalGap = (cardsPerView - 1) * cardGap;
+                const containerWidth = containerRef.current.offsetWidth;
+                const newCardWidth = (containerWidth - totalGap) / cardsPerView;
+                setCardWidth(newCardWidth);
+            }
+        };
+
+        const observer = new ResizeObserver(updateCardWidth);
+        if (containerRef.current) observer.observe(containerRef.current);
+        updateCardWidth();
+
+        return () => observer.disconnect();
+    }, []);
+
+    // Update arrow states when current index or tab changes
+    useEffect(() => {
+        checkScrollPosition();
+    }, [currentIndex, programs.length]);
+
+    // Reset scroll position when tab changes
+    useEffect(() => {
+        setCurrentIndex(0);
+        setCanScrollLeft(false);
+        setCanScrollRight(programs.length > cardsPerView);
+    }, [activeTab, programs.length]);
+
     const handlePrev = () => {
-        setCurrentIndex((prev) =>
-            (prev - 1 + programs.length) % programs.length
-        );
+        if (currentIndex > 0) {
+            setCurrentIndex((prev) => prev - 1);
+        }
     };
 
     const handleNext = () => {
-        setCurrentIndex((prev) =>
-            (prev + 1) % programs.length
-        );
+        const maxIndex = programs.length - cardsPerView;
+        if (currentIndex < maxIndex) {
+            setCurrentIndex((prev) => prev + 1);
+        }
     };
 
     const courseMap = {
@@ -98,9 +138,19 @@ const ExplorePrograms = () => {
                 </div>
 
                 <div className="relative">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {programs.map((program) => (
-                            <div key={program.id} className="group bg-program-card  border border-border rounded-[14px] shadow-sm border-[#CDCDCD]">
+                    <div className="overflow-hidden" ref={containerRef}>
+                        <div
+                            className="flex gap-6 transition-transform duration-500 ease-in-out"
+                            style={{
+                                transform: `translateX(${-1 * currentIndex * (cardWidth + cardGap)}px)`
+                            }}
+                        >
+                            {programs.map((program) => (
+                                <div 
+                                    key={program.id} 
+                                    className="group bg-program-card border border-border rounded-[14px] shadow-sm border-[#CDCDCD] flex-shrink-0"
+                                    style={{ width: `${cardWidth}px` }}
+                                >
                                 <div className="p-0">
                                     <div className="bg-program-image pt-4 px-4  h-[110px] flex items-center justify-center overflow-hidden">
                                         {program.image ? (
@@ -181,18 +231,22 @@ const ExplorePrograms = () => {
                                 </div>
                             </div>
                         ))}
+                        </div>
                     </div>
                 </div>
 
                 <div className="flex justify-between mt-[32px]">
                     <button
                         onClick={handlePrev}
-                        className="bg-white z-10 p-4 hover:shadow-md rounded"
+                        disabled={!canScrollLeft}
+                        className={`bg-white z-10 p-4 hover:shadow-md rounded transition-opacity ${
+                            !canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
+                        }`}
                         aria-label="Previous"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
                             <g clipPath="url(#clip0_228_602)">
-                                <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#9B9B9B" />
+                                <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill={!canScrollLeft ? "#D1D5DB" : "#024B53"} />
                             </g>
                             <defs>
                                 <clipPath id="clip0_228_602">
@@ -204,11 +258,14 @@ const ExplorePrograms = () => {
 
                     <button
                         onClick={handleNext}
-                        className="bg-white z-10 p-4 hover:shadow-md rounded"
+                        disabled={!canScrollRight}
+                        className={`bg-white z-10 p-4 hover:shadow-md rounded transition-opacity ${
+                            !canScrollRight ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
+                        }`}
                         aria-label="Next"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53" />
+                            <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill={!canScrollRight ? "#D1D5DB" : "#024B53"} />
                         </svg>
                     </button>
 

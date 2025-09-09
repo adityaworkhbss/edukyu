@@ -36,10 +36,19 @@ export const PartnerUniversities = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [cardWidth, setCardWidth] = useState(151);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
     const containerRef = useRef(null);
     const cardsPerView = 4;
     const cardGap = 24;
     const { setCurrentPage, setSelectedCollege } = usePageContext();
+
+    // Function to check scroll position and update arrow states
+    const checkScrollPosition = () => {
+        const maxIndex = universities.length - cardsPerView;
+        setCanScrollLeft(currentIndex > 0);
+        setCanScrollRight(currentIndex < maxIndex);
+    };
 
     useEffect(() => {
         const updateCardWidth = () => {
@@ -58,16 +67,22 @@ export const PartnerUniversities = () => {
         return () => observer.disconnect();
     }, []);
 
+    // Update arrow states when current index changes
+    useEffect(() => {
+        checkScrollPosition();
+    }, [currentIndex, universities.length]);
+
     const handlePrev = () => {
-        setCurrentIndex((prev) =>
-            (prev - 1 + universities.length) % universities.length
-        );
+        if (currentIndex > 0) {
+            setCurrentIndex((prev) => prev - 1);
+        }
     };
 
     const handleNext = () => {
-        setCurrentIndex((prev) =>
-            (prev + 1) % universities.length
-        );
+        const maxIndex = universities.length - cardsPerView;
+        if (currentIndex < maxIndex) {
+            setCurrentIndex((prev) => prev + 1);
+        }
     };
 
     const totalTranslateX = -1 * currentIndex * (cardWidth + cardGap);
@@ -99,7 +114,7 @@ export const PartnerUniversities = () => {
                             transform: `translateX(${totalTranslateX}px)`
                         }}
                     >
-                        {universities.concat(universities).map((univ, idx) => (
+                        {universities.map((univ, idx) => (
 
                             <div
                                 key={`${univ.id}-${idx}`}
@@ -238,12 +253,15 @@ export const PartnerUniversities = () => {
                 <div className="flex justify-between mt-[32px]">
                     <button
                         onClick={handlePrev}
-                        className="bg-white z-10 p-4 hover:shadow-md rounded"
+                        disabled={!canScrollLeft}
+                        className={`bg-white z-10 p-4 hover:shadow-md rounded transition-opacity ${
+                            !canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
+                        }`}
                         aria-label="Previous"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
                             <g clipPath="url(#clip0_228_602)">
-                                <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#9B9B9B" />
+                                <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill={!canScrollLeft ? "#D1D5DB" : "#024B53"} />
                             </g>
                             <defs>
                                 <clipPath id="clip0_228_602">
@@ -255,11 +273,14 @@ export const PartnerUniversities = () => {
 
                     <button
                         onClick={handleNext}
-                        className="bg-white z-10 p-4 hover:shadow-md rounded"
+                        disabled={!canScrollRight}
+                        className={`bg-white z-10 p-4 hover:shadow-md rounded transition-opacity ${
+                            !canScrollRight ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
+                        }`}
                         aria-label="Next"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53" />
+                            <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill={!canScrollRight ? "#D1D5DB" : "#024B53"} />
                         </svg>
                     </button>
                 </div>

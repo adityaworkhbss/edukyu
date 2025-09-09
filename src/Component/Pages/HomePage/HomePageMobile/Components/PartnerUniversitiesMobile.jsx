@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { PartnerUniversitiesData } from "@/Data Model/Homepage/PartnerUniversitiesData";
 import CollegePageData from "@/Data Model/CollegePage/CollegePageData";
 import { usePageContext } from "@/GlobalComponent/PageContext";
@@ -74,6 +74,9 @@ import { get } from 'http';
 // };
 
 export const PartnerUniversitiesMobile = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
     const containerRef = useRef(null);
 
     const { setCurrentPage, setSelectedCollege } = usePageContext();
@@ -85,42 +88,23 @@ export const PartnerUniversitiesMobile = () => {
         return collegeData.university_info.logo;
     };
 
-    const measureStep = () => {
-        const container = containerRef.current;
-        if (!container) return null;
-        const first = container.querySelector('article');
-        if (!first) return null;
-        const cardRect = first.getBoundingClientRect();
-        const style = window.getComputedStyle(container);
-        // modern browsers support gap on flex containers
-        const gap = parseFloat(style.gap) || parseFloat(style.columnGap) || 16;
-        return { step: Math.round(cardRect.width + gap), cardWidth: Math.round(cardRect.width), gap };
+    // Function to check scroll position and update arrow states
+    const checkScrollPosition = () => {
+        if (containerRef.current) {
+            const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
+            setCanScrollLeft(scrollLeft > 0);
+            setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+        }
     };
 
-    const handleNext = () => {
-        const container = containerRef.current;
-        if (!container) return;
-        const metrics = measureStep();
-        if (!metrics) { container.scrollBy({ left: 336, behavior: 'smooth' }); return; }
-        const { step } = metrics;
-        const scrollLeft = Math.round(container.scrollLeft);
-        const currentIndex = Math.round(scrollLeft / step);
-        const nextIndex = Math.min(currentIndex + 1, universities.length - 1);
-        const target = nextIndex * step;
-        container.scrollTo({ left: target, behavior: 'smooth' });
-    };
-
-    const handlePrev = () => {
-        const container = containerRef.current;
-        if (!container) return;
-        const metrics = measureStep();
-        if (!metrics) { container.scrollBy({ left: -336, behavior: 'smooth' }); return; }
-        const { step } = metrics;
-        const scrollLeft = Math.round(container.scrollLeft);
-        const currentIndex = Math.round(scrollLeft / step);
-        const prevIndex = Math.max(currentIndex - 1, 0);
-        const target = prevIndex * step;
-        container.scrollTo({ left: target, behavior: 'smooth' });
+    // Update current index based on scroll position
+    const updateCurrentIndex = () => {
+        if (containerRef.current) {
+            const cardWidth = containerRef.current.offsetWidth; // Full width of one card
+            const scrollLeft = containerRef.current.scrollLeft;
+            const newIndex = Math.round(scrollLeft / cardWidth);
+            setCurrentIndex(newIndex);
+        }
     };
 
     const universities = PartnerUniversitiesData.universities.map((univ, index) => {
@@ -140,6 +124,63 @@ export const PartnerUniversitiesMobile = () => {
         };
     });
 
+    const measureStep = () => {
+        const container = containerRef.current;
+        if (!container) return null;
+        const first = container.querySelector('article');
+        if (!first) return null;
+        const cardRect = first.getBoundingClientRect();
+        const style = window.getComputedStyle(container);
+        // modern browsers support gap on flex containers
+        const gap = parseFloat(style.gap) || parseFloat(style.columnGap) || 16;
+        return { step: Math.round(cardRect.width + gap), cardWidth: Math.round(cardRect.width), gap };
+    };
+
+    // Effect to set up scroll listener
+    useEffect(() => {
+        const container = containerRef.current;
+        if (container) {
+            const handleScroll = () => {
+                checkScrollPosition();
+                updateCurrentIndex();
+            };
+            
+            container.addEventListener('scroll', handleScroll);
+            checkScrollPosition(); // Initial check
+            
+            return () => container.removeEventListener('scroll', handleScroll);
+        }
+    }, [universities]);
+
+    // Initialize scroll states
+    useEffect(() => {
+        setCurrentIndex(0);
+        setCanScrollLeft(false);
+        setCanScrollRight(universities.length > 1);
+    }, [universities.length]);
+
+    const handleNext = () => {
+        if (containerRef.current && currentIndex < universities.length - 1) {
+            const cardWidth = containerRef.current.offsetWidth;
+            const nextIndex = currentIndex + 1;
+            containerRef.current.scrollTo({ 
+                left: nextIndex * cardWidth, 
+                behavior: 'smooth' 
+            });
+        }
+    };
+
+    const handlePrev = () => {
+        if (containerRef.current && currentIndex > 0) {
+            const cardWidth = containerRef.current.offsetWidth;
+            const prevIndex = currentIndex - 1;
+            containerRef.current.scrollTo({ 
+                left: prevIndex * cardWidth, 
+                behavior: 'smooth' 
+            });
+        }
+    };
+
     
 
     return (
@@ -153,7 +194,7 @@ export const PartnerUniversitiesMobile = () => {
 
             <div
                 ref={containerRef}
-                className="flex gap-4 overflow-x-auto scroll-smooth scrollbar-hide"
+                className="flex overflow-x-auto scroll-smooth scrollbar-hide"
                 style={{ scrollSnapType: 'x mandatory' }}
             >
                 {universities.map((uni, index) => (
@@ -231,20 +272,26 @@ export const PartnerUniversitiesMobile = () => {
                 <div className="flex justify-between mt-[36.5px] pb-[32px]">
                     <button
                         onClick={handlePrev}
-                        className="bg-white z-10 p-[4.5] hover:shadow-md rounded"
+                        disabled={!canScrollLeft}
+                        className={`bg-white z-10 p-[4.5] hover:shadow-md rounded transition-opacity ${
+                            !canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
+                        }`}
                         aria-label="Previous"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
-                            <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#9B9B9B" />
+                            <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill={!canScrollLeft ? "#D1D5DB" : "#024B53"} />
                         </svg>
                     </button>
                     <button
                         onClick={handleNext}
-                        className="bg-white z-10 p-[4.5] hover:shadow-md rounded"
+                        disabled={!canScrollRight}
+                        className={`bg-white z-10 p-[4.5] hover:shadow-md rounded transition-opacity ${
+                            !canScrollRight ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
+                        }`}
                         aria-label="Next"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
-                            <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53" />
+                            <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill={!canScrollRight ? "#D1D5DB" : "#024B53"} />
                         </svg>
                     </button>
                 </div>

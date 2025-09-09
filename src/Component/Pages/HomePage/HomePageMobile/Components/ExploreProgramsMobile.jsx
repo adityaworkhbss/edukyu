@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { ImageIcon } from "lucide-react";
 import GridContainer from "@/GlobalComponent/GridContainer";
 import { ExploreProgramsData } from "@/Data Model/Homepage/ExploreProgramsData";
@@ -6,6 +6,9 @@ import Link from "next/link";
 
 export const ExploreProgramsMobile = () => {
     const [activeTab, setActiveTab] = useState("PG");
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
     const containerRef = useRef(null);
 
     const getActivePrograms = () => {
@@ -32,15 +35,67 @@ export const ExploreProgramsMobile = () => {
         { id: "DC", label: "Diploma/Certificate" }
     ];
 
-    const handleNext = () => {
+    // Function to check scroll position and update arrow states
+    const checkScrollPosition = () => {
         if (containerRef.current) {
-            containerRef.current.scrollBy({ left: 320 + 17, behavior: 'smooth' });
+            const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
+            setCanScrollLeft(scrollLeft > 0);
+            setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+        }
+    };
+
+    // Update current index based on scroll position
+    const updateCurrentIndex = () => {
+        if (containerRef.current) {
+            const cardWidth = containerRef.current.offsetWidth; // Full width of one card
+            const scrollLeft = containerRef.current.scrollLeft;
+            const newIndex = Math.round(scrollLeft / cardWidth);
+            setCurrentIndex(newIndex);
+        }
+    };
+
+    // Effect to set up scroll listener
+    useEffect(() => {
+        const container = containerRef.current;
+        if (container) {
+            const handleScroll = () => {
+                checkScrollPosition();
+                updateCurrentIndex();
+            };
+            
+            container.addEventListener('scroll', handleScroll);
+            checkScrollPosition(); // Initial check
+            
+            return () => container.removeEventListener('scroll', handleScroll);
+        }
+    }, [programs]);
+
+    // Reset scroll position when tab changes
+    useEffect(() => {
+        setCurrentIndex(0);
+        setCanScrollLeft(false);
+        setCanScrollRight(programs.length > 1);
+    }, [activeTab, programs.length]);
+
+    const handleNext = () => {
+        if (containerRef.current && currentIndex < programs.length - 1) {
+            const cardWidth = containerRef.current.offsetWidth;
+            const nextIndex = currentIndex + 1;
+            containerRef.current.scrollTo({ 
+                left: nextIndex * cardWidth, 
+                behavior: 'smooth' 
+            });
         }
     };
 
     const handlePrev = () => {
-        if (containerRef.current) {
-            containerRef.current.scrollBy({ left: -(320 + 17), behavior: 'smooth' });
+        if (containerRef.current && currentIndex > 0) {
+            const cardWidth = containerRef.current.offsetWidth;
+            const prevIndex = currentIndex - 1;
+            containerRef.current.scrollTo({ 
+                left: prevIndex * cardWidth, 
+                behavior: 'smooth' 
+            });
         }
     };
 
@@ -79,7 +134,7 @@ export const ExploreProgramsMobile = () => {
 
                 <div
                     ref={containerRef}
-                    className="flex gap-4 overflow-x-auto scroll-smooth scrollbar-hide mt-8 pb-[32px]"
+                    className="flex overflow-x-auto scroll-smooth scrollbar-hide mt-8 pb-[32px]"
                     style={{ scrollSnapType: 'x mandatory' }}
                 >
                     {programs.map((program, index) => (
@@ -143,14 +198,28 @@ export const ExploreProgramsMobile = () => {
                 {/* Navigation Buttons */}
                 {programs.length > 1 && (
                     <div className="flex justify-between pb-[32px]">
-                        <button onClick={handlePrev} className="bg-white z-10 p-[4.5] hover:shadow-md rounded" aria-label="Previous">
+                        <button 
+                            onClick={handlePrev} 
+                            disabled={!canScrollLeft}
+                            className={`bg-white z-10 p-[4.5] hover:shadow-md rounded transition-opacity ${
+                                !canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
+                            }`} 
+                            aria-label="Previous"
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
-                                <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#9B9B9B"/>
+                                <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill={!canScrollLeft ? "#D1D5DB" : "#024B53"}/>
                             </svg>
                         </button>
-                        <button onClick={handleNext} className="bg-white z-10 p-[4.5] hover:shadow-md rounded" aria-label="Next">
+                        <button 
+                            onClick={handleNext} 
+                            disabled={!canScrollRight}
+                            className={`bg-white z-10 p-[4.5] hover:shadow-md rounded transition-opacity ${
+                                !canScrollRight ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
+                            }`} 
+                            aria-label="Next"
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
-                                <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53"/>
+                                <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill={!canScrollRight ? "#D1D5DB" : "#024B53"}/>
                             </svg>
                         </button>
                     </div>
