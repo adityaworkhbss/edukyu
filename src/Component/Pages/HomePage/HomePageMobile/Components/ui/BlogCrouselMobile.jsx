@@ -81,18 +81,18 @@ export default function BlogCrouselMobile(
                             className="bg-white rounded-lg overflow-hidden  flex-shrink-0"
                             style={{ width: `${cardWidth}px` }}
                         >
-                            <div className="cover bg-gray-100 h-[214px] flex items-center rounded-b-xl justify-center">
+                            <div className="cover bg-gray-100 h-[214px] flex items-center justify-center rounded-[16px] border-b-[16px] border-white">
                                 {univ.image ? (
                                     <img
-                                        // `https://edukyu.com/public/${univ.image}`
                                         src={`https://edukyu.com/public/${univ.image}`}
                                         alt={univ.title}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-auto"
                                     />
                                 ) : (
                                     <ImageIcon size={48} className="text-secondary opacity-60" />
                                 )}
                             </div>
+
 
                             <div className="py-4 text-left space-y-4">
                                 {/* Meta Info */}

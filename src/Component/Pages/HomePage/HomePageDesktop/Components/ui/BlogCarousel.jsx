@@ -79,10 +79,10 @@ export default function BlogCarousel(
                                 )}
                             </div>
 
-                            <div className="p-4 space-y-4">
+                            <div className="py-4 space-y-4 ">
                                 {/* Meta Info */}
-                                <div className="flex items-center justify-between text-[14px] leading-[14px] font-medium text-[#707070] tracking-[0.3px] font-outfit">
-                                    <div className="flex items-center gap-4">
+                                <div className="flex text-[14px] leading-[14px] font-medium text-[#707070] tracking-[0.3px] font-outfit">
+                                    <div className="flex gap-4 items-center pr-6">
                                         {/* SVG Icon */}
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="23" viewBox="0 0 20 23" fill="none">
                                             <path d="M10 11.4295C13.1562 11.4295 15.7143 8.87151 15.7143 5.71526C15.7143 2.55901 13.1562 0.000976562 10 0.000976562C6.84375 0.000976562 4.28571 2.55901 4.28571 5.71526C4.28571 8.87151 6.84375 11.4295 10 11.4295ZM14 12.8581H13.2545C12.2634 13.3135 11.1607 13.5724 10 13.5724C8.83928 13.5724 7.74107 13.3135 6.74554 12.8581H6C2.6875 12.8581 0 15.5456 0 18.8581V20.7153C0 21.8983 0.959821 22.8581 2.14286 22.8581H17.8571C19.0402 22.8581 20 21.8983 20 20.7153V18.8581C20 15.5456 17.3125 12.8581 14 12.8581Z" fill="#707070"/>
@@ -110,7 +110,7 @@ export default function BlogCarousel(
 
                                 {/* Blog Title */}
                                 <div
-                                    className="text-[#121212] mb-[32px] font-[Outfit] text-[20px] font-medium leading-none
+                                    className="text-[#121212] mb-[32px] pr-[23px] font-[Outfit] text-[20px] font-medium
                                      leading-[28px] min-h-[84px] line-clamp-3"
                                 >
                                     {univ.title}
