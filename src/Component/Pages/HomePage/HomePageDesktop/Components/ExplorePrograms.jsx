@@ -100,7 +100,7 @@ const ExplorePrograms = () => {
                 <div className="relative">
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {programs.map((program) => (
-                            <div key={program.id} className="group bg-program-card  border border-border rounded-[14px] shadow-sm hover:bg-[#CDCDCD] border-[#CDCDCD]">
+                            <div key={program.id} className="group bg-program-card  border border-border rounded-[14px] shadow-sm border-[#CDCDCD]">
                                 <div className="p-0">
                                     <div className="bg-program-image pt-4 px-4  h-[110px] flex items-center justify-center overflow-hidden">
                                         {program.image ? (

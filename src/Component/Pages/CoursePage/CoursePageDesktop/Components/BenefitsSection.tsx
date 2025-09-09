@@ -73,7 +73,7 @@ export const BenefitsSection: React.FC<{ college?: College; course?: any }> = ({
                 </div>
             </header>
            <div className="relative">
-               <div className="max-w-[1200px] mx-auto">
+               <div className="max-w-[1200px]">
                    <div className="flex items-start justify-between gap-6 max-md:flex-col max-md:items-center">
                        {/* Left column (3 cards) */}
                        <div className="w-[33.333%] max-md:w-full flex flex-col gap-6">
@@ -94,7 +94,7 @@ export const BenefitsSection: React.FC<{ college?: College; course?: any }> = ({
                        </div>
 
                        {/* Right column (3 cards) */}
-                       <div className="w-[33.333%] max-md:w-full flex flex-col gap-6">
+                       <div className="w-[33.333%] max-md:w-full flex flex-col gap-6 items-end">
                            {benefits.slice(3, 6).map((benefit) => (
                                <BenefitCard key={benefit.id} className="relative w-full">
                                    {benefit.text.length > 80

@@ -85,7 +85,7 @@ export const ExploreProgramsMobile = () => {
                     {programs.map((program, index) => (
                         <article
                             key={program.id}
-                            className="w-full flex-shrink-0 border overflow-hidden rounded-xl border-solid border-[#CDCDCD] scroll-snap-align-start flex flex-col"
+                            className="w-full flex-shrink-0 border overflow-hidden rounded-[30px] border-solid border-[#CDCDCD] scroll-snap-align-start flex flex-col"
                         >
                             <div className="flex w-full rounded-[30px]  p-[24px]">
                                 <div className="bg-program-image rounded-lg h-[132px] w-full flex items-center overflow-hidden">
@@ -93,7 +93,7 @@ export const ExploreProgramsMobile = () => {
                                         <img
                                             src={`https://edukyu.com/${program.image}`}
                                             alt={`${program.name} logo`}
-                                            className="w-full h-full object-cover rounded-[12px]"
+                                            className="w-full h-full object-cover rounded-[14px]"
                                         />
                                     ) : (
                                         <ImageIcon size={48} className="text-secondary opacity-60 mx-auto" />
@@ -101,7 +101,7 @@ export const ExploreProgramsMobile = () => {
                                 </div>
 
                             </div>
-                            <div className="w-full px-4 pb-4 flex flex-col flex-1">
+                            <div className="w-full px-6 pb-6 flex flex-col flex-1">
                                 {/* Title section - fixed height */}
                                 <div className="text-[#024B53] font-[Outfit] text-[24px] font-medium leading-none mb-[26px]">
                                     {program.title}

@@ -27,11 +27,11 @@ export const PartnerUniversities = () => {
     });
 
       // Function to get logo from CollegePageData
-    const getCollegeLogo = (universityCode) => {
-        const collegeData = CollegePageData[0][universityCode];
-        console.log(collegeData.university_info.logo)
-        return collegeData.university_info.logo;
-    };
+    // const getCollegeLogo = (universityCode) => {
+    //     const collegeData = CollegePageData[0][universityCode];
+    //     console.log(collegeData.university_info.logo)
+    //     return collegeData.university_info.logo;
+    // };
 
 
     const [currentIndex, setCurrentIndex] = useState(0);

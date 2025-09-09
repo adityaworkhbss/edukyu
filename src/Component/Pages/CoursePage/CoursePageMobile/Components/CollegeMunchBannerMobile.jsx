@@ -6,7 +6,7 @@ import logoImg from "@/../public/Resources/Images/collegeMunchLogo.png";
 
 const CollegeMunchBanner = () => {
     return (
-        <div className="relative w-full rounded-[32px] bg-[rgba(103,158,164,0.25)] px-5 my-8 pb-6 flex flex-col ">
+        <div className="relative w-full rounded-[32px] bg-[rgba(103,158,164,0.25)] px-5 my-8 pb-2 flex flex-col ">
             {/* Logo */}
             <div className="mb-[-5]">
                 <Image
@@ -37,7 +37,7 @@ const CollegeMunchBanner = () => {
 
             {/* Images */}
             <div className="w-full rounded-[12px] h-[171px] bg-gray-600 mb-5">
-
+                 <iframe style={{ borderRadius: "16px" }} width="296" height="172" src="https://www.youtube.com/embed/rSilj41d2ns?si=wq7p3xNezmIRcg8y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     );

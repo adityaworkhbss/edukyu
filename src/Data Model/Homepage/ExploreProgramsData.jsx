@@ -25,7 +25,8 @@ export const ExploreProgramsData = {
             "name": "Master of Commerce (M.Com)",
             "duration": "2 Years",
             "startingFee": "INR 1,200/-",
-            "usp": "Comprehensive commerce knowledge."
+            "usp": "Comprehensive commerce knowledge.",
+             "image": "new-ed/assets/cxp-assets/imgs/discover-our-courses/doc-6.jpg",
         }
     ],
     "UG Programs": [

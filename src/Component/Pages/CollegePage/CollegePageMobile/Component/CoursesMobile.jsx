@@ -98,14 +98,14 @@ const CoursesMobile = ({ college }) => {
 
                 {programs.length > 0 && (
                     <div className="relative">
-                        <article className="border overflow-hidden rounded-[22px] border-border shadow-sm">
+                        <article className="border overflow-hidden rounded-[30px] border-border border-[#CDCDCD] shadow-sm">
                             <div className="p-0">
                                 <div className="bg-program-image rounded-[14px] h-[132px] flex items-center justify-center p-6">
                                     {programs[currentIndex]?.image ? (
                                         <img
                                             src={programs[currentIndex]?.image}
                                             alt={programs[currentIndex]?.title}
-                                            className="rounded-t-lg h-full w-full object-cover"
+                                            className="rounded-[14px] h-full w-full object-cover"
                                         />
                                     ) : (
                                         <ImageIcon
@@ -116,12 +116,12 @@ const CoursesMobile = ({ college }) => {
                                 </div>
 
                                     <div className="pb-[16px] px-[16px]">
-                                        <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none">
+                                        <h3 className="text-[#024B53] font-[Outfit] text-[20px] font-medium leading-none min-h-[60px]">
                                             {programs[currentIndex]?.title}
                                         </h3>
 
                                         <div className="flex flex-col">
-                                            <div className="inline-flex items-center gap-[8px] pt-[22px]">
+                                            <div className="inline-flex items-center gap-[8px] pt-[24px]">
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     width="24"

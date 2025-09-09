@@ -168,7 +168,7 @@ export const PartnerUniversitiesMobile = () => {
                                     <img
                                         src={`https://edukyu.com/${uni.logoSrc}`}
                                         alt={`${uni.name} logo`}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover rounded-[14px]"
                                     />
                                 </div>
                             </div>
@@ -180,7 +180,7 @@ export const PartnerUniversitiesMobile = () => {
 
                             {/* Content section - grows to fill space */}
                             <div className="flex flex-col justify-between flex-1">
-                                <div className="flex flex-col w-full text-sm text-[#515150] font-normal gap-3">
+                                <div className="flex flex-col w-full text-sm text-[#515150] font-normal gap-4">
                                     <div className="inline-flex gap-2 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                             <g clipPath="url(#clip0_228_629)">

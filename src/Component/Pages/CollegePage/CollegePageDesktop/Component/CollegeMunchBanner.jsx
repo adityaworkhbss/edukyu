@@ -9,7 +9,7 @@ const CollegeMunchBanner = () => {
     return (
         <div className="group w-full inline-flex items-center gap-6 rounded-[52px] bg-[#679EA440] mt-16 px-[40px] py-[48px] overflow-hidden">
             {/* Left Section */}
-            <div className="flex flex-col z-10 w-[1/3]">
+            <div className="flex flex-col z-10 w-[50%]">
                 <div className="w-[189px] h-[72px] flex-shrink-0 rounded-[8px] inline-flex items-center justify-center">
                     <Image src={logoImg} alt="College Manch Logo" width={160} height={40} className="object-contain"/>
                 </div>
@@ -18,11 +18,11 @@ const CollegeMunchBanner = () => {
                         Want to know in details about colleges?
                     </div>
 
-                <GridComponent gridStart={0} gridEnd={8}>
-                    <div className="text-[#515150] font-[Outfit] text-[20px] font-normal pt-4">
+               {/* <GridComponent gridStart={0} gridEnd={8}> */}
+                    <div className="text-[#515150] font-[Outfit] text-[20px] font-normal pt-4 w-[90%]">
                         Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                     </div>
-                </GridComponent>
+                {/* </GridComponent> */}
 
 
 
@@ -33,7 +33,7 @@ const CollegeMunchBanner = () => {
 
                     className=" w-1/2 items-center justify-center py-[12px] 
                        text-white text-[14px] font-medium font-[Outfit]
-                       rounded-[12px] bg-[#024B53] group-hover:bg-[#9B9B9B] transition mt-6"
+                       rounded-[12px] bg-[#9B9B9B] group-hover:bg-[#024B53] transition mt-6"
                 >
                     Explore College Manch
                 </button>
@@ -41,10 +41,11 @@ const CollegeMunchBanner = () => {
             </div>
 
             {/* Right Side Images */}
-            <div className="flex gap-4 w-1/2 z-10">
-                <div
-                    className="rounded-xl bg-white w-full h-auto object-cover"
-                />
+            <div className="flex gap-4 w-1/2 z-10 mt-[82px]">
+                {/* <div
+                    className="rounded-xl w-full h-auto object-cover"
+                /> */}
+                 <iframe style={{ borderRadius: "16px" }} width="427" height="247" src="https://www.youtube.com/embed/rSilj41d2ns?si=wq7p3xNezmIRcg8y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
         </div>
