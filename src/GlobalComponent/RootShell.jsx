@@ -5,6 +5,8 @@ import Footer from "@/Component/Footer/Footer";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { gridConfigs } from "@/libs/GridConfigs";
 import LoadingOverlay from "@/GlobalComponent/LoadingOverlay";
+import Parent from '@/GlobalComponent/Parent';
+import { DevEnvironment } from '@/DevEnvironment/DevEnviroment';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState, useRef } from 'react';
 
@@ -20,7 +22,7 @@ export default function RootShell({ children }) {
         mobile: 'ml-[20px] mr-[20px]',
         tablet: 'ml-[20px] mr-[20px]',
         laptop: 'ml-[56px] mr-[56px]',
-        desktop: 'mx-auto',
+        desktop: 'ml-[56px] mr-[56px]',
     }[breakpoint];
 
     useEffect(() => {
@@ -96,11 +98,13 @@ export default function RootShell({ children }) {
         <div className="w-full font-[Outfit]">
             <TopNav />
             <div className="">
-                {/*{DevEnvironment.ENABLE_GRIDS && (*/}
-                {/*    <div className={`${marginClass} absolute`}>*/}
-                {/*        <Parent {...config} />*/}
-                {/*    </div>*/}
-                {/*)}*/}
+                {DevEnvironment.ENABLE_GRIDS && (
+                    <div className={`${marginClass} absolute inset-x-0 top-0 pointer-events-none z-50`}>
+                        <div className="w-full pointer-events-none">
+                            <Parent {...config} color="rgba(0,0,0,0.04)" />
+                        </div>
+                    </div>
+                )}
                 {children}
             </div>
             <Footer />

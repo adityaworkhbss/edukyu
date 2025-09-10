@@ -1,8 +1,9 @@
-import React, {useState} from "react";
-import banner_hero_image from "@/../public/Resources/Images/banner_hero_image.png";
-import banner_image from "@/../public/Resources/Images/banner_image.png";
+import React, { useState } from "react";
 import Image from "next/image";
 import Form from "@/Component/Form/Form";
+import { useEffect } from "react";
+import Slider from './ui/Slider';
+
 
 const HeroSection = () => {
 
@@ -48,22 +49,9 @@ const HeroSection = () => {
                         </div>
                     </div>
 
-                    {/* Right Image Block */}
-                    <div className="col-span-12 md:col-span-6 lg:col-span-6 relative w-full h-[500px] mt-40 ">
-                        {/* Main Hero Image */}
-                        <Image
-                            src={banner_hero_image}
-                            alt="banner_hero_image"
-                            fill
-                            className="object-contain z-20 -ml-28 mt-10 relative scale-[1] transform origin-center"
-                        />
-                        {/* Background Image */}
-                        <Image
-                            src={banner_image}
-                            alt="banner_image"
-                            fill
-                            className="absolute object-contain -ml-30 w-full z-10 mt-8 scale-[2]"
-                        />
+                    {/* Right Image Block: slider spanning grid 7..12 */}
+                    <div className="col-span-12 md:col-span-6 lg:col-span-6 relative w-full mt-40">
+                        <Slider />
                     </div>
                 </div>
             </section>

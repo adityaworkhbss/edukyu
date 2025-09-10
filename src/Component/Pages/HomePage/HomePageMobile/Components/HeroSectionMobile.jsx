@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import banner_hero_image from "@/../public/Resources/Images/banner_hero_image.png";
 import banner_image from "@/../public/Resources/Images/banner_image.png";
 import Form from "@/Component/Form/Form";
+import SliderMobile from './ui/SliderMobile';
 
 const HeroSectionMobile = () => {
     const [showForm, setShowForm] = useState(false);
@@ -25,7 +26,7 @@ const HeroSectionMobile = () => {
                     />
                 </svg>
 
-                <div className="text-white font-[Outfit] text-[28px] font-semibold leading-none relative z-10 ">
+                <div className="text-white font-[Outfit] text-[28px] font-semibold  relative z-10 leading-8">
                     Let’s Help Navigate Your <br /> Career & Expand <br /> Your Skillset
                 </div>
 
@@ -45,20 +46,9 @@ const HeroSectionMobile = () => {
                     {/*</button>*/}
                 </div>
 
-                {/* Images Layered */}
-                <div className="relative w-full h-[250px] mt-10 overflow-hidden">
-                    <Image
-                        src={banner_image}
-                        alt="City Background"
-                        fill
-                        className="absolute object-contain z-10 scale-[1.5]"
-                    />
-                    <Image
-                        src={banner_hero_image}
-                        alt="Students"
-                        fill
-                        className="relative object-contain z-20 scale-[1]"
-                    />
+                {/* Mobile slider under Apply Now: 48px vertical gap, right-aligned (20px page padding) */}
+                <div className="w-full mt-[48px] ml-[43px] relative z-20 flex justify-end">
+                    <SliderMobile />
                 </div>
             </section>
 

@@ -28,7 +28,7 @@ const Parent = ({ numGrids, gutter, gridHeight, color }) => {
     }, [numGrids, gutter]);
 
     return (
-        <div ref={containerRef} className={`flex w-full`} style={gapStyle}>
+        <div ref={containerRef} className={`flex w-full items-start`} style={{ ...gapStyle, paddingTop: '8px' }}>
             {Array.from({ length: numGrids }).map((_, i) => (
                 <Grid
                     key={i}
