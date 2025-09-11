@@ -17,7 +17,7 @@ const HeroSectionMobile = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 360 498"
                     preserveAspectRatio="none"
-                    className="absolute inset-0 z-10 w-full h-full"
+                    className="absolute inset-0 z-10 w-full h-[505px]"
                     fill="none"
                 >
                     <path
@@ -26,11 +26,11 @@ const HeroSectionMobile = () => {
                     />
                 </svg>
 
-                <div className="text-white font-[Outfit] text-[28px] font-semibold  relative z-10 leading-8">
+                <div className="text-white font-[Outfit] text-[28px] font-semibold  relative z-10 leading-8 h-[105px]">
                     Let’s Help Navigate Your <br /> Career & Expand <br /> Your Skillset
                 </div>
 
-                <div className="text-white font-[Outfit] text-[14px] font-normal leading-none mt-3 relative z-10">
+                <div className="text-white font-[Outfit] text-[14px] font-normal leading-none mt-3 relative z-10 h-[36px]">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
 
@@ -38,7 +38,7 @@ const HeroSectionMobile = () => {
                 <div className="flex gap-4 pt-[32px] z-10 relative">
                     <button
                         onClick={() => setShowForm(true)}
-                        className="bg-white text-[#024B53] rounded-[12px] px-6 py-2 font-medium text-sm">
+                        className="bg-white text-[#024B53] rounded-[12px] px-6 py-3 font-medium text-sm">
                         Apply Now
                     </button>
                     {/*<button className="border border-white text-white rounded-[12px] px-6 py-2 font-medium text-sm hover:bg-white hover:text-[#024B53] transition">*/}

@@ -99,8 +99,8 @@ const SliderMobile = () => {
             {/* Inline SVG defs for clipPath */}
             <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden>
                 <defs>
-                    <clipPath id={clipId} clipPathUnits="userSpaceOnUse">
-                        <path d="M2 27.0243C2 12.0992 14.0992 0 29.0244 0H251.976C266.901 0 279 12.0992 279 27.0244V115.317C279 127.19 271.251 137.672 259.899 141.154L36.9482 209.531C19.5751 214.859 2 201.866 2 183.694V27.0243Z" />
+                    <clipPath id={clipId} clipPathUnits="objectBoundingBox">
+                        <path d="M0.007 0.123C0.007 0.055 0.051 0 0.104 0H0.904C0.957 0 1 0.055 1 0.123V0.524C1 0.578 0.973 0.625 0.932 0.641L0.133 0.952C0.07 0.976 0.007 0.916 0.007 0.834V0.123Z" />
                     </clipPath>
                 </defs>
             </svg>
@@ -108,7 +108,7 @@ const SliderMobile = () => {
             <div
                 className="relative shadow-lg"
                 style={{ 
-                    width: '277px', 
+                    width: '77vw', 
                     height: '220.249px',
                    
                     flexShrink: 0,
@@ -131,7 +131,7 @@ const SliderMobile = () => {
                             fill
                             className="object-cover"
                             priority={i === 0} // Prioritize loading the first image
-                            sizes="277px"
+                            sizes="77vw"
                         />
                     </div>
                 ))}
