@@ -107,10 +107,10 @@ const SliderMobile = () => {
 
             <div
                 className="relative shadow-lg"
-                style={{ 
-                    width: '77vw', 
-                    height: '220.249px',
-                   
+                style={{
+                    width: 'calc(100vw - 40px)',
+                    height: 'calc((100vw - 40px) * 0.75625)',
+
                     flexShrink: 0,
                     clipPath: `url(#${clipId})`
                 }}
@@ -131,7 +131,7 @@ const SliderMobile = () => {
                             fill
                             className="object-cover"
                             priority={i === 0} // Prioritize loading the first image
-                            sizes="77vw"
+                            sizes='calc(100vw - 40px)'
                         />
                     </div>
                 ))}

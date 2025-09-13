@@ -23,6 +23,9 @@ const Slider = () => {
     const touchStartX = useRef(null);
     const touchDeltaX = useRef(0);
 
+    // create a map of sliderImages and there respective college name
+    // on change of slider send college name to Hero Section
+
     useEffect(() => {
         const startAuto = () => {
             if (intervalRef.current) return;

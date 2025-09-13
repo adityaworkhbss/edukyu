@@ -47,7 +47,7 @@ const HeroSectionMobile = () => {
                 </div>
 
                 {/* Mobile slider under Apply Now: 48px vertical gap, right-aligned (20px page padding) */}
-                <div className="w-full mt-[48px] ml-[43px] relative z-20 flex justify-end">
+                <div className="w-full mt-[48px] relative z-20 flex justify-end">
                     <SliderMobile />
                 </div>
             </section>
