@@ -7,7 +7,7 @@ import { CoursePageData } from "@/Data Model/CoursePage/CoursePageData"; // use 
 const OurFacultyMobile = () => {
     const [selectedFaculty, setSelectedFaculty] = useState(null);
     
-    // Grab faculty from course data and split into groups of 4 for mobile 2x2 grid
+    // Grab faculty from course data and split into groups of 2 for mobile grid (same as StudentPlacement)
     // CoursePageData is an array where each item is an object keyed by university (e.g. { manipal_university: { online_mba: { ... } } })
     // The previous direct access `CoursePageData[0].online_mba` is incorrect because the university key sits one level deeper.
     const faculty = (() => {
@@ -33,9 +33,10 @@ const OurFacultyMobile = () => {
     const finalFaculty = faculty.length > 0 ? faculty : fallbackFaculty;
     console.log('Faculty data:', finalFaculty); // Debug log
     
+    // Break faculty data into groups of 2 for each swipe "page" (same as StudentPlacement)
     const groupedCompanies = [];
-    for (let i = 0; i < finalFaculty.length; i += 4) {
-        groupedCompanies.push(finalFaculty.slice(i, i + 4));
+    for (let i = 0; i < finalFaculty.length; i += 2) {
+        groupedCompanies.push(finalFaculty.slice(i, i + 2));
     }
     const containerRef = useRef(null);
 
@@ -73,39 +74,43 @@ const OurFacultyMobile = () => {
 
 
             <div className="relative">
-                <div ref={containerRef} className="flex overflow-x-auto space-x-6 snap-x snap-mandatory no-scrollbar mb-[32px] mt-[24px]" tabIndex={0}>
+                <div ref={containerRef} className="flex overflow-x-auto mt-[32px] space-x-4 no-scrollbar snap-x snap-mandatory" tabIndex={0}>
                     {groupedCompanies.map((group, groupIndex) => (
                         <div
                             key={groupIndex}
-                            className="flex-shrink-0 w-full max-w-full grid grid-cols-2 gap-3 snap-start px-4"
+                            className="flex-shrink-0 w-full snap-start grid grid-cols-2 gap-4"
                         >
                             {group.map((alumni, idx) => (
                                 <div
                                     key={idx}
-                                    className="flex flex-col items-center cursor-pointer hover:opacity-80 transition-opacity duration-300"
+                                    className="relative aspect-square bg-[#D9D9D9] rounded-[12px] overflow-hidden group cursor-pointer"
                                     onClick={() => setSelectedFaculty(alumni)}
                                 >
-                                    <div className="w-full aspect-[3/4] relative rounded-[12px] overflow-hidden flex items-center justify-center bg-[#F3F3F3] text-[#024B53] font-semibold mb-2">
-                                        {alumni.image ? (
-                                            <Image
-                                                src={`https://edukyu.com/${alumni.image}`}
-                                                alt={alumni.name}
-                                                fill
-                                                className="object-cover"
-                                                unoptimized
-                                            />
-                                        ) : (
-                                            <div className="w-full h-full flex items-center justify-center text-lg">
-                                                {getInitials(alumni.name)}
+                                    {alumni.image ? (
+                                        <Image
+                                            src={`https://edukyu.com/${alumni.image}`}
+                                            alt={alumni.name}
+                                            fill
+                                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                            unoptimized
+                                        />
+                                    ) : (
+                                        <div className="w-full h-full flex items-center justify-center text-lg text-[#024B53] font-semibold bg-[#F3F3F3]">
+                                            {getInitials(alumni.name)}
+                                        </div>
+                                    )}
+                                    {alumni.name && (
+                                        <div className="absolute bottom-0 left-0 right-0 text-center bg-gradient-to-t from-black/80 to-transparent py-2">
+                                            <div className="text-white text-[14px] font-[Outfit] font-semibold">
+                                                {alumni.name}
                                             </div>
-                                        )}
-                                    </div>
-
-                                    <div className="text-center w-full">
-                                        <h3 className="text-[14px] font-medium text-[#333333] text-center leading-tight">
-                                            {alumni.name}
-                                        </h3>
-                                    </div>
+                                            {alumni.position && (
+                                                <div className="text-white/80 text-[12px] font-[Outfit]">
+                                                    {alumni.position}
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
                                 </div>
                             ))}
                         </div>

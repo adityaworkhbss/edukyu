@@ -172,7 +172,7 @@ const SliderMobile = () => {
                 ))}
 
                 {/* small prev/next for mobile */}
-                <button
+                {/* <button
                     aria-label="Previous slide"
                     onClick={goPrev}
                     className="absolute left-2 top-1/2 -translate-y-1/2 z-40 bg-white/90 hover:bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-md transition-colors"
@@ -189,7 +189,7 @@ const SliderMobile = () => {
                     <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1L5 5L1 9" stroke="#024B53" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                </button>
+                </button> */}
 
                 {/* Dots indicator for mobile */}
                 <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-40 flex gap-1.5">

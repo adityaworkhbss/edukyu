@@ -23,6 +23,8 @@ const Slider = () => {
     const interactionRef = useRef(false);
     const touchStartX = useRef(null);
     const touchDeltaX = useRef(0);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
 
    const imageCollegeMap = {
         "/Resources/Images/HomePageSliders/1.png": 'Noida-International-University',
@@ -37,6 +39,17 @@ const Slider = () => {
         "/Resources/Images/HomePageSliders/10.jpg": 'Vivekanand-Global-University',
         "/Resources/Images/HomePageSliders/11.png": 'Sikkim-Manipal-University'
     }
+
+    // Function to check scroll position and update arrow states
+    const checkScrollPosition = () => {
+        setCanScrollLeft(index > 0);
+        setCanScrollRight(index < sliderImages.length - 1);
+    };
+
+    // Update arrow states when index changes
+    useEffect(() => {
+        checkScrollPosition();
+    }, [index]);
 
 
     useEffect(() => {
@@ -77,13 +90,17 @@ const Slider = () => {
     };
 
     const goNext = () => {
-        setIndex((i) => (i + 1) % sliderImages.length);
-        pauseAuto();
+        if (index < sliderImages.length - 1) {
+            setIndex((i) => i + 1);
+            pauseAuto();
+        }
     };
 
     const goPrev = () => {
-        setIndex((i) => (i - 1 + sliderImages.length) % sliderImages.length);
-        pauseAuto();
+        if (index > 0) {
+            setIndex((i) => i - 1);
+            pauseAuto();
+        }
     };
 
     // touch handlers for swipe
@@ -127,7 +144,7 @@ const Slider = () => {
             </svg>
 
             <div
-                className="relative shadow-lg"
+                className="relative shadow-lg group"
                 style={{
                     width: '100%',
                     maxWidth: '615px',
@@ -175,25 +192,37 @@ const Slider = () => {
                     // </div>
                 ))}
 
-                {/* Prev / Next buttons */}
-                <button
-                    aria-label="Previous slide"
-                    onClick={goPrev}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 z-40 bg-white/80 hover:bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-colors"
-                >
-                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 1L1 7L7 13" stroke="#024B53" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                </button>
-                <button
-                    aria-label="Next slide"
-                    onClick={goNext}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 z-40 bg-white/80 hover:bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-colors"
-                >
-                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L7 7L1 13" stroke="#024B53" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                </button>
+                {/* Prev / Next buttons - only show on hover and when navigation is possible */}
+                {canScrollLeft && (
+                    <button
+                        aria-label="Previous slide"
+                        onClick={goPrev}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 z-40 hover:bg-gray-50 rounded p-4 transition-all duration-300 opacity-0 group-hover:opacity-100"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <g clipPath="url(#clip0_228_602)">
+                                <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#024B53" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_228_602">
+                                    <rect width="32" height="32" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
+                )}
+                
+                {canScrollRight && (
+                    <button
+                        aria-label="Next slide"
+                        onClick={goNext}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 z-40  hover:bg-gray-50 rounded p-4 transition-all duration-300 opacity-0 group-hover:opacity-100"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53" />
+                        </svg>
+                    </button>
+                )}
 
                 {/* Dots indicator */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-40 flex gap-2">

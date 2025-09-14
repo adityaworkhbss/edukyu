@@ -63,9 +63,9 @@ const HeroPage = ({ course }) => {
     return (
 
         <>
-            <div className="w-full gap-6 pl-[56px] flex max-w-full">
+            <div className="w-full gap-6 pl-[56px] flex max-w-full justify-between">
                 {/* Left Section */}
-                <div className="w-1/2 flex flex-col  min-w-0">
+                <div className="w-[calc(50%_-_40px)] flex flex-col  min-w-0">
                     {/* College Logo */}
                     <div className="w-64 h-[84px]  rounded-lg mb-[28px] flex items-center justify-center mt-[52px]">
                        {logo && (
@@ -111,8 +111,8 @@ const HeroPage = ({ course }) => {
                 </div>
 
                 {/* Right Section */}
-                <div className="w-1/2 relative mb-8 flex-shrink-0">
-                    <div className="max-w-full pl-3">
+                <div className="w-[calc(50%_+_16px)] relative mb-8 flex-shrink-0">
+                    <div className="max-w-full">
                         <Image
                             src={coursepage_hero}
                             alt="College Page Hero"
