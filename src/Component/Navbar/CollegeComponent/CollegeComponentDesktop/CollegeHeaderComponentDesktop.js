@@ -9,7 +9,7 @@ export default function CollegeHeaderComponentDesktop({ onNavbarClose }) {
     const [selectedProgram, setSelectedProgram] = useState("MBA");
     const scrollContainerRef = useRef(null);
 
-    const colleges = [
+    const colleges1 = [
         'Amity University',
         'Chandigarh University',
         'Dr. DY Patil University',
@@ -24,6 +24,23 @@ export default function CollegeHeaderComponentDesktop({ onNavbarClose }) {
         'VIT Online',
         'Vivekanand Global University'
     ];
+
+    const colleges = [
+        "Noida International University",
+        'NMIMS University',
+        'Manipal University',
+        'Sikkim Manipal University',
+        'Dr. DY Patil University',
+        'Amity University',
+         'Lovely Professional University',
+          'Jain University',
+           'Jamia Hamdard University',
+           'Shardha University',
+           'Shoolini University',
+           'Uttaranchal University',
+           'VIT Online',
+           'Vivekanand Global University'
+    ]
 
     const universityKeyMap = {
         'Amity University': 'Amity',

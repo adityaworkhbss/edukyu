@@ -70,13 +70,14 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
         </div>
 
         {/* Content Area */}
-        <div className="p-6">
-          {/* Two column layout */}
-          <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+        <div className="p-3">
+          {/* Two column layout with specified gaps */}
+          <div className="grid grid-cols-2 gap-x-[10px] gap-y-[6px]">
             {(activeTab === 'jobRoles' ? jobRoles : industries).map((item: string, index: number) => (
               <div 
                 key={index}
-                className="flex items-center py-3 border-b border-gray-100 last:border-b-0"
+                className="transition-colors hover:bg-gray-50"
+                style={{ padding: '8px' }}
               >
                 <div className="font-normal text-[#333] text-[14px] tracking-[0] leading-[normal]">
                   {item}

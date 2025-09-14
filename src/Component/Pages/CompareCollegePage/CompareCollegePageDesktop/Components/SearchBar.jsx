@@ -5,9 +5,21 @@ const SearchBar = ({ index, collegeNames, onSelect, onRemove, showRemove }) => {
     const [showDropdown, setShowDropdown] = useState(false);
     const [selectedCollege, setSelectedCollege] = useState('');
 
-    const filteredColleges = collegeNames.filter(college =>
-        college.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    // Create abbreviations for colleges
+    const getAbbreviation = (collegeName) => {
+        return collegeName
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase())
+            .join('');
+    };
+
+    const filteredColleges = collegeNames.filter(college => {
+        const searchLower = searchTerm.toLowerCase();
+        const collegeLower = college.toLowerCase();
+        const abbreviation = getAbbreviation(college).toLowerCase();
+        
+        return collegeLower.includes(searchLower) || abbreviation.includes(searchLower);
+    });
 
     const handleSelect = (college) => {
         setSelectedCollege(college);
@@ -43,14 +55,17 @@ const SearchBar = ({ index, collegeNames, onSelect, onRemove, showRemove }) => {
                             {filteredColleges.map((college) => (
                                 <div
                                     key={college}
-                                    className="p-3 hover:bg-indigo-50 cursor-pointer flex items-center"
+                                    className="p-3 hover:bg-indigo-50 cursor-pointer flex items-center justify-between"
                                     onClick={() => handleSelect(college)}
                                 >
-                                    <svg className="w-4 h-4 mr-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    </svg>
-                                    <span>{college}</span>
+                                    <div className="flex items-center">
+                                        <svg className="w-4 h-4 mr-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        <span>{college}</span>
+                                    </div>
+                                    <span className="text-sm text-gray-500 font-medium">{getAbbreviation(college)}</span>
                                 </div>
                             ))}
                         </div>

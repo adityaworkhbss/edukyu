@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // images live in public/Resources/Images/HomePageSliders
 const sliderImages = [
@@ -22,6 +23,21 @@ const SliderMobile = () => {
     const interactionRef = useRef(false);
     const touchStartX = useRef(null);
     const touchDeltaX = useRef(0);
+
+
+    const imageCollegeMap = {
+        "/Resources/Images/HomePageSliders/1.png": 'Noida-International-University',
+        "/Resources/Images/HomePageSliders/2.png": 'Manipal-University-Jaipur',
+        "/Resources/Images/HomePageSliders/3.png": 'Amity-University',
+        "/Resources/Images/HomePageSliders/4.png": 'D.Y.-Patil-Vidyapeeth',
+        "/Resources/Images/HomePageSliders/5.jpg": 'Shoolini-University',
+        "/Resources/Images/HomePageSliders/6.png": 'Uttaranchal-University',
+        "/Resources/Images/HomePageSliders/7.jpg": 'Lovely-Professional-University',
+        "/Resources/Images/HomePageSliders/8.jpg": 'NMIMS-University-Online',
+        "/Resources/Images/HomePageSliders/9.jpg": 'Jain-University',
+        "/Resources/Images/HomePageSliders/10.jpg": 'Vivekanand-Global-University',
+        "/Resources/Images/HomePageSliders/11.png": 'Sikkim-Manipal-University'
+    }
 
     useEffect(() => {
         const startAuto = () => {
@@ -120,20 +136,39 @@ const SliderMobile = () => {
                 onTouchMove={onTouchMove}
                 onTouchEnd={onTouchEnd}
             >
+
                 {sliderImages.map((src, i) => (
+                    // <div
+                    //     key={src}
+                    //     className={`absolute inset-0 transition-opacity duration-600 ${i === index ? 'opacity-100' : 'opacity-0'}`}
+                    // >
+                    //     <Image
+                    //         src={src}
+                    //         alt={`Mobile slide ${i + 1}`}
+                    //         fill
+                    //         className="object-cover"
+                    //         priority={i === 0} // Prioritize loading the first image
+                    //         sizes='calc(100vw - 40px)'
+                    //     />
+                    // </div>
+
                     <div
                         key={src}
-                        className={`absolute inset-0 transition-opacity duration-600 ${i === index ? 'opacity-100' : 'opacity-0'}`}
+                        className={`absolute inset-0 transition-opacity duration-700 
+        ${i === index ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                     >
-                        <Image
-                            src={src}
-                            alt={`Mobile slide ${i + 1}`}
-                            fill
-                            className="object-cover"
-                            priority={i === 0} // Prioritize loading the first image
-                            sizes='calc(100vw - 40px)'
-                        />
+                        <Link href={`/online-mba-programs/top-distance-mba-colleges/${encodeURIComponent(imageCollegeMap[src])}`}>
+                            <Image
+                                src={src}
+                                alt={`Slide ${i + 1}`}
+                                fill
+                                className="object-cover"
+                                priority={i === 0}
+                                sizes='calc(100vw - 40px)'
+                            />
+                        </Link>
                     </div>
+
                 ))}
 
                 {/* small prev/next for mobile */}
@@ -143,7 +178,7 @@ const SliderMobile = () => {
                     className="absolute left-2 top-1/2 -translate-y-1/2 z-40 bg-white/90 hover:bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-md transition-colors"
                 >
                     <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 1L1 5L5 9" stroke="#024B53" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M5 1L1 5L5 9" stroke="#024B53" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </button>
                 <button
@@ -152,7 +187,7 @@ const SliderMobile = () => {
                     className="absolute right-2 top-1/2 -translate-y-1/2 z-40 bg-white/90 hover:bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-md transition-colors"
                 >
                     <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L5 5L1 9" stroke="#024B53" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M1 1L5 5L1 9" stroke="#024B53" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </button>
 
@@ -166,9 +201,8 @@ const SliderMobile = () => {
                                 pauseAuto();
                                 setTimeout(() => resumeAuto(3500), 2000);
                             }}
-                            className={`w-2 h-2 rounded-full transition-colors ${
-                                i === index ? 'bg-white' : 'bg-white/50'
-                            }`}
+                            className={`w-2 h-2 rounded-full transition-colors ${i === index ? 'bg-white' : 'bg-white/50'
+                                }`}
                             aria-label={`Go to slide ${i + 1}`}
                         />
                     ))}

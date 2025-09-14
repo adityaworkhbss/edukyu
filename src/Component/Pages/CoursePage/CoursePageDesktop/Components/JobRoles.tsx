@@ -97,29 +97,8 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
 
       <div className="relative w-[97%] mt-[24px] rounded-lg overflow-hidden border border-solid border-[#bebebe] pb-8"
            style={{ minHeight: '236px' }}>
-        {/* Dynamic content columns */}
-        {activeData.map((column, columnIndex) => (
-          <div
-            key={columnIndex}
-            className={`flex flex-col w-[182px] items-start gap-1.5 mt-[84px] ${columnIndex === 0 ? 'ml-5' :
-                columnIndex === 1 ? 'ml-[226px]' :
-                  columnIndex === 2 ? 'ml-[432px]' :
-                    'ml-[686px]'
-              }`}
-            style={{ position: 'absolute', left: columnIndex === 0 ? '20px' : 
-                     columnIndex === 1 ? '226px' : 
-                     columnIndex === 2 ? '432px' : '686px' }}
-          >
-            {column.map((item, itemIndex) => (
-              <div key={itemIndex} className="flex items-center gap-2.5 px-2.5 py-2 relative self-stretch w-full flex-[0_0_auto]">
-                <div className="relative w-fit mt-[-1.00px] font-normal text-[#333] text-xl tracking-[0] leading-[normal] whitespace-nowrap">
-                  {item}
-                </div>
-              </div>
-            ))}
-          </div>
-        ))}
-
+        
+        {/* Tabs at the top */}
         <div ref={tabsContainerRef} className="relative w-[97%] h-10 mt-5 ml-5">
           <div className="inline-flex items-center relative">
             <div className="inline-flex items-center gap-5 px-6 py-4 relative flex-[0_0_auto]">
@@ -145,6 +124,27 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
                 Industries
               </button>
             </div>
+          </div>
+        </div>
+        
+        {/* Content area with proper grid layout */}
+        <div className="mt-8 px-5">
+          <div className="grid grid-cols-4 gap-6">
+            {activeData.map((column, columnIndex) => (
+              <div key={columnIndex} className="flex flex-col" style={{ gap: '6px' }}>
+                {column.map((item, itemIndex) => (
+                  <div 
+                    key={itemIndex} 
+                    className="transition-colors hover:bg-gray-50 flex items-center justify-start text-left"
+                    style={{ padding: '8px' }}
+                  >
+                    <div className="font-normal text-[#333] text-xl tracking-[0] leading-[normal]">
+                      {item}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>
