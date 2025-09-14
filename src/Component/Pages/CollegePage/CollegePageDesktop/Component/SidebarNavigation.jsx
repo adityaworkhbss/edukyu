@@ -49,7 +49,7 @@ const SidebarNavigation = ({ college = {}, collegeSecondry = {} }) => {
     if (sections.length === 0) return null;
 
     return (
-        <aside className="w-full max-w-[250px] pt-[32px] sticky top-0" aria-label="Page sections">
+        <aside className="w-full  pt-[32px] sticky top-0" aria-label="Page sections">
             <ul className="space-y-8 text-[18px]">
                 {sections.map((item) => (
                     <li

@@ -65,16 +65,16 @@ const CollegePageDesktop = ({ college, collegeSecondry }) => {
             </div>
 
             {/* Sidebar + Main content */}
-            <div className="px-[56px] max-w-full overflow-x-hidden mt-8 flex gap-4" ref={containerRef}>
+            <div className="px-[56px] max-w-full mt-8 flex gap-6" ref={containerRef}>
                 {/* Sidebar */}
-                <div className="w-1/4 flex-shrink-0 relative">
+                <div className="w-[calc((25%_-_16px))]  flex-shrink-0 relative">
                     <div ref={sidebarRef} style={sidebarStyle}>
                         <SidebarNavigation college={college} collegeSecondry={collegeSecondry} />
                     </div>
                 </div>
 
                 {/* Main content */}
-                <div className="w-3/4 space-y-[64px] min-w-0 max-w-full">
+                <div className="w-[calc((75%_+_16px))]  space-y-[32px] min-w-0 max-w-full">
                     {Array.isArray(college?.university_info?.accreditations) && college.university_info.accreditations.length > 0 && (
                         <div id="ranking">
                             <RankAndAccr college={college} />
@@ -110,7 +110,7 @@ const CollegePageDesktop = ({ college, collegeSecondry }) => {
                             <BenefitsSection college={college} />
                         </div>
                     )}
-                    <div className="pt-[79px]" id="compare">
+                    <div className="pt-[32px]" id="compare">
                         <CompareCollegesCTA />
                     </div>
                     <div id="degree">

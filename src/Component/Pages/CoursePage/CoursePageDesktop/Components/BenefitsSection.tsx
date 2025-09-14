@@ -38,12 +38,12 @@ export const BenefitsSection: React.FC<{ college?: College; course?: any }> = ({
     
     // Static fallback positions
     const staticBenefits = [
-        { id: 1, position: "left-0 top-[14px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
-        { id: 2, position: "left-0 top-[172px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
-        { id: 3, position: "left-0 top-[340px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
-        { id: 4, position: "left-[calc(66.66%_-_8px)] top-[14px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
-        { id: 5, position: "left-[calc(66.66%_-_8px)] top-[172px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
-        { id: 6, position: "left-[calc(66.66%_-_8px)] top-[340px] max-md:relative max-md:w-full max-md:max-w-[400px] max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" }
+        { id: 1, position: "left-0 top-[14px] max-md:relative max-md:w-full  max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
+        { id: 2, position: "left-0 top-[172px] max-md:relative max-md:w-full  max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
+        { id: 3, position: "left-0 top-[340px] max-md:relative max-md:w-full  max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
+        { id: 4, position: "left-[calc(66.66%_-_8px)] top-[14px] max-md:relative max-md:w-full  max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
+        { id: 5, position: "left-[calc(66.66%_-_8px)] top-[172px] max-md:relative max-md:w-full  max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
+        { id: 6, position: "left-[calc(66.66%_-_8px)] top-[340px] max-md:relative max-md:w-full  max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" }
     ];
 
 
@@ -61,22 +61,22 @@ export const BenefitsSection: React.FC<{ college?: College; course?: any }> = ({
 
     return (
         <section
-            className="w-full h-full pt-[64px] bg-white mx-auto my-0 p-0 max-md:max-w-full max-md:h-auto max-md:p-5 max-sm:p-4 max-w-full overflow-hidden "
+            className="w-full h-full pt-[32px] bg-white mx-auto my-0 p-0 max-md:max-w-full max-md:h-auto max-md:p-5 max-sm:p-4 max-w-full"
             aria-labelledby="benefits-heading"
         >
             <header className=''>
-                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full" style={{ width: 'calc(200% / 3 - 32px)' }}>
+                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[calc(66.67%_-_12px)]">
                     Benefits of {course?.page?.title || course?.page?.university || 'Program'}
                 </div>
-                <div className="text-[20px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-full  pb-6 " style={{ width: 'calc(200% / 3 - 32px)' }}>
+                <div className="text-[20px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[calc(66.67%_-_12px)]  pb-6 ">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
             </header>
            <div className="relative">
-               <div className="max-w-[1200px]">
-                   <div className="flex items-start justify-between gap-6 max-md:flex-col max-md:items-center">
+               <div className="w-[100%]">
+                   <div className="flex items-start justify-between max-md:flex-col max-md:items-center">
                        {/* Left column (3 cards) */}
-                       <div className="w-[33.333%] max-md:w-full flex flex-col gap-6">
+                       <div className="w-[calc(33.333%_-_16px)] max-md:w-full flex flex-col gap-6 items-start">
                            {benefits.slice(0, 3).map((benefit) => (
                                <BenefitCard key={benefit.id} className="relative w-full">
                                    {benefit.text.length > 80
@@ -94,7 +94,7 @@ export const BenefitsSection: React.FC<{ college?: College; course?: any }> = ({
                        </div>
 
                        {/* Right column (3 cards) */}
-                       <div className="w-[33.333%] max-md:w-full flex flex-col gap-6 items-end">
+                       <div className="w-[calc(33.333%_-_16px)] max-md:w-full flex flex-col gap-6 items-end">
                            {benefits.slice(3, 6).map((benefit) => (
                                <BenefitCard key={benefit.id} className="relative w-full">
                                    {benefit.text.length > 80

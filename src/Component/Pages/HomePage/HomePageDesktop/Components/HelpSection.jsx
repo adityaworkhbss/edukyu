@@ -21,10 +21,10 @@ const HelpSection = () => {
 
     return (
         <>
-            <div className="flex flex-row justify-between gap-6 px-[56px] py-[64px] w-full">
+            <div className="flex flex-row justify-between gap-6 px-[56px] py-[32px] w-full">
                 {/* Left Content */}
                 <div className="text-left w-1/2">
-                    <div className="text-[48px] font-[600] mb-[16px] leading-none text-[#024B53] font-[Outfit]">
+                    <div className="text-[48px] font-[600] mb-[16px] leading-normal text-[#024B53] font-[Outfit]">
                         We are here to help you!
                     </div>
                     <div className="text-[20px] mb-[66px] font-[400] leading-none text-[#515150] font-[Outfit]">

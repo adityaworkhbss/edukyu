@@ -102,13 +102,13 @@ const Courses = ({ college }) => {
     }
 
     return (
-        <section className="bg-background max-w-full overflow-hidden">
+        <section className="bg-background max-w-full overflow-hidden mt-8">
             <div className="max-w-full">
-                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none break-words w-[65%]">
+                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-normal break-words w-[calc(66.67%_-_12px)]">
                     Courses
                 </div>
 
-                <div className="text-[20px] pt-[16px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
+                <div className="text-[20px] pt-[16px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-none break-words w-[calc(66.67%_-_12px)]">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
 
@@ -237,7 +237,7 @@ const Courses = ({ college }) => {
 
                     {/* Navigation Arrows - Left and Right Edges */}
                     {programs.length > 3 && (
-                        <div className="flex justify-between items-center mt-4 mb-[64px] px-0">
+                        <div className="flex justify-between items-center mt-4 mb-[32px] px-0">
                             <button
                                 className={`p-3 hover:bg-gray-100 rounded-full transition-all ${!canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
                                     }`}

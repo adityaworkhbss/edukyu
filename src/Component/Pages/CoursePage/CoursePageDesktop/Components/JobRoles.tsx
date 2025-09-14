@@ -87,11 +87,11 @@ const JobRoles: React.FC<JobRolesProps> = ({ course }) => {
       style={{ height: 'auto' }}
       data-model-id="483:1620"
     >
-      <div className="w-[65%] pt-[64px] font-semibold text-[#024B53] text-[48px] tracking-[0] leading-[normal]">
+      <div className="w-[calc(66.67%_-_12px)] pt-[32px] font-semibold text-[#024B53] text-[48px] tracking-[0] leading-[normal]">
         Job roles &amp; Industries
       </div>
 
-      <p className="w-[65%] mt-[16px] font-normal text-[#515150] text-xl tracking-[0] leading-[normal]">
+      <p className="w-[calc(66.67%_-_12px)] mt-[16px] font-normal text-[#515150] text-xl tracking-[0] leading-[normal]">
         Explore diverse career opportunities and industries where you can apply your skills and build a successful career.
       </p>
 

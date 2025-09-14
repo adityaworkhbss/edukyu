@@ -110,16 +110,16 @@ export const AcademicConverter = () => {
     };
 
     return (
-        <div className="px-[56px] py-[64px] mt-12">
+        <div className="px-[56px] pt-[64px] pb-[32px] mt-12">
             <div className="flex flex-col flex-1">
                 <GridComponent gridStart={0} gridEnd={6}>
-                    <div className="text-[48px] font-semibold text-[#024B53] font-[Outfit] leading-normal">
+                    <div className="text-[48px] font-semibold text-[#024B53] font-[Outfit] leading-normal mb-4">
                         Academic Converter Tool
                     </div>
                 </GridComponent>
 
                 <GridComponent gridStart={0} gridEnd={6}>
-                    <div className="text-[20px] font-normal text-[#515150] font-[Outfit] leading-normal">
+                    <div className="text-[20px] font-normal text-[#515150] font-[Outfit] leading-none">
                         Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                     </div>
                 </GridComponent>

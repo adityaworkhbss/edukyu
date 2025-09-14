@@ -104,17 +104,17 @@ const ExplorePrograms = () => {
     }
 
     return (
-        <section className="px-[56px] py-[64px] bg-background">
+        <section className="px-[56px] py-[32px] bg-background">
             <div className="">
                 <div className="">
                     <GridComponent gridStart={0} gridEnd={6}>
-                        <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
+                        <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-normal mb-4">
                             Explore our Courses
                         </div>
                     </GridComponent>
 
                     <GridComponent gridStart={0} gridEnd={6}>
-                        <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
+                        <div className="text-[20px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-none">
                             Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                         </div>
                     </GridComponent >

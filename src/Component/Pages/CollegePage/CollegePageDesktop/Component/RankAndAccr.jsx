@@ -58,14 +58,14 @@ const RankAndAccr = ({ college }) => {
     }, [isPaused, logos]);
 
     return (
-        <div className="w-full pt-[64px] flex flex-col max-w-full overflow-hidden">
+        <div className="w-full pt-[32px] flex flex-col max-w-full overflow-hidden">
             {/* Title */}
-            <h2 className="text-[48px] font-semibold font-[Outfit] text-[#024B53] mb-[69px] break-words w-[65%]">
+            <h2 className="text-[48px] font-semibold font-[Outfit] text-[#024B53] mb-[69px] break-words w-[calc(66.67%_-_12px)] leading-normal">
                 Rankings & Accreditations
             </h2>
 
             {/* Sliding Logo Marquee */}
-            <div className="w-full overflow-hidden mb-[69px]">
+            <div className="w-full overflow-hidden mb-[37px]">
                 {logos.length === 0 ? (
                     <div className="py-6 text-center text-sm text-gray-500">No accreditations available</div>
                 ) : (

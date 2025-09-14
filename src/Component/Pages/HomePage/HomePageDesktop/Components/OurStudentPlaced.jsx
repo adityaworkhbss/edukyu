@@ -6,12 +6,12 @@ import { AlumniData } from "@/Data Model/Homepage/AlumniData";
 
 const OurStudentPlaced = () => {
     return (
-        <section className="pb-[64px]">
+        <section className="pb-[32px]">
             <GridComponent gridStart={0} gridEnd={6}>
                 <h2 className="text-[48px] font-semibold text-[#024B53] font-[Outfit] leading-normal">
                     Our Student Placed
                 </h2>
-                <p className="text-[20px] pt-4 mb-[64px] font-normal text-[#515150] font-[Outfit] leading-normal">
+                <p className="text-[20px] pt-4 mb-[64px] font-normal text-[#515150] font-[Outfit] leading-none">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </p>
             </GridComponent>

@@ -14,16 +14,16 @@ const DegreeSection = ({college}) => {
     }
 
     return (
-        <div className="w-full pt-16 max-w-full overflow-hidden">
+        <div className="w-full pt-8 max-w-full overflow-hidden">
             {/* Text Header */}
             <div className="text-left">
 
-                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[65%]">
+                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[calc(66.67%_-_12px)]">
                     {college.university_info.name}'s Program Benefits
                 </div>
 
 
-                <div className="text-[20px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
+                <div className="text-[20px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[calc(66.67%_-_12px)]">
                     {college.university_info.about.description}
                 </div>
             </div>

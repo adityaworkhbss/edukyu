@@ -16,7 +16,7 @@ import ToolsCertificate from "@/Component/Pages/CoursePage/CoursePageDesktop/Com
 import JobRoles from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/JobRoles";
 import ContactForm, {
     ContactUsSection
-} from "@/Component/Pages/CollegePage/CollegePageDesktop/Component/ContactUsSection";
+} from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/ContactUsSection";
 import SidebarNavigation from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/SidebarNavigation";
 import CollegeMunchBanner from "@/Component/Pages/CoursePage/CoursePageDesktop/Components/CourseMunchBanner";
 import GridComponent from "@/GlobalComponent/GridComponent";
@@ -75,16 +75,16 @@ const CollegePageDesktop = ({ course, courseSecondry }) => {
             </div>
 
             {/* Sidebar + Main content */}
-            <div className="px-[56px] max-w-full overflow-x-hidden mt-8 flex gap-4" ref={containerRef}>
+            <div className="px-[56px] max-w-full mt-8 flex gap-6" ref={containerRef}>
                 {/* Sidebar */}
-                <div className="w-[calc((25%_-_12px))] flex-shrink-0 relative">
+                <div className="w-[calc((25%_-_16px))] flex-shrink-0 relative">
                     <div ref={sidebarRef} style={sidebarStyle}>
                         <SidebarNavigation course={course} />
                     </div>
                 </div>
 
                 {/* Main content */}
-                <div className="w-3/4 space-y-[64px] min-w-0 max-w-full">
+                <div className="w-[calc((75%_+_16px))] space-y-[32px] min-w-0 max-w-full">
                     <div id="ranking">
                         <RankAndAccr course={course} />
                     </div>
@@ -117,7 +117,7 @@ const CollegePageDesktop = ({ course, courseSecondry }) => {
                         <FeeTable collegeSecondry={collegeSecondry} />
                     </div> */}
 
-                    <div className="pt-[64px]" id="compare">
+                    <div className="pt-[32px]" id="compare">
                         <CompareCollegesCTA />
                     </div>
                     <div id="degree">

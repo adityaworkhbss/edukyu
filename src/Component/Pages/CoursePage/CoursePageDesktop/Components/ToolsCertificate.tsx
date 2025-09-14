@@ -40,11 +40,11 @@ const ToolsCertificate: React.FC<ToolsCertificateProps> = ({ course }) => {
           style={{ height: 'auto' }}
           data-model-id="483:1602"
       >
-        <div className="w-[65%] font-semibold text-[#024B53] text-[48px] tracking-[0] leading-[normal] pt-[64px]">
+        <div className="w-[calc(66.67%_-_12px)] font-semibold text-[#024B53] text-[48px] tracking-[0] leading-[normal] pt-[32px]">
           {additionalTools.title || "Additional Tool & Certificates"}
         </div>
 
-        <p className="w-[65%] mt-[16px] font-normal text-[#515150] text-xl tracking-[0] leading-[normal] mb-[24px]">
+        <p className="w-[calc(66.67%_-_12px)] mt-[16px] font-normal text-[#515150] text-xl tracking-[0] leading-[normal] mb-[24px]">
           {additionalTools.description || "Unlimited access to world class courses, hands-on projects, and job-ready certificate programs."}
         </p>
 

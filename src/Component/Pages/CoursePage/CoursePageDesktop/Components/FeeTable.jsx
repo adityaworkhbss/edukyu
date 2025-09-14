@@ -36,12 +36,12 @@ const FeeTable = ({ collegeSecondry }) => {
     });
 
     return (
-        <div className="w-full pt-8 pb-5 flex flex-col items-start max-w-full overflow-hidden ml-0.5">
-            <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full">
+        <div className="w-full pt-8 pb-5 flex flex-col items-start max-w-full overflow-hidden ">
+            <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[calc(66.67%_-_12px)]">
                 Updated Fees for Each Courses in 2025
             </div>
 
-            <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-full">
+            <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[calc(66.67%_-_12px)]">
                 Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
             </div>
 

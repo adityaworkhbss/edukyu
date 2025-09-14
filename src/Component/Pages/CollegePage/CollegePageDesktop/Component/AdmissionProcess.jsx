@@ -12,7 +12,7 @@ const AdmissionProcess = ({college}) => {
                 Admission Process of {college?.university_info?.name}
             </div>
 
-            <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-full">
+            <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-none break-words w-full">
                 Admission process information will be available soon.
             </div>
         </div>
@@ -21,11 +21,11 @@ const AdmissionProcess = ({college}) => {
 
     return (
         <div className="w-full max-w-full overflow-hidden">
-            <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[65%]">
+            <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[calc(66.67%_-_12px)]">
                 Admission Process of {college?.university_info?.name}
             </div>
 
-            <div className="text-[20px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
+            <div className="text-[20px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-none break-words w-[calc(66.67%_-_12px)]">
                 Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
             </div>
 

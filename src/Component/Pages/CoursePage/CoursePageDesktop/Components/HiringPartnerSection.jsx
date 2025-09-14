@@ -54,11 +54,11 @@ const HiringPartnersSection = ({ logos = [], name }) => {
     }, [isPaused, items]);
 
     return (
-        <section className="bg-white py-12 max-w-full overflow-hidden w-full ml-0.5">
-            <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words  w-[65%]">
+        <section className="bg-white py-12 max-w-full overflow-hidden w-full ">
+            <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words  w-[calc(66.67%_-_12px)]">
                 Hiring Partner of {name}
             </div>
-            <div className="text-[20px] pt-[16px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words  w-[65%]">
+            <div className="text-[20px] pt-[16px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words  w-[calc(66.67%_-_12px)]">
                 Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
             </div>
 

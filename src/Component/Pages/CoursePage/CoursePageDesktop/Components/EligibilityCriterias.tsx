@@ -49,11 +49,11 @@ export const EligibilityCriteria: React.FC<EligibilityCriteriaProps> = ({ course
       }}
       data-model-id="483:1517"
     >
-      <div className="w-[65%] font-semibold text-[#024B53] text-[48px] tracking-[0] leading-[normal]">
+      <div className="w-[calc(66.67%_-_12px)] font-semibold text-[#024B53] text-[48px] tracking-[0] leading-[normal]">
         Eligibility &amp; Criteria
       </div>
 
-      <p className="w-[65%] mt-[16px] font-normal text-[#515150] text-xl tracking-[0] leading-[normal] mb-[24px]">
+      <p className="w-[calc(66.67%_-_12px)] mt-[16px] font-normal text-[#515150] text-xl tracking-[0] leading-[normal] mb-[24px]">
         Review the eligibility requirements and criteria for admission to ensure you meet the necessary qualifications for enrollment.
       </p>
 

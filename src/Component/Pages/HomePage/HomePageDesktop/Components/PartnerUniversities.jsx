@@ -89,12 +89,12 @@ export const PartnerUniversities = () => {
 
    
     return (
-        <section className="px-[56px] py-[64px] mt-[64px] relative" aria-labelledby="partner-universities-heading">
+        <section className="px-[56px] py-[32px] mt-[32px] relative" aria-labelledby="partner-universities-heading">
 
             <GridComponent gridStart={0} gridEnd={6}>
                 <h2
                     id="partner-universities-heading"
-                    className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4"
+                    className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-normal mb-4"
                 >
                     Explore our Partner Universities
                 </h2>

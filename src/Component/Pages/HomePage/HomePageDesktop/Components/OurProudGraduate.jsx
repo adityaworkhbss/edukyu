@@ -74,11 +74,11 @@ const OurProudGraduates = () => {
     }, [currentIndex, total]);
 
     return (
-        <section className="py-[64px] px-[56px] bg-background">
+        <section className="py-[32px] px-[56px] bg-background">
             {/* Heading */}
             <div className="mb-[64px]">
                 <GridComponent gridStart={0} gridEnd={6}>
-                    <div className="text-[48px] font-[600] leading-none text-[#024B53] font-[Outfit] mb-[16px]">
+                    <div className="text-[48px] font-[600] leading-normal text-[#024B53] font-[Outfit] mb-[16px]">
                         Testimonials
                     </div>
                 </GridComponent>

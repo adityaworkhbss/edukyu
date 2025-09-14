@@ -56,17 +56,17 @@ const FaqsSection = ({ course }) => {
     };
 
     return (
-        <section className="bg-white pt-16 ml-0.5 mr-5">
-            <GridComponent gridStart={0} gridEnd={7}>
-                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4">
+        <section className="bg-white pt-8">
+            {/* <GridComponent gridStart={0} gridEnd={7}> */}
+                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 w-[calc(66.67%_-_12px)]">
                     FAQs
                 </div>
-            </GridComponent>
-            <GridComponent gridStart={0} gridEnd={7}>
-                <div className="text-[20px] pb-[64px] font-normal text-[#535862] font-[Outfit] leading-[30px]">
+            {/* </GridComponent> */}
+            {/* <GridComponent gridStart={0} gridEnd={7}> */}
+                <div className="text-[20px] pb-[64px] font-normal text-[#535862] font-[Outfit] leading-[30px] w-[calc(66.67%_-_12px)]">
                     Find answers to commonly asked questions about this course and admission process.
                 </div>
-            </GridComponent>
+            {/* </GridComponent> */}
 
             <div className="w-full space-y-3">
                 {faqs.map((faq, index) => (

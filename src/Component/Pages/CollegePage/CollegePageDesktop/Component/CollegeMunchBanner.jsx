@@ -7,7 +7,7 @@ import GridComponent from "@/GlobalComponent/GridComponent"; // Replace with rea
 
 const CollegeMunchBanner = () => {
     return (
-        <div className="group w-full inline-flex items-center gap-6 rounded-[52px] bg-[#679EA440] mt-16 px-[40px] py-[48px] overflow-hidden">
+        <div className="group w-full inline-flex items-center gap-6 rounded-[52px] bg-[#679EA440] mt-8 px-[40px] py-[48px] overflow-hidden">
             {/* Left Section */}
             <div className="flex flex-col z-10 w-[50%]">
                 <div className="w-[189px] h-[72px] flex-shrink-0 rounded-[8px] inline-flex items-center justify-center">

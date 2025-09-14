@@ -3,7 +3,7 @@ import { ContactForm } from './UI/ContactForm';
 
 export const ContactUsSection = () => {
     return (
-        <section className="bg-white overflow-hidden py-16">
+        <section className="bg-white overflow-hidden pb-16 pt-8">
             <div className="gap-5 flex max-md:flex-col">
                 <aside className="w-[32%] max-md:w-full max-md:ml-0">
                     <div className="relative flex grow  h-full items-end">

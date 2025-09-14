@@ -45,13 +45,13 @@ export const Semester: React.FC<SemesterProps> = ({ course }) => {
       // }}
       data-model-id="483:1998"
     >
-      <header className="w-[65%] pt-16">
+      <header className="w-[calc(66.67%_-_12px)] pt-8">
         <h1 className="[font-family:'Outfit',Helvetica] font-semibold text-[#024B53] text-5xl tracking-[0] leading-[normal]">
           Semester
         </h1>
       </header>
 
-      <section className="w-[65%]">
+      <section className="w-[calc(66.67%_-_12px)]">
         <p className="[font-family:'Outfit',Helvetica] font-normal text-[#515150] text-xl tracking-[0] leading-[normal] mb-[24px]">
           Explore our comprehensive curriculum designed to equip you with essential skills and knowledge across multiple semesters.
         </p>

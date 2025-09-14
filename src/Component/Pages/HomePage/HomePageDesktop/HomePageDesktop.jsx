@@ -25,7 +25,7 @@ const HomePageDesktop = () => {
             {/*<HelpSection />*/}
 
             {/*<HelpMeChoose />*/}
-            <div className="px-[56px]  py-[64px]">
+            <div className="px-[56px]  py-[32px]">
                 <CompareCollegesCTA/>
             </div>
 
@@ -40,7 +40,7 @@ const HomePageDesktop = () => {
             <HelpSection />
 
 
-            <div className="px-[56px]  py-[64px]">
+            <div className="px-[56px]  py-[32px]">
                 <CollegeMunchBanner />
             </div>
 

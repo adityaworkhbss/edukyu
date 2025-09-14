@@ -46,9 +46,9 @@ const OurFaculty = () => {
     };
 
     return (
-        <section className="py-16 w-full">
-            <GridComponent gridStart={0} gridEnd={6}>
-                <h2 className="text-[48px] font-semibold text-[#024B53] font-[Outfit] leading-normal w-full">
+        <section className="py-8 w-full">
+            <GridComponent gridStart={0} gridEnd={12}>
+                <h2 className="text-[48px] font-semibold text-[#024B53] font-[Outfit] leading-normal w-[calc(66.67%_-_12px)]">
                     Meet Your Faculty
                 </h2>
                 {/* <p className="text-[20px] pt-4 mb-[64px] font-normal text-[#515150] font-[Outfit] leading-normal">
@@ -63,7 +63,7 @@ const OurFaculty = () => {
                     {groupedCompanies.map((group, groupIndex) => (
                         <div
                             key={groupIndex}
-                            className="flex-shrink-0 w-full max-w-[420px] grid grid-cols-2 gap-6 snap-start"
+                            className="flex-shrink-0 w-[calc((200/9)%)]"
                         >
                             {group.map((alumni, idx) => (
                                 <div

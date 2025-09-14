@@ -40,20 +40,20 @@ export const EligibilityCriteriaImage: React.FC<EligibilityCriteriaImageProps> =
     <div
       className="relative w-full bg-cover bg-[50%_50%]"
       style={{
-        minHeight: '1000px',
+        minHeight: '900px',
         height: 'auto'
       }}
       data-model-id="483:1562"
     >
-      <div className="absolute w-[65%] top-[64px] font-semibold text-[#024B53] text-[48px] tracking-[0] leading-[normal]">
+      <div className="absolute w-[calc(66.67%_-_12px)] top-[32px] font-semibold text-[#024B53] text-[48px] tracking-[0] leading-[normal]">
         Fee Structure
       </div>
 
-      <p className="absolute w-[65%] mt-[126px] font-normal text-[#515150] text-xl tracking-[0] leading-[normal]">
+      <p className="absolute w-[calc(66.67%_-_12px)] mt-[94px] font-normal text-[#515150] text-xl tracking-[0] leading-[normal]">
         Explore our flexible fee structure options designed to make quality education accessible and affordable for students worldwide.
       </p>
 
-      <div className="absolute w-full h-11 top-[194px]">
+      <div className="absolute w-full h-11 top-[162px]">
         <div className="absolute w-full h-11 top-0 left-0 border-b [border-bottom-style:solid] border-[#b2b2b2]">
           {categories.map((category: any, index: number) => (
             <div
@@ -78,7 +78,7 @@ export const EligibilityCriteriaImage: React.FC<EligibilityCriteriaImageProps> =
       </div>
 
       {/* Fee cards arranged in a responsive 3-column grid with 16px gaps */}
-      <div className="absolute w-full top-[304px]">
+      <div className="absolute w-full top-[272px]">
         <div className="max-w-[1100px] mx-auto pr-4">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {activeCategory?.fullCourseFee && (
@@ -110,7 +110,7 @@ export const EligibilityCriteriaImage: React.FC<EligibilityCriteriaImageProps> =
 
       {/* Note */}
       {activeCategory?.note && (
-        <p className="absolute w-full top-[556px] font-normal text-[#333] text-base tracking-[0] leading-[normal]">
+        <p className="absolute w-full top-[524px] font-normal text-[#333] text-base tracking-[0] leading-[normal]">
           Note - {activeCategory.note}
         </p>
       )}
@@ -119,7 +119,7 @@ export const EligibilityCriteriaImage: React.FC<EligibilityCriteriaImageProps> =
       {financialOptions.map((option: any, index: number) => (
         <div
           key={index}
-          className={`absolute w-[406px] h-[156px] top-[659px] ${index === 0 ? 'left-0' : 'left-[580px]'
+          className={`absolute w-[406px] h-[156px] top-[627px] ${index === 0 ? 'left-0' : 'left-[580px]'
             }`}
         >
           <div className="absolute w-[402px] top-[74px] left-0 font-semibold text-[#2B2B2A] text-2xl tracking-[0] leading-[normal]">

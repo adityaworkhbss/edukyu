@@ -18,12 +18,12 @@ const DegreeSection = ({college}) => {
             {/* Text Header */}
             <div className="mb-10 text-left">
 
-                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[65%]">
+                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[calc(66.67%_-_12px)]">
                     Earn a globally recognized UGC-endorsed degree
                 </div>
 
 
-                <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[65%]">
+                <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[calc(66.67%_-_12px)]">
                    Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
             </div>

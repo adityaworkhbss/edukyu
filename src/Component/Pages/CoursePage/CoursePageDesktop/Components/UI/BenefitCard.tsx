@@ -11,14 +11,14 @@ interface BenefitCardProps {
 }
 
 export const BenefitCard: React.FC<BenefitCardProps> = ({
-                                                            children,
-                                                            className = "",
-                                                            color = "#024B53",
-                                                            thickness = 2,
-                                                            outerRadius = 6,
-                                                            width = 295,
-                                                            height = 134,
-                                                        }) => {
+    children,
+    className = "",
+    color = "#024B53",
+    thickness = 2,
+    outerRadius = 6,
+    width = "100%",
+    height = 134,
+}) => {
     // background images: top, right, bottom, left
     const bgImage = [
         // Top -> left to right

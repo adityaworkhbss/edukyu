@@ -33,11 +33,11 @@ const BlogSection = () => {
     }, []);
 
     return (
-        <section className="py-16 px-[56px] bg-background">
+        <section className="pt-8 px-[56px] bg-background">
             <div className="">
                 <div className="mb-[64px]">
 
-                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none pb-[16px]">
+                    <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-normal pb-[16px]">
                         Our Blogs
                     </div>
 
