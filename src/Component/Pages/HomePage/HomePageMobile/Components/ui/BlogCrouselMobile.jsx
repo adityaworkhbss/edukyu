@@ -175,7 +175,7 @@ export default function BlogCrouselMobile(
                     ))}
                 </div>
 
-            <div className="flex justify-between mt-[32px] pb-[64px]">
+            <div className="flex justify-between pb-[64px]">
                 <button
                     onClick={handlePrev}
                     disabled={!canScrollLeft}
