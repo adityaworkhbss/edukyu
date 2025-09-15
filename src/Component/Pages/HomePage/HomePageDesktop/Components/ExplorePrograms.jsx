@@ -15,7 +15,7 @@ const ExplorePrograms = () => {
     const containerRef = useRef(null);
     const cardsPerView = 4;
     const cardGap = 24;
-    const defaultUniversitiy = "noida_international_university";
+    const defaultUniversitiy = "manipal_university";
 
     // setSelectedCourse
 
