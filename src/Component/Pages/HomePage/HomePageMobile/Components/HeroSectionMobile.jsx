@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import banner_hero_image from "@/../public/Resources/Images/banner_hero_image.png";
 import banner_image from "@/../public/Resources/Images/banner_image.png";
@@ -7,6 +7,16 @@ import SliderMobile from './ui/SliderMobile';
 
 const HeroSectionMobile = () => {
     const [showForm, setShowForm] = useState(false);
+    const [showSlider, setShowSlider] = useState(false);
+
+    useEffect(() => {
+        // Change showSlider to true after 5 seconds
+        const timer = setTimeout(() => {
+            setShowSlider(true);
+        }, 5000);
+
+        return () => clearTimeout(timer); // cleanup on unmount
+    }, []);
 
     return (
         <>
@@ -48,7 +58,25 @@ const HeroSectionMobile = () => {
 
                 {/* Mobile slider under Apply Now: 48px vertical gap, right-aligned (20px page padding) */}
                 <div className="w-full mt-[48px] relative z-20 flex justify-end">
-                    <SliderMobile />
+                    {showSlider ? (
+                        <SliderMobile />
+                    ) : (
+                        /* Images Layered */
+                        <div className="relative w-full h-[250px] overflow-hidden">
+                            <Image
+                                src={banner_image}
+                                alt="City Background"
+                                fill
+                                className="absolute object-contain z-10 scale-[1.5]"
+                            />
+                            <Image
+                                src={banner_hero_image}
+                                alt="Students"
+                                fill
+                                className="relative object-contain z-20 scale-[1]"
+                            />
+                        </div>
+                    )}
                 </div>
             </section>
 

@@ -91,6 +91,7 @@ const CollegePageDesktop = ({ course, courseSecondry }) => {
                     <div id="courses">
                         <Courses course={course} />
                     </div>
+                    
                     {/* <div id="specialization">
                         <Specialization course={course} />
                     </div> */}

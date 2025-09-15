@@ -44,6 +44,7 @@ const SidebarNavigation = ({ course = {} }) => {
 
     const sections = [
         { label: "Rankings & Accreditations", id: "ranking", show: available.ranking },
+        { label: "Courses", id: "courses", show: available.courses },
         // { label: "Specializations", id: "specialization", show: available.specialization },
         { label: "Benefits", id: "benefits", show: available.benefits },
         { label: "Semester", id: "semester", show: available.semester },

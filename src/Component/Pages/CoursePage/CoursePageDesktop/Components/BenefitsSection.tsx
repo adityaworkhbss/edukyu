@@ -21,21 +21,29 @@ export const BenefitsSection: React.FC<{ college?: College; course?: any }> = ({
     // Prefer course.programBenefits (course page), fallback to CoursePageData, then college strings
     const courseBenefits = course?.programBenefits || CoursePageData?.[0]?.online_mba?.programBenefits;
 
-    // Normalize benefits to simple strings for the existing BenefitCard UI
-    let benefitsFromAPI: string[] = [];
+    // Normalize benefits to objects with title and description
+    let benefitsFromAPI: Array<{ title?: string, description?: string }> = [];
     if (Array.isArray(courseBenefits) && courseBenefits.length) {
         benefitsFromAPI = courseBenefits.map((b: any) => {
-            if (!b) return '';
-            // If benefit is an object with title, use title (keep UI compact)
-            if (typeof b === 'object') return b.title || b.name || (b.description ? b.description : '');
-            return String(b);
-        }).filter(Boolean);
+            if (!b) return { title: '', description: '' };
+            // If benefit is an object with title/description, keep both
+            if (typeof b === 'object') {
+                return {
+                    title: b.title || b.name || '',
+                    description: b.description || ''
+                };
+            }
+            // If it's a string, treat as description
+            return { title: '', description: String(b) };
+        }).filter(b => b.title || b.description);
     } else {
-        benefitsFromAPI = (college?.university_info?.benefits || college?.university_info?.placement?.benefits || []).filter(Boolean);
+        // Fallback to simple strings as descriptions
+        const fallbackBenefits = (college?.university_info?.benefits || college?.university_info?.placement?.benefits || []).filter(Boolean);
+        benefitsFromAPI = fallbackBenefits.map(b => ({ title: '', description: String(b) }));
     }
 
-// Static fallback positions
-    
+    // Static fallback positions
+
     // Static fallback positions
     const staticBenefits = [
         { id: 1, position: "left-0 top-[14px] max-md:relative max-md:w-full  max-md:h-auto max-md:mt-0 max-md:mb-5 max-md:mx-auto max-md:left-0 max-md:top-0 max-sm:max-w-full max-sm:mb-4 max-sm:p-3" },
@@ -47,15 +55,22 @@ export const BenefitsSection: React.FC<{ college?: College; course?: any }> = ({
     ];
 
 
-// Prepare benefits with merged positions
+    // Prepare benefits with merged positions
     const benefits = benefitsFromAPI
-        .filter((b) => b && b.trim() !== "") // remove empty
+        .filter((b) => b && (b.title?.trim() || b.description?.trim())) // remove empty
         .slice(0, 6) // take only first 6
-        .map((text, idx) => ({
+        .map((benefit, idx) => ({
             id: staticBenefits[idx]?.id || idx + 1,
-            text,
+            title: benefit.title || '',
+            description: benefit.description || '',
             position: staticBenefits[idx]?.position || ""
         }));
+
+    // Helper function to truncate text with ellipsis
+    const truncateText = (text: string, maxLength: number = 80) => {
+        if (!text) return '';
+        return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+    };
 
 
 
@@ -72,40 +87,58 @@ export const BenefitsSection: React.FC<{ college?: College; course?: any }> = ({
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
             </header>
-           <div className="relative">
-               <div className="w-[100%]">
-                   <div className="flex items-start justify-between max-md:flex-col max-md:items-center">
-                       {/* Left column (3 cards) */}
-                       <div className="w-[calc(33.333%_-_16px)] max-md:w-full flex flex-col gap-6 items-start">
-                           {benefits.slice(0, 3).map((benefit) => (
-                               <BenefitCard key={benefit.id} className="relative w-full">
-                                   {benefit.text.length > 80
-                                       ? benefit.text.substring(0, 80) + "..."
-                                       : benefit.text}
-                               </BenefitCard>
-                           ))}
-                       </div>
+            <div className="relative">
+                <div className="w-[100%]">
+                    <div className="flex items-start justify-between max-md:flex-col max-md:items-center">
+                        {/* Left column (3 cards) */}
+                        <div className="w-[calc(33.333%_-_16px)] max-md:w-full flex flex-col gap-6 items-start">
+                            {benefits.slice(0, 3).map((benefit) => (
+                                <BenefitCard key={benefit.id} className="relative w-full">
+                                    <div className="space-y-2">
+                                        {benefit.title && (
+                                            <h4 className="font-semibold text-[#024B53] text-sm">
+                                                {truncateText(benefit.title, 50)}
+                                            </h4>
+                                        )}
+                                        {benefit.description && (
+                                            <p className="text-gray-600 text-sm">
+                                                {truncateText(benefit.description, benefit.title ? 100 : 150)}
+                                            </p>
+                                        )}
+                                    </div>
+                                </BenefitCard>
+                            ))}
+                        </div>
 
-                       {/* Center column (central image) */}
-                       <div className="flex-shrink-0 flex items-center justify-center">
-                           <div className="w-[278px] h-auto">
-                               <CentralImage img={course?.page?.logo || college?.university_info?.banner_image || ""} />
-                           </div>
-                       </div>
+                        {/* Center column (central image) */}
+                        <div className="flex-shrink-0 flex items-center justify-center">
+                            <div className="w-[278px] h-auto">
+                                <CentralImage img={course?.page?.logo || college?.university_info?.banner_image || ""} />
+                            </div>
+                        </div>
 
-                       {/* Right column (3 cards) */}
-                       <div className="w-[calc(33.333%_-_16px)] max-md:w-full flex flex-col gap-6 items-end">
-                           {benefits.slice(3, 6).map((benefit) => (
-                               <BenefitCard key={benefit.id} className="relative w-full">
-                                   {benefit.text.length > 80
-                                       ? benefit.text.substring(0, 80) + "..."
-                                       : benefit.text}
-                               </BenefitCard>
-                           ))}
-                       </div>
-                   </div>
-               </div>
-           </div>
+                        {/* Right column (3 cards) */}
+                        <div className="w-[calc(33.333%_-_16px)] max-md:w-full flex flex-col gap-6 items-end">
+                            {benefits.slice(3, 6).map((benefit) => (
+                                <BenefitCard key={benefit.id} className="relative w-full">
+                                    <div className="space-y-2">
+                                        {benefit.title && (
+                                            <h4 className="font-semibold text-[#024B53] text-sm">
+                                                {truncateText(benefit.title, 50)}
+                                            </h4>
+                                        )}
+                                        {benefit.description && (
+                                            <p className="text-gray-600 text-sm">
+                                                {truncateText(benefit.description, benefit.title ? 100 : 150)}
+                                            </p>
+                                        )}
+                                    </div>
+                                </BenefitCard>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     );
 };

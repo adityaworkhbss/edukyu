@@ -54,7 +54,7 @@ export const BenefitsSection: React.FC<{ college: College }> = ({ college }) => 
                 <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[calc(66.67%_-_12px)]">
                     Benefits of {college?.university_info?.name || 'University'}
                 </div>
-                <div className="text-[20px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words pb-6 w-[calc(66.67%_-_12px)]  pb-6">
+                <div className="text-[20px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words pb-6 w-[calc(66.67%_-_12px)]">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
             </header>

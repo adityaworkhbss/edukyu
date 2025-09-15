@@ -36,7 +36,7 @@ const FeeTable = ({ collegeSecondry }) => {
     });
 
     return (
-        <div className="w-full pt-16 pb-4 flex flex-col items-start max-w-full overflow-hidden ">
+        <div className="w-full pt-8 pb-4 flex flex-col items-start max-w-full overflow-hidden ">
             <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-full" style={{ width: 'calc(200% / 3 - 32px)' }}>
                 Updated Fees for Each Courses in 2025
             </div>

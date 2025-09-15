@@ -6,33 +6,34 @@ import logoImg from "@/../public/Resources/Images/collegeMunchLogo.png";
 
 const CollegeMunchBanner = () => {
     return (
-        <div className="relative w-full my-8 mb-12 pb-8 rounded-[32px] bg-[rgba(103,158,164,0.25)] px-5 flex flex-col ">
+        <div className="relative w-full my-8 mb-12 pb-6 rounded-[32px] bg-[rgba(103,158,164,0.25)] px-5 flex flex-col ">
             {/* Logo */}
-            <div className="mb-[-5]">
+            <div className="mb-[-5] mt-6">
                 <Image
                     src={logoImg}
                     alt="College Manch Logo"
-                    width={160}
-                    height={40}
-                    className="object-contain"
+                    width={132}
+                    height={50}
+                    className="object-cover"
+                    style={{ width: '132px', height: '50px' }}
                 />
             </div>
 
             {/* Title */}
-            <h2 className="text-center text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-8">
+            <h2 className="text-start text-[#024B53] font-[Outfit] text-[28px] font-semibold mb-8 mt-5">
                 Want to know in detail about colleges?
             </h2>
 
             {/* Button */}
             <button
                 onClick={() => window.open("https://collegemanch.com/", "_blank")}
-                className="rounded-[12px] bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium px-6 py-2 mb-8 hover:bg-[#00313f] transition"
+                className="rounded-[12px] bg-[#024B53] text-white font-[Outfit] text-[14px] font-medium px-4 py-3 mb-8 hover:bg-[#00313f] transition"
             >
                 Explore College Manch
             </button>
 
             {/* Images */}
-            <div className="flex justify-center gap-2">
+            <div className="flex justify-center gap-[10px]">
                 <Image
                     src={collegeImg1}
                     alt="College Image 1"

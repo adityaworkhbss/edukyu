@@ -70,8 +70,8 @@ const HeroPage = ({ course }) => {
                     <div className="w-64 h-[84px]  rounded-lg mb-[28px] flex items-center justify-center mt-[52px]">
                        {logo && (
                            <img 
-                               className=" h-auto object-contain" 
-                               src={logo} 
+                               className=" h-auto object-contain mix-blend-multiply" 
+                               src={"https://niu.edu.in/wp-content/uploads/2023/08/logo.jpg"} 
                                alt={`${university} logo`}
                            />
                        )}

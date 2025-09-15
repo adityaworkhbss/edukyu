@@ -36,9 +36,9 @@ const CompareCollegesCTAMobile = () => {
                 </button> */}
             </div>
 
-            {/* College Images */}
+            {/* College Images with 8px gaps */}
             {/* Left Image (Image 3) */}
-            <div className="absolute left-2 top-[270px] w-[100px] h-[110px] rounded-[16px] overflow-hidden z-10 shadow-md">
+            <div className="absolute top-[270px] w-[100px] h-[110px] rounded-[16px] overflow-hidden z-10 shadow-md" style={{ left: 'calc(50% - 158px)' }}>
                 <Image
                     src={mainpage_cc_img3}
                     alt="College Left"
@@ -49,7 +49,7 @@ const CompareCollegesCTAMobile = () => {
             </div>
 
             {/* Right Image (Image 1) */}
-            <div className="absolute right-2 top-[270px] w-[100px] h-[110px] rounded-[16px] overflow-hidden z-10 shadow-md">
+            <div className="absolute top-[270px] w-[100px] h-[110px] rounded-[16px] overflow-hidden z-10 shadow-md" style={{ left: 'calc(50% + 58px)' }}>
                 <Image
                     src={mainpage_cc_img1}
                     alt="College Right"

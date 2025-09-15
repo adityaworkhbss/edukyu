@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { ImageIcon } from "lucide-react";
 import GridComponent from "@/GlobalComponent/GridComponent";
+import Link from "next/link";
 
-const Courses = ({ college }) => {
+const Courses = ({ course }) => {
     const [activeTab, setActiveTab] = useState("PG");
     const [scrollPosition, setScrollPosition] = useState(0);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(false);
+    console.log(course);
 
-    const courses = college?.university_info?.courses || [];
+    const courses = course?.page?.courses || [];
+
+    console.log("Courses data:", courses);
 
     // Hide component if no courses data is available
     if (!courses || courses.length === 0) {
@@ -48,7 +52,11 @@ const Courses = ({ college }) => {
             id: index + 1,
             title: program.name,
             description: `Duration - ${program.duration}`,
-            details: `Fees @ Rs ${program.fees.original} /-`,
+            details: program.fees.display
+                ? `Fees @ ${program.fees.display} /-`
+                : program.fees.original
+                    ? `Fees @ ${program.fees.original} /-`
+                    : 'Fees - Contact University',
             image: program.image,
         }));
     };
@@ -91,17 +99,17 @@ const Courses = ({ college }) => {
     }, [programs]);
 
     return (
-        <section className="pt-[32px] bg-background max-w-full overflow-hidden ml-0.5">
-            <div className="w-1/3">
-                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none mb-4 break-words w-[calc(66.67%_-_12px)]">
+        <section className="bg-background max-w-full overflow-hidden mt-8">
+            <div className="max-w-full">
+                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-normal break-words w-[calc(66.67%_-_12px)]">
                     Courses
                 </div>
 
-                <div className="text-[20px] pt-[16px] pb-[40px] font-normal text-[#535862] font-[Outfit] leading-[30px] break-words w-[calc(66.67%_-_12px)]">
+                <div className="text-[20px] pt-[16px] pb-[24px] font-normal text-[#535862] font-[Outfit] leading-none break-words w-[calc(66.67%_-_12px)]">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </div>
 
-                <div className="flex bg-white border-b border-[#B2B2B2] mb-[84px] overflow-x-auto">
+                <div className="flex bg-white border-b border-[#B2B2B2] mb-[64px] overflow-x-auto">
                     {tabs.map((tab) => (
                         <button
                             key={tab.id}
@@ -109,7 +117,7 @@ const Courses = ({ college }) => {
                             className={`px-6 py-4 gap-[10px] text-[16px] font-medium font-[Outfit] transition-colors whitespace-nowrap flex-shrink-0 ${activeTab === tab.id
                                 ? "bg-white text-slate-800 border-b-2 border-teal-600"
                                 : "text-slate-600"
-                            }`}
+                                }`}
                         >
                             {tab.label}
                         </button>
@@ -126,7 +134,7 @@ const Courses = ({ college }) => {
                         {programs.map((program) => (
                             <div
                                 key={program.id}
-                                className="group hover:bg-[#CDCDCD] bg-program-card border border-[#CDCDCD] border-border rounded-[22px] shadow-sm min-w-0 flex-shrink-0 flex flex-col"
+                                className="group bg-program-card border border-[#CDCDCD] border-border rounded-[22px] shadow-sm min-w-0 flex-shrink-0 flex flex-col"
                                 style={{ width: 'calc((100% - 4%) / 3.18)' }} // Shows 3.2 cards
                             >
                                 <div className="flex flex-col flex-1">
@@ -159,7 +167,7 @@ const Courses = ({ college }) => {
                                             {program.title}
                                         </h3>
 
-                                        <div className="inline-flex items-center gap-[8px] pt-[22px] min-w-0">
+                                        <div className="inline-flex items-center gap-[8px] pt-[16px] min-w-0">
                                             {/* Clock icon */}
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -201,12 +209,13 @@ const Courses = ({ college }) => {
 
                                 <div className="pt-[10px] w-full pb-[16px]">
                                     <div className="flex justify-center">
-                                        <button
-                                            className="flex items-center justify-center border w-full mx-4 py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#024B53] bg-[#FFF]"
-                                            // Add your onClick or Link to course details here
-                                        >
-                                            Explore
-                                        </button>
+                                        <Link href={`#`} className="w-[calc(100%-40px)]">
+                                            <button
+                                                className="flex items-center justify-center border w-full py-[12px] text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-md transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#024B53] bg-[#FFF]"
+                                            >
+                                                Explore
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -218,25 +227,23 @@ const Courses = ({ college }) => {
                     {programs.length > 3 && (
                         <div className="flex justify-between items-center mt-4 px-0">
                             <button
-                                className={`p-3 hover:bg-gray-100 rounded-full transition-all ${
-                                    !canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
-                                }`}
+                                className={`p-3 hover:bg-gray-100 rounded-full transition-all ${!canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
+                                    }`}
                                 onClick={() => handleScroll('left')}
                                 disabled={!canScrollLeft}
                             >
                                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </button>
                             <button
-                                className={`p-3 hover:bg-gray-100 rounded-full transition-all pr-[40px] ${
-                                    !canScrollRight ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
-                                }`}
+                                className={`p-3 hover:bg-gray-100 rounded-full transition-all pr-[40px] ${!canScrollRight ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
+                                    }`}
                                 onClick={() => handleScroll('right')}
                                 disabled={!canScrollRight}
                             >
                                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </button>
                         </div>

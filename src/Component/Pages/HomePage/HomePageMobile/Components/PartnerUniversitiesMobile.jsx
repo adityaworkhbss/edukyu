@@ -100,9 +100,10 @@ export const PartnerUniversitiesMobile = () => {
     // Update current index based on scroll position
     const updateCurrentIndex = () => {
         if (containerRef.current) {
-            const cardWidth = containerRef.current.offsetWidth; // Full width of one card
+            const cardWidth = containerRef.current.offsetWidth;
+            const gap = 24; // 24px gap
             const scrollLeft = containerRef.current.scrollLeft;
-            const newIndex = Math.round(scrollLeft / cardWidth);
+            const newIndex = Math.round(scrollLeft / (cardWidth + gap));
             setCurrentIndex(newIndex);
         }
     };
@@ -162,9 +163,10 @@ export const PartnerUniversitiesMobile = () => {
     const handleNext = () => {
         if (containerRef.current && currentIndex < universities.length - 1) {
             const cardWidth = containerRef.current.offsetWidth;
+            const gap = 24; // 24px gap
             const nextIndex = currentIndex + 1;
             containerRef.current.scrollTo({ 
-                left: nextIndex * cardWidth, 
+                left: nextIndex * (cardWidth + gap), 
                 behavior: 'smooth' 
             });
         }
@@ -173,9 +175,10 @@ export const PartnerUniversitiesMobile = () => {
     const handlePrev = () => {
         if (containerRef.current && currentIndex > 0) {
             const cardWidth = containerRef.current.offsetWidth;
+            const gap = 24; // 24px gap
             const prevIndex = currentIndex - 1;
             containerRef.current.scrollTo({ 
-                left: prevIndex * cardWidth, 
+                left: prevIndex * (cardWidth + gap), 
                 behavior: 'smooth' 
             });
         }
@@ -194,7 +197,7 @@ export const PartnerUniversitiesMobile = () => {
 
             <div
                 ref={containerRef}
-                className="flex overflow-x-auto scroll-smooth scrollbar-hide"
+                className="flex overflow-x-auto scroll-smooth scrollbar-hide gap-6"
                 style={{ scrollSnapType: 'x mandatory' }}
             >
                 {universities.map((uni, index) => (
@@ -202,6 +205,7 @@ export const PartnerUniversitiesMobile = () => {
                         key={index}
                         href={`/online-mba-programs/top-distance-mba-colleges/${encodeURIComponent((uni.name).trim().replace(/\s+/g, '-'))}`}
                         className="w-full flex-shrink-0"
+                        style={{ minWidth: 'calc(100% - 0px)' }}
                     >
                         <article className="w-full border overflow-hidden rounded-[30px] border-solid border-[#CDCDCD] scroll-snap-align-start flex flex-col hover:shadow-md transition-shadow duration-200">
                             <div className="p-6">

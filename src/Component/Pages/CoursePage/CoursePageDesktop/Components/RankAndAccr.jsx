@@ -3,13 +3,13 @@ import Image from "next/image";
 import rankLogos from "@/../public/Resources/Images/accrImag.png";
 import GridComponent from "@/GlobalComponent/GridComponent";
 
-const RankAndAccr = ( college ) => {
+const RankAndAccr = (college) => {
 
     // console.log(college.course.online_mba.accreditations);
 
     // Access accreditations more defensively - handle different data structures
     let accrs = [];
-    
+
     // Try different possible data structures
     if (college?.course?.page?.accreditations) {
         accrs = college.course.page.accreditations;
@@ -21,12 +21,12 @@ const RankAndAccr = ( college ) => {
 
     console.log("accrs data:", accrs);
     console.log("full college object:", college);
-    
+
     // Hide component if no accreditations data is available
     if (!accrs || accrs.length === 0) {
         return null;
     }
-    
+
     // duplicate so we can animate  (hidden from user) — 
     const logos = [...accrs, ...accrs];
 
@@ -46,7 +46,7 @@ const RankAndAccr = ( college ) => {
 
         const elems = Array.from(track.children);
         const totalWidth = elems.reduce((sum, el) => sum + el.getBoundingClientRect().width + parseFloat(getComputedStyle(el).marginLeft || 0) + parseFloat(getComputedStyle(el).marginRight || 0), 0);
-        const resetAt = totalWidth / 2; // since we duplicated
+        const resetAt = totalWidth / 2; 
 
         const step = (time) => {
             if (isPaused) {
@@ -103,13 +103,17 @@ const RankAndAccr = ( college ) => {
                                 className="inline-flex min-w-[100px] h-[80px] items-center justify-center bg-white rounded-lg flex-shrink-0 mx-2"
                             >
                                 <img
-                                    src={logo.icon}   // ✅ fixed: changed from logos.icon to logo.icon
+                                    src={`${logo.icon}`}   // ✅ fixed: changed from logos.icon to logo.icon
                                     alt={logo.name || `logo-${index}`}
                                     width={80}
                                     height={80}
                                     className="object-contain max-w-full h-auto"
                                     onError={(e) => { e.currentTarget.style.display = 'none'; }}
                                 />
+
+
+                               
+
                             </div>
                         ))}
                     </div>

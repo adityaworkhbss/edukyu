@@ -47,9 +47,10 @@ export const ExploreProgramsMobile = () => {
     // Update current index based on scroll position
     const updateCurrentIndex = () => {
         if (containerRef.current) {
-            const cardWidth = containerRef.current.offsetWidth; // Full width of one card
+            const cardWidth = containerRef.current.offsetWidth;
+            const gap = 24; // 24px gap
             const scrollLeft = containerRef.current.scrollLeft;
-            const newIndex = Math.round(scrollLeft / cardWidth);
+            const newIndex = Math.round(scrollLeft / (cardWidth + gap));
             setCurrentIndex(newIndex);
         }
     };
@@ -80,9 +81,10 @@ export const ExploreProgramsMobile = () => {
     const handleNext = () => {
         if (containerRef.current && currentIndex < programs.length - 1) {
             const cardWidth = containerRef.current.offsetWidth;
+            const gap = 24; // 24px gap
             const nextIndex = currentIndex + 1;
             containerRef.current.scrollTo({ 
-                left: nextIndex * cardWidth, 
+                left: nextIndex * (cardWidth + gap), 
                 behavior: 'smooth' 
             });
         }
@@ -91,9 +93,10 @@ export const ExploreProgramsMobile = () => {
     const handlePrev = () => {
         if (containerRef.current && currentIndex > 0) {
             const cardWidth = containerRef.current.offsetWidth;
+            const gap = 24; // 24px gap
             const prevIndex = currentIndex - 1;
             containerRef.current.scrollTo({ 
-                left: prevIndex * cardWidth, 
+                left: prevIndex * (cardWidth + gap), 
                 behavior: 'smooth' 
             });
         }
@@ -134,7 +137,7 @@ export const ExploreProgramsMobile = () => {
 
                 <div
                     ref={containerRef}
-                    className="flex overflow-x-auto scroll-smooth scrollbar-hide mt-8 pb-[32px]"
+                    className="flex overflow-x-auto scroll-smooth scrollbar-hide mt-8 pb-[32px] gap-6"
                     style={{ scrollSnapType: 'x mandatory' }}
                 >
                     {programs.map((program, index) => (

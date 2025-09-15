@@ -29,13 +29,13 @@ export const StudentPlacementMobile = () => {
                         {group.map((alumni, idx) => (
                             <div
                                 key={idx}
-                                className="relative aspect-square bg-[#D9D9D9] rounded-[12px] overflow-hidden group"
+                                className="relative aspect-square bg-[#FFF] rounded-[12px] overflow-hidden group"
                             >
                                 <Image
                                     src={alumni.image}
                                     alt={alumni.name}
                                     fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                    className="object-contain group-hover:scale-105 transition-transform duration-300"
                                 />
                                 {alumni.name && (
                                     <div className="absolute bottom-0 left-0 right-0 text-center bg-gradient-to-t from-black/80 to-transparent py-2">

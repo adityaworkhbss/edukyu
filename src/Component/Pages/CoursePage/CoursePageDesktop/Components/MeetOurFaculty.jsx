@@ -47,14 +47,14 @@ const OurFaculty = () => {
 
     return (
         <section className="py-8 w-full">
-            <GridComponent gridStart={0} gridEnd={12}>
+            {/* <GridComponent gridStart={0} gridEnd={12}> */}
                 <h2 className="text-[48px] font-semibold text-[#024B53] font-[Outfit] leading-normal w-[calc(66.67%_-_12px)]">
                     Meet Your Faculty
                 </h2>
                 {/* <p className="text-[20px] pt-4 mb-[64px] font-normal text-[#515150] font-[Outfit] leading-normal">
                     Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
                 </p> */}
-            </GridComponent>
+            {/* </GridComponent> */}
 
 
 

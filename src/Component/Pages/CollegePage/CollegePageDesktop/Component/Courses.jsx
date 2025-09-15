@@ -104,7 +104,7 @@ const Courses = ({ college }) => {
     return (
         <section className="bg-background max-w-full overflow-hidden mt-8">
             <div className="max-w-full">
-                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-normal break-words w-[calc(66.67%_-_12px)]">
+                <div className="text-[#024B53] font-[Outfit] text-[48px] font-semibold leading-none break-words w-[calc(66.67%_-_12px)]">
                     Courses
                 </div>
 
