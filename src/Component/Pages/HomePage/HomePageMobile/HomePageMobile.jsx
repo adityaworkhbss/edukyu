@@ -17,7 +17,7 @@ const HomePageMobile = () => {
     return (
         <div className="bg-white flex w-full mt-4 flex-col overflow-hidden mx-auto">
 
-            <div className="bg-white self-stretch flex w-full flex-col overflow-hidden items-stretch font-normal pb-[64px]">
+            <div className="bg-white self-stretch flex w-full flex-col overflow-hidden items-stretch font-normal">
                 <HeroSectionMobile />
             </div>
 

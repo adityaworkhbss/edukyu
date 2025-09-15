@@ -17,40 +17,75 @@ export default function BlogCrouselMobile(
     {blogs},
 ) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [cardWidth, setCardWidth] = useState(151);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
     const containerRef = useRef(null);
-    const cardsPerView = 1;
-    const cardGap = 16;
 
-    useEffect(() => {
-        const updateCardWidth = () => {
-            if (containerRef.current) {
-                const totalGap = (cardsPerView - 1) * cardGap;
-                const containerWidth = containerRef.current.offsetWidth;
-                const newCardWidth = (containerWidth - totalGap) / cardsPerView;
-                setCardWidth(newCardWidth);
-            }
-        };
-
-        const observer = new ResizeObserver(updateCardWidth);
-        if (containerRef.current) observer.observe(containerRef.current);
-        updateCardWidth();
-
-        return () => observer.disconnect();
-    }, []);
-
-    const handlePrev = () => {
-        console.log(currentIndex);
-        setCurrentIndex((prev) =>
-            (prev - 1 + blogs.length) % blogs.length
-        );
+    // Function to check scroll position and update arrow states
+    const checkScrollPosition = () => {
+        if (containerRef.current) {
+            const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
+            setCanScrollLeft(scrollLeft > 0);
+            setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+        }
     };
 
+    // Update current index based on scroll position
+    const updateCurrentIndex = () => {
+        if (containerRef.current) {
+            const cardWidth = containerRef.current.offsetWidth;
+            const gap = 24; // 24px gap
+            const scrollLeft = containerRef.current.scrollLeft;
+            const newIndex = Math.round(scrollLeft / (cardWidth + gap));
+            setCurrentIndex(newIndex);
+        }
+    };
+
+    // Effect to set up scroll listener
+    useEffect(() => {
+        const container = containerRef.current;
+        if (container) {
+            const handleScroll = () => {
+                checkScrollPosition();
+                updateCurrentIndex();
+            };
+            
+            container.addEventListener('scroll', handleScroll);
+            checkScrollPosition(); // Initial check
+            
+            return () => container.removeEventListener('scroll', handleScroll);
+        }
+    }, [blogs]);
+
+    // Reset scroll position when blogs change
+    useEffect(() => {
+        setCurrentIndex(0);
+        setCanScrollLeft(false);
+        setCanScrollRight(blogs.length > 1);
+    }, [blogs.length]);
+
     const handleNext = () => {
-        console.log(currentIndex);
-        setCurrentIndex((prev) =>
-            (prev + 1) % blogs.length
-        );
+        if (containerRef.current && currentIndex < blogs.length - 1) {
+            const cardWidth = containerRef.current.offsetWidth;
+            const gap = 24; // 24px gap
+            const nextIndex = currentIndex + 1;
+            containerRef.current.scrollTo({ 
+                left: nextIndex * (cardWidth + gap), 
+                behavior: 'smooth' 
+            });
+        }
+    };
+
+    const handlePrev = () => {
+        if (containerRef.current && currentIndex > 0) {
+            const cardWidth = containerRef.current.offsetWidth;
+            const gap = 24; // 24px gap
+            const prevIndex = currentIndex - 1;
+            containerRef.current.scrollTo({ 
+                left: prevIndex * (cardWidth + gap), 
+                behavior: 'smooth' 
+            });
+        }
     };
 
 
@@ -60,33 +95,26 @@ export default function BlogCrouselMobile(
         router.push(`/blog/${blogId}`, undefined, { shallow: true });
     };
 
-    const totalTranslateX = -1 * currentIndex * (cardWidth + cardGap);
-
-
     return (
         <div className="relative w-full pt-8">
 
             {/* Card Container */}
             <div
                 ref={containerRef}
-                className="overflow-hidden w-full"
+                className="flex overflow-x-auto scroll-smooth scrollbar-hide pb-[32px] gap-6"
+                style={{ scrollSnapType: 'x mandatory' }}
             >
-                <div
-                    className="flex transition-transform duration-500 ease-in-out gap-6"
-                    style={{ transform: `translateX(${totalTranslateX}px)` }}
-                >
-                    {blogs.map((univ, idx) => (
-                        <div
-                            key={univ.id}
-                            className="bg-white rounded-lg overflow-hidden  flex-shrink-0"
-                            style={{ width: `${cardWidth}px` }}
-                        >
-                            <div className="cover bg-gray-100 h-[214px] flex items-center justify-center rounded-[16px] border-b-[16px] border-white">
+                {blogs.map((univ, idx) => (
+                    <div
+                        key={univ.id}
+                        className="w-full flex-shrink-0 bg-white rounded-[16px] overflow-hidden scroll-snap-align-start"
+                    >
+                            <div className="cover bg-gray-100  flex items-center justify-center rounded-[16px] border-white">
                                 {univ.image ? (
                                     <img
                                         src={`https://edukyu.com/public/${univ.image}`}
                                         alt={univ.title}
-                                        className="w-full h-auto"
+                                        className="w-full h-auto rounded-[16px]"
                                     />
                                 ) : (
                                     <ImageIcon size={48} className="text-secondary opacity-60" />
@@ -94,7 +122,7 @@ export default function BlogCrouselMobile(
                             </div>
 
 
-                            <div className="py-4 text-left space-y-4">
+                            <div className="py-4 text-left space-y-4 mt-4">
                                 {/* Meta Info */}
                                 <div className="flex items-left text-[14px] leading-[14px] font-medium text-[#707070] tracking-[0.3px] font-outfit">
                                     <div className="flex items-center gap-4 pr-6">
@@ -146,33 +174,31 @@ export default function BlogCrouselMobile(
                         </div>
                     ))}
                 </div>
-            </div>
 
             <div className="flex justify-between mt-[32px] pb-[64px]">
                 <button
                     onClick={handlePrev}
-                    className="bg-white z-10 p-[4.5px] hover:shadow-md rounded"
+                    disabled={!canScrollLeft}
+                    className={`bg-white z-10 p-[4.5] hover:shadow-md rounded transition-opacity ${
+                        !canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
+                    }`}
                     aria-label="Previous"
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                        <g clipPath="url(#clip0_228_602)">
-                            <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill="#9B9B9B" />
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_228_602">
-                                <rect width="32" height="32" fill="white" />
-                            </clipPath>
-                        </defs>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
+                        <path d="M26.6667 14.6667H10.44L17.8933 7.21337L16 5.33337L5.33334 16L16 26.6667L17.88 24.7867L10.44 17.3334H26.6667V14.6667Z" fill={!canScrollLeft ? "#D1D5DB" : "#024B53"}/>
                     </svg>
                 </button>
 
                 <button
                     onClick={handleNext}
-                    className="bg-white z-10 p-[4.5px] hover:shadow-md rounded"
+                    disabled={!canScrollRight}
+                    className={`bg-white z-10 p-[4.5] hover:shadow-md rounded transition-opacity ${
+                        !canScrollRight ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
+                    }`}
                     aria-label="Next"
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                        <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill="#024B53" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
+                        <path d="M5.33329 17.3333L21.56 17.3333L14.1066 24.7866L16 26.6666L26.6666 16L16 5.33329L14.12 7.21329L21.56 14.6666L5.33329 14.6666L5.33329 17.3333Z" fill={!canScrollRight ? "#D1D5DB" : "#024B53"}/>
                     </svg>
                 </button>
 

@@ -239,7 +239,7 @@ const EduKyuMobileFooter = () => {
                     </p>
                     <p>© 2025 - Edukyu Private Limited. All rights reserved.</p>
                 </div>
-                <div className="pt-[32px] pb-[32px] text-[28px] font-medium text-white opacity-20 leading-none">
+                <div className="pt-[32px] pb-[32px] text-[31px] font-medium text-white opacity-20 leading-none text-center">
                     #Kyukibadhnajarurihai
                 </div>
             </div>

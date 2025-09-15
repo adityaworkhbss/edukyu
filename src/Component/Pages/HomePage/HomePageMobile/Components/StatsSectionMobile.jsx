@@ -17,7 +17,7 @@ const StatsSectionMobile = () => {
                 </div>
 
 
-                <div className="pt-[64px]">
+                <div className="pt-[48px]">
                     <div className="grid grid-cols-1 gap-6 text-center items-center">
                         {stats.map((stat, index) => (
                             <React.Fragment key={index}>

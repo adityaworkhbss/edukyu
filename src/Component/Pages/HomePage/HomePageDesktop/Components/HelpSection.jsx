@@ -27,7 +27,7 @@ const HelpSection = () => {
                     <div className="text-[48px] font-[600] mb-[16px] leading-normal text-[#024B53] font-[Outfit]">
                         We are here to help you!
                     </div>
-                    <div className="text-[20px] mb-[66px] font-[400] leading-none text-[#515150] font-[Outfit]">
+                    <div className="text-[20px] mb-[66px] font-[400] leading-normal text-[#515150] font-[Outfit]">
                         Let us know what all challenges you are facing, our dedicated team
                         will get back to you with the resolution. Because we are always here
                         to help you.{" "}

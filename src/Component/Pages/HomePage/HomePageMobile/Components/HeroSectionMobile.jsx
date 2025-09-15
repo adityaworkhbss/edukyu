@@ -58,25 +58,39 @@ const HeroSectionMobile = () => {
 
                 {/* Mobile slider under Apply Now: 48px vertical gap, right-aligned (20px page padding) */}
                 <div className="w-full mt-[48px] relative z-20 flex justify-end">
-                    {showSlider ? (
-                        <SliderMobile />
-                    ) : (
-                        /* Images Layered */
-                        <div className="relative w-full h-[250px] overflow-hidden">
-                            <Image
-                                src={banner_image}
-                                alt="City Background"
-                                fill
-                                className="absolute object-contain z-10 scale-[1.5]"
-                            />
-                            <Image
-                                src={banner_hero_image}
-                                alt="Students"
-                                fill
-                                className="relative object-contain z-20 scale-[1]"
-                            />
+                    <div className="relative w-full" style={{ height: 'calc((100vw - 40px) * 0.75625)' }}>
+                        {/* Banner Images - Fade out when slider shows */}
+                        <div 
+                            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                                showSlider ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                            }`}
+                        >
+                            {/* Images Layered */}
+                            <div className="relative w-full h-full overflow-hidden">
+                                <Image
+                                    src={banner_image}
+                                    alt="City Background"
+                                    fill
+                                    className="absolute object-contain z-10 scale-[1.5]"
+                                />
+                                <Image
+                                    src={banner_hero_image}
+                                    alt="Students"
+                                    fill
+                                    className="relative object-contain z-20 scale-[1]"
+                                />
+                            </div>
                         </div>
-                    )}
+                        
+                        {/* Slider - Fade in when activated */}
+                        <div 
+                            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                                showSlider ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                            }`}
+                        >
+                            <SliderMobile />
+                        </div>
+                    </div>
                 </div>
             </section>
 

@@ -148,7 +148,7 @@ const ExplorePrograms = () => {
                             {programs.map((program) => (
                                 <div 
                                     key={program.id} 
-                                    className="group bg-program-card border border-border rounded-[14px] shadow-sm border-[#CDCDCD] flex-shrink-0"
+                                    className="group hover:bg-[#CDCDCD] bg-program-card border border-border rounded-[14px] shadow-sm border-[#CDCDCD] flex-shrink-0"
                                     style={{ width: `${cardWidth}px` }}
                                 >
                                 <div className="p-0">
@@ -209,7 +209,7 @@ const ExplorePrograms = () => {
                                     <div className="flex justify-center">
                                       <Link href={`/${defaultUniversitiy}/${courseMap[program.title]}`} className="w-[calc(100%-40px)]">
                                        <button
-                                            className="flex items-center  justify-center border w-full py-[12px]  text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-[12px] transition-colors group-hover:bg-[#024B53] group-hover:text-white group-hover:border-[#CDCDCD] border-[#6A6A69)]"
+                                            className="flex items-center  justify-center border w-full py-[12px]  text-[#6A6A69] font-[Outfit] text-[14px] font-medium rounded-[12px] transition-colors group-hover:bg-[#024B53] group-hover:text-white  group-hover:border-[#CDCDCD] border-[#6A6A69)] hover:cursor-pointer"
                                             onClick={() => {
                                               console.log(program.title)
                                             }}

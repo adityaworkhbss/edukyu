@@ -9,8 +9,8 @@ const CollegeMunchBanner = () => {
         <div className="group relative w-full inline-flex items-center rounded-[52px] bg-[#679EA440] px-[40px] py-[45px] overflow-hidden">
             {/* Left Section */}
             <div className="flex flex-col z-10 w-[2/3]">
-                <div className="w-[189px] h-[72px] flex-shrink-0 rounded-[8px] inline-flex items-center justify-center">
-                    <Image src={logoImg} alt="College Manch Logo" width={160} height={40} className="object-contain"/>
+                <div className="w-[189px] h-[72px] flex-shrink-0 rounded-[8px] inline-flex items-center justify-start pr-4">
+                    <Image src={logoImg} alt="College Manch Logo" width={160} height={40} className="object-cover"/>
                 </div>
 
                     <div className="text-[36px] font-semibold text-[#024B53] font-[Outfit]">
@@ -20,7 +20,7 @@ const CollegeMunchBanner = () => {
                     <button
                         onClick={() => window.open("https://collegemanch.com/", "_blank")}
 
-                        className=" w-1/3 items-center justify-center py-[12px]
+                        className=" w-1/3 items-center justify-center py-[12px] px-4
                        text-white text-[14px] font-medium font-[Outfit]
                        rounded-[12px]  group-hover:bg-[#024B53] bg-[#9B9B9B] transition mt-4"
                     >
@@ -29,22 +29,30 @@ const CollegeMunchBanner = () => {
 
             </div>
 
-            {/* Right Side Images */}
+            {/* Right Side YouTube Video */}
             <div className="absolute right-[40px] flex gap-6 z-10">
-                <Image
-                    src={collegeImg1}
-                    alt="College Image 1"
-                    width={189}
-                    height={212}
-                    className="rounded-xl aspect-[2/2.5]"
-                />
-                <Image
-                    src={collegeImg2}
-                    alt="College Image 2"
-                    width={189}
-                    height={212}
-                    className="rounded-xl "
-                />
+                <iframe 
+                    width="189" 
+                    height="212" 
+                    src="https://www.youtube.com/embed/lcjdwSY2AzM?si=V1N96H3UXioUB59E" 
+                    title="YouTube video player" 
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    allowFullScreen
+                    className="rounded-xl"
+                ></iframe>
+                <iframe 
+                    width="189" 
+                    height="212" 
+                    src="https://www.youtube.com/embed/lcjdwSY2AzM?si=V1N96H3UXioUB59E" 
+                    title="YouTube video player" 
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    allowFullScreen
+                    className="rounded-xl"
+                ></iframe>
             </div>
 
         </div>

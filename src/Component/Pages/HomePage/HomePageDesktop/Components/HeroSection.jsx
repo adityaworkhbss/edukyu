@@ -39,42 +39,25 @@ const HeroSection = () => {
                 <div className="relative z-10 grid grid-cols-12 items-center px-12 gap-x-6">
                     {/* Left Text Block */}
                     <div className="col-span-12 md:col-span-6 lg:col-span-6 z-40 -pr-3 grid grid-cols-12">
-                        {showSlider ? (
-                            <>
-                                <h1 className="col-span-12 text-white font-[Outfit] text-[52px] font-semibold leading-[1.2]">
-                                    Lets Help Navigate Your Career & Expand Your Skillset testing
-                                </h1>
-
-                                <div className="col-span-12 md:col-span-10 lg:col-span-10">
-                                    <p className="text-white font-[Outfit] text-[20px] font-normal mt-6">
-                                        Unlimited access to world class courses, hands-on projects, and
-                                        job-ready certificate programs. testing
-                                    </p>
-                                </div>
-
-                                <div className="col-span-12 flex gap-4 pt-12">
-                                    <button
-                                        onClick={() => setShowForm(true)}
-                                        className="bg-white text-[#024B53] border border-white rounded-[12px] px-6 py-2 font-medium text-base hover:bg-white/90 transition-colors"
-                                    >
-                                        Apply Now testing
-                                    </button>
-                                </div>
-                            </>
-                        ) : (
-                            <>
-                                <h1 className="col-span-12 text-white font-[Outfit] text-[52px] font-semibold leading-[1.2]">
+                        <div className="col-span-12 relative">
+                            {/* Initial content - fades out */}
+                            <div 
+                                className={`transition-opacity duration-1000 ease-in-out ${
+                                    showSlider ? 'opacity-0 absolute inset-0' : 'opacity-100'
+                                }`}
+                            >
+                                <h1 className="text-white font-[Outfit] text-[52px] font-semibold leading-[1.2]">
                                     Lets Help Navigate Your Career & Expand Your Skillset
                                 </h1>
 
-                                <div className="col-span-12 md:col-span-10 lg:col-span-10">
+                                <div className="md:w-5/6 lg:w-5/6">
                                     <p className="text-white font-[Outfit] text-[20px] font-normal mt-6">
                                         Unlimited access to world class courses, hands-on projects, and
                                         job-ready certificate programs.
                                     </p>
                                 </div>
 
-                                <div className="col-span-12 flex gap-4 pt-12">
+                                <div className="flex gap-4 pt-12">
                                     <button
                                         onClick={() => setShowForm(true)}
                                         className="bg-white text-[#024B53] border border-white rounded-[12px] px-6 py-2 font-medium text-base hover:bg-white/90 transition-colors"
@@ -82,17 +65,47 @@ const HeroSection = () => {
                                         Apply Now
                                     </button>
                                 </div>
-                            </>
-                        )}
+                            </div>
+                            
+                            {/* Slider content - fades in */}
+                            <div 
+                                className={`transition-opacity duration-1000 ease-in-out ${
+                                    showSlider ? 'opacity-100' : 'opacity-0 absolute inset-0'
+                                }`}
+                            >
+                                <h1 className="text-white font-[Outfit] text-[52px] font-semibold leading-[1.2]">
+                                    Lets Help Navigate Your Career & Expand Your Skillset testing
+                                </h1>
+
+                                <div className="md:w-5/6 lg:w-5/6">
+                                    <p className="text-white font-[Outfit] text-[20px] font-normal mt-6">
+                                        Unlimited access to world class courses, hands-on projects, and
+                                        job-ready certificate programs. testing
+                                    </p>
+                                </div>
+
+                                <div className="flex gap-4 pt-12">
+                                    <button
+                                        onClick={() => setShowForm(true)}
+                                        className="bg-white text-[#024B53] border border-white rounded-[12px] px-6 py-2 font-medium text-base hover:bg-white/90 transition-colors"
+                                    >
+                                        Apply Now testing
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 
                     {/* Right Image Block: slider spanning grid 7..12 */}
                     <div className="col-span-12 md:col-span-6 lg:col-span-6 relative w-full mt-40">
-                        {showSlider ? (
-                            <Slider />
-                        ) : (
-                            <div className="col-span-12 md:col-span-6 lg:col-span-6 relative w-full h-[500px] ">
+                        <div className="relative w-full h-[500px]">
+                            {/* Banner Images - Fade out when slider shows */}
+                            <div 
+                                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                                    showSlider ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                                }`}
+                            >
                                 <Image
                                     src={banner_hero_image}
                                     alt="banner_hero_image"
@@ -107,7 +120,16 @@ const HeroSection = () => {
                                     className="absolute object-contain -ml-30 w-full z-10 mt-8 scale-[2]"
                                 />
                             </div>
-                        )}
+                            
+                            {/* Slider - Fade in when activated */}
+                            <div 
+                                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                                    showSlider ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                                }`}
+                            >
+                                <Slider />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
