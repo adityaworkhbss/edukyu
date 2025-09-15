@@ -8,6 +8,7 @@ interface BenefitCardProps {
     outerRadius?: number;     // outer border radius in px
     width?: number;           // optional card width (px)
     height?: number;          // optional card height (px)
+    maxLines?: number;        // number of lines to show before ellipsis
 }
 
 export const BenefitCardMobile: React.FC<BenefitCardProps> = ({
@@ -18,6 +19,8 @@ export const BenefitCardMobile: React.FC<BenefitCardProps> = ({
     outerRadius = 10,
     width,
     height = 134,
+    // optional prop to control how many lines to show before ellipsing
+    maxLines = 3,
 }) => {
     // background images: top, right, bottom, left
     const bgImage = [
@@ -84,7 +87,17 @@ export const BenefitCardMobile: React.FC<BenefitCardProps> = ({
                     justifyContent: "center",
                 }}
             >
-                <div className="text-[#333] text-center text-base font-normal max-sm:text-sm max-sm:leading-[1.4] p-4">
+                <div
+                    className="text-[#333] text-center text-base font-normal max-sm:text-sm max-sm:leading-[1.4] p-4"
+                    style={{
+                        display: '-webkit-box',
+                        WebkitBoxOrient: 'vertical',
+                        WebkitLineClamp: maxLines,
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                    }}
+                    aria-label={typeof children === 'string' ? children : undefined}
+                >
                     {children}
                 </div>
             </div>

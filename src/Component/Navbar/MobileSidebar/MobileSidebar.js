@@ -64,7 +64,7 @@ export default function MobileSidebar({ onClose }) {
                     </button>
                 </div>
                 <div className="w-full h-[1px] bg-[#DBDBDB]" />
-                {isCoursesOpen && <CourseComponentMobileDropDown />}
+                {isCoursesOpen && <CourseComponentMobileDropDown onNavbarClose={onClose} />}
 
                 {/* Compare */}
                 <div className="inline-flex justify-between items-center">

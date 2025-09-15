@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { CourseData } from '@/Data Model/CourseData';
+import Link from 'next/link';
 
-const CoursesComponentMobile = ({ onClose, program }) => {
+const CoursesComponentMobile = ({ onClose, program, onNavbarClose }) => {
     const subCourses = CourseData[program] || {};
     const courseNames = Object.keys(subCourses);
 
@@ -18,6 +19,13 @@ const CoursesComponentMobile = ({ onClose, program }) => {
         BSC: "Bachelor of Science",
         BA: "Bachelor of Arts",
         BCA: "Bachelor of Computer Applications",
+    };
+
+    const handleLinkClick = () => {
+        // Close the navbar when a link is clicked
+        if (onNavbarClose) {
+            onNavbarClose();
+        }
     };
 
     const courseCount = courseNames.length;
@@ -43,9 +51,10 @@ const CoursesComponentMobile = ({ onClose, program }) => {
             </div>
 
             <div className="flex gap-1 pt-4">
+                <Link href={"/noida_international_university/online_mba"} className="flex gap-1" onClick={handleLinkClick}>
                 <div className="text-[#024B53] font-outfit text-[14px] font-medium">
                     Explore Course
-                </div>
+                </div></Link>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
                     <path d="M6 3.33V4.67H10.39L2.667 12.39L3.607 13.33L11.334 5.607V10H12.667V3.333H6Z" fill="#024B53" />
                 </svg>

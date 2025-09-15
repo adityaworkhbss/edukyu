@@ -152,6 +152,7 @@ const CoursesComponentMobile = ({ onClose, college, onSidebarClose }) => {
                                 <CoursesListCorrespondToCollege
                                     program={program}
                                     courseData={courses}
+                                    onNavbarClose={onSidebarClose}
                                 />
                             )}
 

@@ -1443,7 +1443,7 @@ const CollegePageData = [{
             "courses": [
                 {
                     "name": "Online MBA",
-                    "image": "assets/cxp-assets/imgs/collage/lovely-professional-university/online-mba.avif",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/lovely-professional-university/online-mba.avif",
                     "duration": "2 years",
                     "fees": "Rs 1,44,000",
                     "description": "Right Choice for Right Education",
@@ -1453,7 +1453,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online MBA (Dual)",
-                    "image": "assets/cxp-assets/imgs/collage/lovely-professional-university/online-mba.avif",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/lovely-professional-university/online-mba.avif",
                     "duration": "2 years",
                     "fees": "Rs 1,44,000",
                     "description": "Right Choice for Right Education",
@@ -1462,7 +1462,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online MCA",
-                    "image": "assets/cxp-assets/imgs/collage/lovely-professional-university/online-mca.avif",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/lovely-professional-university/online-mca.avif",
                     "duration": "2 years",
                     "fees": "Rs 1,12,000",
                     "description": "Right Choice for Right Education",
@@ -1471,7 +1471,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online BCA",
-                    "image": "assets/cxp-assets/imgs/collage/lovely-professional-university/online-bca.avif",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/lovely-professional-university/online-bca.avif",
                     "duration": "3 years",
                     "fees": "Rs 1,44,000",
                     "description": "Right Choice for Right Education",
@@ -1480,7 +1480,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online MA",
-                    "image": "assets/cxp-assets/imgs/collage/lovely-professional-university/online-ma.avif",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/lovely-professional-university/online-ma.avif",
                     "duration": "2 years",
                     "fees": "Rs 64,000",
                     "description": "Right Choice for Right Education",
@@ -1489,7 +1489,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online BA",
-                    "image": "assets/cxp-assets/imgs/collage/lovely-professional-university/online-ba.avif",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/lovely-professional-university/online-ba.avif",
                     "duration": "3 years",
                     "fees": "Rs 96,000",
                     "description": "Right Choice for Right Education",
@@ -1498,7 +1498,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online M.Com",
-                    "image": "assets/cxp-assets/imgs/collage/lovely-professional-university/online-mcom.avif",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/lovely-professional-university/online-mcom.avif",
                     "duration": "2 years",
                     "fees": "Rs 80,000",
                     "description": "Right Choice for Right Education",
@@ -1507,7 +1507,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online B.Com",
-                    "image": "assets/cxp-assets/imgs/collage/lovely-professional-university/online-bcom.avif",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/lovely-professional-university/online-bcom.avif",
                     "duration": "3 years",
                     "fees": "Rs 1,20,000",
                     "description": "Right Choice for Right Education",
@@ -1516,7 +1516,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online M.Sc",
-                    "image": "assets/cxp-assets/imgs/collage/lovely-professional-university/online-msc.avif",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/lovely-professional-university/online-msc.avif",
                     "duration": "2 years",
                     "fees": "Rs 64,000",
                     "description": "Right Choice for Right Education",
@@ -1696,7 +1696,7 @@ const CollegePageData = [{
             "courses": [
                 {
                     "name": "Online MBA",
-                    "image": "assets/cxp-assets/imgs/collage/shoolini-university/online-mba.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/shoolini-university/online-mba.jpg",
                     "duration": "2 years",
                     "fees": "Rs 1,20,000",
                     "description": "Right Choice for Right Education",
@@ -1706,7 +1706,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online MBA (Power Program)",
-                    "image": "assets/cxp-assets/imgs/collage/shoolini-university/online-mba.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/shoolini-university/online-mba.jpg",
                     "duration": "2 years",
                     "fees": "Rs 1,50,000",
                     "description": "Right Choice for Right Education",
@@ -1715,7 +1715,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online BBA",
-                    "image": "assets/cxp-assets/imgs/collage/shoolini-university/online-bba.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/shoolini-university/online-bba.jpg",
                     "duration": "3 years",
                     "fees": "Rs 1,17,500",
                     "description": "Right Choice for Right Education",
@@ -1724,7 +1724,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online BBA (Power Program)",
-                    "image": "assets/cxp-assets/imgs/collage/shoolini-university/online-bba.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/shoolini-university/online-bba.jpg",
                     "duration": "3 years",
                     "fees": "Rs 1,50,000",
                     "description": "Right Choice for Right Education",
@@ -1733,7 +1733,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online BCA",
-                    "image": "assets/cxp-assets/imgs/collage/shoolini-university/online-bca.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/shoolini-university/online-bca.jpg",
                     "duration": "3 years",
                     "fees": "Rs 1,50,000",
                     "description": "Right Choice for Right Education",
@@ -1742,7 +1742,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online MA English",
-                    "image": "assets/cxp-assets/imgs/collage/shoolini-university/online-ma.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/shoolini-university/online-ma.jpg",
                     "duration": "2 years",
                     "fees": "Rs 50,000",
                     "description": "Right Choice for Right Education",
@@ -1751,7 +1751,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online BA (JMC)",
-                    "image": "assets/cxp-assets/imgs/collage/shoolini-university/online-ba.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/shoolini-university/online-ba.jpg",
                     "duration": "3 years",
                     "fees": "Rs 75,000",
                     "description": "Right Choice for Right Education",
@@ -1760,7 +1760,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Pay After Placement Program",
-                    "image": "assets/cxp-assets/imgs/collage/shoolini-university/online-mba.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/shoolini-university/online-mba.jpg",
                     "duration": "2 years",
                     "fees": "Rs 1,20,000",
                     "description": "Right Choice for Right Education",
@@ -1942,7 +1942,7 @@ const CollegePageData = [{
                 }
             ],
             "about": {
-                "description": "Amity University, recognized as one of India's premier private institutions by the NIRF, extends its reputation to Amity Online University, a distinguished provider of online education. Endorsed by UGC-DEB, it offers a spectrum of undergraduate, postgraduate, and diploma courses delivered entirely online. Renowned for its excellence, Amity Online University's MBA program has earned the distinction of being the top-ranked in Asia according to QS Global Ranking. Its curriculum spans various fields including Management, Information Technology, Arts & Humanities, Commerce, and Media & Journalism, along with sought-after short-term programs tailored to industry demands. The university provides comprehensive career support through diverse services and exclusive virtual job fairs conducted in partnership with over 300 hiring entities. Collaborations with Ivy League institutions enrich the educational experience, offering global perspectives to online learners. Utilizing its dedicated Learning Management System (LMS), the university conducts classes, examinations, and facilitates immersive learning experiences. Personalized mentorship is available from both professors and esteemed industry leaders, aiding students in building portfolios through real-world industry projects.",
+                "description": " Amity University Online offers UGC-accredited online degrees, diplomas, and certifications in India, providing learners with a digitally advanced platform and globally recognized education designed to meet modern industry needs and support career growth. ",
                 "highlights": [
                     "Rise of Online Degree Acceptance: Online degrees from government-approved universities are recognized globally by top employers, akin to traditional degrees",
                     "Value of Online Degrees: Online degrees from government-approved universities are as valuable as traditional degrees for employment and further education",
@@ -1955,7 +1955,7 @@ const CollegePageData = [{
             "courses": [
                 {
                     "name": "Online MBA",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/online-mba.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/online-mba.jpg",
                     "duration": "2 years",
                     "fees": "Rs 1,79,000",
                     "description": "Right Choice for Right Education",
@@ -1965,7 +1965,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online MBA (DUAL)",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/online-mba-dual.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/online-mba-dual.jpg",
                     "duration": "2 years",
                     "fees": "Rs 1,79,000",
                     "description": "Right Choice for Right Education",
@@ -1974,7 +1974,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online BBA",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/online-bba.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/online-bba.jpg",
                     "duration": "3 years",
                     "fees": "Rs 1,54,500",
                     "description": "Right Choice for Right Education",
@@ -1983,7 +1983,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online MCA",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/online-mca.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/online-mca.jpg",
                     "duration": "2 years",
                     "fees": "Rs 1,64,000",
                     "description": "Right Choice for Right Education",
@@ -1992,7 +1992,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online BCA",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/online-bca.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/online-bca.jpg",
                     "duration": "3 years",
                     "fees": "Rs 1,39,000",
                     "description": "Right Choice for Right Education",
@@ -2001,7 +2001,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online MA",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/online-ma.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/online-ma.jpg",
                     "duration": "2 years",
                     "fees": "Rs 1,64,000",
                     "description": "Right Choice for Right Education",
@@ -2010,7 +2010,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online BA",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/online-ba.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/online-ba.jpg",
                     "duration": "3 years",
                     "fees": "Rs 89,000",
                     "description": "Right Choice for Right Education",
@@ -2019,7 +2019,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online BA (BMC)",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/online-ba.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/online-ba.jpg",
                     "duration": "3 years",
                     "fees": "Rs 1,79,000",
                     "description": "Right Choice for Right Education",
@@ -2028,7 +2028,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online M.Com",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/online-mcom.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/online-mcom.jpg",
                     "duration": "2 years",
                     "fees": "Rs 1,14,000",
                     "description": "Right Choice for Right Education",
@@ -2037,7 +2037,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online B.Com",
-                    "image": "assets/cxp-assets/imgs/collage/amity-university/online-bcom.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/online-bcom.jpg",
                     "duration": "3 years",
                     "fees": "Rs 89,000",
                     "description": "Right Choice for Right Education",
@@ -2094,20 +2094,20 @@ const CollegePageData = [{
             ],
             "placement": {
                 "partners": [
-                    "assets/cxp-assets/imgs/collage/amity-university/adf.png",
-                    "assets/cxp-assets/imgs/collage/amity-university/tcs.png",
-                    "assets/cxp-assets/imgs/collage/amity-university/goldfair.png",
-                    "assets/cxp-assets/imgs/collage/amity-university/quollab.png",
-                    "assets/cxp-assets/imgs/collage/amity-university/wallmart.png",
-                    "assets/cxp-assets/imgs/collage/amity-university/amazon.png",
-                    "assets/cxp-assets/imgs/collage/amity-university/hcl.png",
-                    "assets/cxp-assets/imgs/collage/amity-university/accenture.png",
-                    "assets/cxp-assets/imgs/collage/amity-university/bewakoof.png",
-                    "assets/cxp-assets/imgs/collage/amity-university/bmb.png",
-                    "assets/cxp-assets/imgs/collage/amity-university/happay.png",
-                    "assets/cxp-assets/imgs/collage/amity-university/iiht.png",
-                    "assets/cxp-assets/imgs/collage/amity-university/social.png",
-                    "assets/cxp-assets/imgs/collage/amity-university/metlife.png"
+                    "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/adf.png",
+                    "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/tcs.png",
+                    "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/goldfair.png",
+                    "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/quollab.png",
+                    "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/wallmart.png",
+                    "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/amazon.png",
+                    "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/hcl.png",
+                    "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/accenture.png",
+                    "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/bewakoof.png",
+                    "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/bmb.png",
+                    "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/happay.png",
+                    "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/iiht.png",
+                    "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/social.png",
+                    "https://edukyu.com/assets/cxp-assets/imgs/collage/amity-university/metlife.png"
                 ],
                 "benefits": [
                     "100+ Hiring Partners",
@@ -2195,7 +2195,7 @@ const CollegePageData = [{
             "courses": [
                 {
                     "name": "Online BBA",
-                    "image": "assets/cxp-assets/imgs/collage/sikkim-university/online-MBA (3).jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/sikkim-university/online-MBA (3).jpg",
                     "duration": "3 years",
                     "fees": "Rs 75,000",
                     "description": "The Right Step to Gain Skills",
@@ -2205,7 +2205,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online MCA",
-                    "image": "assets/cxp-assets/imgs/collage/sikkim-university/online-mca.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/sikkim-university/online-mca.jpg",
                     "duration": "2 years",
                     "fees": "Rs 98,000",
                     "description": "The Right Step to Gain Skills",
@@ -2214,7 +2214,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online BA",
-                    "image": "assets/cxp-assets/imgs/collage/sikkim-university/online-ba.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/sikkim-university/online-ba.jpg",
                     "duration": "3 years",
                     "fees": "Rs 75,000",
                     "description": "The Right Step to Gain Skills",
@@ -2223,7 +2223,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online MA",
-                    "image": "assets/cxp-assets/imgs/collage/sikkim-university/online-ma.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/sikkim-university/online-ma.jpg",
                     "duration": "2 years",
                     "fees": "Rs 75,000",
                     "description": "The Right Step to Gain Skills",
@@ -2232,7 +2232,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online M.com",
-                    "image": "assets/cxp-assets/imgs/collage/sikkim-university/online-mcom.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/sikkim-university/online-mcom.jpg",
                     "duration": "2 years",
                     "fees": "Rs 90,000",
                     "description": "The Right Step to Gain Skills",
@@ -2241,7 +2241,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online B.com",
-                    "image": "assets/cxp-assets/imgs/collage/sikkim-university/online-bcom.jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/sikkim-university/online-bcom.jpg",
                     "duration": "3 years",
                     "fees": "Rs 75,000",
                     "description": "The Right Step to Gain Skills",
@@ -2250,7 +2250,7 @@ const CollegePageData = [{
                 },
                 {
                     "name": "Online MBA",
-                    "image": "assets/cxp-assets/imgs/collage/sikkim-university/online-MBA (3).jpg",
+                    "image": "https://edukyu.com/assets/cxp-assets/imgs/collage/sikkim-university/online-MBA (3).jpg",
                     "duration": "2 years",
                     "fees": "Rs 1,10,000",
                     "description": "The Right Step to Gain Skills",

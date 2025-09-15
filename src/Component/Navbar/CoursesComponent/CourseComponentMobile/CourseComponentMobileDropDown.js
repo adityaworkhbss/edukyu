@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { CourseData } from '@/Data Model/CourseData';
 import CoursesComponentMobile from './CoursesComponentMobile';
 
-const CourseComponentMobileDropDown = () => {
+const CourseComponentMobileDropDown = ({ onNavbarClose }) => {
     const [openProgram, setOpenProgram] = useState(null);
 
     const formattedPrograms = Object.keys(CourseData).map(program => {
@@ -50,6 +50,7 @@ const CourseComponentMobileDropDown = () => {
                                 <CoursesComponentMobile
                                     onClose={() => setOpenProgram(null)}
                                     program={baseProgram}
+                                    onNavbarClose={onNavbarClose}
                                 />
                             )}
                         </div>
