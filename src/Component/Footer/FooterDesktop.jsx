@@ -6,6 +6,7 @@ import GridContainer from '@/GlobalComponent/GridContainer';
 import GridComponentSec from '@/GlobalComponent/GridComponentSec';
 import { usePageContext } from "@/GlobalComponent/PageContext";
 import GridContainerSec from "@/GlobalComponent/GridContainerSec";
+import { DevEnvironment } from '@/DevEnvironment/DevEnviroment';
 
 // Separate components for better organization
 const Logo = () => (
@@ -242,7 +243,7 @@ const FooterDesktop = () => {
                     numGrids={config.numGrids}
                     gutter={config.gutter}
                     gridHeight="auto"
-                    showGrids={true}
+                    showGrids={DevEnvironment.ENABLE_GRIDS}
                 >
                     {/* Logo and Company Description - Grid 1 to 3 */}
                     <GridComponentSec
@@ -370,7 +371,7 @@ const FooterDesktop = () => {
                     numGrids={config.numGrids}
                     gutter={config.gutter}
                     gridHeight="auto"
-                    showGrids={true}
+                    showGrids={DevEnvironment.ENABLE_GRIDS}
                 >
 
                     {/*/!* Bottom Section - Full Width *!/*/}
