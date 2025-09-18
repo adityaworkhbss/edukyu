@@ -1,5 +1,6 @@
 import anurag from "@/../public/Resources/Images/testimonial/anurag/anurag.png"
 import anuragAfter from "@/../public/Resources/Images/testimonial/anurag/after.png"
+import anuragBefore from "@/../public/Resources/Images/testimonial/anurag/before.png"
 
 import niluptal from "@/../public/Resources/Images/testimonial/niluptal/niluptal.png"
 import niluptalAfter from "@/../public/Resources/Images/testimonial/niluptal/after.png"
@@ -35,7 +36,7 @@ export const TestimonialData = {
             ],
             "linkedin": "https://www.linkedin.com/in/theanuragsharma/",
             "image": anurag,
-            "before": "",
+            "before": anuragBefore,
             "after": anuragAfter,
         },
         {

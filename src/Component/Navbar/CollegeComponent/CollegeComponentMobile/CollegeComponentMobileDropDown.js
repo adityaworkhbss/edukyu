@@ -3,21 +3,39 @@
 import React, { useState } from 'react';
 import CollegeComponentMobile from './CollegeComponentMobile';
 
+// const colleges = [
+//     'Amity University',
+//     'Chandigarh University',
+//     'Dr. DY Patil University',
+//     'Jain University',
+//     'Jamia Hamdard University',
+//     'Lovely Professional University',
+//     'Manipal University',
+//     'NMIMS University',
+//     'Shardha University',
+//     'Shoolini University',
+//     'Uttaranchal University',
+//     'VIT Online',
+//     'Vivekanand Global University',
+// ];
+
 const colleges = [
-    'Amity University',
-    'Chandigarh University',
-    'Dr. DY Patil University',
-    'Jain University',
-    'Jamia Hamdard University',
-    'Lovely Professional University',
-    'Manipal University',
-    'NMIMS University',
-    'Shardha University',
-    'Shoolini University',
-    'Uttaranchal University',
-    'VIT Online',
-    'Vivekanand Global University',
-];
+        "Noida International University",
+        'NMIMS University',
+        'Manipal University',
+        'Sikkim Manipal University',
+        'Dr. DY Patil University',
+        'Amity University',
+        'Lovely Professional University',
+        'Jain University',
+        'Jamia Hamdard University',
+        'Shardha University',
+        'Shoolini University',
+        'Uttaranchal University',
+        'VIT Online',
+        'Vivekanand Global University'
+    ]
+
 
 const CollegeComponentMobileDropDown = ({ onSidebarClose }) => {
     const [openCollege, setOpenCollege] = useState(null);
@@ -32,17 +50,17 @@ const CollegeComponentMobileDropDown = ({ onSidebarClose }) => {
                 {colleges.map((college, idx) => (
                     <li
                         key={idx}
-                        className="flex font-outfit justify-between font-medium text-[14px] text-[#025E68]"
+                        className="flex font-outfit justify-between font-medium text-[14px] text-[#025E68] cursor-pointer"
+                        onClick={() => handleToggle(college)}
                     >
-                        {college}
+                        <span>{college}</span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
                             fill="none"
-                            onClick={() => handleToggle(college)}
-                            className={`cursor-pointer transition-transform duration-200 ${
+                            className={`transition-transform duration-200 ${
                                 openCollege === college ? 'rotate-180' : ''
                             }`}
                         >

@@ -198,14 +198,14 @@ const AcademicConverterMobile = () => {
                 </div>
             </div>
 
-            {/* Image */}
+            {/* Image
             <div className="pt-[52px] w-full rounded-[22px] overflow-hidden">
                 <Image
                     src={academic_converter}
                     alt="Academic Converter Graphic"
                     className="w-full object-cover"
                 />
-            </div>
+            </div> */}
         </div>
     );
 };

@@ -5,7 +5,8 @@ import {CollegePageSecondryData} from "@/Data Model/CollegePage/CollegePageSecon
 import {CollegePageData} from "@/Data Model/CollegePage/CollegePageData"
 import CoursePageDesktop from "@/Component/Pages/CoursePage/CoursePageDesktop/CoursePageDesktop";
 import CoursePageMobile from "@/Component/Pages/CoursePage/CoursePageMobile/CoursePageMobile";
-import { CoursePageData } from '@/Data Model/CoursePage/CoursePageData';
+//import { CoursePageData } from '@/Data Model/CoursePage/CoursePageData';
+import { CoursePageData } from '@/Data Model/CoursePage/testdata';
 
 const CoursePage = ({universityName, courseName}) => {
     const breakpoint = useBreakpoint();

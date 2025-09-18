@@ -16,7 +16,7 @@ export const StudentPlacementMobile = () => {
                 Our Student Placed
             </h2>
             <p className="text-[#515150] text-[14px] font-[Outfit] font-normal leading-normal mt-2">
-                Lorem Ipsum is placeholder text used in the graphic, print.
+                Unlimited access to world class courses, hands-on projects, and job-ready certificate programs.
             </p>
 
             {/* Swipeable container */}

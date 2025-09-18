@@ -24,7 +24,7 @@ const OurStudentPlaced = () => {
                         className={`
                             col-span-6 md:col-span-2 lg:col-span-2 
                             aspect-square rounded-[16px] overflow-hidden 
-                            relative bg-[#D9D9D9] group
+                            relative bg-[#FFF] group
                         `}
                         style={{
                             gridColumn: 'span 2',
@@ -35,7 +35,7 @@ const OurStudentPlaced = () => {
                             src={alumni.image}
                             alt={alumni.name}
                             fill
-                            className="object-cover"
+                            className="object-contain"
                         />
                         {alumni.name && (
                             <div className="absolute bottom-0 left-0 right-0 text-center bg-gradient-to-t from-black/80 to-transparent backdrop-blur-md py-2 hidden group-hover:block transition-transform duration-300">

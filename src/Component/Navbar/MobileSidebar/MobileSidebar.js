@@ -37,9 +37,9 @@ export default function MobileSidebar({ onClose }) {
             {/* Menu items */}
             <div className="flex pt-[50px] px-[20px] text-[16px] text-left flex-col gap-4 p-4 font-outfit">
                 {/* Colleges */}
-                <div className="inline-flex justify-between items-center">
+                <div className="inline-flex justify-between items-center cursor-pointer" onClick={() => setIsCollegeOpen(!isCollegeOpen)}>
                     <span>Colleges</span>
-                    <button onClick={() => setIsCollegeOpen(!isCollegeOpen)}>
+                    <button>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
                             <path d={isCollegeOpen
                                 ? "M7.41 8.59L12 13.17L16.59 8.59L18 10L12 16L6 10L7.41 8.59Z"
@@ -52,9 +52,9 @@ export default function MobileSidebar({ onClose }) {
                 {isCollegeOpen && <CollegeComponentMobileDropDown onSidebarClose={onClose} />}
 
                 {/* Online Courses */}
-                <div className="inline-flex justify-between items-center">
+                <div className="inline-flex justify-between items-center cursor-pointer" onClick={() => setIsCoursesOpen(!isCoursesOpen)}>
                     <span>Online Courses</span>
-                    <button onClick={() => setIsCoursesOpen(!isCoursesOpen)}>
+                    <button>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
                             <path d={isCoursesOpen
                                 ? "M7.41 8.59L12 13.17L16.59 8.59L18 10L12 16L6 10L7.41 8.59Z"

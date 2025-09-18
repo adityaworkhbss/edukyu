@@ -54,15 +54,15 @@ export const BenefitsSectionMobile: React.FC<{ college?: College; course?: any }
                 </p>
             </header>
 
-            <CentralImageMobile img={course?.page?.logo || college?.university_info?.banner_image || ""} />
-
-            <div className="grid grid-cols-2 gap-4 max-w-[640px] mx-auto mb-8">
+            <div className="flex flex-col gap-4 max-w-[640px] mx-auto mb-8">
                 {benefits.map((benefit, idx) => (
                     <BenefitCardMobile key={idx}>
                         {benefit.length > 80 ? benefit.substring(0, 80) + "..." : benefit}
                     </BenefitCardMobile>
                 ))}
             </div>
+
+            <CentralImageMobile img={course?.page?.logo || college?.university_info?.banner_image || ""} />
         </section>
     );
 };

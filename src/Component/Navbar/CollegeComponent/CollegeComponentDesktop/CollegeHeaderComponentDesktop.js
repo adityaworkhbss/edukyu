@@ -32,14 +32,14 @@ export default function CollegeHeaderComponentDesktop({ onNavbarClose }) {
         'Sikkim Manipal University',
         'Dr. DY Patil University',
         'Amity University',
-         'Lovely Professional University',
-          'Jain University',
-           'Jamia Hamdard University',
-           'Shardha University',
-           'Shoolini University',
-           'Uttaranchal University',
-           'VIT Online',
-           'Vivekanand Global University'
+        'Lovely Professional University',
+        'Jain University',
+        'Jamia Hamdard University',
+        'Shardha University',
+        'Shoolini University',
+        'Uttaranchal University',
+        'VIT Online',
+        'Vivekanand Global University'
     ]
 
     const universityKeyMap = {
@@ -87,11 +87,10 @@ export default function CollegeHeaderComponentDesktop({ onNavbarClose }) {
                             onClick={handleToggle(university)}
                         >
                             <span
-                                className={`font-outfit text-[16px] leading-[20px] font-semibold ${
-                                    selectedUniversity === university
+                                className={`font-outfit text-[16px] leading-[20px] font-semibold ${selectedUniversity === university
                                         ? 'text-[#024B53]'
                                         : 'text-[#383837]'
-                                }`}
+                                    }`}
                                 style={{ fontStyle: 'normal' }}
                             >
                                 {university}
