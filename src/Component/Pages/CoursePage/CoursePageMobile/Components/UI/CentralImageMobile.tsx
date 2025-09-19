@@ -12,9 +12,19 @@ export const CentralImageMobile: React.FC<CentralImageMobileProps> = ({ img }) =
                 <div className="w-[204px] h-[377px] absolute bg-[#024B53] rounded-[94.016px] left-[37px] top-[54px] max-md:-translate-x-2/4 max-md:left-2/4 max-md:top-[30px] max-sm:w-40 max-sm:h-[300px]" />
                 <div className="w-[204px] h-[377px] absolute bg-[#024B53] rounded-[94.016px] left-[37px] top-[54px] max-md:-translate-x-2/4 max-md:left-2/4 max-md:top-[30px] max-sm:w-40 max-sm:h-[300px]" />
                 <img
-                    src={img}
-                    alt="Central highlight"
-                    className="w-[204px] h-[390px] absolute rounded-[94.016px] left-[37px] top-[42px] max-md:-translate-x-2/4 max-md:left-2/4 max-md:top-5 max-sm:w-40 max-sm:h-[310px]"
+                    src={"/Resources/Images/benefit.png"}
+                    //alt="Central highlight"
+                    className="w-[204px] h-[390px] absolute rounded-[94.016px] max-md:-translate-x-2/4 max-md:left-2/4 max-md:top-5 max-sm:w-40 max-sm:h-[310px]"
+                    style={{
+                        width: '295.488px',
+                        height: '350.778px',
+                        flexShrink: 0,
+                        aspectRatio: '295.49/442.78',
+                        top: '-50px',
+                        left: '109px',
+                        objectFit: 'contain',
+                      
+                    }}
                 />
             </div>
         </div>
